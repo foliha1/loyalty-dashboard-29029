@@ -44,7 +44,7 @@ export const ProgressHero = () => {
                 cy="110"
                 r={radius}
                 stroke="hsl(var(--muted))"
-                strokeWidth="14"
+                strokeWidth="11"
                 fill="none"
               />
               {/* Progress circle with smooth animation */}
@@ -53,7 +53,7 @@ export const ProgressHero = () => {
                 cy="110"
                 r={radius}
                 stroke={`hsl(var(--${currentTier?.color}))`}
-                strokeWidth="14"
+                strokeWidth="11"
                 fill="none"
                 strokeDasharray={circumference}
                 strokeDashoffset={mounted ? strokeDashoffset : circumference}
@@ -69,7 +69,7 @@ export const ProgressHero = () => {
                 />
               )}
               <div 
-                className="text-4xl md:text-5xl font-bold"
+                className="text-3xl sm:text-4xl md:text-5xl font-bold"
                 style={{ color: `hsl(var(--${currentTier?.color}))` }}
               >
                 {percentage}%
@@ -86,14 +86,14 @@ export const ProgressHero = () => {
               <div className="text-xs md:text-sm text-muted-foreground uppercase tracking-wider mb-2">
                 Current AQ This Cycle
               </div>
-              <div className="text-3xl md:text-4xl font-bold">{currentAQ}</div>
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold">{currentAQ}</div>
             </div>
             
             <div>
               <div className="text-xs md:text-sm text-muted-foreground uppercase tracking-wider mb-2">
                 AQ to Next Tier
               </div>
-              <div className="text-xl md:text-2xl font-semibold text-foreground/80">
+              <div className="text-lg sm:text-xl md:text-2xl font-semibold text-foreground/80">
                 {nextTierAQ - currentAQ} AQ remaining
               </div>
             </div>
@@ -102,7 +102,7 @@ export const ProgressHero = () => {
               <div className="text-xs md:text-sm text-muted-foreground uppercase tracking-wider mb-2">
                 Next Tier
               </div>
-              <div className="text-2xl md:text-3xl font-bold text-foreground flex flex-wrap items-center gap-2">
+              <div className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground flex flex-wrap items-center gap-2">
                 {nextTierName}
                 <span className="text-xs md:text-sm text-muted-foreground font-normal">
                   — {nextTier?.description}

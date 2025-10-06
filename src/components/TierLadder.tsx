@@ -38,16 +38,16 @@ export const TierLadder = () => {
             >
               {isCurrent && (
                 <div 
-                  className="absolute -top-2 -right-2 text-xs font-bold px-3 py-1 rounded-full text-white"
+                  className="absolute top-2 right-2 text-xs font-bold px-3 py-1 rounded-full text-white"
                   style={{ backgroundColor: `hsl(var(--${tier.color}))` }}
                 >
-                  Current
+                  CURRENT
                 </div>
               )}
               
               {isCompleted && (
                 <div 
-                  className="absolute -top-2 -right-2 text-xs font-bold px-3 py-1 rounded-full text-white"
+                  className="absolute top-2 right-2 text-xs font-bold px-3 py-1 rounded-full text-white"
                   style={{ backgroundColor: `hsl(var(--${tier.color}))` }}
                 >
                   ACHIEVED
@@ -64,7 +64,7 @@ export const TierLadder = () => {
                 />
               </div>
               
-              <h3 className="text-lg md:text-xl font-bold mb-2">{tier.name}</h3>
+              <h3 className="text-base sm:text-lg md:text-xl font-bold mb-2">{tier.name}</h3>
               <p className="text-xs md:text-sm text-muted-foreground mb-4">{tier.description}</p>
               
               <div className="text-xs text-muted-foreground uppercase tracking-wider">
