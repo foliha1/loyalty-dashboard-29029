@@ -10,7 +10,7 @@ export interface Tier {
 
 export const tiers: Tier[] = [
   {
-    name: "Novus",
+    name: "Novous",
     description: "New spark, fresh start",
     icon: Sparkles,
     threshold: 0,
