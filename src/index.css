@@ -44,6 +44,20 @@ All colors MUST be HSL.
     --obsidian: 0 0% 8%;
     --charcoal: 0 0% 16%;
     --silver: 0 0% 85%;
+    
+    /* Tier colors */
+    --novus: 214 100% 50%;
+    --novus-glow: 214 100% 60%;
+    --verto: 0 0% 73%;
+    --verto-glow: 0 0% 80%;
+    --ardent: 42 68% 58%;
+    --ardent-glow: 42 68% 68%;
+    --sanctum: 0 75% 55%;
+    --sanctum-glow: 0 75% 65%;
+    
+    /* Soft gradients */
+    --gradient-soft: radial-gradient(circle at top, hsl(var(--card)), hsl(var(--background)));
+    --gradient-ember: radial-gradient(circle at center, hsl(var(--ember) / 0.1), transparent);
 
     --sidebar-background: 0 0% 98%;
 
@@ -94,5 +108,58 @@ All colors MUST be HSL.
   
   .bg-ember {
     background-color: hsl(var(--ember));
+  }
+  
+  /* Tier-specific utilities */
+  .text-novus {
+    color: hsl(var(--novus));
+  }
+  
+  .text-verto {
+    color: hsl(var(--verto));
+  }
+  
+  .text-ardent {
+    color: hsl(var(--ardent));
+  }
+  
+  .text-sanctum {
+    color: hsl(var(--sanctum));
+  }
+  
+  .border-novus {
+    border-color: hsl(var(--novus));
+  }
+  
+  .border-verto {
+    border-color: hsl(var(--verto));
+  }
+  
+  .border-ardent {
+    border-color: hsl(var(--ardent));
+  }
+  
+  .border-sanctum {
+    border-color: hsl(var(--sanctum));
+  }
+  
+  .novus-glow {
+    box-shadow: 0 0 20px hsl(var(--novus) / 0.3);
+  }
+  
+  .verto-glow {
+    box-shadow: 0 0 20px hsl(var(--verto) / 0.3);
+  }
+  
+  .ardent-glow {
+    box-shadow: 0 0 20px hsl(var(--ardent) / 0.3);
+  }
+  
+  .sanctum-glow {
+    box-shadow: 0 0 20px hsl(var(--sanctum) / 0.3);
+  }
+  
+  .gradient-card {
+    background: radial-gradient(circle at top, hsl(var(--card)), hsl(var(--background)));
   }
 }

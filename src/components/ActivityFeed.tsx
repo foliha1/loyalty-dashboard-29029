@@ -35,7 +35,7 @@ export const ActivityFeed = () => {
         Your Recent Ascents
       </h2>
       
-      <div className="bg-card border border-border rounded-xl overflow-hidden">
+      <div className="gradient-card border border-border rounded-xl overflow-hidden backdrop-blur-sm">
         <div className="divide-y divide-border">
           {activities.map((activity, index) => (
             <div
@@ -44,7 +44,7 @@ export const ActivityFeed = () => {
             >
               <div className="flex items-start justify-between gap-4">
                 <div className="flex items-start gap-4 flex-1">
-                  <CheckCircle2 className="w-5 h-5 text-ember mt-0.5 flex-shrink-0" />
+                  <CheckCircle2 className="w-5 h-5 text-verto mt-0.5 flex-shrink-0" />
                   <div className="flex-1">
                     <div className="text-sm text-muted-foreground mb-1">
                       {activity.date}
@@ -53,7 +53,7 @@ export const ActivityFeed = () => {
                   </div>
                 </div>
                 <div className="text-right flex-shrink-0">
-                  <div className="text-lg font-bold text-ember">+{activity.aq}</div>
+                  <div className="text-lg font-bold text-verto">+{activity.aq}</div>
                   <div className="text-xs text-muted-foreground">AQ</div>
                 </div>
               </div>

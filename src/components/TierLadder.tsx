@@ -7,6 +7,7 @@ const tiers = [
     icon: Sparkles,
     threshold: 0,
     status: "completed",
+    color: "novus",
   },
   {
     name: "Verto",
@@ -14,6 +15,7 @@ const tiers = [
     icon: TrendingUp,
     threshold: 500,
     status: "current",
+    color: "verto",
   },
   {
     name: "Ardent",
@@ -21,6 +23,7 @@ const tiers = [
     icon: Flame,
     threshold: 1000,
     status: "next",
+    color: "ardent",
   },
   {
     name: "Sanctum",
@@ -28,6 +31,7 @@ const tiers = [
     icon: Crown,
     threshold: 2000,
     status: "locked",
+    color: "sanctum",
   },
 ];
 
@@ -50,17 +54,17 @@ export const TierLadder = () => {
             <div
               key={tier.name}
               className={`
-                relative bg-card border rounded-xl p-6 transition-all duration-300
-                ${isCurrent ? "border-ember ember-glow scale-105" : "border-border"}
-                ${isNext ? "border-ember/50" : ""}
+                relative gradient-card border rounded-xl p-6 transition-all duration-300
+                ${isCurrent ? `border-${tier.color} ${tier.color}-glow scale-105` : "border-border"}
+                ${isNext ? `border-${tier.color}/50` : ""}
                 ${isLocked ? "opacity-50" : ""}
                 ${isCompleted ? "border-muted" : ""}
-                hover:border-ember/70
+                hover:border-${tier.color}/70
               `}
               style={{ animationDelay: `${0.3 + index * 0.1}s` }}
             >
               {isCurrent && (
-                <div className="absolute -top-2 -right-2 bg-ember text-xs font-bold px-3 py-1 rounded-full">
+                <div className={`absolute -top-2 -right-2 bg-${tier.color} text-xs font-bold px-3 py-1 rounded-full`}>
                   Current
                 </div>
               )}
@@ -68,7 +72,7 @@ export const TierLadder = () => {
               <div className="mb-4">
                 <Icon 
                   className={`w-8 h-8 ${
-                    isCurrent || isNext ? "text-ember" : 
+                    isCurrent || isNext ? `text-${tier.color}` : 
                     isCompleted ? "text-muted-foreground" : 
                     "text-foreground/30"
                   }`} 

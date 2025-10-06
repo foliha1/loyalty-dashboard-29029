@@ -17,12 +17,13 @@ export const ProgressHero = () => {
 
   return (
     <section className="mb-16 animate-fade-in" style={{ animationDelay: "0.1s" }}>
-      <div className="bg-card border border-border rounded-2xl p-8 md:p-12">
-        <h2 className="text-2xl font-bold mb-8 uppercase tracking-wider">
+      <div className="gradient-card border border-border rounded-2xl p-8 md:p-12 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-verto/5 to-transparent pointer-events-none" />
+        <h2 className="text-2xl font-bold mb-8 uppercase tracking-wider relative z-10">
           Ascension Progress
         </h2>
         
-        <div className="flex flex-col md:flex-row items-center justify-between gap-12">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-12 relative z-10">
           {/* Circular Progress */}
           <div className="relative">
             <svg className="transform -rotate-90" width="200" height="200">
@@ -40,17 +41,17 @@ export const ProgressHero = () => {
                 cx="100"
                 cy="100"
                 r={radius}
-                stroke="hsl(var(--ember))"
+                stroke="hsl(var(--verto))"
                 strokeWidth="12"
                 fill="none"
                 strokeDasharray={circumference}
                 strokeDashoffset={mounted ? strokeDashoffset : circumference}
                 strokeLinecap="round"
-                className="transition-all duration-1500 ease-out ember-glow"
+                className="transition-all duration-1500 ease-out verto-glow"
               />
             </svg>
             <div className="absolute inset-0 flex flex-col items-center justify-center">
-              <div className="text-5xl font-bold text-ember">{percentage}%</div>
+              <div className="text-5xl font-bold text-verto">{percentage}%</div>
               <div className="text-xs text-muted-foreground uppercase tracking-wider mt-1">
                 Complete
               </div>
@@ -79,7 +80,7 @@ export const ProgressHero = () => {
               <div className="text-sm text-muted-foreground uppercase tracking-wider mb-2">
                 Next Tier
               </div>
-              <div className="text-3xl font-bold text-ember flex items-center gap-2">
+              <div className="text-3xl font-bold text-ardent flex items-center gap-2">
                 Ardent
                 <span className="text-sm text-muted-foreground font-normal">
                   — mastery, passion refined
