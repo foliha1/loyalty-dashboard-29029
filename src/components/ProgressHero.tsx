@@ -14,7 +14,7 @@ export const ProgressHero = () => {
   const CurrentTierIcon = currentTier?.icon;
   
   // Circle calculations - responsive sizing
-  const radius = 70; // Reduced for mobile
+  const radius = 90; // Increased for prominence
   const circumference = 2 * Math.PI * radius;
   const strokeDashoffset = circumference - (circumference * percentage) / 100;
 
@@ -36,43 +36,44 @@ export const ProgressHero = () => {
         
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 relative z-10">
           {/* Circular Progress */}
-          <div className="relative">
-            <svg className="transform -rotate-90" width="160" height="160" viewBox="0 0 160 160">
+          <div className="relative flex-shrink-0">
+            <svg className="transform -rotate-90" width="220" height="220" viewBox="0 0 220 220">
               {/* Background circle */}
               <circle
-                cx="80"
-                cy="80"
+                cx="110"
+                cy="110"
                 r={radius}
                 stroke="hsl(var(--muted))"
-                strokeWidth="10"
+                strokeWidth="14"
                 fill="none"
               />
-              {/* Progress circle */}
+              {/* Progress circle with pulse animation */}
               <circle
-                cx="80"
-                cy="80"
+                cx="110"
+                cy="110"
                 r={radius}
                 stroke={`hsl(var(--${currentTier?.color}))`}
-                strokeWidth="10"
+                strokeWidth="14"
                 fill="none"
                 strokeDasharray={circumference}
                 strokeDashoffset={mounted ? strokeDashoffset : circumference}
                 strokeLinecap="round"
-                className="transition-all duration-1500 ease-out"
+                className="transition-all duration-1500 ease-out animate-pulse"
                 style={{ 
-                  filter: `drop-shadow(0 0 8px hsl(var(--${currentTier?.color}) / 0.4))` 
+                  filter: `drop-shadow(0 0 12px hsl(var(--${currentTier?.color}) / 0.6))`,
+                  animationDuration: '3s'
                 }}
               />
             </svg>
             <div className="absolute inset-0 flex flex-col items-center justify-center">
               {CurrentTierIcon && (
                 <CurrentTierIcon 
-                  className="w-6 h-6 mb-1" 
+                  className="w-8 h-8 md:w-10 md:h-10 mb-2" 
                   style={{ color: `hsl(var(--${currentTier?.color}))` }}
                 />
               )}
               <div 
-                className="text-3xl md:text-4xl font-bold"
+                className="text-4xl md:text-5xl font-bold"
                 style={{ color: `hsl(var(--${currentTier?.color}))` }}
               >
                 {percentage}%

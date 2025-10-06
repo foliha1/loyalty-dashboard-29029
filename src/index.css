@@ -17,8 +17,8 @@ All colors MUST be HSL.
     --popover: 0 0% 10%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 0 75% 55%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 8%;
 
     --secondary: 0 0% 16%;
     --secondary-foreground: 0 0% 98%;
@@ -26,15 +26,15 @@ All colors MUST be HSL.
     --muted: 0 0% 20%;
     --muted-foreground: 0 0% 60%;
 
-    --accent: 0 75% 55%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 0 0% 100%;
+    --accent-foreground: 0 0% 8%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
     --border: 0 0% 20%;
     --input: 0 0% 16%;
-    --ring: 0 75% 55%;
+    --ring: 0 0% 100%;
 
     --radius: 0.75rem;
     
@@ -46,12 +46,12 @@ All colors MUST be HSL.
     --silver: 0 0% 85%;
     
     /* Tier colors */
-    --novus: 214 100% 50%;
-    --novus-glow: 214 100% 60%;
-    --verto: 0 0% 73%;
-    --verto-glow: 0 0% 80%;
-    --ardent: 42 68% 58%;
-    --ardent-glow: 42 68% 68%;
+    --novus: 39 100% 50%;
+    --novus-glow: 39 100% 60%;
+    --verto: 212 100% 50%;
+    --verto-glow: 212 100% 60%;
+    --ardent: 283 69% 43%;
+    --ardent-glow: 283 69% 53%;
     --sanctum: 0 75% 55%;
     --sanctum-glow: 0 75% 65%;
     
