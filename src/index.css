@@ -162,4 +162,20 @@ All colors MUST be HSL.
   .gradient-card {
     background: radial-gradient(circle at top, hsl(var(--card)), hsl(var(--background)));
   }
+
+  .bg-novus {
+    background-color: hsl(var(--novus));
+  }
+
+  .bg-verto {
+    background-color: hsl(var(--verto));
+  }
+
+  .bg-ardent {
+    background-color: hsl(var(--ardent));
+  }
+
+  .bg-sanctum {
+    background-color: hsl(var(--sanctum));
+  }
 }

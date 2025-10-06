@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { getCurrentTier } from "@/lib/tierConfig";
 
 export const ProgressHero = () => {
   const [mounted, setMounted] = useState(false);
@@ -6,8 +7,14 @@ export const ProgressHero = () => {
   const nextTierAQ = 1000;
   const percentage = 88;
   
-  // Circle calculations
-  const radius = 90;
+  const currentTierName = "Verto";
+  const nextTierName = "Ardent";
+  const currentTier = getCurrentTier(currentTierName);
+  const nextTier = getCurrentTier(nextTierName);
+  const CurrentTierIcon = currentTier?.icon;
+  
+  // Circle calculations - responsive sizing
+  const radius = 70; // Reduced for mobile
   const circumference = 2 * Math.PI * radius;
   const strokeDashoffset = circumference - (circumference * percentage) / 100;
 
@@ -17,41 +24,59 @@ export const ProgressHero = () => {
 
   return (
     <section className="mb-16 animate-fade-in" style={{ animationDelay: "0.1s" }}>
-      <div className="gradient-card border border-border rounded-2xl p-8 md:p-12 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-verto/5 to-transparent pointer-events-none" />
-        <h2 className="text-2xl font-bold mb-8 uppercase tracking-wider relative z-10">
-          Ascension Progress
-        </h2>
+      <h2 className="text-xl md:text-2xl font-bold mb-6 uppercase tracking-wider">
+        Ascension Progress
+      </h2>
+      
+      <div className="gradient-card border border-border rounded-2xl p-4 md:p-8 lg:p-12 relative overflow-hidden">
+        <div 
+          className="absolute inset-0 pointer-events-none opacity-10"
+          style={{ background: `radial-gradient(circle at top right, hsl(var(--${currentTier?.color})) 0%, transparent 60%)` }}
+        />
         
-        <div className="flex flex-col md:flex-row items-center justify-between gap-12 relative z-10">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 relative z-10">
           {/* Circular Progress */}
           <div className="relative">
-            <svg className="transform -rotate-90" width="200" height="200">
+            <svg className="transform -rotate-90" width="160" height="160" viewBox="0 0 160 160">
               {/* Background circle */}
               <circle
-                cx="100"
-                cy="100"
+                cx="80"
+                cy="80"
                 r={radius}
                 stroke="hsl(var(--muted))"
-                strokeWidth="12"
+                strokeWidth="10"
                 fill="none"
               />
               {/* Progress circle */}
               <circle
-                cx="100"
-                cy="100"
+                cx="80"
+                cy="80"
                 r={radius}
-                stroke="hsl(var(--verto))"
-                strokeWidth="12"
+                stroke={`hsl(var(--${currentTier?.color}))`}
+                strokeWidth="10"
                 fill="none"
                 strokeDasharray={circumference}
                 strokeDashoffset={mounted ? strokeDashoffset : circumference}
                 strokeLinecap="round"
-                className="transition-all duration-1500 ease-out verto-glow"
+                className="transition-all duration-1500 ease-out"
+                style={{ 
+                  filter: `drop-shadow(0 0 8px hsl(var(--${currentTier?.color}) / 0.4))` 
+                }}
               />
             </svg>
             <div className="absolute inset-0 flex flex-col items-center justify-center">
-              <div className="text-5xl font-bold text-verto">{percentage}%</div>
+              {CurrentTierIcon && (
+                <CurrentTierIcon 
+                  className="w-6 h-6 mb-1" 
+                  style={{ color: `hsl(var(--${currentTier?.color}))` }}
+                />
+              )}
+              <div 
+                className="text-3xl md:text-4xl font-bold"
+                style={{ color: `hsl(var(--${currentTier?.color}))` }}
+              >
+                {percentage}%
+              </div>
               <div className="text-xs text-muted-foreground uppercase tracking-wider mt-1">
                 Complete
               </div>
@@ -59,40 +84,43 @@ export const ProgressHero = () => {
           </div>
 
           {/* Progress Details */}
-          <div className="flex-1 space-y-6">
+          <div className="flex-1 space-y-4 md:space-y-6 w-full">
             <div>
-              <div className="text-sm text-muted-foreground uppercase tracking-wider mb-2">
+              <div className="text-xs md:text-sm text-muted-foreground uppercase tracking-wider mb-2">
                 Current AQ This Cycle
               </div>
-              <div className="text-4xl font-bold">{currentAQ}</div>
+              <div className="text-3xl md:text-4xl font-bold">{currentAQ}</div>
             </div>
             
             <div>
-              <div className="text-sm text-muted-foreground uppercase tracking-wider mb-2">
+              <div className="text-xs md:text-sm text-muted-foreground uppercase tracking-wider mb-2">
                 AQ to Next Tier
               </div>
-              <div className="text-2xl font-semibold text-foreground/80">
+              <div className="text-xl md:text-2xl font-semibold text-foreground/80">
                 {nextTierAQ - currentAQ} AQ remaining
               </div>
             </div>
 
             <div className="pt-4 border-t border-border">
-              <div className="text-sm text-muted-foreground uppercase tracking-wider mb-2">
+              <div className="text-xs md:text-sm text-muted-foreground uppercase tracking-wider mb-2">
                 Next Tier
               </div>
-              <div className="text-3xl font-bold text-ardent flex items-center gap-2">
-                Ardent
-                <span className="text-sm text-muted-foreground font-normal">
-                  — mastery, passion refined
+              <div 
+                className="text-2xl md:text-3xl font-bold flex flex-wrap items-center gap-2"
+                style={{ color: `hsl(var(--${nextTier?.color}))` }}
+              >
+                {nextTierName}
+                <span className="text-xs md:text-sm text-muted-foreground font-normal">
+                  — {nextTier?.description}
                 </span>
               </div>
             </div>
 
-            <div className="flex gap-3 pt-4">
-              <div className="px-3 py-1.5 bg-secondary/50 rounded-md text-xs font-medium border border-border">
+            <div className="flex gap-2 md:gap-3 pt-4">
+              <div className="px-2 md:px-3 py-1.5 bg-secondary/50 rounded-md text-xs font-medium border border-border">
                 Trail
               </div>
-              <div className="px-3 py-1.5 bg-secondary/50 rounded-md text-xs font-medium border border-border">
+              <div className="px-2 md:px-3 py-1.5 bg-secondary/50 rounded-md text-xs font-medium border border-border">
                 Wellness
               </div>
             </div>
