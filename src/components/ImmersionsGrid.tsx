@@ -51,15 +51,15 @@ export const ImmersionsGrid = () => {
           >
             <div className="flex justify-between items-start mb-4">
               <div>
-                <div className="text-xs text-ember uppercase tracking-wider mb-2 font-semibold">
+                <div className="text-xs text-foreground uppercase tracking-wider mb-2 font-semibold">
                   {immersion.type}
                 </div>
-                <h3 className="text-xl font-bold mb-2 group-hover:text-ember transition-colors">
+                <h3 className="text-xl font-bold mb-2 group-hover:text-foreground/80 transition-colors">
                   {immersion.title}
                 </h3>
               </div>
               <div className="text-right">
-                <div className="text-2xl font-bold text-ember">+{immersion.aq}</div>
+                <div className="text-2xl font-bold text-foreground">+{immersion.aq}</div>
                 <div className="text-xs text-muted-foreground">AQ</div>
               </div>
             </div>

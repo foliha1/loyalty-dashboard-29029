@@ -8,10 +8,6 @@ export const UserHeader = () => {
 
   return (
     <section className="mb-12 animate-fade-in">
-      <h2 className="text-xl md:text-2xl font-bold mb-6 uppercase tracking-wider">
-        At A Glance
-      </h2>
-      
       <div className="gradient-card border border-border rounded-2xl p-6 md:p-8 relative overflow-hidden">
         <div 
           className="absolute inset-0 pointer-events-none opacity-5"

@@ -36,8 +36,8 @@ export const ProgressHero = () => {
         
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 relative z-10">
           {/* Circular Progress */}
-          <div className="relative flex-shrink-0">
-            <svg className="transform -rotate-90" width="220" height="220" viewBox="0 0 220 220">
+          <div className="relative flex-shrink-0 w-full max-w-[280px]">
+            <svg className="transform -rotate-90 w-full h-auto" viewBox="0 0 220 220">
               {/* Background circle */}
               <circle
                 cx="110"
@@ -47,7 +47,7 @@ export const ProgressHero = () => {
                 strokeWidth="14"
                 fill="none"
               />
-              {/* Progress circle with pulse animation */}
+              {/* Progress circle with smooth animation */}
               <circle
                 cx="110"
                 cy="110"
@@ -58,11 +58,7 @@ export const ProgressHero = () => {
                 strokeDasharray={circumference}
                 strokeDashoffset={mounted ? strokeDashoffset : circumference}
                 strokeLinecap="round"
-                className="transition-all duration-1500 ease-out animate-pulse"
-                style={{ 
-                  filter: `drop-shadow(0 0 12px hsl(var(--${currentTier?.color}) / 0.6))`,
-                  animationDuration: '3s'
-                }}
+                className="transition-all duration-[2000ms] ease-out"
               />
             </svg>
             <div className="absolute inset-0 flex flex-col items-center justify-center">
@@ -106,23 +102,11 @@ export const ProgressHero = () => {
               <div className="text-xs md:text-sm text-muted-foreground uppercase tracking-wider mb-2">
                 Next Tier
               </div>
-              <div 
-                className="text-2xl md:text-3xl font-bold flex flex-wrap items-center gap-2"
-                style={{ color: `hsl(var(--${nextTier?.color}))` }}
-              >
+              <div className="text-2xl md:text-3xl font-bold text-foreground flex flex-wrap items-center gap-2">
                 {nextTierName}
                 <span className="text-xs md:text-sm text-muted-foreground font-normal">
                   — {nextTier?.description}
                 </span>
-              </div>
-            </div>
-
-            <div className="flex gap-2 md:gap-3 pt-4">
-              <div className="px-2 md:px-3 py-1.5 bg-secondary/50 rounded-md text-xs font-medium border border-border">
-                Trail
-              </div>
-              <div className="px-2 md:px-3 py-1.5 bg-secondary/50 rounded-md text-xs font-medium border border-border">
-                Wellness
               </div>
             </div>
           </div>

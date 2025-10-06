@@ -30,7 +30,7 @@ export const TierLadder = () => {
                 animationDelay: `${0.3 + index * 0.1}s`,
                 borderColor: isCurrent ? `hsl(var(--${tier.color}))` : 
                              isNext ? `hsl(var(--${tier.color}) / 0.5)` :
-                             isCompleted ? "hsl(var(--muted))" : "hsl(var(--border))",
+                             isCompleted ? `hsl(var(--${tier.color}))` : "hsl(var(--border))",
                 boxShadow: isCurrent ? `0 0 20px hsl(var(--${tier.color}) / 0.3)` : "none",
                 transform: isCurrent ? "scale(1.05)" : "scale(1)",
                 opacity: isLocked ? 0.5 : 1,
@@ -45,12 +45,20 @@ export const TierLadder = () => {
                 </div>
               )}
               
+              {isCompleted && (
+                <div 
+                  className="absolute -top-2 -right-2 text-xs font-bold px-3 py-1 rounded-full text-white"
+                  style={{ backgroundColor: `hsl(var(--${tier.color}))` }}
+                >
+                  ACHIEVED
+                </div>
+              )}
+              
               <div className="mb-4">
                 <Icon 
                   className="w-6 h-6 md:w-8 md:h-8"
                   style={{ 
-                    color: isCurrent || isNext ? `hsl(var(--${tier.color}))` : 
-                           isCompleted ? "hsl(var(--muted-foreground))" : 
+                    color: isCurrent || isNext || isCompleted ? `hsl(var(--${tier.color}))` : 
                            "hsl(var(--foreground) / 0.3)"
                   }}
                 />
