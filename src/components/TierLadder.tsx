@@ -38,8 +38,8 @@ export const TierLadder = () => {
             >
               {isCurrent && (
                 <div 
-                  className="absolute top-2 right-2 text-xs font-bold px-3 py-1 rounded-full text-white"
-                  style={{ backgroundColor: `hsl(var(--${tier.color}))` }}
+                  className="absolute top-2 right-2 text-xs font-bold px-3 py-1 rounded-full"
+                  style={{ backgroundColor: `hsl(var(--${tier.color}))`, color: '#1a1a1a' }}
                 >
                   CURRENT
                 </div>
