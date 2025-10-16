@@ -14,7 +14,7 @@ export const ProgressHero = () => {
   const CurrentTierIcon = currentTier?.icon;
   
   // Circle calculations - responsive sizing
-  const radius = 90; // Increased for prominence
+  const radius = 110; // Increased for larger graph
   const circumference = 2 * Math.PI * radius;
   const strokeDashoffset = circumference - (circumference * percentage) / 100;
 
@@ -36,30 +36,30 @@ export const ProgressHero = () => {
         
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 relative z-10">
           {/* Circular Progress */}
-          <div className="relative flex-shrink-0 w-full max-w-[280px]">
-            <svg className="transform -rotate-90 w-full h-auto" viewBox="0 0 220 220">
+          <div className="relative flex-shrink-0 w-full max-w-[360px]">
+            <svg className="transform -rotate-90 w-full h-auto" viewBox="0 0 260 260">
               <defs>
-                <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <linearGradient id="progressGradient" x1="0%" y1="0%" x2="0%" y2="100%">
                   <stop offset="0%" style={{ stopColor: `hsl(var(--${currentTier?.color}))`, stopOpacity: 1 }} />
                   <stop offset="100%" style={{ stopColor: `hsl(var(--${currentTier?.color}))`, stopOpacity: 0.2 }} />
                 </linearGradient>
               </defs>
               {/* Background circle */}
               <circle
-                cx="110"
-                cy="110"
+                cx="130"
+                cy="130"
                 r={radius}
                 stroke="#1a1a1a"
-                strokeWidth="11"
+                strokeWidth="14"
                 fill="none"
               />
               {/* Progress circle with smooth animation */}
               <circle
-                cx="110"
-                cy="110"
+                cx="130"
+                cy="130"
                 r={radius}
                 stroke="url(#progressGradient)"
-                strokeWidth="11"
+                strokeWidth="14"
                 fill="none"
                 strokeDasharray={circumference}
                 strokeDashoffset={mounted ? strokeDashoffset : circumference}
