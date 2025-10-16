@@ -6,7 +6,7 @@ const immersions = [
     title: "Ridge Night Challenge",
     date: "Dec 15, 2025",
     location: "Summit Trail",
-    aq: 150,
+    ep: 150,
     type: "Trail",
     available: true,
   },
@@ -14,7 +14,7 @@ const immersions = [
     title: "Wellness Immersion",
     date: "Dec 22, 2025",
     location: "Sanctuary Lodge",
-    aq: 120,
+    ep: 120,
     type: "Wellness",
     available: true,
   },
@@ -22,15 +22,15 @@ const immersions = [
     title: "1:1 Coaching Session",
     date: "Jan 5, 2026",
     location: "Virtual",
-    aq: 100,
+    ep: 100,
     type: "Coaching",
     available: true,
   },
   {
-    title: "Winter Ascent Series",
+    title: "Winter Elevation Series",
     date: "Jan 12, 2026",
     location: "Mountain Base",
-    aq: 200,
+    ep: 200,
     type: "Trail",
     available: false,
   },
@@ -59,8 +59,8 @@ export const ImmersionsGrid = () => {
                 </h3>
               </div>
               <div className="text-right">
-                <div className="text-2xl font-bold text-foreground">+{immersion.aq}</div>
-                <div className="text-xs text-muted-foreground">AQ</div>
+                <div className="text-2xl font-bold text-foreground">+{immersion.ep}</div>
+                <div className="text-xs text-muted-foreground">EP</div>
               </div>
             </div>
             

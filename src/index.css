@@ -46,14 +46,14 @@ All colors MUST be HSL.
     --silver: 0 0% 85%;
     
     /* Tier colors */
-    --novus: 39 100% 50%;
-    --novus-glow: 39 100% 60%;
-    --verto: 212 100% 50%;
-    --verto-glow: 212 100% 60%;
-    --ardent: 283 69% 43%;
-    --ardent-glow: 283 69% 53%;
-    --sanctum: 0 75% 55%;
-    --sanctum-glow: 0 75% 65%;
+    --base: 0 0% 100%;
+    --base-glow: 0 0% 100%;
+    --ridge: 174 59% 46%;
+    --ridge-glow: 174 59% 56%;
+    --peak: 0 0% 31%;
+    --peak-glow: 0 0% 41%;
+    --summit: 38 71% 58%;
+    --summit-glow: 38 71% 68%;
     
     /* Soft gradients */
     --gradient-soft: radial-gradient(circle at top, hsl(var(--card)), hsl(var(--background)));
@@ -111,71 +111,71 @@ All colors MUST be HSL.
   }
   
   /* Tier-specific utilities */
-  .text-novus {
-    color: hsl(var(--novus));
+  .text-base {
+    color: hsl(var(--base));
   }
   
-  .text-verto {
-    color: hsl(var(--verto));
+  .text-ridge {
+    color: hsl(var(--ridge));
   }
   
-  .text-ardent {
-    color: hsl(var(--ardent));
+  .text-peak {
+    color: hsl(var(--peak));
   }
   
-  .text-sanctum {
-    color: hsl(var(--sanctum));
+  .text-summit {
+    color: hsl(var(--summit));
   }
   
-  .border-novus {
-    border-color: hsl(var(--novus));
+  .border-base {
+    border-color: hsl(var(--base));
   }
   
-  .border-verto {
-    border-color: hsl(var(--verto));
+  .border-ridge {
+    border-color: hsl(var(--ridge));
   }
   
-  .border-ardent {
-    border-color: hsl(var(--ardent));
+  .border-peak {
+    border-color: hsl(var(--peak));
   }
   
-  .border-sanctum {
-    border-color: hsl(var(--sanctum));
+  .border-summit {
+    border-color: hsl(var(--summit));
   }
   
-  .novus-glow {
-    box-shadow: 0 0 20px hsl(var(--novus) / 0.3);
+  .base-glow {
+    box-shadow: 0 0 20px hsl(var(--base) / 0.3);
   }
   
-  .verto-glow {
-    box-shadow: 0 0 20px hsl(var(--verto) / 0.3);
+  .ridge-glow {
+    box-shadow: 0 0 20px hsl(var(--ridge) / 0.3);
   }
   
-  .ardent-glow {
-    box-shadow: 0 0 20px hsl(var(--ardent) / 0.3);
+  .peak-glow {
+    box-shadow: 0 0 20px hsl(var(--peak) / 0.3);
   }
   
-  .sanctum-glow {
-    box-shadow: 0 0 20px hsl(var(--sanctum) / 0.3);
+  .summit-glow {
+    box-shadow: 0 0 20px hsl(var(--summit) / 0.3);
   }
   
   .gradient-card {
     background: radial-gradient(circle at top, hsl(var(--card)), hsl(var(--background)));
   }
 
-  .bg-novus {
-    background-color: hsl(var(--novus));
+  .bg-base {
+    background-color: hsl(var(--base));
   }
 
-  .bg-verto {
-    background-color: hsl(var(--verto));
+  .bg-ridge {
+    background-color: hsl(var(--ridge));
   }
 
-  .bg-ardent {
-    background-color: hsl(var(--ardent));
+  .bg-peak {
+    background-color: hsl(var(--peak));
   }
 
-  .bg-sanctum {
-    background-color: hsl(var(--sanctum));
+  .bg-summit {
+    background-color: hsl(var(--summit));
   }
 }

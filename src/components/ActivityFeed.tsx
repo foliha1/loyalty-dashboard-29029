@@ -4,27 +4,27 @@ const activities = [
   {
     date: "Dec 8, 2025",
     description: "Completed Trail Immersion — Ridge Night",
-    aq: 150,
+    ep: 150,
   },
   {
     date: "Dec 1, 2025",
     description: "Wellness Session — Breathwork Fundamentals",
-    aq: 120,
+    ep: 120,
   },
   {
     date: "Nov 24, 2025",
     description: "1:1 Coaching — Goal Setting & Strategy",
-    aq: 100,
+    ep: 100,
   },
   {
     date: "Nov 15, 2025",
     description: "Trail Experience — Dawn Summit Hike",
-    aq: 150,
+    ep: 150,
   },
   {
     date: "Nov 8, 2025",
     description: "Community Gathering — Member Meetup",
-    aq: 80,
+    ep: 80,
   },
 ];
 
@@ -32,7 +32,7 @@ export const ActivityFeed = () => {
   return (
     <section className="animate-fade-in" style={{ animationDelay: "0.4s" }}>
       <h2 className="text-2xl font-bold mb-6 uppercase tracking-wider">
-        Your Recent Ascents
+        Your Recent Elevations
       </h2>
       
       <div className="gradient-card border border-border rounded-xl overflow-hidden backdrop-blur-sm">
@@ -53,8 +53,8 @@ export const ActivityFeed = () => {
                   </div>
                 </div>
                 <div className="text-right flex-shrink-0">
-                  <div className="text-lg font-bold text-foreground">+{activity.aq}</div>
-                  <div className="text-xs text-muted-foreground">AQ</div>
+                  <div className="text-lg font-bold text-foreground">+{activity.ep}</div>
+                  <div className="text-xs text-muted-foreground">EP</div>
                 </div>
               </div>
             </div>

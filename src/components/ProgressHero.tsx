@@ -3,12 +3,12 @@ import { getCurrentTier } from "@/lib/tierConfig";
 
 export const ProgressHero = () => {
   const [mounted, setMounted] = useState(false);
-  const currentAQ = 880;
-  const nextTierAQ = 1000;
+  const currentEP = 880;
+  const nextTierEP = 1000;
   const percentage = 88;
   
-  const currentTierName = "Verto";
-  const nextTierName = "Ardent";
+  const currentTierName = "Ridge";
+  const nextTierName = "Peak";
   const currentTier = getCurrentTier(currentTierName);
   const nextTier = getCurrentTier(nextTierName);
   const CurrentTierIcon = currentTier?.icon;
@@ -25,7 +25,7 @@ export const ProgressHero = () => {
   return (
     <section className="mb-16 animate-fade-in" style={{ animationDelay: "0.1s" }}>
       <h2 className="text-xl md:text-2xl font-bold mb-6 uppercase tracking-wider">
-        Ascension Progress
+        Elevation Progress
       </h2>
       
       <div className="gradient-card border border-border rounded-2xl p-4 md:p-8 lg:p-12 relative overflow-hidden">
@@ -84,17 +84,17 @@ export const ProgressHero = () => {
           <div className="flex-1 space-y-4 md:space-y-6 w-full">
             <div>
               <div className="text-xs md:text-sm text-muted-foreground uppercase tracking-wider mb-2">
-                Current AQ This Cycle
+                Current EP This Cycle
               </div>
-              <div className="text-2xl sm:text-3xl md:text-4xl font-bold">{currentAQ}</div>
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold">{currentEP}</div>
             </div>
             
             <div>
               <div className="text-xs md:text-sm text-muted-foreground uppercase tracking-wider mb-2">
-                AQ to Next Tier
+                EP to Next Tier
               </div>
               <div className="text-lg sm:text-xl md:text-2xl font-semibold text-foreground/80">
-                {nextTierAQ - currentAQ} AQ remaining
+                {nextTierEP - currentEP} EP remaining
               </div>
             </div>
 

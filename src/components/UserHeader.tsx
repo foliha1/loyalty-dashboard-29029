@@ -2,7 +2,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { getCurrentTier } from "@/lib/tierConfig";
 
 export const UserHeader = () => {
-  const currentTierName = "Verto";
+  const currentTierName = "Ridge";
   const currentTier = getCurrentTier(currentTierName);
   const TierIcon = currentTier?.icon;
 
@@ -16,7 +16,7 @@ export const UserHeader = () => {
         
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 md:gap-0 relative z-10">
           <div className="flex items-center gap-3 md:gap-4">
-            <Avatar className="w-12 h-12 md:w-16 md:h-16 border-2 border-verto">
+            <Avatar className="w-12 h-12 md:w-16 md:h-16 border-2 border-ridge">
               <AvatarImage src="https://i.pravatar.cc/300?img=12" alt="Alex Rivera" />
               <AvatarFallback className="bg-secondary text-foreground text-base md:text-lg font-semibold">AR</AvatarFallback>
             </Avatar>
@@ -28,12 +28,12 @@ export const UserHeader = () => {
             <div className="text-right">
               <div className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground">880</div>
               <div className="text-xs text-muted-foreground uppercase tracking-wider">
-                Total AQ
+                Total EP
               </div>
             </div>
             {TierIcon && (
-              <div className="flex items-center gap-2 bg-secondary px-3 md:px-4 py-2 rounded-lg border border-verto verto-glow">
-                <TierIcon className="w-4 h-4 md:w-5 md:h-5 text-verto" />
+              <div className="flex items-center gap-2 bg-secondary px-3 md:px-4 py-2 rounded-lg border border-ridge ridge-glow">
+                <TierIcon className="w-4 h-4 md:w-5 md:h-5 text-ridge" />
                 <span className="font-semibold text-xs sm:text-sm md:text-base">{currentTierName}</span>
               </div>
             )}

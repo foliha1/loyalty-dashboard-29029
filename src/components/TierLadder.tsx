@@ -68,7 +68,7 @@ export const TierLadder = () => {
               <p className="text-xs md:text-sm text-muted-foreground mb-4">{tier.description}</p>
               
               <div className="text-xs text-muted-foreground uppercase tracking-wider">
-                {tier.threshold === 0 ? "Starting point" : `${tier.threshold}+ AQ`}
+                {tier.threshold === 0 ? "Starting point" : `${tier.threshold}+ EP`}
               </div>
             </div>
           );
