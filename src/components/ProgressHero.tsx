@@ -1,11 +1,26 @@
 import { useEffect, useState } from "react";
 import { getCurrentTier } from "@/lib/tierConfig";
 
+// 2025 Activity Data (matching ActivityFeed)
+const activity2025 = {
+  events: { totalEP: 450 },
+  apparel: { totalEP: 280 },
+  coaching: { totalEP: 400 }
+};
+
 export const ProgressHero = () => {
   const [mounted, setMounted] = useState(false);
-  const currentEP = 880;
+  const [showBreakdown, setShowBreakdown] = useState(false);
+  
+  // Calculate totals from 2025 activity data
+  const currentEP = activity2025.events.totalEP + activity2025.apparel.totalEP + activity2025.coaching.totalEP;
   const nextTierEP = 1000;
-  const percentage = 88;
+  const percentage = Math.min(100, Math.round((currentEP / nextTierEP) * 100));
+  
+  // Calculate percentages for breakdown
+  const eventsPercent = Math.round((activity2025.events.totalEP / currentEP) * 100);
+  const apparelPercent = Math.round((activity2025.apparel.totalEP / currentEP) * 100);
+  const coachingPercent = Math.round((activity2025.coaching.totalEP / currentEP) * 100);
   
   const currentTierName = "Ridge";
   const nextTierName = "Peak";
@@ -24,7 +39,7 @@ export const ProgressHero = () => {
 
   return (
     <section className="mb-16 animate-fade-in" style={{ animationDelay: "0.1s" }}>
-      <h2 className="text-xl md:text-2xl font-bold mb-6 uppercase tracking-wider">
+      <h2 className="text-2xl md:text-3xl font-bold mb-6 uppercase tracking-wider">
         Elevation Progress
       </h2>
       
@@ -36,7 +51,11 @@ export const ProgressHero = () => {
         
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 relative z-10">
           {/* Circular Progress */}
-          <div className="relative flex-shrink-0 w-full max-w-[360px]">
+          <div 
+            className="relative flex-shrink-0 w-full max-w-[360px] cursor-pointer transition-transform hover:scale-105"
+            onMouseEnter={() => setShowBreakdown(true)}
+            onMouseLeave={() => setShowBreakdown(false)}
+          >
             <svg className="transform -rotate-90 w-full h-auto" viewBox="0 0 260 260">
               <defs>
                 <linearGradient id="progressGradient" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -68,15 +87,39 @@ export const ProgressHero = () => {
               />
             </svg>
             <div className="absolute inset-0 flex flex-col items-center justify-center">
-              <div 
-                className="text-5xl sm:text-6xl md:text-7xl font-bold"
-                style={{ color: '#ffffff' }}
-              >
-                {percentage}%
-              </div>
-              <div className="text-xs text-muted-foreground uppercase tracking-wider mt-1">
-                Complete
-              </div>
+              {!showBreakdown ? (
+                <>
+                  <div 
+                    className="text-5xl sm:text-6xl md:text-7xl font-bold transition-all duration-300"
+                    style={{ color: '#ffffff' }}
+                  >
+                    {percentage}%
+                  </div>
+                  <div className="text-xs text-muted-foreground uppercase tracking-wider mt-1">
+                    Complete
+                  </div>
+                </>
+              ) : (
+                <div className="text-center space-y-2 animate-fade-in px-4">
+                  <div className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-3">
+                    Breakdown
+                  </div>
+                  <div className="space-y-1.5 text-left">
+                    <div className="flex justify-between gap-4">
+                      <span className="text-sm text-muted-foreground">Events</span>
+                      <span className="text-sm font-bold" style={{ color: '#ffffff' }}>{eventsPercent}%</span>
+                    </div>
+                    <div className="flex justify-between gap-4">
+                      <span className="text-sm text-muted-foreground">Apparel</span>
+                      <span className="text-sm font-bold" style={{ color: '#ffffff' }}>{apparelPercent}%</span>
+                    </div>
+                    <div className="flex justify-between gap-4">
+                      <span className="text-sm text-muted-foreground">Coaching</span>
+                      <span className="text-sm font-bold" style={{ color: '#ffffff' }}>{coachingPercent}%</span>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
 
@@ -96,7 +139,7 @@ export const ProgressHero = () => {
                 EP to Next Tier
               </div>
               <div className="text-lg sm:text-xl md:text-2xl font-semibold text-foreground/80">
-                {nextTierEP - currentEP} EP remaining
+                {currentEP >= nextTierEP ? "Exceeded! Ready to advance" : `${nextTierEP - currentEP} EP remaining`}
               </div>
             </div>
 

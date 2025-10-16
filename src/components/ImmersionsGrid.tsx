@@ -39,7 +39,7 @@ const immersions = [
 export const ImmersionsGrid = () => {
   return (
     <section className="mb-16 animate-fade-in" style={{ animationDelay: "0.3s" }}>
-      <h2 className="text-2xl font-bold mb-6 uppercase tracking-wider">
+      <h2 className="text-2xl md:text-3xl font-bold mb-6 uppercase tracking-wider">
         Next Immersions
       </h2>
       

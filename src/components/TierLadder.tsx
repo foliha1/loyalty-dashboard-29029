@@ -10,7 +10,7 @@ export const TierLadder = () => {
 
   return (
     <section className="mb-16 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-      <h2 className="text-xl md:text-2xl font-bold mb-6 uppercase tracking-wider">
+      <h2 className="text-2xl md:text-3xl font-bold mb-6 uppercase tracking-wider">
         Tier Ladder
       </h2>
       
