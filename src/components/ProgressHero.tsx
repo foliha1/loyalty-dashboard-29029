@@ -78,7 +78,7 @@ export const ProgressHero = () => {
                 stroke={mainColor}
                 strokeWidth="14"
                 fill="none"
-                strokeDasharray={`${(circumference * percentage) / 100} ${circumference}`}
+                strokeDasharray={circumference}
                 strokeDashoffset={mounted ? strokeDashoffset : circumference}
                 strokeLinecap="round"
                 className="transition-all duration-[2000ms] ease-out"
