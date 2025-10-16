@@ -25,7 +25,7 @@ export const TierLadder = () => {
           return (
             <div
               key={tier.name}
-              className="relative border rounded-xl p-4 md:p-6 transition-all duration-300"
+              className="relative border rounded-xl p-4 md:p-6 transition-all duration-300 hover:scale-105 h-full flex flex-col"
               style={{ 
                 backgroundColor: '#343532',
                 animationDelay: `${0.3 + index * 0.1}s`,
@@ -33,7 +33,6 @@ export const TierLadder = () => {
                              isNext ? `hsl(var(--${tier.color}) / 0.5)` :
                              isCompleted ? `hsl(var(--${tier.color}))` : "hsl(var(--border))",
                 boxShadow: isCurrent ? `0 0 20px hsl(var(--${tier.color}) / 0.3)` : "none",
-                transform: isCurrent ? "scale(1.05)" : "scale(1)",
                 opacity: isLocked ? 0.5 : 1,
               }}
             >
@@ -66,9 +65,9 @@ export const TierLadder = () => {
               </div>
               
               <h3 className="text-base sm:text-lg md:text-xl font-bold mb-2">{tier.name}</h3>
-              <p className="text-xs md:text-sm text-muted-foreground mb-4">{tier.description}</p>
+              <p className="text-xs md:text-sm text-muted-foreground mb-4 flex-grow">{tier.description}</p>
               
-              <div className="text-xs text-muted-foreground uppercase tracking-wider">
+              <div className="text-xs text-muted-foreground uppercase tracking-wider mt-auto">
                 {tier.threshold === 0 ? "Starting point" : `${tier.threshold}+ EP`}
               </div>
             </div>

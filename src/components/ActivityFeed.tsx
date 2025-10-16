@@ -113,10 +113,10 @@ export const ActivityFeed = () => {
                   <div className="flex items-center justify-between mb-6">
                     <h3 className="text-2xl md:text-3xl font-bold">{yearData.year}</h3>
                     <div className="text-right">
-                      <div className="text-xl md:text-2xl font-bold text-foreground">
-                        {totalYearEP} EP
+                      <div className="inline-flex items-center justify-center px-3 py-1.5 rounded-md font-bold" style={{ backgroundColor: '#1a1a1e' }}>
+                        <span className="text-xl md:text-2xl">{totalYearEP} EP</span>
                       </div>
-                      <div className="text-xs text-muted-foreground uppercase tracking-wide">
+                      <div className="text-xs text-muted-foreground uppercase tracking-wide mt-1">
                         Total Earned
                       </div>
                     </div>
@@ -147,11 +147,11 @@ export const ActivityFeed = () => {
                             </CollapsibleContent>
                           </Collapsible>
                         </div>
-                        <div className="text-right flex-shrink-0 ml-3 md:ml-4">
-                          <div className="text-lg md:text-xl font-bold text-foreground">
-                            {yearData.events.totalEP} EP
-                          </div>
-                        </div>
+            <div className="text-right flex-shrink-0 ml-3 md:ml-4">
+              <div className="inline-flex items-center justify-center px-2.5 py-1 rounded-md font-bold text-sm md:text-base" style={{ backgroundColor: '#1a1a1e' }}>
+                {yearData.events.totalEP} EP
+              </div>
+            </div>
                       </div>
                     </div>
 
@@ -169,11 +169,11 @@ export const ActivityFeed = () => {
                             Total Earned
                           </div>
                         </div>
-                        <div className="text-right flex-shrink-0 ml-3 md:ml-4">
-                          <div className="text-lg md:text-xl font-bold text-foreground">
-                            {yearData.apparel.totalEP} EP
-                          </div>
-                        </div>
+            <div className="text-right flex-shrink-0 ml-3 md:ml-4">
+              <div className="inline-flex items-center justify-center px-2.5 py-1 rounded-md font-bold text-sm md:text-base" style={{ backgroundColor: '#1a1a1e' }}>
+                {yearData.apparel.totalEP} EP
+              </div>
+            </div>
                       </div>
                     </div>
 
@@ -207,11 +207,11 @@ export const ActivityFeed = () => {
                             </CollapsibleContent>
                           </Collapsible>
                         </div>
-                        <div className="text-right flex-shrink-0 ml-3 md:ml-4">
-                          <div className="text-lg md:text-xl font-bold text-foreground">
-                            {yearData.coaching.totalEP} EP
-                          </div>
-                        </div>
+            <div className="text-right flex-shrink-0 ml-3 md:ml-4">
+              <div className="inline-flex items-center justify-center px-2.5 py-1 rounded-md font-bold text-sm md:text-base" style={{ backgroundColor: '#1a1a1e' }}>
+                {yearData.coaching.totalEP} EP
+              </div>
+            </div>
                       </div>
                     </div>
                   </div>
