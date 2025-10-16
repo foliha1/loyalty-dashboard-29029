@@ -40,9 +40,8 @@ export const ProgressHero = () => {
             <svg className="transform -rotate-90 w-full h-auto" viewBox="0 0 220 220">
               <defs>
                 <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" style={{ stopColor: `hsl(var(--${currentTier?.color}))` }} />
-                  <stop offset="50%" style={{ stopColor: `hsl(var(--${currentTier?.color}-glow))` }} />
-                  <stop offset="100%" style={{ stopColor: `hsl(var(--${currentTier?.color}))` }} />
+                  <stop offset="0%" style={{ stopColor: `hsl(var(--${currentTier?.color}))`, stopOpacity: 1 }} />
+                  <stop offset="100%" style={{ stopColor: `hsl(var(--${currentTier?.color}))`, stopOpacity: 0.2 }} />
                 </linearGradient>
               </defs>
               {/* Background circle */}
@@ -50,7 +49,7 @@ export const ProgressHero = () => {
                 cx="110"
                 cy="110"
                 r={radius}
-                stroke="hsl(var(--muted))"
+                stroke="#1a1a1a"
                 strokeWidth="11"
                 fill="none"
               />
@@ -71,12 +70,7 @@ export const ProgressHero = () => {
             <div className="absolute inset-0 flex flex-col items-center justify-center">
               <div 
                 className="text-5xl sm:text-6xl md:text-7xl font-bold"
-                style={{ 
-                  background: 'linear-gradient(180deg, white 0%, rgba(255, 255, 255, 0.3) 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text'
-                }}
+                style={{ color: '#ffffff' }}
               >
                 {percentage}%
               </div>
