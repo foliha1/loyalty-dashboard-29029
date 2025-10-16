@@ -38,6 +38,13 @@ export const ProgressHero = () => {
           {/* Circular Progress */}
           <div className="relative flex-shrink-0 w-full max-w-[280px]">
             <svg className="transform -rotate-90 w-full h-auto" viewBox="0 0 220 220">
+              <defs>
+                <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style={{ stopColor: `hsl(var(--${currentTier?.color}))` }} />
+                  <stop offset="50%" style={{ stopColor: `hsl(var(--${currentTier?.color}-glow))` }} />
+                  <stop offset="100%" style={{ stopColor: `hsl(var(--${currentTier?.color}))` }} />
+                </linearGradient>
+              </defs>
               {/* Background circle */}
               <circle
                 cx="110"
@@ -52,7 +59,7 @@ export const ProgressHero = () => {
                 cx="110"
                 cy="110"
                 r={radius}
-                stroke={`hsl(var(--${currentTier?.color}))`}
+                stroke="url(#progressGradient)"
                 strokeWidth="11"
                 fill="none"
                 strokeDasharray={circumference}
