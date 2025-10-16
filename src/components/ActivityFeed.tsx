@@ -28,10 +28,10 @@ const yearlyActivities: YearlyActivity[] = [
     events: {
       total: 3,
       attended: ["Snowbasin", "Whistler", "Trail Tahoe"],
-      totalEP: 450
+      totalEP: 290
     },
     apparel: {
-      totalEP: 280
+      totalEP: 180
     },
     coaching: {
       total: 4,
@@ -41,7 +41,7 @@ const yearlyActivities: YearlyActivity[] = [
         { name: "Mental Resilience", coach: "Sarah Chen" },
         { name: "Nutrition Planning", coach: "Emma Davis" }
       ],
-      totalEP: 400
+      totalEP: 250
     }
   },
   {

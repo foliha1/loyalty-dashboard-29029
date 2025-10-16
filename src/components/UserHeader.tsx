@@ -23,7 +23,7 @@ export const UserHeader = () => {
           <div className="flex items-center gap-4 md:gap-6 w-full md:w-auto justify-between md:justify-end">
             <div className="text-right">
               <div className="inline-flex items-center justify-center px-3 py-1.5 rounded-md font-bold" style={{ backgroundColor: '#1a1a1e' }}>
-                <span className="text-xl sm:text-2xl md:text-3xl">1130</span>
+                <span className="text-xl sm:text-2xl md:text-3xl">720</span>
               </div>
               <div className="text-xs text-muted-foreground uppercase tracking-wider mt-1">
                 Total EP

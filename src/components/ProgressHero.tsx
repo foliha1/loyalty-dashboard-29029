@@ -1,11 +1,18 @@
 import { useEffect, useState } from "react";
 import { getCurrentTier } from "@/lib/tierConfig";
 
-// 2025 Activity Data (matching ActivityFeed)
+// 2025 Activity Data (matching ActivityFeed) - 72% to Peak
 const activity2025 = {
-  events: { totalEP: 450 },
-  apparel: { totalEP: 280 },
-  coaching: { totalEP: 400 }
+  events: { totalEP: 290 },
+  apparel: { totalEP: 180 },
+  coaching: { totalEP: 250 }
+};
+
+// Category colors for visual breakdown
+const categoryColors = {
+  events: "hsl(142, 71%, 45%)",    // Green
+  apparel: "hsl(221, 83%, 53%)",   // Blue
+  coaching: "hsl(38, 92%, 50%)"    // Orange
 };
 
 export const ProgressHero = () => {
@@ -32,6 +39,17 @@ export const ProgressHero = () => {
   const radius = 110; // Increased for larger graph
   const circumference = 2 * Math.PI * radius;
   const strokeDashoffset = circumference - (circumference * percentage) / 100;
+  
+  // Calculate arc lengths for each category segment
+  const eventsArcLength = (circumference * eventsPercent) / 100;
+  const apparelArcLength = (circumference * apparelPercent) / 100;
+  const coachingArcLength = (circumference * coachingPercent) / 100;
+  
+  // Calculate offsets for sequential positioning
+  const gapSize = 8; // Visual gap between segments
+  const eventsOffset = circumference - eventsArcLength;
+  const apparelOffset = eventsOffset - apparelArcLength - gapSize;
+  const coachingOffset = apparelOffset - coachingArcLength - gapSize;
 
   useEffect(() => {
     setMounted(true);
@@ -57,12 +75,6 @@ export const ProgressHero = () => {
             onMouseLeave={() => setShowBreakdown(false)}
           >
             <svg className="transform -rotate-90 w-full h-auto" viewBox="0 0 260 260">
-              <defs>
-                <linearGradient id="progressGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" style={{ stopColor: `hsl(var(--${currentTier?.color}))`, stopOpacity: 1 }} />
-                  <stop offset="100%" style={{ stopColor: `hsl(var(--${currentTier?.color}))`, stopOpacity: 0.2 }} />
-                </linearGradient>
-              </defs>
               {/* Background circle */}
               <circle
                 cx="130"
@@ -72,18 +84,46 @@ export const ProgressHero = () => {
                 strokeWidth="14"
                 fill="none"
               />
-              {/* Progress circle with smooth animation */}
+              {/* Events segment (green) */}
               <circle
                 cx="130"
                 cy="130"
                 r={radius}
-                stroke="url(#progressGradient)"
+                stroke={categoryColors.events}
                 strokeWidth="14"
                 fill="none"
-                strokeDasharray={circumference}
-                strokeDashoffset={mounted ? strokeDashoffset : circumference}
+                strokeDasharray={`${eventsArcLength} ${circumference - eventsArcLength}`}
+                strokeDashoffset={mounted ? eventsOffset : circumference}
                 strokeLinecap="round"
                 className="transition-all duration-[2000ms] ease-out"
+              />
+              {/* Apparel segment (blue) */}
+              <circle
+                cx="130"
+                cy="130"
+                r={radius}
+                stroke={categoryColors.apparel}
+                strokeWidth="14"
+                fill="none"
+                strokeDasharray={`${apparelArcLength} ${circumference - apparelArcLength}`}
+                strokeDashoffset={mounted ? apparelOffset : circumference}
+                strokeLinecap="round"
+                className="transition-all duration-[2000ms] ease-out"
+                style={{ transitionDelay: '200ms' }}
+              />
+              {/* Coaching segment (orange) */}
+              <circle
+                cx="130"
+                cy="130"
+                r={radius}
+                stroke={categoryColors.coaching}
+                strokeWidth="14"
+                fill="none"
+                strokeDasharray={`${coachingArcLength} ${circumference - coachingArcLength}`}
+                strokeDashoffset={mounted ? coachingOffset : circumference}
+                strokeLinecap="round"
+                className="transition-all duration-[2000ms] ease-out"
+                style={{ transitionDelay: '400ms' }}
               />
             </svg>
             <div className="absolute inset-0 flex flex-col items-center justify-center">
