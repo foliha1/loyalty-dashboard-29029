@@ -17,7 +17,7 @@ export const tiers: Tier[] = [
     color: "novus",
   },
   {
-    name: "Verto",
+    name: "Ridge",
     description: "Transformation, turning point",
     icon: TrendingUp,
     threshold: 500,
