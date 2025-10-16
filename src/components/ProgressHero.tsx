@@ -69,15 +69,14 @@ export const ProgressHero = () => {
               />
             </svg>
             <div className="absolute inset-0 flex flex-col items-center justify-center">
-              {CurrentTierIcon && (
-                <CurrentTierIcon 
-                  className="w-8 h-8 md:w-10 md:h-10 mb-2" 
-                  style={{ color: `hsl(var(--${currentTier?.color}))` }}
-                />
-              )}
               <div 
-                className="text-3xl sm:text-4xl md:text-5xl font-bold"
-                style={{ color: `hsl(var(--${currentTier?.color}))` }}
+                className="text-5xl sm:text-6xl md:text-7xl font-bold"
+                style={{ 
+                  background: 'linear-gradient(180deg, white 0%, rgba(255, 255, 255, 0.3) 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text'
+                }}
               >
                 {percentage}%
               </div>
