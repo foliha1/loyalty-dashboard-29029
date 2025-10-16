@@ -1,4 +1,6 @@
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible";
+import { ChevronDown } from "lucide-react";
 
 interface YearlyActivity {
   year: number;
@@ -132,9 +134,18 @@ export const ActivityFeed = () => {
                           <div className="text-base md:text-lg font-semibold mb-2">
                             {yearData.events.total} Events Attended
                           </div>
-                          <div className="text-xs md:text-sm text-muted-foreground break-words">
-                            {yearData.events.attended.join(" • ")}
-                          </div>
+                          
+                          <Collapsible>
+                            <CollapsibleTrigger className="flex items-center gap-2 text-xs md:text-sm text-muted-foreground hover:text-foreground transition-colors group">
+                              <span>View Events</span>
+                              <ChevronDown className="h-3 w-3 transition-transform duration-200 group-data-[state=open]:rotate-180" />
+                            </CollapsibleTrigger>
+                            <CollapsibleContent className="mt-2">
+                              <div className="text-xs md:text-sm text-muted-foreground break-words">
+                                {yearData.events.attended.join(" • ")}
+                              </div>
+                            </CollapsibleContent>
+                          </Collapsible>
                         </div>
                         <div className="text-right flex-shrink-0 ml-3 md:ml-4">
                           <div className="text-lg md:text-xl font-bold text-foreground">
@@ -143,6 +154,9 @@ export const ActivityFeed = () => {
                         </div>
                       </div>
                     </div>
+
+                    {/* Separator */}
+                    <div className="border-t" style={{ borderColor: '#1c1a1f' }} />
 
                     {/* APPAREL */}
                     <div>
@@ -163,29 +177,41 @@ export const ActivityFeed = () => {
                       </div>
                     </div>
 
+                    {/* Separator */}
+                    <div className="border-t" style={{ borderColor: '#1c1a1f' }} />
+
                     {/* COACHING */}
                     <div>
                       <h4 className="text-xs md:text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-2 md:mb-3">
                         Coaching Sessions
                       </h4>
-                      <div className="flex items-start justify-between mb-2 md:mb-3">
-                        <div className="flex-1">
-                          <div className="text-base md:text-lg font-semibold">
+                      <div className="flex items-start justify-between">
+                        <div className="flex-1 min-w-0">
+                          <div className="text-base md:text-lg font-semibold mb-2">
                             {yearData.coaching.total} Sessions Completed
                           </div>
+                          
+                          <Collapsible>
+                            <CollapsibleTrigger className="flex items-center gap-2 text-xs md:text-sm text-muted-foreground hover:text-foreground transition-colors group">
+                              <span>View Details</span>
+                              <ChevronDown className="h-3 w-3 transition-transform duration-200 group-data-[state=open]:rotate-180" />
+                            </CollapsibleTrigger>
+                            <CollapsibleContent className="mt-2">
+                              <div className="space-y-1.5 md:space-y-2">
+                                {yearData.coaching.sessions.map((session, idx) => (
+                                  <div key={idx} className="text-xs md:text-sm text-muted-foreground pl-3 md:pl-4 break-words">
+                                    • {session.name} - {session.coach}
+                                  </div>
+                                ))}
+                              </div>
+                            </CollapsibleContent>
+                          </Collapsible>
                         </div>
                         <div className="text-right flex-shrink-0 ml-3 md:ml-4">
                           <div className="text-lg md:text-xl font-bold text-foreground">
                             {yearData.coaching.totalEP} EP
                           </div>
                         </div>
-                      </div>
-                      <div className="space-y-1.5 md:space-y-2">
-                        {yearData.coaching.sessions.map((session, idx) => (
-                          <div key={idx} className="text-xs md:text-sm text-muted-foreground pl-3 md:pl-4 break-words">
-                            • {session.name} - {session.coach}
-                          </div>
-                        ))}
                       </div>
                     </div>
                   </div>
