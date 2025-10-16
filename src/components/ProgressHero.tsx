@@ -28,7 +28,7 @@ export const ProgressHero = () => {
         Elevation Progress
       </h2>
       
-      <div className="gradient-card border border-border rounded-2xl p-4 md:p-8 lg:p-12 relative overflow-hidden">
+      <div className="border border-border rounded-2xl p-4 md:p-8 lg:p-12 relative overflow-hidden" style={{ backgroundColor: '#343532' }}>
         <div 
           className="absolute inset-0 pointer-events-none opacity-10"
           style={{ background: `radial-gradient(circle at top right, hsl(var(--${currentTier?.color})) 0%, transparent 60%)` }}

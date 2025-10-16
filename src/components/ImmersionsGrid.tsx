@@ -47,7 +47,8 @@ export const ImmersionsGrid = () => {
         {immersions.map((immersion, index) => (
           <div
             key={index}
-            className="gradient-card border border-border rounded-xl p-6 transition-all duration-300 hover:border-muted-foreground/50 group backdrop-blur-sm"
+            className="border border-border rounded-xl p-6 transition-all duration-300 hover:border-muted-foreground/50 group backdrop-blur-sm"
+            style={{ backgroundColor: '#343532' }}
           >
             <div className="flex justify-between items-start mb-4">
               <div>
@@ -76,7 +77,7 @@ export const ImmersionsGrid = () => {
             </div>
             
             <Button 
-              variant="secondary"
+              variant="enroll"
               className="w-full font-semibold"
               disabled={!immersion.available}
             >

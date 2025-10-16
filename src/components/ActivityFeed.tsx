@@ -91,28 +91,24 @@ export const ActivityFeed = () => {
         Your Activity
       </h2>
       
-      <div className="gradient-card border border-border rounded-xl overflow-hidden backdrop-blur-sm">
-        <div className="divide-y divide-border">
-          {yearlyActivities.map((yearData) => {
-            const totalYearEP = yearData.events.totalEP + yearData.apparel.totalEP + yearData.coaching.totalEP;
-            
-            return (
-              <div key={yearData.year} className="p-8">
-                {/* Year header with total EP */}
-                <div className="flex items-center justify-between mb-6">
-                  <h3 className="text-3xl font-bold">{yearData.year}</h3>
-                  <div className="text-right">
-                    <div className="text-2xl font-bold text-foreground">
-                      {totalYearEP} EP
-                    </div>
-                    <div className="text-xs text-muted-foreground uppercase tracking-wide">
-                      Total Earned
-                    </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {yearlyActivities.map((yearData) => {
+          const totalYearEP = yearData.events.totalEP + yearData.apparel.totalEP + yearData.coaching.totalEP;
+          
+          return (
+            <div key={yearData.year} className="border border-border rounded-xl p-8 transition-all duration-300 hover:border-muted-foreground/50 backdrop-blur-sm" style={{ backgroundColor: '#343532' }}>
+              {/* Year header with total EP */}
+              <div className="flex items-center justify-between mb-6">
+                <h3 className="text-3xl font-bold">{yearData.year}</h3>
+                <div className="text-right">
+                  <div className="text-2xl font-bold text-foreground">
+                    {totalYearEP} EP
+                  </div>
+                  <div className="text-xs text-muted-foreground uppercase tracking-wide">
+                    Total Earned
                   </div>
                 </div>
-
-                {/* Separator */}
-                <div className="border-t border-border mb-6" />
+              </div>
 
                 {/* Categories */}
                 <div className="space-y-6">
@@ -183,10 +179,9 @@ export const ActivityFeed = () => {
                     </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
-        </div>
+            </div>
+          );
+        })}
       </div>
     </section>
   );

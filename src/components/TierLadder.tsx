@@ -25,8 +25,9 @@ export const TierLadder = () => {
           return (
             <div
               key={tier.name}
-              className="relative gradient-card border rounded-xl p-4 md:p-6 transition-all duration-300"
+              className="relative border rounded-xl p-4 md:p-6 transition-all duration-300"
               style={{ 
+                backgroundColor: '#343532',
                 animationDelay: `${0.3 + index * 0.1}s`,
                 borderColor: isCurrent ? `hsl(var(--${tier.color}))` : 
                              isNext ? `hsl(var(--${tier.color}) / 0.5)` :
