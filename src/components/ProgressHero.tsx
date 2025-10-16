@@ -8,13 +8,8 @@ const activity2025 = {
   coaching: { totalEP: 250 }
 };
 
-// Main color and category shades for visual breakdown
+// Main progress color
 const mainColor = "#5eb8ad";
-const categoryColors = {
-  events: "#5eb8ad",    // Lightest shade
-  apparel: "#4a9d93",   // Medium shade
-  coaching: "#3a7d73"   // Darkest shade
-};
 
 export const ProgressHero = () => {
   const [mounted, setMounted] = useState(false);
@@ -41,16 +36,6 @@ export const ProgressHero = () => {
   const circumference = 2 * Math.PI * radius;
   const strokeDashoffset = circumference - (circumference * percentage) / 100;
   
-  // Calculate arc lengths for each category segment
-  const eventsArcLength = (circumference * eventsPercent) / 100;
-  const apparelArcLength = (circumference * apparelPercent) / 100;
-  const coachingArcLength = (circumference * coachingPercent) / 100;
-  
-  // Calculate offsets for sequential positioning
-  const gapSize = 8; // Visual gap between segments
-  const eventsOffset = circumference - eventsArcLength;
-  const apparelOffset = eventsOffset - apparelArcLength - gapSize;
-  const coachingOffset = apparelOffset - coachingArcLength - gapSize;
 
   useEffect(() => {
     setMounted(true);
@@ -85,63 +70,19 @@ export const ProgressHero = () => {
                 strokeWidth="14"
                 fill="none"
               />
-              {!showBreakdown ? (
-                // Single circle for default state
-                <circle
-                  cx="130"
-                  cy="130"
-                  r={radius}
-                  stroke={mainColor}
-                  strokeWidth="14"
-                  fill="none"
-                  strokeDasharray={`${(circumference * percentage) / 100} ${circumference}`}
-                  strokeDashoffset={mounted ? strokeDashoffset : circumference}
-                  strokeLinecap="round"
-                  className="transition-all duration-[2000ms] ease-out"
-                />
-              ) : (
-                <>
-                  {/* Events segment */}
-                  <circle
-                    cx="130"
-                    cy="130"
-                    r={radius}
-                    stroke={categoryColors.events}
-                    strokeWidth="14"
-                    fill="none"
-                    strokeDasharray={`${eventsArcLength} ${circumference - eventsArcLength}`}
-                    strokeDashoffset={mounted ? eventsOffset : circumference}
-                    strokeLinecap="round"
-                    className="transition-all duration-500 ease-in-out"
-                  />
-                  {/* Apparel segment */}
-                  <circle
-                    cx="130"
-                    cy="130"
-                    r={radius}
-                    stroke={categoryColors.apparel}
-                    strokeWidth="14"
-                    fill="none"
-                    strokeDasharray={`${apparelArcLength} ${circumference - apparelArcLength}`}
-                    strokeDashoffset={mounted ? apparelOffset : circumference}
-                    strokeLinecap="round"
-                    className="transition-all duration-500 ease-in-out"
-                  />
-                  {/* Coaching segment */}
-                  <circle
-                    cx="130"
-                    cy="130"
-                    r={radius}
-                    stroke={categoryColors.coaching}
-                    strokeWidth="14"
-                    fill="none"
-                    strokeDasharray={`${coachingArcLength} ${circumference - coachingArcLength}`}
-                    strokeDashoffset={mounted ? coachingOffset : circumference}
-                    strokeLinecap="round"
-                    className="transition-all duration-500 ease-in-out"
-                  />
-                </>
-              )}
+              {/* Progress circle */}
+              <circle
+                cx="130"
+                cy="130"
+                r={radius}
+                stroke={mainColor}
+                strokeWidth="14"
+                fill="none"
+                strokeDasharray={`${(circumference * percentage) / 100} ${circumference}`}
+                strokeDashoffset={mounted ? strokeDashoffset : circumference}
+                strokeLinecap="round"
+                className="transition-all duration-[2000ms] ease-out"
+              />
             </svg>
             <div className="absolute inset-0 flex flex-col items-center justify-center">
               {!showBreakdown ? (
