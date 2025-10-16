@@ -59,10 +59,11 @@ export const ImmersionsGrid = () => {
                   {immersion.title}
                 </h3>
               </div>
-              <div className="text-right">
-                <div className="text-2xl font-bold text-foreground">+{immersion.ep}</div>
-                <div className="text-xs text-muted-foreground">EP</div>
+            <div className="text-right">
+              <div className="inline-flex items-center justify-center px-3 py-1.5 rounded-md font-bold" style={{ backgroundColor: '#1a1a1e' }}>
+                <span className="text-xl md:text-2xl">+{immersion.ep} EP</span>
               </div>
+            </div>
             </div>
             
             <div className="space-y-2 mb-4">

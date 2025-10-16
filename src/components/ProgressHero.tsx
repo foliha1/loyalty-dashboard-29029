@@ -93,7 +93,9 @@ export const ProgressHero = () => {
               <div className="text-xs md:text-sm text-muted-foreground uppercase tracking-wider mb-2">
                 Current EP This Cycle
               </div>
-              <div className="text-2xl sm:text-3xl md:text-4xl font-bold">{currentEP}</div>
+              <div className="inline-flex items-center justify-center px-3 py-1.5 rounded-md font-bold" style={{ backgroundColor: '#1a1a1e' }}>
+                <span className="text-2xl sm:text-3xl md:text-4xl">{currentEP} EP</span>
+              </div>
             </div>
             
             <div>

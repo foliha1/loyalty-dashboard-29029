@@ -111,7 +111,7 @@ export const ActivityFeed = () => {
                 <div className="border border-border rounded-xl p-6 md:p-8 transition-all duration-300 hover:border-muted-foreground/50 backdrop-blur-sm h-full" style={{ backgroundColor: '#343532' }}>
                   {/* Year header with total EP */}
                   <div className="flex items-center justify-between mb-6">
-                    <h3 className="text-2xl md:text-3xl font-bold">{yearData.year}</h3>
+                    <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold">{yearData.year}</h3>
                     <div className="text-right">
                       <div className="inline-flex items-center justify-center px-3 py-1.5 rounded-md font-bold" style={{ backgroundColor: '#1a1a1e' }}>
                         <span className="text-xl md:text-2xl">{totalYearEP} EP</span>
@@ -140,11 +140,11 @@ export const ActivityFeed = () => {
                               <span>View Events</span>
                               <ChevronDown className="h-3 w-3 transition-transform duration-200 group-data-[state=open]:rotate-180" />
                             </CollapsibleTrigger>
-                            <CollapsibleContent className="mt-2">
-                              <div className="text-xs md:text-sm text-muted-foreground break-words">
-                                {yearData.events.attended.join(" • ")}
-                              </div>
-                            </CollapsibleContent>
+            <CollapsibleContent className="mt-2">
+              <div className="max-h-32 overflow-y-auto text-xs md:text-sm text-muted-foreground break-words pr-2">
+                {yearData.events.attended.join(" • ")}
+              </div>
+            </CollapsibleContent>
                           </Collapsible>
                         </div>
             <div className="text-right flex-shrink-0 ml-3 md:ml-4">
@@ -191,21 +191,21 @@ export const ActivityFeed = () => {
                             {yearData.coaching.total} Sessions Completed
                           </div>
                           
-                          <Collapsible>
-                            <CollapsibleTrigger className="flex items-center gap-2 text-xs md:text-sm text-muted-foreground hover:text-foreground transition-colors group">
-                              <span>View Details</span>
-                              <ChevronDown className="h-3 w-3 transition-transform duration-200 group-data-[state=open]:rotate-180" />
-                            </CollapsibleTrigger>
-                            <CollapsibleContent className="mt-2">
-                              <div className="space-y-1.5 md:space-y-2">
-                                {yearData.coaching.sessions.map((session, idx) => (
-                                  <div key={idx} className="text-xs md:text-sm text-muted-foreground pl-3 md:pl-4 break-words">
-                                    • {session.name} - {session.coach}
-                                  </div>
-                                ))}
-                              </div>
-                            </CollapsibleContent>
-                          </Collapsible>
+          <Collapsible>
+            <CollapsibleTrigger className="flex items-center gap-2 text-xs md:text-sm text-muted-foreground hover:text-foreground transition-colors group">
+              <span>View Sessions</span>
+              <ChevronDown className="h-3 w-3 transition-transform duration-200 group-data-[state=open]:rotate-180" />
+            </CollapsibleTrigger>
+            <CollapsibleContent className="mt-2">
+              <div className="max-h-32 overflow-y-auto space-y-1.5 md:space-y-2 pr-2">
+                {yearData.coaching.sessions.map((session, idx) => (
+                  <div key={idx} className="text-xs md:text-sm text-muted-foreground pl-3 md:pl-4 break-words">
+                    • {session.name}
+                  </div>
+                ))}
+              </div>
+            </CollapsibleContent>
+          </Collapsible>
                         </div>
             <div className="text-right flex-shrink-0 ml-3 md:ml-4">
               <div className="inline-flex items-center justify-center px-2.5 py-1 rounded-md font-bold text-sm md:text-base" style={{ backgroundColor: '#1a1a1e' }}>

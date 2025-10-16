@@ -67,9 +67,17 @@ export const TierLadder = () => {
               <h3 className="text-base sm:text-lg md:text-xl font-bold mb-2">{tier.name}</h3>
               <p className="text-xs md:text-sm text-muted-foreground mb-4 flex-grow">{tier.description}</p>
               
-              <div className="text-xs text-muted-foreground uppercase tracking-wider mt-auto">
-                {tier.threshold === 0 ? "Starting point" : `${tier.threshold}+ EP`}
+          <div className="mt-auto">
+            {tier.threshold === 0 ? (
+              <div className="text-xs text-muted-foreground uppercase tracking-wider">
+                Starting point
               </div>
+            ) : (
+              <div className="inline-flex items-center justify-center px-2.5 py-1 rounded-md font-bold text-xs" style={{ backgroundColor: '#1a1a1e' }}>
+                {tier.threshold}+ EP
+              </div>
+            )}
+          </div>
             </div>
           );
         })}
