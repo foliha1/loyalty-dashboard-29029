@@ -27,31 +27,35 @@ export const UserHeader = ({ isCollapsed = false }: UserHeaderProps) => {
           "transition-all duration-300 ease-in-out",
           isCollapsed ? "opacity-0 h-0 overflow-hidden" : "opacity-100"
         )}>
-          {/* Logo + Name + ID */}
-          <div className="mb-8 text-center md:text-left">
-            <div className="flex justify-center md:justify-start mb-4">
-              <Logo29029 size={36} className="text-white glow-tier-accent opacity-90" />
-            </div>
-            <h1 className="text-hero text-5xl md:text-7xl mb-2 metric-animate">
-              Alex Rivera
-            </h1>
-            <div className="text-subhead text-slide-up-delay-2">
-              29029 ID: AR-5847 • Member Since 2023
-            </div>
+          {/* Centered Logo */}
+          <div className="flex justify-center mb-16">
+            <Logo29029 size={40} className="text-white glow-tier-accent opacity-90" />
           </div>
 
-          {/* Stats Grid - More Spacious */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            {/* Avatar */}
-            <div className="flex justify-center md:justify-start metric-animate-delay-1">
-              <Avatar className="w-32 h-32 border-4 border-tier-accent glow-tier-accent">
+          {/* Inline Content: Avatar + Info on left, Tier on right */}
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+            {/* Left: Avatar + Name + ID + Member */}
+            <div className="flex items-center gap-6 metric-animate-delay-1">
+              <Avatar className="w-24 h-24 border-4 border-tier-accent glow-tier-accent flex-shrink-0">
                 <AvatarImage src="https://i.pravatar.cc/300?img=12" alt="Alex Rivera" />
                 <AvatarFallback className="bg-secondary text-foreground text-lg font-semibold">AR</AvatarFallback>
               </Avatar>
+              
+              <div className="text-left">
+                <h1 className="text-hero text-4xl md:text-5xl mb-2">
+                  Alex Rivera
+                </h1>
+                <div className="text-subhead">
+                  29029 ID: AR-5847
+                </div>
+                <div className="text-subhead">
+                  Member Since 2023
+                </div>
+              </div>
             </div>
 
-            {/* Tier Badge */}
-            <div className="flex justify-center md:justify-end metric-animate-delay-3">
+            {/* Right: Tier Badge */}
+            <div className="flex justify-center metric-animate-delay-3 flex-shrink-0">
               <div>
                 <div className="text-subhead mb-4 text-center">
                   Current Tier
