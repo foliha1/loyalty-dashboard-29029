@@ -57,13 +57,13 @@ All colors MUST be HSL.
     --charcoal: 0 0% 16%;
     --silver: 0 0% 85%;
     
-    /* Tier colors - PRESERVED */
-    --base: 0 0% 100%;
-    --base-glow: 0 0% 100%;
-    --ridge: 174 59% 46%;
-    --ridge-glow: 174 59% 56%;
-    --peak: 0 0% 31%;
-    --peak-glow: 0 0% 41%;
+    /* Tier colors - Seamless continuum gradient */
+    --base: 0 0% 75%;           /* Light gray */
+    --base-glow: 0 0% 85%;      /* Lighter gray glow */
+    --ridge: 348 85% 50%;       /* Warm red */
+    --ridge-glow: 348 100% 60%; /* Brighter red glow */
+    --peak: 0 0% 8%;            /* Deep black */
+    --peak-glow: 348 100% 42%;  /* Red glow for Peak (#DD0033) */
     --summit: 38 71% 58%;
     --summit-glow: 38 71% 68%;
     

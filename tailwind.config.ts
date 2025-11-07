@@ -201,7 +201,7 @@ export default {
         "fade-in": "fade-in 0.4s ease-out",
         "hover-lift": "hover-lift 0.3s ease-out",
         "floating": "floating 3s ease-in-out infinite",
-        "sweep": "sweep 12s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite",
+        "sweep": "sweep 10s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite",
         "tier-pulse": "tier-pulse 3.5s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite",
         "ripple": "ripple 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards",
         "fog-drift": "fog-drift 18s ease-in-out infinite",

@@ -103,60 +103,103 @@ export const TiersContinuum = () => {
           />
         </div>
         
-        {/* Main Gradient Bar */}
+        {/* Main Gradient Bar - Borderless */}
         <div 
           className={cn(
-            "relative h-24 rounded-full overflow-hidden border border-border/50 shadow-2xl",
+            "relative h-24 rounded-full overflow-hidden shadow-2xl",
             "transition-opacity duration-700",
             isRevealed ? "opacity-100" : "opacity-80"
           )}
           style={{
-            boxShadow: '0 8px 32px rgba(0,0,0,0.3), inset 0 2px 8px rgba(255,255,255,0.05)'
+            boxShadow: '0 8px 32px rgba(0,0,0,0.4), inset 0 2px 8px rgba(255,255,255,0.03)'
           }}
         >
-          {/* Background Gradient */}
+          {/* Background Gradient - Light Gray → Warm Red → Black */}
           <div 
             className="absolute inset-0" 
             style={{
               background: `linear-gradient(to right, 
-                hsl(var(--base)) 0%, 
-                hsl(var(--base) / 0.5) 30%,
+                hsl(var(--base)) 0%,
+                hsl(var(--base) / 0.8) 25%,
                 hsl(var(--ridge) / 0.3) 40%,
                 hsl(var(--ridge)) 50%,
-                hsl(var(--ridge) / 0.5) 60%,
-                hsl(var(--peak) / 0.8) 70%,
+                hsl(var(--ridge) / 0.6) 60%,
+                hsl(var(--peak) / 0.5) 75%,
+                hsl(var(--peak)) 90%,
                 hsl(var(--peak)) 100%
               )`
             }}
           />
           
-          {/* Contour Lines Texture */}
+          {/* Red Glow Overlay at Peak End */}
           <div 
-            className="absolute inset-0 opacity-10"
+            className="absolute inset-0 pointer-events-none"
             style={{
-              backgroundImage: `repeating-linear-gradient(
-                0deg, 
-                transparent, 
-                transparent 10px, 
-                rgba(255,255,255,0.1) 10px, 
-                rgba(255,255,255,0.1) 11px
+              background: `radial-gradient(
+                ellipse 30% 100% at 95% 50%,
+                rgba(221, 0, 51, 0.25) 0%,
+                transparent 60%
               )`
             }}
           />
           
-          {/* Sweep Animation Overlay */}
+          {/* Enhanced Mountain Ridge Contour Lines */}
           <div 
-            className="absolute inset-0 animate-sweep opacity-30"
+            className="absolute inset-0 opacity-15"
+            style={{
+              backgroundImage: `
+                repeating-linear-gradient(
+                  0deg, 
+                  transparent, 
+                  transparent 8px, 
+                  rgba(255,255,255,0.15) 8px, 
+                  rgba(255,255,255,0.15) 9px
+                ),
+                repeating-linear-gradient(
+                  0deg, 
+                  transparent, 
+                  transparent 16px, 
+                  rgba(255,255,255,0.25) 16px, 
+                  rgba(255,255,255,0.25) 17px
+                )
+              `,
+              maskImage: `linear-gradient(
+                90deg,
+                transparent 0%,
+                black 10%,
+                black 90%,
+                transparent 100%
+              )`
+            }}
+          />
+          
+          {/* Mountain Ridge Silhouette */}
+          <div 
+            className="absolute inset-0 opacity-8"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 100'%3E%3Cpath d='M0,100 L0,40 Q150,20 300,35 T600,45 T900,40 T1200,50 L1200,100 Z' fill='%23ffffff' opacity='0.1'/%3E%3C/svg%3E")`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'bottom',
+              backgroundRepeat: 'no-repeat'
+            }}
+          />
+          
+          {/* Enhanced Sweep Animation - 10s */}
+          <div 
+            className="absolute inset-0 animate-sweep opacity-40 pointer-events-none"
             style={{
               background: `linear-gradient(
                 90deg,
                 transparent 0%,
-                rgba(255, 255, 255, 0.1) 45%,
-                rgba(255, 255, 255, 0.3) 50%,
-                rgba(255, 255, 255, 0.1) 55%,
+                rgba(255, 255, 255, 0.05) 40%,
+                rgba(255, 255, 255, 0.25) 48%,
+                rgba(255, 255, 255, 0.35) 50%,
+                rgba(255, 255, 255, 0.25) 52%,
+                rgba(255, 255, 255, 0.05) 60%,
                 transparent 100%
               )`,
-              backgroundSize: '200% 100%'
+              backgroundSize: '200% 100%',
+              mixBlendMode: 'soft-light'
             }}
           />
           
@@ -217,25 +260,34 @@ export const TiersContinuum = () => {
                   onMouseEnter={() => setHoveredZone(tier.name)}
                   onMouseLeave={() => setHoveredZone(null)}
                 >
-                  {/* Current Tier Red Bloom Effects */}
+                  {/* Enhanced Current Tier Pulse - Three Layers */}
                   {isCurrent && (
                     <>
-                      {/* Outer Red Bloom */}
+                      {/* Outer Red Bloom - Larger & More Visible */}
                       <div 
                         className="absolute inset-0 rounded-full animate-tier-pulse pointer-events-none"
                         style={{
-                          background: 'radial-gradient(circle, rgba(221, 0, 51, 0.4) 0%, rgba(221, 0, 51, 0.1) 50%, transparent 70%)',
-                          filter: 'blur(12px)',
-                          transform: 'scale(1.8)'
+                          background: 'radial-gradient(circle, rgba(221, 0, 51, 0.5) 0%, rgba(221, 0, 51, 0.2) 40%, transparent 70%)',
+                          filter: 'blur(16px)',
+                          transform: 'scale(2.2)'
                         }}
                       />
                       
-                      {/* Inner Glow Ring */}
+                      {/* Inner Glow Ring - Sharper */}
                       <div 
                         className="absolute -inset-1 rounded-full pointer-events-none"
                         style={{
-                          background: 'linear-gradient(135deg, rgba(221, 0, 51, 0.6), rgba(153, 0, 35, 0.4))',
-                          filter: 'blur(4px)'
+                          background: 'linear-gradient(135deg, rgba(221, 0, 51, 0.8), rgba(153, 0, 35, 0.6))',
+                          filter: 'blur(6px)'
+                        }}
+                      />
+                      
+                      {/* Core Highlight */}
+                      <div 
+                        className="absolute -inset-0.5 rounded-full pointer-events-none"
+                        style={{
+                          background: 'radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.3) 0%, transparent 50%)',
+                          mixBlendMode: 'overlay'
                         }}
                       />
                     </>
@@ -249,16 +301,22 @@ export const TiersContinuum = () => {
                     />
                   )}
                   
-                  {/* Marker Circle */}
+                  {/* Marker Circle - No Hard Borders */}
                   <div 
                     className={cn(
                       "w-16 h-16 rounded-full flex items-center justify-center relative z-10",
                       "transition-all duration-300 hover:scale-110"
                     )}
                     style={{
-                      backgroundColor: 'hsl(var(--background))',
-                      border: `3px solid hsl(var(--${tier.color}))`,
-                      boxShadow: isCurrent ? `0 0 32px hsl(var(--${tier.color}) / 0.4)` : 'none'
+                      background: `radial-gradient(circle, 
+                        rgba(${isCurrent ? '0,0,0' : '10,10,10'}, 0.9) 0%, 
+                        rgba(0,0,0,0.6) 100%
+                      )`,
+                      border: `2px solid hsl(var(--${tier.color}))`,
+                      boxShadow: isCurrent 
+                        ? `0 0 32px hsl(var(--${tier.color}) / 0.6), inset 0 2px 12px rgba(255,255,255,0.1)` 
+                        : `0 0 12px hsl(var(--${tier.color}) / 0.3), inset 0 2px 8px rgba(255,255,255,0.05)`,
+                      backdropFilter: 'blur(8px)'
                     }}
                   >
                     <Icon className="w-8 h-8" style={{ color: `hsl(var(--${tier.color}))` }} />
@@ -305,67 +363,106 @@ export const TiersContinuum = () => {
           </div>
         </div>
         
-        {/* Expandable Rewards Section */}
+        {/* Stacked Reward Cards Below Marker */}
         {expandedTier && (
           <>
-            {/* Backdrop Dim */}
-            <div className="fixed inset-0 bg-black/40 backdrop-blur-sm -z-10 animate-fade-in" />
+            {/* Subtle Backdrop Dim - No Harsh Overlay */}
+            <div 
+              className="fixed inset-0 -z-10 animate-fade-in" 
+              style={{
+                background: 'radial-gradient(circle at 50% 30%, rgba(0,0,0,0.3) 0%, transparent 70%)'
+              }}
+              onClick={() => setExpandedTier(null)}
+            />
             
-            {/* Rewards Container */}
-            <div className="mt-6 relative z-20">
+            {/* Rewards Container - Positioned Below Clicked Marker */}
+            <div className="absolute top-28 z-30" 
+              style={{
+                left: getMarkerPosition(
+                  visibleTiers.find(t => t.name === expandedTier)?.threshold ?? 0
+                ),
+                transform: 'translateX(-50%)'
+              }}
+            >
               {visibleTiers.map((tier) => (
                 expandedTier === tier.name && (
                   <div 
                     key={tier.name} 
-                    className="space-y-3 px-6 py-6 rounded-xl border"
-                    style={{ 
-                      backgroundColor: '#343532',
-                      borderColor: `hsl(var(--${tier.color}))`,
+                    className="w-80 space-y-2"
+                    style={{
                       animation: 'reward-fade-in 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards'
                     }}
                   >
-                    <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
-                      <span style={{ color: `hsl(var(--${tier.color}))` }}>{tier.name} Rewards</span>
-                    </h3>
-                    
+                    {/* Rewards as Individual Stacked Cards */}
                     {tierRewards[tier.name]?.map((reward, idx) => {
                       const RewardIcon = reward.icon;
                       return (
                         <div 
                           key={idx} 
-                          className="flex items-start gap-3 p-3 rounded-lg hover:bg-background/30 transition-colors"
+                          className="backdrop-blur-xl rounded-lg p-4 
+                            transition-all duration-300 hover:scale-105 cursor-default"
                           style={{
+                            background: `linear-gradient(135deg, 
+                              rgba(${tier.name === 'Base' ? '200,200,200' : tier.name === 'Ridge' ? '221,0,51' : '20,20,20'}, 0.15) 0%, 
+                              rgba(0,0,0,0.7) 100%
+                            )`,
+                            border: `1px solid ${tier.name === 'Ridge' ? 'rgba(221, 0, 51, 0.3)' : 'rgba(255, 255, 255, 0.1)'}`,
                             animation: `reward-fade-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards`,
-                            animationDelay: `${idx * 80}ms`,
-                            opacity: 0
+                            animationDelay: `${idx * 60}ms`,
+                            opacity: 0,
+                            boxShadow: tier.name === 'Ridge' 
+                              ? '0 4px 20px rgba(221, 0, 51, 0.15)' 
+                              : '0 4px 20px rgba(0, 0, 0, 0.3)'
                           }}
                         >
-                        <div 
-                          className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
-                          style={{ 
-                            backgroundColor: `hsl(var(--${tier.color}) / 0.2)`,
-                            border: `1px solid hsl(var(--${tier.color}) / 0.4)`
-                          }}
-                        >
-                          <RewardIcon className="w-5 h-5" style={{ color: `hsl(var(--${tier.color}))` }} />
+                          <div className="flex items-start gap-3">
+                            {/* Icon */}
+                            <div 
+                              className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
+                              style={{ 
+                                background: tier.name === 'Ridge' 
+                                  ? 'rgba(221, 0, 51, 0.2)' 
+                                  : 'rgba(255, 255, 255, 0.1)',
+                                border: `1px solid ${tier.name === 'Ridge' ? 'rgba(221, 0, 51, 0.4)' : 'rgba(255, 255, 255, 0.2)'}`
+                              }}
+                            >
+                              <RewardIcon 
+                                className="w-5 h-5" 
+                                style={{ 
+                                  color: tier.name === 'Ridge' ? '#DD0033' : '#fff' 
+                                }} 
+                              />
+                            </div>
+                            
+                            {/* Content */}
+                            <div className="flex-1">
+                              <h4 className="font-semibold text-sm mb-1 text-white">
+                                {reward.title}
+                              </h4>
+                              <p className="text-xs text-white/70">
+                                {reward.description}
+                              </p>
+                            </div>
+                          </div>
                         </div>
-                        
-                        <div className="flex-1">
-                          <h4 className="font-bold text-sm mb-1">{reward.title}</h4>
-                          <p className="text-xs text-muted-foreground">
-                            {reward.description}
-                          </p>
-                        </div>
-                      </div>
-                        );
-                      })}
+                      );
+                    })}
+                    
+                    {/* Close Hint */}
+                    <div className="text-center mt-3">
+                      <button 
+                        onClick={() => setExpandedTier(null)}
+                        className="text-xs text-white/50 hover:text-white/80 transition-colors uppercase tracking-wider"
+                      >
+                        Close
+                      </button>
                     </div>
-                  )
-                ))}
-              </div>
-            </>
-          )
-        }
+                  </div>
+                )
+              ))}
+            </div>
+          </>
+        )}
       </div>
       
       {/* EP Progress Indicator */}
