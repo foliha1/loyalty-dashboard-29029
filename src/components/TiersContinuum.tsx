@@ -118,15 +118,15 @@ export const TiersContinuum = () => {
 
   const handleMouseEnter = (tierName: string) => {
     if (hoverTimeout) clearTimeout(hoverTimeout);
-    const timeout = setTimeout(() => {
-      setHoveredTier(tierName);
-    }, 200);
-    setHoverTimeout(timeout);
+    setHoveredTier(tierName);
   };
 
   const handleMouseLeave = () => {
     if (hoverTimeout) clearTimeout(hoverTimeout);
-    setHoveredTier(null);
+    const timeout = setTimeout(() => {
+      setHoveredTier(null);
+    }, 150);
+    setHoverTimeout(timeout);
   };
   
   return (
@@ -177,7 +177,7 @@ export const TiersContinuum = () => {
                 <div
                   key={tier.name}
                   className={cn(
-                    "absolute cursor-pointer group transition-all duration-300",
+                    "absolute group transition-all duration-300",
                     isRevealed && "animate-fade-in"
                   )}
                   style={{ 
@@ -186,9 +186,14 @@ export const TiersContinuum = () => {
                     animationDelay: `${visibleTiers.indexOf(tier) * 120}ms`,
                     opacity: isRevealed ? 1 : 0
                   }}
-                  onMouseEnter={() => handleMouseEnter(tier.name)}
-                  onMouseLeave={handleMouseLeave}
                 >
+                  {/* Expanded hover zone for stable interaction */}
+                  <div
+                    className="absolute inset-0 -inset-x-12 -inset-y-12 cursor-pointer"
+                    onMouseEnter={() => handleMouseEnter(tier.name)}
+                    onMouseLeave={handleMouseLeave}
+                  />
+                  
                   {/* Current Tier Pulse */}
                   {isCurrent && (
                     <div 
@@ -205,8 +210,8 @@ export const TiersContinuum = () => {
                   {/* Marker Circle */}
                   <div 
                     className={cn(
-                      "w-16 h-16 rounded-full flex items-center justify-center relative z-10",
-                      "transition-all duration-300 hover:scale-110"
+                      "w-16 h-16 rounded-full flex items-center justify-center relative z-10 pointer-events-none",
+                      "transition-all duration-300 group-hover:scale-110"
                     )}
                     style={{
                       background: 'rgba(10, 10, 10, 0.95)',
@@ -271,12 +276,13 @@ export const TiersContinuum = () => {
               return (
                 <div
                   key={tier.name}
-                  className="absolute pointer-events-none animate-fade-in"
+                  className="absolute pointer-events-none"
                   style={{
                     left: `${markerPos}%`,
                     top: '-140px',
                     transform: tooltipTransform,
-                    animation: 'fade-in 0.2s ease-out'
+                    willChange: 'transform, opacity',
+                    animation: 'fade-in 0.15s ease-out forwards'
                   }}
                 >
                   <div 
@@ -284,7 +290,8 @@ export const TiersContinuum = () => {
                     style={{
                       background: 'rgba(10, 10, 10, 0.98)',
                       border: `1px solid hsl(var(--${tier.color}) / 0.5)`,
-                      boxShadow: `0 4px 20px rgba(0, 0, 0, 0.8), 0 0 40px hsl(var(--${tier.color}) / 0.2)`
+                      boxShadow: `0 4px 20px rgba(0, 0, 0, 0.8), 0 0 40px hsl(var(--${tier.color}) / 0.2)`,
+                      willChange: 'transform'
                     }}
                   >
                     {/* Arrow pointing down to marker */}
