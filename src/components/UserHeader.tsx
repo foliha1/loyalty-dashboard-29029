@@ -16,9 +16,9 @@ export const UserHeader = ({ isCollapsed = false }: UserHeaderProps) => {
   return (
     <section 
       className={cn(
-        "transition-all duration-300 ease-in-out section-reveal relative",
+        "transition-all duration-[600ms] ease-in-out section-reveal relative min-h-[600px]",
         isCollapsed 
-          ? "fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md border-b border-tier-accent/20 py-3" 
+          ? "fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md border-b border-tier-accent/20 py-3 min-h-0" 
           : "mb-16 py-8"
       )}
       style={!isCollapsed ? {
@@ -28,9 +28,9 @@ export const UserHeader = ({ isCollapsed = false }: UserHeaderProps) => {
         backgroundRepeat: 'no-repeat'
       } : undefined}
     >
-      {/* Black overlay at 30% */}
+      {/* Black overlay at 50% */}
       {!isCollapsed && (
-        <div className="absolute inset-0 bg-black/30 -z-10" />
+        <div className="absolute inset-0 bg-black/50 -z-10" />
       )}
       
       <div className="container mx-auto px-4 relative z-10">
