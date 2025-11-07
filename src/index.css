@@ -344,6 +344,16 @@ All colors MUST be HSL.
   box-shadow: 0 0 24px hsl(var(--current-tier-accent) / 0.4);
 }
 
+/* Card hover effect with tier accent */
+.card-hover-tier {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover-tier:hover {
+  border-color: hsl(var(--current-tier-accent) / 0.5);
+  box-shadow: 0 4px 20px hsl(var(--current-tier-accent) / 0.2);
+}
+
   .divider-red-vertical {
     width: 2px;
     background: linear-gradient(180deg, #DD0033 0%, transparent 100%);

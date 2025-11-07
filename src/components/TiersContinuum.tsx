@@ -220,21 +220,19 @@ export const TiersContinuum = () => {
                   </div>
                   
                   {/* Tier Label Below */}
-                  <div className="absolute top-20 left-1/2 -translate-x-1/2 text-center whitespace-nowrap">
+                  <div className="absolute top-24 left-1/2 -translate-x-1/2 text-center whitespace-nowrap">
                     <div 
-                      className="font-editorial text-sm mb-2 uppercase tracking-wider"
+                      className="font-editorial text-lg font-bold mb-1 uppercase tracking-wider"
                       style={{
                         color: `hsl(var(--${tier.color}))`,
-                        letterSpacing: '0.12em'
+                        letterSpacing: '0.12em',
+                        textShadow: `0 2px 8px hsl(var(--${tier.color}) / 0.3)`
                       }}
                     >
                       {tier.name}
                     </div>
-                    <div className="text-subhead text-xs">
-                      {tier.threshold > 0 ? `${tier.threshold} EP` : 'Starting Point'}
-                    </div>
                     {isCurrent && (
-                      <div className="text-subhead text-tier-accent mt-2 font-semibold">
+                      <div className="text-subhead text-tier-accent mt-1 font-semibold text-xs">
                         Current Tier
                       </div>
                     )}
@@ -333,12 +331,6 @@ export const TiersContinuum = () => {
           </div>
         )}
         
-        {/* EP Progress Info */}
-        <div className="mt-12 text-center">
-          <div className="text-subhead text-sm">
-            Progress: {currentEP} / {maxThreshold} EP ({Math.round(animatedProgress)}%)
-          </div>
-        </div>
       </div>
     </section>
   );

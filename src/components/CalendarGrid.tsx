@@ -99,7 +99,7 @@ export const CalendarGrid = () => {
         {registrationWindows.map((event, idx) => (
           <div 
             key={idx}
-            className="card-29029 p-8 relative overflow-hidden group metric-animate"
+            className="card-29029 p-8 relative overflow-hidden group metric-animate card-hover-tier"
           >
             {/* Badges Row */}
             <div className="flex items-center justify-between mb-6">

@@ -47,28 +47,28 @@ export const ImmersionsGrid = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {immersions.map((immersion, index) => (
-          <div key={index} className="card-29029 p-8 group metric-animate">
+          <div key={index} className="card-29029 p-8 group metric-animate card-hover-tier">
             {/* Type Badge */}
-            <div className="text-[10px] px-3 py-1.5 rounded-full bg-[#DD0033]/20 border border-[#DD0033]/50 text-[#DD0033] uppercase tracking-wider inline-block mb-4">
+            <div className="text-[10px] px-3 py-1.5 rounded-full bg-tier-accent/20 border border-tier-accent/50 text-tier-accent uppercase tracking-wider inline-block mb-4">
               {immersion.type}
             </div>
 
             {/* Event Name */}
-            <h3 className="font-editorial text-2xl font-bold mb-3 group-hover:text-[#DD0033] transition-colors uppercase" style={{ letterSpacing: '0.08em' }}>
+            <h3 className="font-editorial text-2xl font-bold mb-3 group-hover:text-tier-accent transition-colors uppercase" style={{ letterSpacing: '0.08em' }}>
               {immersion.title}
             </h3>
 
-            {/* Red Accent Line */}
-            <div className="h-0.5 w-12 bg-[#DD0033] mb-6" />
+            {/* Accent Line */}
+            <div className="h-0.5 w-12 bg-tier-accent mb-6" />
 
             {/* Details */}
             <div className="space-y-3 mb-6">
               <div className="flex items-center gap-2">
-                <Calendar className="w-4 h-4 text-[#DD0033]" />
+                <Calendar className="w-4 h-4 text-tier-accent" />
                 <span className="text-body">{immersion.date}</span>
               </div>
               <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-[#DD0033]" />
+                <MapPin className="w-4 h-4 text-tier-accent" />
                 <span className="text-body">{immersion.location}</span>
               </div>
             </div>
@@ -76,12 +76,12 @@ export const ImmersionsGrid = () => {
             {/* EP Display */}
             <div className="mb-6 text-center">
               <div className="text-subhead mb-2">Elevation Points</div>
-              <div className="metric-medium text-[#DD0033]">+{immersion.ep}</div>
+              <div className="metric-medium text-tier-accent">+{immersion.ep}</div>
             </div>
 
             {/* CTA */}
             <Button 
-              className="w-full bg-[#DD0033] hover:bg-[#990023] text-white font-semibold uppercase tracking-wider"
+              className="w-full text-white font-semibold uppercase tracking-wider"
               disabled={!immersion.available}
             >
               {immersion.available ? "Enroll" : "Request Invite"}
