@@ -80,12 +80,27 @@ export const TiersContinuum = () => {
   const [isRevealed, setIsRevealed] = useState(false);
   const [hoverTimeout, setHoverTimeout] = useState<NodeJS.Timeout | null>(null);
   const [animatedProgress, setAnimatedProgress] = useState(0);
+  const [selectedTierForTesting, setSelectedTierForTesting] = useState<string | null>(null);
+  const [testModeActive, setTestModeActive] = useState(false);
+  
   const visibleTiers = tiers.filter(t => t.name !== "Summit Circle");
-  const currentTierName = "Ridge"; // This should come from user data
-  const currentEP = activity2025.events.totalEP + activity2025.apparel.totalEP + activity2025.coaching.totalEP;
-  const nextTierEP = 1000;
-  const remainingEP = nextTierEP - currentEP;
-  const nextTierName = "Peak";
+  
+  // Actual user data
+  const actualEP = activity2025.events.totalEP + activity2025.apparel.totalEP + activity2025.coaching.totalEP;
+  const actualTierName = "Ridge";
+  
+  // Use test tier if active, otherwise use actual data
+  const currentTierName = selectedTierForTesting || actualTierName;
+  const currentTier = visibleTiers.find(t => t.name === currentTierName);
+  const currentEP = testModeActive && currentTier ? currentTier.threshold + 50 : actualEP; // Add 50 EP buffer when testing
+  
+  // Calculate next tier dynamically
+  const currentTierIndex = visibleTiers.findIndex(t => t.name === currentTierName);
+  const nextTier = visibleTiers[currentTierIndex + 1];
+  const nextTierEP = nextTier?.threshold || 1000;
+  const remainingEP = Math.max(0, nextTierEP - currentEP);
+  const nextTierName = nextTier?.name || "Peak";
+  
   const maxThreshold = 1000; // Peak threshold
 
   useEffect(() => {
@@ -95,7 +110,7 @@ export const TiersContinuum = () => {
   useEffect(() => {
     if (isRevealed) {
       const targetProgress = getProgressPosition();
-      const duration = 1500; // 1.5 seconds
+      const duration = testModeActive ? 500 : 1500; // Faster animation in test mode
       const steps = 60;
       const increment = targetProgress / steps;
       const stepTime = duration / steps;
@@ -109,7 +124,7 @@ export const TiersContinuum = () => {
       }, stepTime);
       return () => clearInterval(interval);
     }
-  }, [isRevealed, currentEP, maxThreshold]);
+  }, [isRevealed, currentEP, maxThreshold, selectedTierForTesting, testModeActive]);
   const getMarkerPosition = (threshold: number) => {
     if (threshold === 0) return 8;
     if (threshold === 500) return 50;
@@ -150,6 +165,16 @@ export const TiersContinuum = () => {
     }, 150);
     setHoverTimeout(timeout);
   };
+  
+  const handleTierClick = (tierName: string) => {
+    setSelectedTierForTesting(tierName);
+    setTestModeActive(true);
+  };
+  
+  const handleReset = () => {
+    setSelectedTierForTesting(null);
+    setTestModeActive(false);
+  };
   return <section className="mb-24 section-reveal">
       
       
@@ -159,7 +184,22 @@ export const TiersContinuum = () => {
         Your Elevation Journey
       </h3>
 
-      <div className="card-29029 card-hover-tier p-10 md:p-14">
+      <div className="card-29029 card-hover-tier p-10 md:p-14" data-current-tier={currentTierName}>
+        {/* Testing Mode Indicator */}
+        {testModeActive && (
+          <div className="mb-6 flex items-center justify-between p-3 rounded-lg border border-tier-accent/50 bg-tier-accent/10">
+            <div className="flex items-center gap-2">
+              <Zap className="w-4 h-4 text-tier-accent" />
+              <span className="text-xs font-semibold text-tier-accent">Testing Mode: {currentTierName} Tier</span>
+            </div>
+            <button
+              onClick={handleReset}
+              className="text-xs px-3 py-1 rounded bg-tier-accent/20 hover:bg-tier-accent/30 text-tier-accent transition-colors"
+            >
+              Reset
+            </button>
+          </div>
+        )}
         {/* Simplified Tier Bar */}
         <div className="relative mb-16">
           {/* Simple Background Bar - Gray */}
@@ -169,12 +209,12 @@ export const TiersContinuum = () => {
             boxShadow: 'inset 0 2px 8px rgba(0,0,0,0.2)'
           }} />
             
-            {/* Progress Fill - Gradient from light gray to teal */}
+            {/* Progress Fill - Gradient using dynamic tier color */}
             <div className="absolute inset-0 rounded-full transition-all duration-1000" style={{
             width: `${animatedProgress}%`,
-            background: 'linear-gradient(90deg, #D9D9D9 0%, #D9D9D9 30%, #CC9933 70%, #CC9933 100%)',
-            boxShadow: '0 2px 12px rgba(204, 153, 51, 0.3)',
-            transition: 'width 0.05s linear'
+            background: currentTier ? `linear-gradient(90deg, #D9D9D9 0%, #D9D9D9 30%, hsl(var(--${currentTier.color})) 70%, hsl(var(--${currentTier.color})) 100%)` : 'linear-gradient(90deg, #D9D9D9 0%, #D9D9D9 30%, #CC9933 70%, #CC9933 100%)',
+            boxShadow: currentTier ? `0 2px 12px hsl(var(--${currentTier.color}) / 0.3)` : '0 2px 12px rgba(204, 153, 51, 0.3)',
+            transition: testModeActive ? 'width 0.5s ease-out, background 0.3s ease-out, box-shadow 0.3s ease-out' : 'width 0.05s linear, background 0.3s ease-out, box-shadow 0.3s ease-out'
           }} />
             
             {/* Tier Markers */}
@@ -191,7 +231,12 @@ export const TiersContinuum = () => {
                 opacity: isRevealed ? 1 : 0
               }}>
                     {/* Expanded hover zone for stable interaction */}
-                    <div className="absolute inset-0 -inset-x-12 -inset-y-12 cursor-pointer" onMouseEnter={() => handleMouseEnter(tier.name)} onMouseLeave={handleMouseLeave} />
+                    <div 
+                      className="absolute inset-0 -inset-x-12 -inset-y-12 cursor-pointer" 
+                      onMouseEnter={() => handleMouseEnter(tier.name)} 
+                      onMouseLeave={handleMouseLeave}
+                      onClick={() => handleTierClick(tier.name)}
+                    />
                     
                     {/* Current Tier Pulse */}
                     {isCurrent && <div className="absolute inset-0 rounded-full pointer-events-none" style={{
@@ -202,7 +247,7 @@ export const TiersContinuum = () => {
                 }} />}
                     
                     {/* Marker Circle */}
-                    <div className={cn("w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center relative z-10 pointer-events-none", "transition-all duration-300 group-hover:scale-110")} style={{
+                    <div className={cn("w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center relative z-10 pointer-events-none cursor-pointer", "transition-all duration-300 group-hover:scale-110")} style={{
                   background: 'rgba(10, 10, 10, 0.95)',
                   border: `2px solid hsl(var(--${tier.color}))`,
                   boxShadow: isCurrent ? `0 0 24px hsl(var(--${tier.color}) / 0.6), inset 0 2px 8px rgba(255,255,255,0.1)` : `0 0 12px hsl(var(--${tier.color}) / 0.3), inset 0 2px 4px rgba(255,255,255,0.05)`
