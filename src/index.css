@@ -378,9 +378,9 @@ All colors MUST be HSL.
   }
 
   .card-29029:hover {
-    border-color: rgba(221, 0, 51, 0.3);
+    border-color: hsl(var(--current-tier-accent) / 0.3);
     transform: translateY(-2px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 4px 20px hsl(var(--current-tier-accent) / 0.15);
   }
 
   /* Section fade-in with increased spacing */
