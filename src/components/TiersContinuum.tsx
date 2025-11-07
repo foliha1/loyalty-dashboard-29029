@@ -213,80 +213,60 @@ export const TiersContinuum = () => {
           </div>
         </div>
         
-        {/* Fixed Dropdown with Solid Backgrounds */}
+        {/* Simplified Tooltip-style Dropdown */}
         {expandedTier && (
-          <>
-            {/* Solid Backdrop with proper z-index */}
-            <div 
-              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] animate-fade-in" 
-              onClick={() => setExpandedTier(null)}
-            />
-            
-            {/* Rewards Container with higher z-index */}
-            <div 
-              className="fixed top-32 z-[110]"
-              style={{
-                left: expandedTier === 'Peak' 
-                  ? 'calc(92% - 160px)' // Align right for Peak
-                  : getMarkerPosition(
-                      visibleTiers.find(t => t.name === expandedTier)?.threshold ?? 0
-                    ),
-                transform: expandedTier === 'Peak' ? 'none' : 'translateX(-50%)'
-              }}
-            >
-              {visibleTiers.map((tier) => (
-                expandedTier === tier.name && (
+          <div className="absolute inset-0 pointer-events-none">
+            {visibleTiers.map((tier) => (
+              expandedTier === tier.name && (
+                <div
+                  key={tier.name}
+                  className="absolute pointer-events-auto"
+                  style={{
+                    left: getMarkerPosition(tier.threshold),
+                    top: '-120px',
+                    transform: expandedTier === 'Peak' ? 'translateX(-85%)' : 'translateX(-50%)'
+                  }}
+                >
                   <div 
-                    key={tier.name} 
-                    className="w-80 space-y-2 animate-fade-in"
+                    className="w-64 rounded-lg p-3 shadow-xl"
+                    style={{
+                      background: 'rgba(10, 10, 10, 0.98)',
+                      border: `1px solid hsl(var(--${tier.color}) / 0.5)`,
+                      boxShadow: `0 4px 20px rgba(0, 0, 0, 0.8), 0 0 40px hsl(var(--${tier.color}) / 0.2)`
+                    }}
                   >
-                    {/* Rewards as Individual Stacked Cards */}
-                    {tierRewards[tier.name]?.map((reward, idx) => {
-                      const RewardIcon = reward.icon;
-                      return (
-                        <div 
-                          key={idx} 
-                          className="rounded-lg p-4 transition-all duration-300 hover:scale-105 cursor-default animate-fade-in"
-                          style={{
-                            background: 'rgba(26, 26, 26, 0.95)',
-                            border: `1px solid hsl(var(--${tier.color}) / 0.4)`,
-                            animationDelay: `${idx * 60}ms`,
-                            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.6)'
-                          }}
-                        >
-                          <div className="flex items-start gap-3">
-                            {/* Icon */}
-                            <div 
-                              className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
-                              style={{ 
-                                background: `hsl(var(--${tier.color}) / 0.2)`,
-                                border: `1px solid hsl(var(--${tier.color}) / 0.4)`
-                              }}
-                            >
-                              <RewardIcon 
-                                className="w-5 h-5" 
-                                style={{ color: `hsl(var(--${tier.color}))` }}
-                              />
-                            </div>
-                            
-                            {/* Content */}
+                    {/* Show only top 3 rewards */}
+                    <div className="space-y-2">
+                      {tierRewards[tier.name]?.slice(0, 3).map((reward, idx) => {
+                        const RewardIcon = reward.icon;
+                        return (
+                          <div 
+                            key={idx} 
+                            className="flex items-start gap-2"
+                          >
+                            <RewardIcon 
+                              className="w-4 h-4 mt-0.5 flex-shrink-0" 
+                              style={{ color: `hsl(var(--${tier.color}))` }}
+                            />
                             <div className="flex-1 min-w-0">
-                              <h4 className="font-editorial text-sm mb-1 text-foreground">
+                              <div className="text-xs font-semibold text-foreground leading-tight">
                                 {reward.title}
-                              </h4>
-                              <p className="text-xs text-muted-foreground leading-relaxed">
-                                {reward.description}
-                              </p>
+                              </div>
                             </div>
                           </div>
+                        );
+                      })}
+                      {tierRewards[tier.name]?.length > 3 && (
+                        <div className="text-xs text-muted-foreground pt-1 border-t border-border/30">
+                          +{tierRewards[tier.name].length - 3} more benefits
                         </div>
-                      );
-                    })}
+                      )}
+                    </div>
                   </div>
-                )
-              ))}
-            </div>
-          </>
+                </div>
+              )
+            ))}
+          </div>
         )}
         
         {/* EP Progress Info */}
