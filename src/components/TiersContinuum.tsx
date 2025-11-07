@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { tiers } from "@/lib/tierConfig";
 import { 
   ShoppingBag, 
@@ -45,11 +45,20 @@ const tierRewards: Record<string, Reward[]> = {
 
 export const TiersContinuum = () => {
   const [expandedTier, setExpandedTier] = useState<string | null>(null);
+  const [hoveredZone, setHoveredZone] = useState<string | null>(null);
+  const [isRevealed, setIsRevealed] = useState(false);
+  const [clickedTier, setClickedTier] = useState<string | null>(null);
+  
   const visibleTiers = tiers.filter(t => t.name !== "Summit Circle");
   const currentTierName = "Ridge"; // This should come from user data
   const currentEP = 720; // This should come from user data
   
   const maxThreshold = 1000; // Peak threshold
+  
+  useEffect(() => {
+    const timer = setTimeout(() => setIsRevealed(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
   
   const getMarkerPosition = (threshold: number) => {
     if (threshold === 0) return '8%';
@@ -62,16 +71,47 @@ export const TiersContinuum = () => {
     return needed > 0 ? needed : 0;
   };
 
+  const handleTierClick = (tierName: string) => {
+    setExpandedTier(expandedTier === tierName ? null : tierName);
+    setClickedTier(tierName);
+    setTimeout(() => setClickedTier(null), 800);
+  };
+  
   return (
     <section className="mb-16 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-      <h2 className="text-2xl md:text-3xl font-bold mb-8 uppercase tracking-wider">
+      <h2 className="text-2xl md:text-3xl font-bold mb-8 uppercase tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-foreground via-foreground/90 to-foreground/70">
         Your Elevation Journey
       </h2>
       
       {/* Gradient Ridge Line Container */}
       <div className="relative">
+        {/* Atmospheric Background Layer */}
+        <div className="absolute inset-0 -z-10 rounded-full overflow-hidden">
+          {/* Depth shadow */}
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/5 to-black/10" />
+          
+          {/* Floating fog particles */}
+          <div 
+            className="absolute inset-0 animate-fog-drift opacity-20"
+            style={{
+              backgroundImage: `radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px)`,
+              backgroundSize: '50px 50px',
+              filter: 'blur(2px)'
+            }}
+          />
+        </div>
+        
         {/* Main Gradient Bar */}
-        <div className="relative h-24 rounded-full overflow-hidden border border-border/50">
+        <div 
+          className={cn(
+            "relative h-24 rounded-full overflow-hidden border border-border/50 shadow-2xl",
+            "transition-opacity duration-700",
+            isRevealed ? "opacity-100" : "opacity-80"
+          )}
+          style={{
+            boxShadow: '0 8px 32px rgba(0,0,0,0.3), inset 0 2px 8px rgba(255,255,255,0.05)'
+          }}
+        >
           {/* Background Gradient */}
           <div 
             className="absolute inset-0" 
@@ -118,6 +158,38 @@ export const TiersContinuum = () => {
             }}
           />
           
+          {/* Initial Sweep on Mount */}
+          {isRevealed && (
+            <div 
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background: `linear-gradient(
+                  90deg,
+                  transparent 0%,
+                  rgba(255, 255, 255, 0.3) 50%,
+                  transparent 100%
+                )`,
+                backgroundSize: '50% 100%',
+                animation: 'sweep 2s ease-out forwards'
+              }}
+            />
+          )}
+          
+          {/* Hover Spotlight Overlay */}
+          {hoveredZone && (
+            <div 
+              className="absolute inset-0 pointer-events-none transition-opacity duration-300 blend-overlay"
+              style={{
+                background: `radial-gradient(
+                  ellipse 40% 100% at ${hoveredZone === 'Base' ? '10%' : hoveredZone === 'Ridge' ? '50%' : '90%'} 50%,
+                  rgba(255, 255, 255, 0.15) 0%,
+                  rgba(255, 255, 255, 0.05) 40%,
+                  transparent 70%
+                )`
+              }}
+            />
+          )}
+          
           {/* Tier Markers */}
           <div className="absolute inset-0 flex items-center">
             {visibleTiers.map((tier) => {
@@ -129,16 +201,57 @@ export const TiersContinuum = () => {
               return (
                 <div
                   key={tier.name}
-                  className="absolute cursor-pointer group"
-                  style={{ left: position, transform: 'translateX(-50%)' }}
-                  onClick={() => setExpandedTier(expandedTier === tier.name ? null : tier.name)}
+                  className={cn(
+                    "absolute cursor-pointer group",
+                    isRevealed && "animate-marker-entrance"
+                  )}
+                  style={{ 
+                    left: position, 
+                    transform: 'translateX(-50%)',
+                    animationDelay: `${visibleTiers.indexOf(tier) * 120}ms`,
+                    opacity: isRevealed ? 1 : 0
+                  }}
+                  onClick={() => handleTierClick(tier.name)}
+                  onMouseEnter={() => setHoveredZone(tier.name)}
+                  onMouseLeave={() => setHoveredZone(null)}
                 >
+                  {/* Current Tier Red Bloom Effects */}
+                  {isCurrent && (
+                    <>
+                      {/* Outer Red Bloom */}
+                      <div 
+                        className="absolute inset-0 rounded-full animate-tier-pulse pointer-events-none"
+                        style={{
+                          background: 'radial-gradient(circle, rgba(221, 0, 51, 0.4) 0%, rgba(221, 0, 51, 0.1) 50%, transparent 70%)',
+                          filter: 'blur(12px)',
+                          transform: 'scale(1.8)'
+                        }}
+                      />
+                      
+                      {/* Inner Glow Ring */}
+                      <div 
+                        className="absolute -inset-1 rounded-full pointer-events-none"
+                        style={{
+                          background: 'linear-gradient(135deg, rgba(221, 0, 51, 0.6), rgba(153, 0, 35, 0.4))',
+                          filter: 'blur(4px)'
+                        }}
+                      />
+                    </>
+                  )}
+                  
+                  {/* Click Ripple Effect */}
+                  {clickedTier === tier.name && (
+                    <div 
+                      className="absolute inset-0 rounded-full border-2 border-29029 animate-ripple pointer-events-none"
+                      key={`ripple-${Date.now()}`}
+                    />
+                  )}
+                  
                   {/* Marker Circle */}
                   <div 
                     className={cn(
                       "w-16 h-16 rounded-full flex items-center justify-center relative z-10",
-                      "transition-all duration-300 hover:scale-110",
-                      isCurrent && "animate-tier-pulse"
+                      "transition-all duration-300 hover:scale-110"
                     )}
                     style={{
                       backgroundColor: 'hsl(var(--background))',
@@ -151,7 +264,17 @@ export const TiersContinuum = () => {
                   
                   {/* Tier Label Below */}
                   <div className="absolute top-20 left-1/2 -translate-x-1/2 text-center whitespace-nowrap">
-                    <div className="font-bold text-sm mb-1">{tier.name}</div>
+                    <div 
+                      className="font-bold text-sm mb-1 bg-clip-text text-transparent"
+                      style={{
+                        backgroundImage: `linear-gradient(135deg, 
+                          hsl(var(--${tier.color})) 0%, 
+                          hsl(var(--${tier.color}) / 0.7) 100%
+                        )`
+                      }}
+                    >
+                      {tier.name}
+                    </div>
                     <div className="text-xs text-muted-foreground">
                       {tier.threshold > 0 ? `${tier.threshold} EP` : 'Starting Point'}
                     </div>
@@ -166,7 +289,7 @@ export const TiersContinuum = () => {
                   </div>
                   
                   {/* Hover Tooltip */}
-                  <div className="absolute -top-16 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                  <div className="absolute -top-16 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out group-hover:-translate-y-1 pointer-events-none">
                     <div className="bg-background border border-border rounded-lg px-3 py-2 text-xs whitespace-nowrap shadow-lg">
                       {isCurrent 
                         ? "Your Current Tier" 
@@ -184,25 +307,39 @@ export const TiersContinuum = () => {
         
         {/* Expandable Rewards Section */}
         {expandedTier && (
-          <div className="mt-6 animate-fade-in">
-            {visibleTiers.map((tier) => (
-              expandedTier === tier.name && (
-                <div 
-                  key={tier.name} 
-                  className="space-y-3 px-6 py-6 rounded-xl border"
-                  style={{ 
-                    backgroundColor: '#343532',
-                    borderColor: `hsl(var(--${tier.color}))`
-                  }}
-                >
-                  <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
-                    <span style={{ color: `hsl(var(--${tier.color}))` }}>{tier.name} Rewards</span>
-                  </h3>
-                  
-                  {tierRewards[tier.name]?.map((reward, idx) => {
-                    const RewardIcon = reward.icon;
-                    return (
-                      <div key={idx} className="flex items-start gap-3 p-3 rounded-lg hover:bg-background/30 transition-colors">
+          <>
+            {/* Backdrop Dim */}
+            <div className="fixed inset-0 bg-black/40 backdrop-blur-sm -z-10 animate-fade-in" />
+            
+            {/* Rewards Container */}
+            <div className="mt-6 relative z-20">
+              {visibleTiers.map((tier) => (
+                expandedTier === tier.name && (
+                  <div 
+                    key={tier.name} 
+                    className="space-y-3 px-6 py-6 rounded-xl border"
+                    style={{ 
+                      backgroundColor: '#343532',
+                      borderColor: `hsl(var(--${tier.color}))`,
+                      animation: 'reward-fade-in 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards'
+                    }}
+                  >
+                    <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
+                      <span style={{ color: `hsl(var(--${tier.color}))` }}>{tier.name} Rewards</span>
+                    </h3>
+                    
+                    {tierRewards[tier.name]?.map((reward, idx) => {
+                      const RewardIcon = reward.icon;
+                      return (
+                        <div 
+                          key={idx} 
+                          className="flex items-start gap-3 p-3 rounded-lg hover:bg-background/30 transition-colors"
+                          style={{
+                            animation: `reward-fade-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards`,
+                            animationDelay: `${idx * 80}ms`,
+                            opacity: 0
+                          }}
+                        >
                         <div 
                           className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
                           style={{ 
@@ -220,13 +357,15 @@ export const TiersContinuum = () => {
                           </p>
                         </div>
                       </div>
-                    );
-                  })}
-                </div>
-              )
-            ))}
-          </div>
-        )}
+                        );
+                      })}
+                    </div>
+                  )
+                ))}
+              </div>
+            </>
+          )
+        }
       </div>
       
       {/* EP Progress Indicator */}

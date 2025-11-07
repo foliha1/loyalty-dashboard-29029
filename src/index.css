@@ -215,4 +215,35 @@ All colors MUST be HSL.
   .bg-warm-gray-light {
     background-color: hsl(var(--warm-gray-light));
   }
+  
+  /* Blend modes for atmospheric effects */
+  .blend-overlay {
+    mix-blend-mode: overlay;
+  }
+  
+  .blend-soft-light {
+    mix-blend-mode: soft-light;
+  }
+  
+  /* Smooth fade utilities */
+  .fade-soft {
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* 29029 Red Utilities */
+  .text-29029 {
+    color: #DD0033;
+  }
+  
+  .border-29029 {
+    border-color: #DD0033;
+  }
+  
+  .glow-29029 {
+    box-shadow: 0 0 24px rgba(221, 0, 51, 0.3);
+  }
+  
+  .glow-29029-strong {
+    box-shadow: 0 0 40px rgba(221, 0, 51, 0.5), 0 0 72px rgba(221, 0, 51, 0.25);
+  }
 }
