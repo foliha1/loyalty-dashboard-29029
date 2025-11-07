@@ -16,7 +16,7 @@ export const UserHeader = ({ isCollapsed = false }: UserHeaderProps) => {
   return (
     <section 
       className={cn(
-        "transition-all duration-300 ease-in-out section-reveal relative",
+        "transition-all duration-300 ease-in-out section-reveal relative w-full",
         isCollapsed 
           ? "fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md border-b border-tier-accent/20 py-3" 
           : "mb-16 py-8"
