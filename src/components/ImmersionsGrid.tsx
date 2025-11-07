@@ -41,9 +41,9 @@ export const ImmersionsGrid = () => {
     <section className="mb-24 section-reveal">
       <div className="divider-red mb-12" />
       
-      <h2 className="text-section-title text-4xl md:text-5xl mb-12 font-editorial">
+      <h3 className="text-section-title text-4xl md:text-5xl mb-12 font-editorial">
         Next Immersions
-      </h2>
+      </h3>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {immersions.map((immersion, index) => (

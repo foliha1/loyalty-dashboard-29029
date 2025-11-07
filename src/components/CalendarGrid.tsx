@@ -77,9 +77,9 @@ export const CalendarGrid = () => {
   return <section className="mb-24 section-reveal">
       <div className="divider-red mb-12" />
       
-      <h2 className="text-section-title md:text-5xl mb-12 font-editorial text-4xl font-light">
+      <h3 className="text-section-title md:text-5xl mb-12 font-editorial text-4xl font-light">
         The Year Ahead
-      </h2>
+      </h3>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {registrationWindows.map((event, idx) => <div key={idx} className="card-29029 p-8 relative overflow-hidden group metric-animate card-hover-tier">

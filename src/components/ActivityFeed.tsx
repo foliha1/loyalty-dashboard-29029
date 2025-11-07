@@ -112,9 +112,9 @@ export const ActivityFeed = () => {
       <div className="divider-red mb-12" />
       
       <div className="flex items-center justify-between mb-12">
-        <h2 className="text-section-title md:text-5xl font-editorial text-4xl font-light">
+        <h3 className="text-section-title md:text-5xl font-editorial text-4xl font-light">
           History
-        </h2>
+        </h3>
         
         <Select value={selectedYear} onValueChange={setSelectedYear}>
           <SelectTrigger className="w-[140px] h-12 border-border bg-black hover:border-tier-accent transition-colors font-semibold">

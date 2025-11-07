@@ -153,17 +153,17 @@ export const TiersContinuum = () => {
   return <section className="mb-24 section-reveal">
       
       
-      <h2 style={{
+      <h3 style={{
       letterSpacing: '-0.02em'
     }} className="text-section-title md:text-5xl mb-12 font-editorial text-4xl text-left font-light">
         Your Elevation Journey
-      </h2>
+      </h3>
 
       <div className="card-29029 card-hover-tier p-10 md:p-14">
         {/* Simplified Tier Bar */}
         <div className="relative mb-16">
           {/* Simple Background Bar - Gray */}
-          <div className={cn("relative h-24 rounded-full overflow-visible transition-opacity duration-700", isRevealed ? "opacity-100" : "opacity-80")}>
+          <div className={cn("relative h-[76px] rounded-full overflow-visible transition-opacity duration-700", isRevealed ? "opacity-100" : "opacity-80")}>
             <div className="absolute inset-0 rounded-full" style={{
             background: '#1d1d1d',
             boxShadow: 'inset 0 2px 8px rgba(0,0,0,0.2)'
