@@ -99,7 +99,7 @@ export const CalendarGrid = () => {
         {registrationWindows.map((event, idx) => (
           <div 
             key={idx}
-            className="card-29029 p-8 relative overflow-hidden group"
+            className="card-29029 p-8 relative overflow-hidden group metric-animate"
           >
             {/* Badges Row */}
             <div className="flex items-center justify-between mb-6">
@@ -120,7 +120,7 @@ export const CalendarGrid = () => {
             </div>
 
             {/* Event Name - Large & Bold */}
-            <h3 className="font-editorial text-3xl font-bold mb-6 group-hover:text-[#DD0033] transition-colors">
+            <h3 className="font-editorial text-3xl font-bold mb-6 group-hover:text-[#DD0033] transition-colors uppercase" style={{ letterSpacing: '0.08em' }}>
               {event.eventName}
             </h3>
 
@@ -128,26 +128,20 @@ export const CalendarGrid = () => {
             <div className="h-0.5 w-16 bg-[#DD0033] mb-6" />
 
             {/* Details */}
-            <div className="space-y-3 text-sm">
+            <div className="space-y-3">
               <div>
-                <span className="text-xs uppercase tracking-widest text-muted-foreground">
-                  Registration Opens
-                </span>
-                <div className="font-semibold mt-1">{event.registrationOpens}</div>
+                <span className="text-subhead">Registration Opens</span>
+                <div className="text-body mt-1">{event.registrationOpens}</div>
               </div>
               
               <div>
-                <span className="text-xs uppercase tracking-widest text-muted-foreground">
-                  Event Dates
-                </span>
-                <div className="font-semibold mt-1">{event.eventDates}</div>
+                <span className="text-subhead">Event Dates</span>
+                <div className="text-body mt-1">{event.eventDates}</div>
               </div>
               
               <div>
-                <span className="text-xs uppercase tracking-widest text-muted-foreground">
-                  Location
-                </span>
-                <div className="font-semibold mt-1">{event.location}</div>
+                <span className="text-subhead">Location</span>
+                <div className="text-body mt-1">{event.location}</div>
               </div>
             </div>
 

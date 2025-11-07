@@ -126,48 +126,43 @@ export const ActivityFeed = () => {
 
       <div className="card-29029 p-10 md:p-14">
         {/* Year Display - More Dramatic */}
-        <div className="flex items-center justify-between mb-12 pb-8 border-b-2 border-[#DD0033]/20">
-          <h3 className="font-editorial text-6xl md:text-7xl font-bold">
-            {yearData.year}
-          </h3>
+        <div className="flex flex-col md:flex-row items-center justify-between mb-12 pb-8 border-b-2 border-[#DD0033]/20 gap-6">
+          <div className="text-center md:text-left metric-animate">
+            <div className="text-subhead mb-2">Year</div>
+            <h3 className="font-editorial text-6xl md:text-7xl font-bold">
+              {yearData.year}
+            </h3>
+          </div>
           
-          <div className="text-right">
-            <div className="font-editorial text-5xl font-bold mb-1">
-              {totalYearEP}
-            </div>
-            <div className="text-xs uppercase tracking-widest text-muted-foreground">
-              Total EP Earned
-            </div>
+          <div className="text-center metric-animate-delay-1">
+            <div className="text-subhead mb-2">Total EP Earned</div>
+            <div className="metric-large">{totalYearEP}</div>
           </div>
         </div>
 
         {/* Categories - More Spacing */}
         <div className="space-y-10">
           {/* Events Section */}
-          <div>
-            <h4 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-6 flex items-center gap-3">
+          <div className="metric-animate-delay-2">
+            <h4 className="text-subhead mb-6 flex items-center gap-3">
               <span>Events</span>
               <div className="h-px flex-1 bg-gradient-to-r from-[#DD0033]/30 to-transparent" />
             </h4>
             
-            <div className="flex items-start justify-between mb-4">
-              <div>
-                <div className="font-editorial text-3xl font-bold mb-2">
-                  {yearData.events.totalEP} EP
-                </div>
-                
-                <Collapsible>
-                  <CollapsibleTrigger className="flex items-center gap-2 text-sm text-muted-foreground hover:text-[#DD0033] transition-colors group">
-                    <span className="uppercase tracking-wider">View Events</span>
-                    <ChevronDown className="h-4 w-4 text-[#DD0033]" />
-                  </CollapsibleTrigger>
-                  <CollapsibleContent className="mt-3">
-                    <div className="text-sm text-muted-foreground">
-                      {yearData.events.attended.join(" • ")}
-                    </div>
-                  </CollapsibleContent>
-                </Collapsible>
-              </div>
+            <div>
+              <div className="metric-medium mb-2">{yearData.events.totalEP} EP</div>
+              
+              <Collapsible>
+                <CollapsibleTrigger className="flex items-center gap-2 text-supporting hover:text-[#DD0033] transition-colors group">
+                  <span className="text-subhead">View Events</span>
+                  <ChevronDown className="h-4 w-4 text-[#DD0033]" />
+                </CollapsibleTrigger>
+                <CollapsibleContent className="mt-3">
+                  <div className="text-body">
+                    {yearData.events.attended.join(" • ")}
+                  </div>
+                </CollapsibleContent>
+              </Collapsible>
             </div>
           </div>
 
@@ -176,28 +171,24 @@ export const ActivityFeed = () => {
 
           {/* APPAREL */}
           <div>
-            <h4 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-6 flex items-center gap-3">
+            <h4 className="text-subhead mb-6 flex items-center gap-3">
               <span>Apparel</span>
               <div className="h-px flex-1 bg-gradient-to-r from-[#DD0033]/30 to-transparent" />
             </h4>
-            <div className="flex items-start justify-between">
-              <div className="flex-1 min-w-0">
-                <div className="font-editorial text-3xl font-bold mb-2">
-                  {yearData.apparel.totalEP} EP
-                </div>
-                
-                <Collapsible>
-                  <CollapsibleTrigger className="flex items-center gap-2 text-sm text-muted-foreground hover:text-[#DD0033] transition-colors group">
-                    <span className="uppercase tracking-wider">View Purchases</span>
-                    <ChevronDown className="h-4 w-4 text-[#DD0033]" />
-                  </CollapsibleTrigger>
-                  <CollapsibleContent className="mt-3">
-                    <div className="text-sm text-muted-foreground">
-                      Purchase history coming soon
-                    </div>
-                  </CollapsibleContent>
-                </Collapsible>
-              </div>
+            <div>
+              <div className="metric-medium mb-2">{yearData.apparel.totalEP} EP</div>
+              
+              <Collapsible>
+                <CollapsibleTrigger className="flex items-center gap-2 text-supporting hover:text-[#DD0033] transition-colors group">
+                  <span className="text-subhead">View Purchases</span>
+                  <ChevronDown className="h-4 w-4 text-[#DD0033]" />
+                </CollapsibleTrigger>
+                <CollapsibleContent className="mt-3">
+                  <div className="text-body">
+                    Purchase history coming soon
+                  </div>
+                </CollapsibleContent>
+              </Collapsible>
             </div>
           </div>
 
@@ -206,32 +197,28 @@ export const ActivityFeed = () => {
 
           {/* COACHING */}
           <div>
-            <h4 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-6 flex items-center gap-3">
+            <h4 className="text-subhead mb-6 flex items-center gap-3">
               <span>Coaching</span>
               <div className="h-px flex-1 bg-gradient-to-r from-[#DD0033]/30 to-transparent" />
             </h4>
-            <div className="flex items-start justify-between">
-              <div className="flex-1 min-w-0">
-                <div className="font-editorial text-3xl font-bold mb-2">
-                  {yearData.coaching.totalEP} EP
-                </div>
-                
-                <Collapsible>
-                  <CollapsibleTrigger className="flex items-center gap-2 text-sm text-muted-foreground hover:text-[#DD0033] transition-colors group">
-                    <span className="uppercase tracking-wider">View Subscriptions</span>
-                    <ChevronDown className="h-4 w-4 text-[#DD0033]" />
-                  </CollapsibleTrigger>
-                  <CollapsibleContent className="mt-3">
-                    <div className="space-y-2">
-                      {yearData.coaching.sessions.map((session, idx) => (
-                        <div key={idx} className="text-sm text-muted-foreground pl-4">
-                          • {session.name}
-                        </div>
-                      ))}
-                    </div>
-                  </CollapsibleContent>
-                </Collapsible>
-              </div>
+            <div>
+              <div className="metric-medium mb-2">{yearData.coaching.totalEP} EP</div>
+              
+              <Collapsible>
+                <CollapsibleTrigger className="flex items-center gap-2 text-supporting hover:text-[#DD0033] transition-colors group">
+                  <span className="text-subhead">View Subscriptions</span>
+                  <ChevronDown className="h-4 w-4 text-[#DD0033]" />
+                </CollapsibleTrigger>
+                <CollapsibleContent className="mt-3">
+                  <div className="space-y-2">
+                    {yearData.coaching.sessions.map((session, idx) => (
+                      <div key={idx} className="text-body pl-4">
+                        • {session.name}
+                      </div>
+                    ))}
+                  </div>
+                </CollapsibleContent>
+              </Collapsible>
             </div>
           </div>
         </div>

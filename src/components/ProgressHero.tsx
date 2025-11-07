@@ -45,7 +45,7 @@ export const ProgressHero = () => {
 
       <div className="card-29029 p-10 md:p-14">
         {/* Progress Bar - Larger, More Dramatic */}
-        <div className="mb-16">
+        <div className="mb-16 metric-animate">
           <TooltipProvider>
             <Tooltip open={isHovered}>
               <TooltipTrigger asChild>
@@ -55,13 +55,13 @@ export const ProgressHero = () => {
                   onMouseLeave={() => setIsHovered(false)}
                 >
                   <div className="flex justify-between items-baseline mb-4">
-                    <span className="text-xs uppercase tracking-widest text-muted-foreground">
+                    <span className="text-subhead">
                       {currentTierName}
                     </span>
                     <span className="font-editorial text-2xl font-bold text-[#DD0033]">
                       {percentage}%
                     </span>
-                    <span className="text-xs uppercase tracking-widest text-muted-foreground">
+                    <span className="text-subhead">
                       {nextTierName}
                     </span>
                   </div>
@@ -103,9 +103,9 @@ export const ProgressHero = () => {
 
         {/* Stats - Larger Typography, More Space */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          <div>
-            <div className="flex items-center gap-2 mb-3">
-              <div className="text-xs uppercase tracking-widest text-muted-foreground">
+          <div className="text-center metric-animate-delay-1">
+            <div className="flex items-center justify-center gap-2 mb-3">
+              <div className="text-subhead">
                 Total EPs
               </div>
               <Popover>
@@ -119,21 +119,21 @@ export const ProgressHero = () => {
                 </PopoverContent>
               </Popover>
             </div>
-            <div className="font-editorial text-5xl font-bold">{currentEP}</div>
-            <div className="text-sm text-muted-foreground mt-1">Elevation Points</div>
+            <div className="metric-large">{currentEP}</div>
+            <div className="text-supporting mt-2">Elevation Points</div>
           </div>
 
-          <div>
-            <div className="text-xs uppercase tracking-widest text-muted-foreground mb-3">
+          <div className="text-center metric-animate-delay-2">
+            <div className="text-subhead mb-3">
               EPs Remaining
             </div>
-            <div className="font-editorial text-5xl font-bold">{remainingEP}</div>
-            <div className="text-sm text-muted-foreground mt-1">Until {nextTierName}</div>
+            <div className="metric-large">{remainingEP}</div>
+            <div className="text-supporting mt-2">Until {nextTierName}</div>
           </div>
 
-          <div>
-            <div className="flex items-center gap-2 mb-3">
-              <div className="text-xs uppercase tracking-widest text-muted-foreground">
+          <div className="text-center metric-animate-delay-3">
+            <div className="flex items-center justify-center gap-2 mb-3">
+              <div className="text-subhead">
                 Next Tier
               </div>
               <Popover>
@@ -147,8 +147,8 @@ export const ProgressHero = () => {
                 </PopoverContent>
               </Popover>
             </div>
-            <div className="font-editorial text-4xl font-bold">{nextTierName.toUpperCase()}</div>
-            <div className="text-sm text-muted-foreground mt-1">Summit Awaits</div>
+            <div className="metric-large">{nextTierName.toUpperCase()}</div>
+            <div className="text-supporting mt-2">Summit Awaits</div>
           </div>
         </div>
       </div>

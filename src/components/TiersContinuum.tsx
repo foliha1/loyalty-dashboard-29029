@@ -267,24 +267,22 @@ export const TiersContinuum = () => {
                   {/* Tier Label Below */}
                   <div className="absolute top-20 left-1/2 -translate-x-1/2 text-center whitespace-nowrap">
                     <div 
-                      className="font-bold text-sm mb-1 bg-clip-text text-transparent"
+                      className="font-editorial text-sm mb-1 uppercase bg-clip-text text-transparent"
                       style={{
                         backgroundImage: `linear-gradient(135deg, 
                           hsl(var(--${tier.color})) 0%, 
                           hsl(var(--${tier.color}) / 0.7) 100%
-                        )`
+                        )`,
+                        letterSpacing: '0.1em'
                       }}
                     >
                       {tier.name}
                     </div>
-                    <div className="text-xs text-muted-foreground">
+                    <div className="text-subhead">
                       {tier.threshold > 0 ? `${tier.threshold} EP` : 'Starting Point'}
                     </div>
                     {isCurrent && (
-                      <div 
-                        className="text-[10px] uppercase tracking-wider mt-1 font-bold"
-                        style={{ color: `hsl(var(--${tier.color}))` }}
-                      >
+                      <div className="text-subhead text-[#DD0033] mt-1">
                         Current Tier
                       </div>
                     )}

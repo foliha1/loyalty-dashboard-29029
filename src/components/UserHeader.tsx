@@ -21,11 +21,11 @@ export const UserHeader = () => {
       <div className="container mx-auto px-4 py-16">
         {/* Name + ID */}
         <div className="mb-8">
-          <h1 className="text-hero text-5xl md:text-7xl mb-2">
+          <h1 className="text-hero text-5xl md:text-7xl mb-2 metric-animate">
             Alex Rivera
           </h1>
-          <div className="h-0.5 w-24 bg-[#DD0033] mb-4" />
-          <div className="text-sm text-muted-foreground uppercase tracking-widest">
+          <div className="h-0.5 w-24 bg-[#DD0033] mb-4 metric-animate-delay-1" />
+          <div className="text-subhead text-slide-up-delay-2">
             29029 ID: AR-5847 • Member Since 2023
           </div>
         </div>
@@ -33,7 +33,7 @@ export const UserHeader = () => {
         {/* Stats Grid - More Spacious */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
           {/* Avatar */}
-          <div className="flex justify-center md:justify-start">
+          <div className="flex justify-center md:justify-start metric-animate-delay-1">
             <Avatar className="w-32 h-32 border-4 border-[#DD0033] shadow-[0_0_40px_rgba(221,0,51,0.4)]">
               <AvatarImage src="https://i.pravatar.cc/300?img=12" alt="Alex Rivera" />
               <AvatarFallback className="bg-secondary text-foreground text-lg font-semibold">AR</AvatarFallback>
@@ -41,15 +41,15 @@ export const UserHeader = () => {
           </div>
 
           {/* EP Display */}
-          <div className="text-center">
-            <div className="text-xs text-muted-foreground uppercase tracking-widest mb-3">
+          <div className="text-center metric-animate-delay-2">
+            <div className="text-subhead mb-3">
               Total EP This Cycle
             </div>
-            <div className="text-6xl font-editorial font-bold">720</div>
+            <div className="metric-hero">720</div>
           </div>
 
           {/* Tier Badge */}
-          <div className="flex justify-center md:justify-end">
+          <div className="flex justify-center md:justify-end metric-animate-delay-3">
             {TierIcon && (
               <div className="px-8 py-4 rounded-lg border-2 border-[#5eb8ad] bg-black/40 backdrop-blur-sm">
                 <TierIcon className="w-8 h-8 text-[#5eb8ad] mx-auto mb-2" />
