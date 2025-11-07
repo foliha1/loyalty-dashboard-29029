@@ -39,7 +39,6 @@ export const UserHeader = () => {
           <h1 className="text-hero text-5xl md:text-7xl mb-2 metric-animate">
             Alex Rivera
           </h1>
-          <div className="h-0.5 w-24 bg-[#DD0033] mb-4 metric-animate-delay-1" />
           <div className="text-subhead text-slide-up-delay-2">
             29029 ID: AR-5847 • Member Since 2023
           </div>
