@@ -63,7 +63,7 @@ export const TiersContinuum = () => {
   
   useEffect(() => {
     if (isRevealed) {
-      const targetProgress = Math.min(100, (currentEP / maxThreshold) * 100);
+      const targetProgress = getProgressPosition();
       const duration = 1500; // 1.5 seconds
       const steps = 60;
       const increment = targetProgress / steps;
@@ -84,9 +84,31 @@ export const TiersContinuum = () => {
   }, [isRevealed, currentEP, maxThreshold]);
   
   const getMarkerPosition = (threshold: number) => {
-    if (threshold === 0) return '8%';
-    if (threshold === 500) return '50%';
-    return '92%';
+    if (threshold === 0) return 8;
+    if (threshold === 500) return 50;
+    if (threshold === 1000) return 92;
+    return 50;
+  };
+  
+  // Calculate exact progress position to align with tier markers
+  const getProgressPosition = () => {
+    // Find which tier range we're in
+    let lowerTier = visibleTiers[0];
+    let upperTierThreshold = visibleTiers[1]?.threshold || maxThreshold;
+    
+    for (let i = 0; i < visibleTiers.length; i++) {
+      if (currentEP >= visibleTiers[i].threshold) {
+        lowerTier = visibleTiers[i];
+        upperTierThreshold = visibleTiers[i + 1]?.threshold || maxThreshold;
+      }
+    }
+    
+    // Calculate progress within this tier range
+    const tierProgress = (currentEP - lowerTier.threshold) / (upperTierThreshold - lowerTier.threshold);
+    const lowerPos = getMarkerPosition(lowerTier.threshold);
+    const upperPos = getMarkerPosition(upperTierThreshold);
+    
+    return lowerPos + (upperPos - lowerPos) * tierProgress;
   };
 
   const getEPNeeded = (tier: typeof visibleTiers[0]) => {
@@ -137,8 +159,8 @@ export const TiersContinuum = () => {
             className="absolute inset-0 rounded-full transition-all duration-1000"
             style={{
               width: `${animatedProgress}%`,
-              background: 'linear-gradient(90deg, #D9D9D9 0%, #31BCAF 100%)',
-              boxShadow: '0 2px 12px rgba(49, 188, 175, 0.3)',
+              background: 'linear-gradient(90deg, #D9D9D9 0%, #CC9933 100%)',
+              boxShadow: '0 2px 12px rgba(204, 153, 51, 0.3)',
               transition: 'width 0.05s linear'
             }}
           />
@@ -159,7 +181,7 @@ export const TiersContinuum = () => {
                     isRevealed && "animate-fade-in"
                   )}
                   style={{ 
-                    left: position, 
+                    left: `${position}%`, 
                     transform: 'translateX(-50%)',
                     animationDelay: `${visibleTiers.indexOf(tier) * 120}ms`,
                     opacity: isRevealed ? 1 : 0
@@ -238,7 +260,7 @@ export const TiersContinuum = () => {
                   key={tier.name}
                   className="absolute pointer-events-none animate-fade-in"
                   style={{
-                    left: getMarkerPosition(tier.threshold),
+                    left: `${getMarkerPosition(tier.threshold)}%`,
                     top: '-140px',
                     transform: hoveredTier === 'Peak' ? 'translateX(-85%)' : 'translateX(-50%)',
                     animation: 'fade-in 0.2s ease-out'

@@ -60,8 +60,8 @@ All colors MUST be HSL.
     /* Tier colors - Seamless continuum gradient */
     --base: 0 0% 75%;           /* Light gray */
     --base-glow: 0 0% 85%;      /* Lighter gray glow */
-    --ridge: 177 61% 47%;       /* Teal #31BCAF */
-    --ridge-glow: 177 61% 57%;  /* Brighter teal glow */
+    --ridge: 40 60% 50%;        /* Gold #CC9933 */
+    --ridge-glow: 40 70% 60%;   /* Brighter gold glow */
     --peak: 5 85% 50%;          /* Red #E1251B */
     --peak-glow: 5 85% 60%;     /* Brighter red glow */
     --summit: 38 71% 58%;
