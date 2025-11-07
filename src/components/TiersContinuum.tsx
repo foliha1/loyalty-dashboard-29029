@@ -307,7 +307,7 @@ export const TiersContinuum = () => {
         </div>
 
         {/* Separator */}
-        <div className="w-full h-px bg-border/30 mt-24 mb-12"></div>
+        <div className="w-full h-px mt-24 mb-12 bg-zinc-400"></div>
 
         {/* Stats Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
