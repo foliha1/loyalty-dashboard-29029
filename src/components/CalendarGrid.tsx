@@ -147,9 +147,9 @@ export const CalendarGrid = () => {
 
             {/* CTA Button */}
             <Button 
-              className="w-full mt-8 bg-tier-accent hover:opacity-80 text-white font-semibold uppercase tracking-wider transition-opacity"
+              className="w-full mt-8 bg-tier-accent hover:bg-tier-accent/80 text-white font-semibold uppercase tracking-wider transition-colors"
             >
-              Set Reminder
+              Learn More
             </Button>
           </div>
         ))}
