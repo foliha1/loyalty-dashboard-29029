@@ -413,22 +413,8 @@ export const TiersContinuum = () => {
         </div>
 
         <div className="text-center metric-animate-delay-3">
-          <div className="flex items-center justify-center gap-2 mb-3">
-            <div className="text-subhead text-center">
-              Next Tier
-            </div>
-            <Popover>
-              <PopoverTrigger asChild>
-                <button className="inline-flex items-center justify-center">
-                  <Info className="w-3.5 h-3.5 text-tier-accent hover:opacity-70 transition-opacity cursor-help" />
-                </button>
-              </PopoverTrigger>
-              <PopoverContent align="center" className="bg-[#1a1a1a] border-border max-w-[200px] text-xs">
-                <p className="text-white">
-                  <strong>Cycle</strong> refers to the annual tier period. Cycles reset on January 1st each year.
-                </p>
-              </PopoverContent>
-            </Popover>
+          <div className="text-subhead mb-3 text-center">
+            Next Tier
           </div>
           <div className="metric-large">{nextTierName.toUpperCase()}</div>
           <div className="text-supporting mt-2 flex justify-center">Summit Awaits</div>
