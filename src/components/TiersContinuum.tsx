@@ -202,26 +202,26 @@ export const TiersContinuum = () => {
                 }} />}
                     
                     {/* Marker Circle */}
-                    <div className={cn("w-16 h-16 rounded-full flex items-center justify-center relative z-10 pointer-events-none", "transition-all duration-300 group-hover:scale-110")} style={{
+                    <div className={cn("w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center relative z-10 pointer-events-none", "transition-all duration-300 group-hover:scale-110")} style={{
                   background: 'rgba(10, 10, 10, 0.95)',
                   border: `2px solid hsl(var(--${tier.color}))`,
                   boxShadow: isCurrent ? `0 0 24px hsl(var(--${tier.color}) / 0.6), inset 0 2px 8px rgba(255,255,255,0.1)` : `0 0 12px hsl(var(--${tier.color}) / 0.3), inset 0 2px 4px rgba(255,255,255,0.05)`
                 }}>
-                      <Icon className="w-8 h-8" style={{
+                      <Icon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8" style={{
                     color: `hsl(var(--${tier.color}))`
                   }} />
                     </div>
                     
                     {/* Tier Label Below */}
-                    <div className="absolute top-24 left-1/2 -translate-x-1/2 text-center whitespace-nowrap">
-                      <div className="font-editorial text-lg font-bold mb-1 uppercase tracking-wider" style={{
+                    <div className="absolute top-16 sm:top-20 md:top-24 left-1/2 -translate-x-1/2 text-center whitespace-nowrap">
+                      <div className="font-editorial text-sm sm:text-base md:text-lg font-bold mb-1 uppercase tracking-wider" style={{
                     color: `hsl(var(--${tier.color}))`,
                     letterSpacing: '0.12em',
                     textShadow: `0 2px 8px hsl(var(--${tier.color}) / 0.3)`
                   }}>
                         {tier.name}
                       </div>
-                      {isCurrent && <div className="text-subhead text-tier-accent mt-1 font-semibold text-xs">
+                      {isCurrent && <div className="text-subhead text-tier-accent mt-1 font-semibold text-[10px] sm:text-xs">
                           Current Tier
                         </div>}
                     </div>
@@ -251,14 +251,14 @@ export const TiersContinuum = () => {
               tooltipTransform = 'translateX(-15%)';
               arrowLeft = '15%';
             }
-            return <div key={tier.name} className="absolute pointer-events-none" style={{
+            return <div key={tier.name} className="absolute pointer-events-none hidden sm:block" style={{
               left: `${markerPos}%`,
               top: '-140px',
               transform: tooltipTransform,
               willChange: 'transform, opacity',
               animation: 'fade-in 0.15s ease-out forwards'
             }}>
-                    <div className="w-64 rounded-lg p-3 shadow-xl relative" style={{
+                    <div className="w-56 sm:w-64 rounded-lg p-3 shadow-xl relative" style={{
                 background: 'rgba(10, 10, 10, 0.98)',
                 border: `1px solid hsl(var(--${tier.color}) / 0.5)`,
                 boxShadow: `0 4px 20px rgba(0, 0, 0, 0.8), 0 0 40px hsl(var(--${tier.color}) / 0.2)`,
@@ -285,11 +285,11 @@ export const TiersContinuum = () => {
                         {tierRewards[tier.name]?.slice(0, 3).map((reward, idx) => {
                     const RewardIcon = reward.icon;
                     return <div key={idx} className="flex items-start gap-2">
-                              <RewardIcon className="w-4 h-4 mt-0.5 flex-shrink-0" style={{
+                              <RewardIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 flex-shrink-0" style={{
                         color: `hsl(var(--${tier.color}))`
                       }} />
                               <div className="flex-1 min-w-0">
-                                <div className="text-xs font-semibold text-foreground leading-tight">
+                                <div className="text-[11px] sm:text-xs font-semibold text-foreground leading-tight">
                                   {reward.title}
                                 </div>
                               </div>
