@@ -128,7 +128,7 @@ export const ProgressHero = () => {
               EPs Remaining
             </div>
             <div className="metric-large">{remainingEP}</div>
-            <div className="text-supporting mt-2 text-center">Until {nextTierName}</div>
+            <div className="text-supporting mt-2 flex justify-center">Until {nextTierName}</div>
           </div>
 
           <div className="text-center metric-animate-delay-3">
