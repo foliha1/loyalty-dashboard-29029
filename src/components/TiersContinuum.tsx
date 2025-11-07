@@ -47,6 +47,7 @@ export const TiersContinuum = () => {
   const [hoveredTier, setHoveredTier] = useState<string | null>(null);
   const [hoveredZone, setHoveredZone] = useState<string | null>(null);
   const [isRevealed, setIsRevealed] = useState(false);
+  const [hoverTimeout, setHoverTimeout] = useState<NodeJS.Timeout | null>(null);
   
   const visibleTiers = tiers.filter(t => t.name !== "Summit Circle");
   const currentTierName = "Ridge"; // This should come from user data
@@ -68,6 +69,19 @@ export const TiersContinuum = () => {
   const getEPNeeded = (tier: typeof visibleTiers[0]) => {
     const needed = tier.threshold - currentEP;
     return needed > 0 ? needed : 0;
+  };
+
+  const handleMouseEnter = (tierName: string) => {
+    if (hoverTimeout) clearTimeout(hoverTimeout);
+    const timeout = setTimeout(() => {
+      setHoveredTier(tierName);
+    }, 200);
+    setHoverTimeout(timeout);
+  };
+
+  const handleMouseLeave = () => {
+    if (hoverTimeout) clearTimeout(hoverTimeout);
+    setHoveredTier(null);
   };
   
   const progressPercentage = Math.min(100, (currentEP / maxThreshold) * 100);
@@ -128,8 +142,8 @@ export const TiersContinuum = () => {
                     animationDelay: `${visibleTiers.indexOf(tier) * 120}ms`,
                     opacity: isRevealed ? 1 : 0
                   }}
-                  onMouseEnter={() => setHoveredTier(tier.name)}
-                  onMouseLeave={() => setHoveredTier(null)}
+                  onMouseEnter={() => handleMouseEnter(tier.name)}
+                  onMouseLeave={handleMouseLeave}
                 >
                   {/* Current Tier Pulse */}
                   {isCurrent && (
@@ -200,11 +214,12 @@ export const TiersContinuum = () => {
               return (
                 <div
                   key={tier.name}
-                  className="absolute pointer-events-none"
+                  className="absolute pointer-events-none animate-fade-in"
                   style={{
                     left: getMarkerPosition(tier.threshold),
                     top: '-140px',
-                    transform: hoveredTier === 'Peak' ? 'translateX(-85%)' : 'translateX(-50%)'
+                    transform: hoveredTier === 'Peak' ? 'translateX(-85%)' : 'translateX(-50%)',
+                    animation: 'fade-in 0.2s ease-out'
                   }}
                 >
                   <div 
