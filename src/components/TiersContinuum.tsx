@@ -149,7 +149,7 @@ export const TiersContinuum = () => {
           <div 
             className="absolute inset-0 rounded-full"
             style={{
-              background: '#727272',
+              background: '#000000',
               boxShadow: 'inset 0 2px 8px rgba(0,0,0,0.2)'
             }}
           />
@@ -159,7 +159,7 @@ export const TiersContinuum = () => {
             className="absolute inset-0 rounded-full transition-all duration-1000"
             style={{
               width: `${animatedProgress}%`,
-              background: 'linear-gradient(90deg, #D9D9D9 0%, #CC9933 100%)',
+              background: 'linear-gradient(90deg, #D9D9D9 0%, #D9D9D9 30%, #CC9933 70%, #CC9933 100%)',
               boxShadow: '0 2px 12px rgba(204, 153, 51, 0.3)',
               transition: 'width 0.05s linear'
             }}
