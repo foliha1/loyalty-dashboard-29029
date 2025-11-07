@@ -434,4 +434,213 @@ All colors MUST be HSL.
   .text-slide-up-delay-3 {
     animation-delay: 0.35s;
   }
+  
+  /* Animated gradient for header */
+  @keyframes gradient-shift {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  .gradient-shift-slow {
+    background-size: 200% 200%;
+    animation: gradient-shift 12s ease-in-out infinite;
+  }
+  
+  /* Section fade-up with blur transition */
+  .section-fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    filter: blur(8px);
+    transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .section-fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+
+  /* Stagger delays for sequential reveals */
+  .section-fade-up-delay-1 {
+    transition-delay: 0.1s;
+  }
+
+  .section-fade-up-delay-2 {
+    transition-delay: 0.2s;
+  }
+
+  .section-fade-up-delay-3 {
+    transition-delay: 0.3s;
+  }
+  
+  /* Enhanced sweep with pulse */
+  @keyframes sweep-pulse {
+    0%, 100% {
+      opacity: 0.25;
+      filter: blur(20px);
+    }
+    50% {
+      opacity: 0.5;
+      filter: blur(10px);
+    }
+  }
+
+  .animate-sweep-pulse {
+    animation: 
+      sweep 10s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite,
+      sweep-pulse 3s ease-in-out infinite;
+  }
+  
+  /* Soft hover glow effects */
+  .hover-glow-soft {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+  }
+
+  .hover-glow-soft::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    opacity: 0;
+    background: radial-gradient(circle at center, rgba(221, 0, 51, 0.15) 0%, transparent 70%);
+    filter: blur(12px);
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .hover-glow-soft:hover::before {
+    opacity: 1;
+  }
+
+  .hover-glow-soft:hover {
+    transform: translateY(-1px);
+  }
+
+  /* Button hover with shimmer */
+  .hover-glow-button {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hover-glow-button::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .hover-glow-button:hover::after {
+    opacity: 1;
+  }
+
+  /* Card hover with subtle scale and glow */
+  .hover-glow-card {
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hover-glow-card:hover {
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 
+      0 12px 40px rgba(0, 0, 0, 0.5),
+      0 0 30px rgba(221, 0, 51, 0.1);
+  }
+  
+  /* Ripple effect on click */
+  @keyframes ripple {
+    0% {
+      transform: scale(0);
+      opacity: 0.6;
+    }
+    100% {
+      transform: scale(2.5);
+      opacity: 0;
+    }
+  }
+
+  .button-ripple {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .button-ripple::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.5) 0%, transparent 70%);
+    transform: scale(0);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .button-ripple:active::before {
+    animation: ripple 0.6s ease-out;
+  }
+}
+
+@layer utilities {
+  /* Enhanced card with gradient overlay on hover */
+  .card-29029 {
+    background: linear-gradient(135deg, rgba(12,12,12,1) 0%, rgba(18,18,18,1) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 0.5rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+  }
+
+  .card-29029::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    opacity: 0;
+    background: linear-gradient(135deg, rgba(221, 0, 51, 0.05) 0%, transparent 100%);
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+
+  .card-29029:hover::before {
+    opacity: 1;
+  }
+
+  .card-29029:hover {
+    border-color: rgba(221, 0, 51, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 
+      0 12px 40px rgba(0, 0, 0, 0.5),
+      0 0 20px rgba(221, 0, 51, 0.15);
+  }
+}
+
+/* Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .gradient-shift-slow,
+  .animate-sweep,
+  .animate-sweep-pulse,
+  .animate-tier-pulse {
+    animation: none !important;
+  }
+  
+  .section-fade-up {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
 }

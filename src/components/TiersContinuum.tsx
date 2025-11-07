@@ -184,9 +184,9 @@ export const TiersContinuum = () => {
             }}
           />
           
-          {/* Enhanced Sweep Animation - 10s */}
+          {/* Enhanced Sweep Animation with Pulse - 10s + 3s */}
           <div 
-            className="absolute inset-0 animate-sweep opacity-40 pointer-events-none"
+            className="absolute inset-0 animate-sweep-pulse opacity-40 pointer-events-none"
             style={{
               background: `linear-gradient(
                 90deg,
