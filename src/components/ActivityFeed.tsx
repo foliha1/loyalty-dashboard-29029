@@ -112,7 +112,7 @@ export const ActivityFeed = () => {
       <div className="divider-red mb-12" />
       
       <div className="flex items-center justify-between mb-12">
-        <h3 className="text-section-title md:text-5xl font-editorial font-light text-4xl">
+        <h3 className="text-section-title">
           History
         </h3>
         

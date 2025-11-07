@@ -192,9 +192,7 @@ export const TiersContinuum = () => {
   return <section className="mb-24 section-reveal">
       
       
-      <h3 style={{
-      letterSpacing: '-0.02em'
-    }} className="text-section-title md:text-5xl mb-12 font-editorial text-left font-light text-4xl">
+      <h3 className="text-section-title mb-12 text-left">
         Your Elevation Journey
       </h3>
 

@@ -41,7 +41,7 @@ export const ImmersionsGrid = () => {
     <section className="mb-24 section-reveal">
       <div className="divider-red mb-12" />
       
-      <h3 className="text-section-title text-4xl md:text-5xl mb-12 font-editorial">
+      <h3 className="text-section-title mb-12">
         Next Immersions
       </h3>
 
