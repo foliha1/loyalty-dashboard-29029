@@ -120,7 +120,7 @@ export const ProgressHero = () => {
               </Popover>
             </div>
             <div className="metric-large">{currentEP}</div>
-            <div className="text-supporting mt-2 text-center">Elevation Points</div>
+            <div className="text-supporting mt-2 flex justify-center">Elevation Points</div>
           </div>
 
           <div className="text-center metric-animate-delay-2">
