@@ -43,7 +43,7 @@ export const ProgressHero = () => {
         Your Ascent Continues
       </h2>
 
-      <div className="card-29029 p-10 md:p-14">
+      <div className="card-29029 card-hover-tier p-10 md:p-14">
         {/* Progress Bar - Larger, More Dramatic */}
         <div className="mb-16 metric-animate">
           <TooltipProvider>
