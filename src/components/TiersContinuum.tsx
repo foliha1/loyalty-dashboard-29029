@@ -168,7 +168,7 @@ export const TiersContinuum = () => {
             <div 
               className="absolute inset-0 rounded-full"
               style={{
-                background: '#000000',
+                background: '#1d1d1d',
                 boxShadow: 'inset 0 2px 8px rgba(0,0,0,0.2)'
               }}
             />
@@ -375,7 +375,7 @@ export const TiersContinuum = () => {
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-24">
         <div className="text-center metric-animate-delay-1">
           <div className="flex items-center justify-center gap-2 mb-3">
             <div className="text-subhead text-center">

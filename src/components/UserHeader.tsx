@@ -41,21 +41,13 @@ export const UserHeader = ({ isCollapsed = false }: UserHeaderProps) => {
           </div>
 
           {/* Stats Grid - More Spacious */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             {/* Avatar */}
             <div className="flex justify-center md:justify-start metric-animate-delay-1">
               <Avatar className="w-32 h-32 border-4 border-tier-accent glow-tier-accent">
                 <AvatarImage src="https://i.pravatar.cc/300?img=12" alt="Alex Rivera" />
                 <AvatarFallback className="bg-secondary text-foreground text-lg font-semibold">AR</AvatarFallback>
               </Avatar>
-            </div>
-
-            {/* EP Display */}
-            <div className="text-center metric-animate-delay-2">
-              <div className="text-subhead mb-3">
-                Total EP This Cycle
-              </div>
-              <div className="metric-hero">720</div>
             </div>
 
             {/* Tier Badge */}
@@ -97,17 +89,12 @@ export const UserHeader = ({ isCollapsed = false }: UserHeaderProps) => {
             <Logo29029 size={28} className="text-white glow-tier-accent opacity-80" />
           </div>
 
-          {/* Right: EP + Tier */}
+          {/* Right: EP */}
           <div className="flex items-center gap-4 justify-end">
             <div className="text-right">
               <div className="text-sm text-muted-foreground">EP</div>
               <div className="text-xl font-bold text-tier-accent">720</div>
             </div>
-            {TierIcon && (
-              <div className="flex items-center gap-2">
-                <TierIcon className="w-6 h-6 text-tier-accent glow-tier-accent" />
-              </div>
-            )}
           </div>
         </div>
       </div>

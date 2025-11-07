@@ -267,11 +267,11 @@ All colors MUST be HSL.
     line-height: 1.05;
   }
 
-  h2, .text-section-title {
+h2, .text-section-title {
     font-family: 'Oswald', sans-serif;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.10em;
+    letter-spacing: 0.08em;
     font-size: 1.5rem;
   }
 
