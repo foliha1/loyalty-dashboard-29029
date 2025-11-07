@@ -48,6 +48,7 @@ export const TiersContinuum = () => {
   const [hoveredZone, setHoveredZone] = useState<string | null>(null);
   const [isRevealed, setIsRevealed] = useState(false);
   const [hoverTimeout, setHoverTimeout] = useState<NodeJS.Timeout | null>(null);
+  const [animatedProgress, setAnimatedProgress] = useState(0);
   
   const visibleTiers = tiers.filter(t => t.name !== "Summit Circle");
   const currentTierName = "Ridge"; // This should come from user data
@@ -59,6 +60,28 @@ export const TiersContinuum = () => {
     const timer = setTimeout(() => setIsRevealed(true), 100);
     return () => clearTimeout(timer);
   }, []);
+  
+  useEffect(() => {
+    if (isRevealed) {
+      const targetProgress = Math.min(100, (currentEP / maxThreshold) * 100);
+      const duration = 1500; // 1.5 seconds
+      const steps = 60;
+      const increment = targetProgress / steps;
+      const stepTime = duration / steps;
+      
+      let currentStep = 0;
+      const interval = setInterval(() => {
+        currentStep++;
+        setAnimatedProgress(Math.min(increment * currentStep, targetProgress));
+        
+        if (currentStep >= steps) {
+          clearInterval(interval);
+        }
+      }, stepTime);
+      
+      return () => clearInterval(interval);
+    }
+  }, [isRevealed, currentEP, maxThreshold]);
   
   const getMarkerPosition = (threshold: number) => {
     if (threshold === 0) return '8%';
@@ -83,8 +106,6 @@ export const TiersContinuum = () => {
     if (hoverTimeout) clearTimeout(hoverTimeout);
     setHoveredTier(null);
   };
-  
-  const progressPercentage = Math.min(100, (currentEP / maxThreshold) * 100);
   
   return (
     <section className="mb-24 section-reveal">
@@ -115,9 +136,10 @@ export const TiersContinuum = () => {
           <div 
             className="absolute inset-0 rounded-full transition-all duration-1000"
             style={{
-              width: `${progressPercentage}%`,
+              width: `${animatedProgress}%`,
               background: 'linear-gradient(90deg, #D9D9D9 0%, #31BCAF 100%)',
-              boxShadow: '0 2px 12px rgba(49, 188, 175, 0.3)'
+              boxShadow: '0 2px 12px rgba(49, 188, 175, 0.3)',
+              transition: 'width 0.05s linear'
             }}
           />
           
@@ -292,7 +314,7 @@ export const TiersContinuum = () => {
         {/* EP Progress Info */}
         <div className="mt-12 text-center">
           <div className="text-subhead text-sm">
-            Progress: {currentEP} / {maxThreshold} EP ({Math.round(progressPercentage)}%)
+            Progress: {currentEP} / {maxThreshold} EP ({Math.round(animatedProgress)}%)
           </div>
         </div>
       </div>
