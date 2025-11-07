@@ -44,10 +44,9 @@ const tierRewards: Record<string, Reward[]> = {
 };
 
 export const TiersContinuum = () => {
-  const [expandedTier, setExpandedTier] = useState<string | null>(null);
+  const [hoveredTier, setHoveredTier] = useState<string | null>(null);
   const [hoveredZone, setHoveredZone] = useState<string | null>(null);
   const [isRevealed, setIsRevealed] = useState(false);
-  const [clickedTier, setClickedTier] = useState<string | null>(null);
   
   const visibleTiers = tiers.filter(t => t.name !== "Summit Circle");
   const currentTierName = "Ridge"; // This should come from user data
@@ -69,12 +68,6 @@ export const TiersContinuum = () => {
   const getEPNeeded = (tier: typeof visibleTiers[0]) => {
     const needed = tier.threshold - currentEP;
     return needed > 0 ? needed : 0;
-  };
-
-  const handleTierClick = (tierName: string) => {
-    setExpandedTier(expandedTier === tierName ? null : tierName);
-    setClickedTier(tierName);
-    setTimeout(() => setClickedTier(null), 800);
   };
   
   const progressPercentage = Math.min(100, (currentEP / maxThreshold) * 100);
@@ -135,7 +128,8 @@ export const TiersContinuum = () => {
                     animationDelay: `${visibleTiers.indexOf(tier) * 120}ms`,
                     opacity: isRevealed ? 1 : 0
                   }}
-                  onClick={() => handleTierClick(tier.name)}
+                  onMouseEnter={() => setHoveredTier(tier.name)}
+                  onMouseLeave={() => setHoveredTier(null)}
                 >
                   {/* Current Tier Pulse */}
                   {isCurrent && (
@@ -147,14 +141,6 @@ export const TiersContinuum = () => {
                         transform: 'scale(2)',
                         animation: 'pulse 2s ease-in-out infinite'
                       }}
-                    />
-                  )}
-                  
-                  {/* Click Ripple Effect */}
-                  {clickedTier === tier.name && (
-                    <div 
-                      className="absolute inset-0 rounded-full border-2 border-[#DD0033] animate-ripple pointer-events-none"
-                      key={`ripple-${Date.now()}`}
                     />
                   )}
                   
@@ -196,9 +182,56 @@ export const TiersContinuum = () => {
                     )}
                   </div>
                   
-                  {/* Hover Tooltip */}
-                  <div className="absolute -top-16 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out group-hover:-translate-y-1 pointer-events-none">
-                    <div className="bg-background border border-border rounded-lg px-3 py-2 text-xs whitespace-nowrap shadow-lg">
+                </div>
+              );
+            })}
+          </div>
+        </div>
+        
+        {/* Hover Tooltip with Rewards */}
+        {hoveredTier && (
+          <div className="absolute inset-0 pointer-events-none">
+            {visibleTiers.map((tier) => {
+              if (hoveredTier !== tier.name) return null;
+              
+              const isCurrent = tier.name === currentTierName;
+              const epNeeded = getEPNeeded(tier);
+              
+              return (
+                <div
+                  key={tier.name}
+                  className="absolute pointer-events-none"
+                  style={{
+                    left: getMarkerPosition(tier.threshold),
+                    top: '-140px',
+                    transform: hoveredTier === 'Peak' ? 'translateX(-85%)' : 'translateX(-50%)'
+                  }}
+                >
+                  <div 
+                    className="w-64 rounded-lg p-3 shadow-xl relative"
+                    style={{
+                      background: 'rgba(10, 10, 10, 0.98)',
+                      border: `1px solid hsl(var(--${tier.color}) / 0.5)`,
+                      boxShadow: `0 4px 20px rgba(0, 0, 0, 0.8), 0 0 40px hsl(var(--${tier.color}) / 0.2)`
+                    }}
+                  >
+                    {/* Arrow pointing down to marker */}
+                    <div 
+                      className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 rotate-45"
+                      style={{
+                        background: 'rgba(10, 10, 10, 0.98)',
+                        border: `1px solid hsl(var(--${tier.color}) / 0.5)`,
+                        borderTop: 'none',
+                        borderLeft: 'none',
+                        left: hoveredTier === 'Peak' ? '85%' : '50%'
+                      }}
+                    />
+                    
+                    {/* Status text */}
+                    <div 
+                      className="text-xs font-semibold mb-2 pb-2 border-b border-border/30"
+                      style={{ color: `hsl(var(--${tier.color}))` }}
+                    >
                       {isCurrent 
                         ? "Your Current Tier" 
                         : epNeeded > 0 
@@ -206,35 +239,7 @@ export const TiersContinuum = () => {
                           : "Achieved"
                       }
                     </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-        
-        {/* Simplified Tooltip-style Dropdown */}
-        {expandedTier && (
-          <div className="absolute inset-0 pointer-events-none">
-            {visibleTiers.map((tier) => (
-              expandedTier === tier.name && (
-                <div
-                  key={tier.name}
-                  className="absolute pointer-events-auto"
-                  style={{
-                    left: getMarkerPosition(tier.threshold),
-                    top: '-120px',
-                    transform: expandedTier === 'Peak' ? 'translateX(-85%)' : 'translateX(-50%)'
-                  }}
-                >
-                  <div 
-                    className="w-64 rounded-lg p-3 shadow-xl"
-                    style={{
-                      background: 'rgba(10, 10, 10, 0.98)',
-                      border: `1px solid hsl(var(--${tier.color}) / 0.5)`,
-                      boxShadow: `0 4px 20px rgba(0, 0, 0, 0.8), 0 0 40px hsl(var(--${tier.color}) / 0.2)`
-                    }}
-                  >
+                    
                     {/* Show only top 3 rewards */}
                     <div className="space-y-2">
                       {tierRewards[tier.name]?.slice(0, 3).map((reward, idx) => {
@@ -264,8 +269,8 @@ export const TiersContinuum = () => {
                     </div>
                   </div>
                 </div>
-              )
-            ))}
+              );
+            })}
           </div>
         )}
         
