@@ -218,13 +218,13 @@ export const TiersContinuum = () => {
           <>
             {/* Solid Backdrop with proper z-index */}
             <div 
-              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 animate-fade-in" 
+              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] animate-fade-in" 
               onClick={() => setExpandedTier(null)}
             />
             
             {/* Rewards Container with higher z-index */}
             <div 
-              className="absolute top-32 z-50" 
+              className="fixed top-32 z-[110]"
               style={{
                 left: expandedTier === 'Peak' 
                   ? 'calc(92% - 160px)' // Align right for Peak
