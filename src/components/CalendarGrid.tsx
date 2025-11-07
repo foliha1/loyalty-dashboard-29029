@@ -77,7 +77,7 @@ export const CalendarGrid = () => {
   return <section className="mb-24 section-reveal">
       <div className="divider-red mb-12" />
       
-      <h2 className="text-section-title md:text-5xl mb-12 font-editorial text-4xl">
+      <h2 className="text-section-title md:text-5xl mb-12 font-editorial text-4xl font-light">
         The Year Ahead
       </h2>
 
