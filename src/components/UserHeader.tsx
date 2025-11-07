@@ -23,7 +23,7 @@ export const UserHeader = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
           {/* Avatar */}
           <div className="flex justify-center md:justify-start metric-animate-delay-1">
-            <Avatar className="w-32 h-32 border-4 border-[#DD0033] shadow-[0_0_40px_rgba(221,0,51,0.4)]">
+            <Avatar className="w-32 h-32 border-4 border-tier-accent glow-tier-accent">
               <AvatarImage src="https://i.pravatar.cc/300?img=12" alt="Alex Rivera" />
               <AvatarFallback className="bg-secondary text-foreground text-lg font-semibold">AR</AvatarFallback>
             </Avatar>
@@ -44,8 +44,8 @@ export const UserHeader = () => {
                 Current Tier
               </div>
               {TierIcon && (
-                <div className="px-8 py-4 rounded-lg border-2 border-[#5eb8ad] bg-black/40 backdrop-blur-sm">
-                  <TierIcon className="w-8 h-8 text-[#5eb8ad] mx-auto mb-2" />
+                <div className="px-8 py-4 rounded-lg border-2 border-tier-accent bg-black/40 backdrop-blur-sm">
+                  <TierIcon className="w-8 h-8 text-tier-accent mx-auto mb-2" />
                   <div className="font-editorial text-xl text-center">{currentTierName.toUpperCase()}</div>
                 </div>
               )}

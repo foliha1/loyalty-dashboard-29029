@@ -58,7 +58,7 @@ export const ProgressHero = () => {
                     <span className="text-subhead">
                       {currentTierName}
                     </span>
-                    <span className="font-editorial text-2xl font-bold text-[#DD0033]">
+                    <span className="font-editorial text-2xl font-bold text-tier-accent">
                       {percentage}%
                     </span>
                     <span className="text-subhead">
@@ -71,8 +71,8 @@ export const ProgressHero = () => {
                       className="h-full transition-all duration-2000"
                       style={{
                         width: `${percentage}%`,
-                        background: 'linear-gradient(90deg, #DD0033 0%, #990023 100%)',
-                        boxShadow: '0 0 20px rgba(221, 0, 51, 0.4)'
+                        background: 'linear-gradient(90deg, hsl(var(--current-tier-accent)) 0%, hsl(var(--current-tier-accent) / 0.7) 100%)',
+                        boxShadow: '0 0 20px hsl(var(--current-tier-accent) / 0.4)'
                       }}
                     />
                   </div>
@@ -110,7 +110,7 @@ export const ProgressHero = () => {
               </div>
               <Popover>
                 <PopoverTrigger>
-                  <Info className="w-3.5 h-3.5 text-[#DD0033] hover:text-[#990023] transition-colors cursor-help" />
+                  <Info className="w-3.5 h-3.5 text-tier-accent hover:opacity-70 transition-opacity cursor-help" />
                 </PopoverTrigger>
                 <PopoverContent className="bg-[#1a1a1a] border-border max-w-[200px] text-xs">
                   <p className="text-white">
@@ -138,7 +138,7 @@ export const ProgressHero = () => {
               </div>
               <Popover>
                 <PopoverTrigger>
-                  <Info className="w-3.5 h-3.5 text-[#DD0033] hover:text-[#990023] transition-colors cursor-help" />
+                  <Info className="w-3.5 h-3.5 text-tier-accent hover:opacity-70 transition-opacity cursor-help" />
                 </PopoverTrigger>
                 <PopoverContent className="bg-[#1a1a1a] border-border max-w-[200px] text-xs">
                   <p className="text-white">

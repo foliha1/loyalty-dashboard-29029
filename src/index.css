@@ -60,12 +60,16 @@ All colors MUST be HSL.
     /* Tier colors - Seamless continuum gradient */
     --base: 0 0% 75%;           /* Light gray */
     --base-glow: 0 0% 85%;      /* Lighter gray glow */
-    --ridge: 348 85% 50%;       /* Warm red */
-    --ridge-glow: 348 100% 60%; /* Brighter red glow */
-    --peak: 0 0% 8%;            /* Deep black */
-    --peak-glow: 348 100% 42%;  /* Red glow for Peak (#DD0033) */
+    --ridge: 177 61% 47%;       /* Teal #31BCAF */
+    --ridge-glow: 177 61% 57%;  /* Brighter teal glow */
+    --peak: 5 85% 50%;          /* Red #E1251B */
+    --peak-glow: 5 85% 60%;     /* Brighter red glow */
     --summit: 38 71% 58%;
     --summit-glow: 38 71% 68%;
+    
+    /* Dynamic accent color - changes based on user's current tier */
+    --current-tier-accent: var(--ridge);
+    --current-tier-accent-glow: var(--ridge-glow);
     
     /* Cinematic gradients */
     --gradient-soft: radial-gradient(circle at top, hsl(var(--card)), hsl(var(--background)));
@@ -271,14 +275,15 @@ All colors MUST be HSL.
     font-size: 1.5rem;
   }
 
-  .text-subhead {
-    font-family: 'Inter', sans-serif;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    font-size: 0.75rem;
-    color: #8A8A8A;
-  }
+.text-subhead {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.75rem;
+  color: #8A8A8A;
+  line-height: 1.4;
+}
 
   .text-body {
     font-family: 'Inter', sans-serif;
@@ -298,9 +303,46 @@ All colors MUST be HSL.
   /* Red accent dividers */
   .divider-red {
     height: 2px;
-    background: linear-gradient(90deg, #DD0033 0%, transparent 100%);
+    background: linear-gradient(90deg, hsl(var(--current-tier-accent)) 0%, transparent 100%);
     margin: 3rem 0;
   }
+
+/* Dynamic Tier Classes */
+[data-current-tier="Base"] {
+  --current-tier-accent: var(--base);
+  --current-tier-accent-glow: var(--base-glow);
+}
+
+[data-current-tier="Ridge"] {
+  --current-tier-accent: var(--ridge);
+  --current-tier-accent-glow: var(--ridge-glow);
+}
+
+[data-current-tier="Peak"] {
+  --current-tier-accent: var(--peak);
+  --current-tier-accent-glow: var(--peak-glow);
+}
+
+[data-current-tier="Summit Circle"] {
+  --current-tier-accent: var(--summit);
+  --current-tier-accent-glow: var(--summit-glow);
+}
+
+.text-tier-accent {
+  color: hsl(var(--current-tier-accent));
+}
+
+.border-tier-accent {
+  border-color: hsl(var(--current-tier-accent));
+}
+
+.bg-tier-accent {
+  background-color: hsl(var(--current-tier-accent));
+}
+
+.glow-tier-accent {
+  box-shadow: 0 0 24px hsl(var(--current-tier-accent) / 0.4);
+}
 
   .divider-red-vertical {
     width: 2px;

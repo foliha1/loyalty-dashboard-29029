@@ -83,7 +83,7 @@ export const TiersContinuum = () => {
     <section className="mb-24 section-reveal">
       <div className="divider-red mb-12" />
       
-      <h2 className="text-section-title text-4xl md:text-5xl mb-12 font-editorial">
+      <h2 className="text-section-title text-4xl md:text-5xl mb-16 font-editorial">
         Elevation Journey
       </h2>
       
@@ -178,19 +178,19 @@ export const TiersContinuum = () => {
                   {/* Tier Label Below */}
                   <div className="absolute top-20 left-1/2 -translate-x-1/2 text-center whitespace-nowrap">
                     <div 
-                      className="font-editorial text-sm mb-1 uppercase"
+                      className="font-editorial text-sm mb-2 uppercase tracking-wider"
                       style={{
                         color: `hsl(var(--${tier.color}))`,
-                        letterSpacing: '0.1em'
+                        letterSpacing: '0.12em'
                       }}
                     >
                       {tier.name}
                     </div>
-                    <div className="text-subhead">
+                    <div className="text-subhead text-xs">
                       {tier.threshold > 0 ? `${tier.threshold} EP` : 'Starting Point'}
                     </div>
                     {isCurrent && (
-                      <div className="text-subhead text-[#DD0033] mt-1">
+                      <div className="text-subhead text-tier-accent mt-2 font-semibold">
                         Current Tier
                       </div>
                     )}
@@ -249,7 +249,7 @@ export const TiersContinuum = () => {
                           className="rounded-lg p-4 transition-all duration-300 hover:scale-105 cursor-default animate-fade-in"
                           style={{
                             background: 'rgba(26, 26, 26, 0.95)',
-                            border: `1px solid ${tier.name === 'Ridge' ? 'rgba(221, 0, 51, 0.4)' : 'rgba(255, 255, 255, 0.2)'}`,
+                            border: `1px solid hsl(var(--${tier.color}) / 0.4)`,
                             animationDelay: `${idx * 60}ms`,
                             boxShadow: '0 8px 32px rgba(0, 0, 0, 0.6)'
                           }}
@@ -259,17 +259,13 @@ export const TiersContinuum = () => {
                             <div 
                               className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
                               style={{ 
-                                background: tier.name === 'Ridge' 
-                                  ? 'rgba(221, 0, 51, 0.2)' 
-                                  : 'rgba(255, 255, 255, 0.1)',
-                                border: `1px solid ${tier.name === 'Ridge' ? 'rgba(221, 0, 51, 0.4)' : 'rgba(255, 255, 255, 0.2)'}`
+                                background: `hsl(var(--${tier.color}) / 0.2)`,
+                                border: `1px solid hsl(var(--${tier.color}) / 0.4)`
                               }}
                             >
                               <RewardIcon 
                                 className="w-5 h-5" 
-                                style={{ 
-                                  color: tier.name === 'Ridge' ? '#DD0033' : '#D9D9D9'
-                                }} 
+                                style={{ color: `hsl(var(--${tier.color}))` }}
                               />
                             </div>
                             
@@ -294,8 +290,8 @@ export const TiersContinuum = () => {
         )}
         
         {/* EP Progress Info */}
-        <div className="mt-8 text-center">
-          <div className="text-subhead">
+        <div className="mt-12 text-center">
+          <div className="text-subhead text-sm">
             Progress: {currentEP} / {maxThreshold} EP ({Math.round(progressPercentage)}%)
           </div>
         </div>

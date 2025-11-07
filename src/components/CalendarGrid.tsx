@@ -113,19 +113,19 @@ export const CalendarGrid = () => {
               </span>
               
               {event.hasPriorityAccess && (
-                <span className="text-[10px] px-3 py-1.5 rounded-full bg-[#DD0033]/20 border border-[#DD0033]/50 text-[#DD0033] uppercase tracking-wider">
+                <span className="text-[10px] px-3 py-1.5 rounded-full bg-tier-accent/20 border border-tier-accent/50 text-tier-accent uppercase tracking-wider">
                   Priority Access
                 </span>
               )}
             </div>
 
             {/* Event Name - Large & Bold */}
-            <h3 className="font-editorial text-3xl font-bold mb-6 group-hover:text-[#DD0033] transition-colors uppercase" style={{ letterSpacing: '0.08em' }}>
+            <h3 className="font-editorial text-3xl font-bold mb-6 group-hover:text-tier-accent transition-colors uppercase" style={{ letterSpacing: '0.08em' }}>
               {event.eventName}
             </h3>
 
-            {/* Red Accent Line */}
-            <div className="h-0.5 w-16 bg-[#DD0033] mb-6" />
+            {/* Accent Line */}
+            <div className="h-0.5 w-16 bg-tier-accent mb-6" />
 
             {/* Details */}
             <div className="space-y-3">
@@ -147,7 +147,7 @@ export const CalendarGrid = () => {
 
             {/* CTA Button */}
             <Button 
-              className="w-full mt-8 bg-[#DD0033] hover:bg-[#990023] text-white font-semibold uppercase tracking-wider"
+              className="w-full mt-8 bg-tier-accent hover:opacity-80 text-white font-semibold uppercase tracking-wider transition-opacity"
             >
               Set Reminder
             </Button>

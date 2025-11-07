@@ -18,38 +18,10 @@ const Index = () => {
   const activityReveal = useScrollReveal(0.1);
 
   return (
-    <div className="min-h-screen bg-background relative overflow-hidden">
+    <div className="min-h-screen bg-background relative overflow-hidden" data-current-tier="Ridge">
       {/* Parallax Background Layers */}
       <div className="fixed inset-0 -z-10">
-        {/* Layer 1: Base gradient (static) */}
-        <div 
-          className="absolute inset-0"
-          style={{
-            background: 'radial-gradient(ellipse at top, rgba(221, 0, 51, 0.03) 0%, transparent 50%)',
-          }}
-        />
-        
-        {/* Layer 2: Mountain ridge silhouette with parallax */}
-        <div 
-          className="absolute inset-0 opacity-5"
-          style={{
-            transform: `translateY(${parallaxOffset}px)`,
-            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800'%3E%3Cpath d='M0,400 Q200,300 400,350 T800,320 T1200,380 L1200,800 L0,800 Z' fill='%23ffffff'/%3E%3Cpath d='M0,500 Q150,420 350,460 T750,440 T1200,500 L1200,800 L0,800 Z' fill='%23ffffff' opacity='0.5'/%3E%3C/svg%3E")`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-          }}
-        />
-        
-        {/* Layer 3: Floating particles with slower parallax */}
-        <div 
-          className="absolute inset-0 opacity-10"
-          style={{
-            transform: `translateY(${parallaxOffset * 0.5}px)`,
-            backgroundImage: `radial-gradient(circle, rgba(255,255,255,0.3) 1px, transparent 1px)`,
-            backgroundSize: '50px 50px',
-          }}
-        />
+...
       </div>
       
       {/* Scroll-based vignette */}
@@ -67,35 +39,43 @@ const Index = () => {
         }}
       />
 
-      <div className="container mx-auto px-6 py-12 max-w-7xl">
-        <UserHeader />
-        
-        <div 
-          ref={progressReveal.ref}
-          className={`section-fade-up ${progressReveal.isVisible ? 'visible' : ''}`}
-        >
-          <ProgressHero />
+      {/* Header section - BLACK background */}
+      <div className="bg-[#000000]">
+        <div className="container mx-auto px-6 py-12 max-w-7xl">
+          <UserHeader />
         </div>
-        
-        <div 
-          ref={tiersReveal.ref}
-          className={`section-fade-up section-fade-up-delay-1 ${tiersReveal.isVisible ? 'visible' : ''}`}
-        >
-          <TiersContinuum />
-        </div>
-        
-        <div 
-          ref={calendarReveal.ref}
-          className={`section-fade-up section-fade-up-delay-2 ${calendarReveal.isVisible ? 'visible' : ''}`}
-        >
-          <CalendarGrid />
-        </div>
-        
-        <div 
-          ref={activityReveal.ref}
-          className={`section-fade-up ${activityReveal.isVisible ? 'visible' : ''}`}
-        >
-          <ActivityFeed />
+      </div>
+      
+      {/* Main content section - Slightly lighter background */}
+      <div className="bg-[#0A0A0A]">
+        <div className="container mx-auto px-6 py-12 max-w-7xl">
+          <div 
+            ref={progressReveal.ref}
+            className={`section-fade-up ${progressReveal.isVisible ? 'visible' : ''}`}
+          >
+            <ProgressHero />
+          </div>
+          
+          <div 
+            ref={tiersReveal.ref}
+            className={`section-fade-up section-fade-up-delay-1 ${tiersReveal.isVisible ? 'visible' : ''}`}
+          >
+            <TiersContinuum />
+          </div>
+          
+          <div 
+            ref={calendarReveal.ref}
+            className={`section-fade-up section-fade-up-delay-2 ${calendarReveal.isVisible ? 'visible' : ''}`}
+          >
+            <CalendarGrid />
+          </div>
+          
+          <div 
+            ref={activityReveal.ref}
+            className={`section-fade-up ${activityReveal.isVisible ? 'visible' : ''}`}
+          >
+            <ActivityFeed />
+          </div>
         </div>
       </div>
     </div>

@@ -107,7 +107,7 @@ export const ActivityFeed = () => {
         </h2>
         
         <Select value={selectedYear} onValueChange={setSelectedYear}>
-          <SelectTrigger className="w-[140px] h-12 border-border bg-black hover:border-[#DD0033] transition-colors font-semibold">
+          <SelectTrigger className="w-[140px] h-12 border-border bg-black hover:border-tier-accent transition-colors font-semibold">
             <SelectValue />
           </SelectTrigger>
           <SelectContent className="bg-[#1a1a1a] border-border">
@@ -115,7 +115,7 @@ export const ActivityFeed = () => {
               <SelectItem 
                 key={yearData.year} 
                 value={yearData.year.toString()}
-                className="hover:bg-[#DD0033]/10 focus:bg-[#DD0033]/20"
+                className="hover:bg-tier-accent/10 focus:bg-tier-accent/20"
               >
                 {yearData.year}
               </SelectItem>
@@ -126,7 +126,7 @@ export const ActivityFeed = () => {
 
       <div className="card-29029 p-10 md:p-14">
         {/* Year Display - More Dramatic */}
-        <div className="flex flex-col md:flex-row items-center justify-between mb-12 pb-8 border-b-2 border-[#DD0033]/20 gap-6">
+        <div className="flex flex-col md:flex-row items-center justify-between mb-12 pb-8 border-b-2 border-tier-accent/20 gap-6">
           <div className="text-center md:text-left metric-animate">
             <div className="text-subhead mb-2">Year</div>
             <h3 className="font-editorial text-6xl md:text-7xl font-bold">
@@ -146,16 +146,16 @@ export const ActivityFeed = () => {
           <div className="metric-animate-delay-2">
             <h4 className="text-subhead mb-6 flex items-center gap-3">
               <span>Events</span>
-              <div className="h-px flex-1 bg-gradient-to-r from-[#DD0033]/30 to-transparent" />
+              <div className="h-px flex-1 bg-gradient-to-r from-tier-accent/30 to-transparent" />
             </h4>
             
             <div>
               <div className="metric-medium mb-2">{yearData.events.totalEP} EP</div>
               
               <Collapsible>
-                <CollapsibleTrigger className="flex items-center gap-2 text-supporting hover:text-[#DD0033] transition-colors group">
+                <CollapsibleTrigger className="flex items-center gap-2 text-supporting hover:text-tier-accent transition-colors group">
                   <span className="text-subhead">View Events</span>
-                  <ChevronDown className="h-4 w-4 text-[#DD0033]" />
+                  <ChevronDown className="h-4 w-4 text-tier-accent" />
                 </CollapsibleTrigger>
                 <CollapsibleContent className="mt-3">
                   <div className="text-body">
@@ -173,15 +173,15 @@ export const ActivityFeed = () => {
           <div>
             <h4 className="text-subhead mb-6 flex items-center gap-3">
               <span>Apparel</span>
-              <div className="h-px flex-1 bg-gradient-to-r from-[#DD0033]/30 to-transparent" />
+              <div className="h-px flex-1 bg-gradient-to-r from-tier-accent/30 to-transparent" />
             </h4>
             <div>
               <div className="metric-medium mb-2">{yearData.apparel.totalEP} EP</div>
               
               <Collapsible>
-                <CollapsibleTrigger className="flex items-center gap-2 text-supporting hover:text-[#DD0033] transition-colors group">
+                <CollapsibleTrigger className="flex items-center gap-2 text-supporting hover:text-tier-accent transition-colors group">
                   <span className="text-subhead">View Purchases</span>
-                  <ChevronDown className="h-4 w-4 text-[#DD0033]" />
+                  <ChevronDown className="h-4 w-4 text-tier-accent" />
                 </CollapsibleTrigger>
                 <CollapsibleContent className="mt-3">
                   <div className="text-body">
@@ -199,15 +199,15 @@ export const ActivityFeed = () => {
           <div>
             <h4 className="text-subhead mb-6 flex items-center gap-3">
               <span>Coaching</span>
-              <div className="h-px flex-1 bg-gradient-to-r from-[#DD0033]/30 to-transparent" />
+              <div className="h-px flex-1 bg-gradient-to-r from-tier-accent/30 to-transparent" />
             </h4>
             <div>
               <div className="metric-medium mb-2">{yearData.coaching.totalEP} EP</div>
               
               <Collapsible>
-                <CollapsibleTrigger className="flex items-center gap-2 text-supporting hover:text-[#DD0033] transition-colors group">
+                <CollapsibleTrigger className="flex items-center gap-2 text-supporting hover:text-tier-accent transition-colors group">
                   <span className="text-subhead">View Subscriptions</span>
-                  <ChevronDown className="h-4 w-4 text-[#DD0033]" />
+                  <ChevronDown className="h-4 w-4 text-tier-accent" />
                 </CollapsibleTrigger>
                 <CollapsibleContent className="mt-3">
                   <div className="space-y-2">
