@@ -1,6 +1,6 @@
 import { Calendar, MapPin, Bell } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 
 interface RegistrationWindow {
   eventName: string;
@@ -88,69 +88,76 @@ const registrationWindows: RegistrationWindow[] = [
 
 export const CalendarGrid = () => {
   return (
-    <section className="mb-16 animate-fade-in" style={{ animationDelay: "0.3s" }}>
-      <h2 className="text-2xl md:text-3xl font-bold mb-6 uppercase tracking-wider">
-        2025 Event Calendar + Priority Access
-      </h2>
+    <section className="mb-24 section-reveal">
+      <div className="divider-red mb-12" />
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {registrationWindows.map((window, index) => (
-          <Card
-            key={index}
-            className="border-border rounded-xl p-6 transition-all duration-300 hover-lift relative overflow-hidden"
-            style={{ backgroundColor: '#343532' }}
+      <h2 className="text-section-title text-4xl md:text-5xl mb-12 font-editorial">
+        The Year Ahead
+      </h2>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {registrationWindows.map((event, idx) => (
+          <div 
+            key={idx}
+            className="card-29029 p-8 relative overflow-hidden group"
           >
-            <div className="absolute top-3 left-3 text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wider"
-              style={window.eventType === "Mountain" 
-                ? { backgroundColor: 'rgba(255, 255, 255, 0.1)', color: '#ffffff', border: '1px solid rgba(255, 255, 255, 0.2)' }
-                : { backgroundColor: 'rgba(217, 119, 6, 0.2)', color: '#fbbf24', border: '1px solid rgba(217, 119, 6, 0.4)' }
-              }
-            >
-              {window.eventType}
-            </div>
-            
-            {window.hasPriorityAccess && (
-              <div 
-                className="absolute top-3 right-3 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider"
-                style={{ 
-                  backgroundColor: 'rgba(221, 0, 51, 0.2)',
-                  color: '#ffffff',
-                  border: '1px solid rgba(221, 0, 51, 0.4)'
-                }}
-              >
-                Priority Access
-              </div>
-            )}
-            
-            <div className="mb-4 mt-6">
-              <h3 className="text-xl font-bold mb-3">{window.eventName}</h3>
+            {/* Badges Row */}
+            <div className="flex items-center justify-between mb-6">
+              <span className={cn(
+                "text-[10px] px-3 py-1.5 rounded-full uppercase tracking-wider font-semibold",
+                event.eventType === "Mountain" 
+                  ? "bg-[#2a2a2a] text-white"
+                  : "bg-amber-900/30 border border-amber-700/50 text-amber-200"
+              )}>
+                {event.eventType}
+              </span>
               
-              <div className="space-y-2 text-sm">
-                <div className="flex items-center gap-2 text-muted-foreground">
-                  <Bell className="w-4 h-4 text-[#DD0033]" />
-                  <span>Registration Opens: <span className="text-foreground font-medium">{window.registrationOpens}</span></span>
-                </div>
-                <div className="flex items-center gap-2 text-muted-foreground">
-                  <Calendar className="w-4 h-4 text-[#DD0033]" />
-                  <span>Event Dates: <span className="text-foreground font-medium">{window.eventDates}</span></span>
-                </div>
-                <div className="flex items-center gap-2 text-muted-foreground">
-                  <MapPin className="w-4 h-4 text-[#DD0033]" />
-                  <span>Location: <span className="text-foreground font-medium">{window.location}</span></span>
-                </div>
+              {event.hasPriorityAccess && (
+                <span className="text-[10px] px-3 py-1.5 rounded-full bg-[#DD0033]/20 border border-[#DD0033]/50 text-[#DD0033] uppercase tracking-wider">
+                  Priority Access
+                </span>
+              )}
+            </div>
+
+            {/* Event Name - Large & Bold */}
+            <h3 className="font-editorial text-3xl font-bold mb-6 group-hover:text-[#DD0033] transition-colors">
+              {event.eventName}
+            </h3>
+
+            {/* Red Accent Line */}
+            <div className="h-0.5 w-16 bg-[#DD0033] mb-6" />
+
+            {/* Details */}
+            <div className="space-y-3 text-sm">
+              <div>
+                <span className="text-xs uppercase tracking-widest text-muted-foreground">
+                  Registration Opens
+                </span>
+                <div className="font-semibold mt-1">{event.registrationOpens}</div>
+              </div>
+              
+              <div>
+                <span className="text-xs uppercase tracking-widest text-muted-foreground">
+                  Event Dates
+                </span>
+                <div className="font-semibold mt-1">{event.eventDates}</div>
+              </div>
+              
+              <div>
+                <span className="text-xs uppercase tracking-widest text-muted-foreground">
+                  Location
+                </span>
+                <div className="font-semibold mt-1">{event.location}</div>
               </div>
             </div>
-            
+
+            {/* CTA Button */}
             <Button 
-              className="w-full font-semibold transition-all duration-300 hover:scale-105"
-              style={{ 
-                backgroundColor: '#DD0033',
-                color: '#ffffff'
-              }}
+              className="w-full mt-8 bg-[#DD0033] hover:bg-[#990023] text-white font-semibold uppercase tracking-wider"
             >
               Set Reminder
             </Button>
-          </Card>
+          </div>
         ))}
       </div>
     </section>

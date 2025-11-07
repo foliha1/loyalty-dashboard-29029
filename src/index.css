@@ -8,11 +8,14 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 8%;
+    --background: 0 0% 4%;
     --foreground: 0 0% 98%;
 
-    --card: 0 0% 10%;
+    --card: 0 0% 6%;
     --card-foreground: 0 0% 98%;
+    
+    --warm-charcoal: 0 0% 12%;
+    --warm-smoke: 30 5% 20%;
 
     --popover: 0 0% 10%;
     --popover-foreground: 0 0% 98%;
@@ -40,6 +43,8 @@ All colors MUST be HSL.
     
     /* 29029 Brand Accent */
     --accent-29029: 348 100% 42%;
+    --accent-red: 348 100% 42%;
+    --accent-red-dim: 348 100% 32%;
     
     /* Warm Neutrals */
     --warm-gray: 30 5% 25%;
@@ -62,10 +67,12 @@ All colors MUST be HSL.
     --summit: 38 71% 58%;
     --summit-glow: 38 71% 68%;
     
-    /* Soft gradients */
+    /* Cinematic gradients */
     --gradient-soft: radial-gradient(circle at top, hsl(var(--card)), hsl(var(--background)));
     --gradient-ember: radial-gradient(circle at center, hsl(var(--ember) / 0.1), transparent);
     --gradient-29029: linear-gradient(135deg, hsl(var(--accent-29029)) 0%, hsl(348 100% 32%) 100%);
+    --gradient-hero: linear-gradient(180deg, rgba(0,0,0,0.95) 0%, rgba(10,10,10,1) 100%);
+    --gradient-section: linear-gradient(135deg, rgba(0,0,0,1) 0%, rgba(20,20,20,1) 100%);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -245,5 +252,75 @@ All colors MUST be HSL.
   
   .glow-29029-strong {
     box-shadow: 0 0 40px rgba(221, 0, 51, 0.5), 0 0 72px rgba(221, 0, 51, 0.25);
+  }
+  
+  /* Cinematic text treatments */
+  .text-hero {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    line-height: 1.1;
+  }
+
+  .text-section-title {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 1.5rem;
+  }
+
+  /* Red accent dividers */
+  .divider-red {
+    height: 2px;
+    background: linear-gradient(90deg, #DD0033 0%, transparent 100%);
+    margin: 3rem 0;
+  }
+
+  .divider-red-vertical {
+    width: 2px;
+    background: linear-gradient(180deg, #DD0033 0%, transparent 100%);
+    height: 100%;
+  }
+
+  /* Photographic gradient overlays */
+  .photo-overlay {
+    background: linear-gradient(180deg, 
+      rgba(0,0,0,0.7) 0%, 
+      rgba(0,0,0,0.4) 50%, 
+      rgba(0,0,0,0.8) 100%
+    );
+  }
+
+  /* Elevated card treatment */
+  .card-29029 {
+    background: linear-gradient(135deg, rgba(12,12,12,1) 0%, rgba(18,18,18,1) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 0.5rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-29029:hover {
+    border-color: rgba(221, 0, 51, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Section fade-in with increased spacing */
+  .section-reveal {
+    animation: section-fade-in 0.8s ease-out forwards;
+    margin-bottom: 6rem;
+  }
+
+  @keyframes section-fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }

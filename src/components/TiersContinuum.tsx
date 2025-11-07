@@ -78,9 +78,11 @@ export const TiersContinuum = () => {
   };
   
   return (
-    <section className="mb-16 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-      <h2 className="text-2xl md:text-3xl font-bold mb-8 uppercase tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-foreground via-foreground/90 to-foreground/70">
-        Your Elevation Journey
+    <section className="mb-24 section-reveal">
+      <div className="divider-red mb-12" />
+      
+      <h2 className="text-section-title text-4xl md:text-5xl mb-12 font-editorial">
+        Elevation Journey
       </h2>
       
       {/* Gradient Ridge Line Container */}

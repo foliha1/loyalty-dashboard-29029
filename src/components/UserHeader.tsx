@@ -7,61 +7,53 @@ export const UserHeader = () => {
   const TierIcon = currentTier?.icon;
 
   return (
-    <section className="mb-12 animate-fade-in">
-      <div 
-        className="border border-border rounded-2xl p-8 md:p-10 relative overflow-hidden card-elevated-high"
-        style={{ 
-          backgroundColor: '#0a0a0a',
-          background: 'radial-gradient(circle at top left, rgba(94, 184, 173, 0.05) 0%, transparent 50%)'
-        }}
-      >
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-center relative z-10">
-          {/* Avatar & Name */}
-          <div className="flex items-center gap-4">
-            <Avatar 
-              className="w-16 h-16 md:w-20 md:h-20 border-2 transition-all duration-300"
-              style={{ 
-                borderColor: `hsl(var(--${currentTier?.color}))`,
-                boxShadow: `0 0 20px hsl(var(--${currentTier?.color}) / 0.3)`
-              }}
-            >
+    <section className="mb-24 section-reveal relative overflow-hidden">
+      {/* Background Layer */}
+      <div className="absolute inset-0 -z-10">
+        <div 
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(135deg, #000000 0%, #1a1a1a 100%)',
+          }}
+        />
+      </div>
+
+      <div className="container mx-auto px-4 py-16">
+        {/* Name + ID */}
+        <div className="mb-8">
+          <h1 className="text-hero text-5xl md:text-7xl mb-2">
+            Alex Rivera
+          </h1>
+          <div className="h-0.5 w-24 bg-[#DD0033] mb-4" />
+          <div className="text-sm text-muted-foreground uppercase tracking-widest">
+            29029 ID: AR-5847 • Member Since 2023
+          </div>
+        </div>
+
+        {/* Stats Grid - More Spacious */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
+          {/* Avatar */}
+          <div className="flex justify-center md:justify-start">
+            <Avatar className="w-32 h-32 border-4 border-[#DD0033] shadow-[0_0_40px_rgba(221,0,51,0.4)]">
               <AvatarImage src="https://i.pravatar.cc/300?img=12" alt="Alex Rivera" />
               <AvatarFallback className="bg-secondary text-foreground text-lg font-semibold">AR</AvatarFallback>
             </Avatar>
-            <div>
-              <h1 className="text-2xl md:text-3xl font-bold tracking-tight mb-1">Alex Rivera</h1>
-              <div className="text-xs text-muted-foreground uppercase tracking-wider">
-                29029 ID: AR-5847
-              </div>
-              <div className="text-xs text-warm-gray-light mt-0.5">
-                Member since 2023
-              </div>
-            </div>
           </div>
 
-          {/* EP Stats */}
-          <div className="text-left lg:text-center">
-            <div className="text-xs text-muted-foreground uppercase tracking-wider mb-2">
+          {/* EP Display */}
+          <div className="text-center">
+            <div className="text-xs text-muted-foreground uppercase tracking-widest mb-3">
               Total EP This Cycle
             </div>
-            <div className="inline-flex items-center justify-center px-4 py-2 rounded-lg font-bold" style={{ backgroundColor: '#1a1a1e' }}>
-              <span className="text-3xl md:text-4xl">720</span>
-            </div>
+            <div className="text-6xl font-editorial font-bold">720</div>
           </div>
 
           {/* Tier Badge */}
-          <div className="flex justify-start lg:justify-end">
+          <div className="flex justify-center md:justify-end">
             {TierIcon && (
-              <div 
-                className="flex items-center gap-3 px-5 py-3 rounded-full border-2 transition-all duration-300 hover:scale-105"
-                style={{ 
-                  backgroundColor: '#0f0f0f',
-                  borderColor: `hsl(var(--${currentTier?.color}))`,
-                  boxShadow: `0 0 24px hsl(var(--${currentTier?.color}) / 0.2)`
-                }}
-              >
-                <TierIcon className="w-5 h-5" style={{ color: `hsl(var(--${currentTier?.color}))` }} />
-                <span className="font-bold text-base tracking-wide">{currentTierName}</span>
+              <div className="px-8 py-4 rounded-lg border-2 border-[#5eb8ad] bg-black/40 backdrop-blur-sm">
+                <TierIcon className="w-8 h-8 text-[#5eb8ad] mx-auto mb-2" />
+                <div className="font-editorial text-xl text-center">{currentTierName.toUpperCase()}</div>
               </div>
             )}
           </div>

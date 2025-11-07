@@ -38,48 +38,54 @@ const immersions = [
 
 export const ImmersionsGrid = () => {
   return (
-    <section className="mb-16 animate-fade-in" style={{ animationDelay: "0.3s" }}>
-      <h2 className="text-2xl md:text-3xl font-bold mb-6 uppercase tracking-wider">
+    <section className="mb-24 section-reveal">
+      <div className="divider-red mb-12" />
+      
+      <h2 className="text-section-title text-4xl md:text-5xl mb-12 font-editorial">
         Next Immersions
       </h2>
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {immersions.map((immersion, index) => (
-          <div
-            key={index}
-            className="border border-border rounded-xl p-6 transition-all duration-300 hover:border-muted-foreground/50 group backdrop-blur-sm"
-            style={{ backgroundColor: '#343532' }}
-          >
-            <div className="flex justify-between items-start mb-4">
-              <div>
-                <div className="text-xs text-foreground uppercase tracking-wider mb-2 font-semibold">
-                  {immersion.type}
-                </div>
-                <h3 className="text-xl font-bold mb-2 group-hover:text-foreground/80 transition-colors">
-                  {immersion.title}
-                </h3>
-              </div>
-            <div className="text-right">
-              <div className="inline-flex items-center justify-center px-3 py-1.5 rounded-md font-bold" style={{ backgroundColor: '#1a1a1e' }}>
-                <span className="text-xl md:text-2xl">+{immersion.ep} EP</span>
-              </div>
+          <div key={index} className="card-29029 p-8 group">
+            {/* Type Badge */}
+            <div className="text-[10px] px-3 py-1.5 rounded-full bg-[#DD0033]/20 border border-[#DD0033]/50 text-[#DD0033] uppercase tracking-wider inline-block mb-4">
+              {immersion.type}
             </div>
-            </div>
-            
-            <div className="space-y-2 mb-4">
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+
+            {/* Event Name */}
+            <h3 className="font-editorial text-2xl font-bold mb-3 group-hover:text-[#DD0033] transition-colors">
+              {immersion.title}
+            </h3>
+
+            {/* Red Accent Line */}
+            <div className="h-0.5 w-12 bg-[#DD0033] mb-6" />
+
+            {/* Details */}
+            <div className="space-y-3 mb-6 text-sm">
+              <div className="flex items-center gap-2 text-muted-foreground">
                 <Calendar className="w-4 h-4" />
                 <span>{immersion.date}</span>
               </div>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <div className="flex items-center gap-2 text-muted-foreground">
                 <MapPin className="w-4 h-4" />
                 <span>{immersion.location}</span>
               </div>
             </div>
-            
+
+            {/* EP Display */}
+            <div className="mb-6">
+              <div className="font-editorial text-4xl font-bold text-[#DD0033]">
+                +{immersion.ep}
+              </div>
+              <div className="text-xs uppercase tracking-widest text-muted-foreground">
+                Elevation Points
+              </div>
+            </div>
+
+            {/* CTA */}
             <Button 
-              variant="enroll"
-              className="w-full font-semibold"
+              className="w-full bg-[#DD0033] hover:bg-[#990023] text-white font-semibold uppercase tracking-wider"
               disabled={!immersion.available}
             >
               {immersion.available ? "Enroll" : "Request Invite"}
