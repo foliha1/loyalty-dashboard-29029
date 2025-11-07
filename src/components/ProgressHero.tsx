@@ -47,9 +47,6 @@ export const ProgressHero = () => {
                     <span className="text-subhead">
                       {currentTierName}
                     </span>
-                    <span className="font-editorial text-2xl font-bold text-tier-accent">
-                      {percentage}%
-                    </span>
                     <span className="text-subhead">
                       {nextTierName}
                     </span>
