@@ -311,21 +311,25 @@ h2, .text-section-title {
 [data-current-tier="Base"] {
   --current-tier-accent: var(--base);
   --current-tier-accent-glow: var(--base-glow);
+  --button-text-color: #0a0a0a; /* Dark text for light gray background */
 }
 
 [data-current-tier="Ridge"] {
   --current-tier-accent: var(--ridge);
   --current-tier-accent-glow: var(--ridge-glow);
+  --button-text-color: #0a0a0a; /* Dark text for gold background */
 }
 
 [data-current-tier="Peak"] {
   --current-tier-accent: var(--peak);
   --current-tier-accent-glow: var(--peak-glow);
+  --button-text-color: #ffffff; /* White text for red background */
 }
 
 [data-current-tier="Summit Circle"] {
   --current-tier-accent: var(--summit);
   --current-tier-accent-glow: var(--summit-glow);
+  --button-text-color: #0a0a0a; /* Dark text for light background */
 }
 
 .text-tier-accent {
@@ -342,6 +346,23 @@ h2, .text-section-title {
 
 .glow-tier-accent {
   box-shadow: 0 0 24px hsl(var(--current-tier-accent) / 0.4);
+}
+
+/* Button tier-aware text color for AA compliance */
+[data-current-tier="Base"] .bg-tier-accent {
+  color: #0a0a0a;
+}
+
+[data-current-tier="Ridge"] .bg-tier-accent {
+  color: #0a0a0a;
+}
+
+[data-current-tier="Peak"] .bg-tier-accent {
+  color: #ffffff;
+}
+
+[data-current-tier="Summit Circle"] .bg-tier-accent {
+  color: #0a0a0a;
 }
 
 /* Card hover effect with tier accent */

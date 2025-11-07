@@ -3,6 +3,7 @@ import { tiers } from "@/lib/tierConfig";
 import { ShoppingBag, Users, Calendar, Star, Tag, Mail, Trophy, Crown, Headphones, Gift, Zap, Award, Info } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { useTier } from "@/contexts/TierContext";
 interface Reward {
   icon: any;
   title: string;
@@ -75,6 +76,7 @@ const tierRewards: Record<string, Reward[]> = {
   }]
 };
 export const TiersContinuum = () => {
+  const { currentTier: globalTier, setCurrentTier: setGlobalTier, setIsTestMode: setGlobalTestMode } = useTier();
   const [hoveredTier, setHoveredTier] = useState<string | null>(null);
   const [hoveredZone, setHoveredZone] = useState<string | null>(null);
   const [isRevealed, setIsRevealed] = useState(false);
@@ -92,7 +94,10 @@ export const TiersContinuum = () => {
   // Use test tier if active, otherwise use actual data
   const currentTierName = selectedTierForTesting || actualTierName;
   const currentTier = visibleTiers.find(t => t.name === currentTierName);
-  const currentEP = testModeActive && currentTier ? currentTier.threshold + 50 : actualEP; // Add 50 EP buffer when testing
+  // When testing, for Peak tier show full progress, for others add 50 EP buffer
+  const currentEP = testModeActive && currentTier 
+    ? (currentTier.name === "Peak" ? 1000 : currentTier.threshold + 50)
+    : actualEP;
   
   // Calculate next tier dynamically
   const currentTierIndex = visibleTiers.findIndex(t => t.name === currentTierName);
@@ -169,11 +174,15 @@ export const TiersContinuum = () => {
   const handleTierClick = (tierName: string) => {
     setSelectedTierForTesting(tierName);
     setTestModeActive(true);
+    setGlobalTier(tierName);
+    setGlobalTestMode(true);
   };
   
   const handleReset = () => {
     setSelectedTierForTesting(null);
     setTestModeActive(false);
+    setGlobalTier("Ridge");
+    setGlobalTestMode(false);
   };
   return <section className="mb-24 section-reveal">
       

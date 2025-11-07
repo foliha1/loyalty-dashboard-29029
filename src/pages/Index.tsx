@@ -6,8 +6,9 @@ import { useParallax } from "@/hooks/useParallax";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useScrollVignette } from "@/hooks/useScrollVignette";
 import { useScrollCollapse } from "@/hooks/useScrollCollapse";
+import { TierProvider, useTier } from "@/contexts/TierContext";
 
-const Index = () => {
+const IndexContent = () => {
   const parallaxOffset = useParallax(0.3);
   const scrollProgress = useScrollVignette();
   const vignetteIntensity = 0.3 + scrollProgress * 0.4;
@@ -15,7 +16,9 @@ const Index = () => {
   const calendarReveal = useScrollReveal(0.1);
   const activityReveal = useScrollReveal(0.1);
   const isHeaderCollapsed = useScrollCollapse(150);
-  return <div className="min-h-screen bg-background relative overflow-hidden" data-current-tier="Ridge">
+  const { currentTier } = useTier();
+  
+  return <div className="min-h-screen bg-background relative overflow-hidden" data-current-tier={currentTier}>
       {/* Parallax Background Layers */}
       <div className="fixed inset-0 -z-10">
 ...
@@ -58,4 +61,13 @@ const Index = () => {
       </div>
     </div>;
 };
+
+const Index = () => {
+  return (
+    <TierProvider>
+      <IndexContent />
+    </TierProvider>
+  );
+};
+
 export default Index;
