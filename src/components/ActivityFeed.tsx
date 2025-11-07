@@ -2,7 +2,6 @@ import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/component
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
-
 interface YearlyActivity {
   year: number;
   events: {
@@ -22,87 +21,98 @@ interface YearlyActivity {
     totalEP: number;
   };
 }
-
-const yearlyActivities: YearlyActivity[] = [
-  {
-    year: 2025,
-    events: {
-      total: 3,
-      attended: ["Snowbasin", "Whistler", "Trail Tahoe"],
-      totalEP: 290
-    },
-    apparel: {
-      totalEP: 180
-    },
-    coaching: {
-      total: 4,
-      sessions: [
-        { name: "Goal Setting & Strategy", coach: "Sarah Chen" },
-        { name: "Performance Optimization", coach: "Michael Torres" },
-        { name: "Mental Resilience", coach: "Sarah Chen" },
-        { name: "Nutrition Planning", coach: "Emma Davis" }
-      ],
-      totalEP: 250
-    }
+const yearlyActivities: YearlyActivity[] = [{
+  year: 2025,
+  events: {
+    total: 3,
+    attended: ["Snowbasin", "Whistler", "Trail Tahoe"],
+    totalEP: 290
   },
-  {
-    year: 2024,
-    events: {
-      total: 4,
-      attended: ["Snowbasin", "Sun Valley", "Stratton", "Whistler"],
-      totalEP: 600
-    },
-    apparel: {
-      totalEP: 340
-    },
-    coaching: {
-      total: 5,
-      sessions: [
-        { name: "Goal Setting & Strategy", coach: "Sarah Chen" },
-        { name: "Breathwork Fundamentals", coach: "Michael Torres" },
-        { name: "Movement Mechanics", coach: "Emma Davis" },
-        { name: "Recovery Protocols", coach: "Sarah Chen" },
-        { name: "Peak Performance", coach: "Michael Torres" }
-      ],
-      totalEP: 500
-    }
+  apparel: {
+    totalEP: 180
   },
-  {
-    year: 2023,
-    events: {
-      total: 2,
-      attended: ["Trail Tahoe", "Stratton"],
-      totalEP: 300
-    },
-    apparel: {
-      totalEP: 180
-    },
-    coaching: {
-      total: 3,
-      sessions: [
-        { name: "Foundations", coach: "Emma Davis" },
-        { name: "Goal Setting", coach: "Sarah Chen" },
-        { name: "Habit Building", coach: "Michael Torres" }
-      ],
-      totalEP: 300
-    }
+  coaching: {
+    total: 4,
+    sessions: [{
+      name: "Goal Setting & Strategy",
+      coach: "Sarah Chen"
+    }, {
+      name: "Performance Optimization",
+      coach: "Michael Torres"
+    }, {
+      name: "Mental Resilience",
+      coach: "Sarah Chen"
+    }, {
+      name: "Nutrition Planning",
+      coach: "Emma Davis"
+    }],
+    totalEP: 250
   }
-];
-
+}, {
+  year: 2024,
+  events: {
+    total: 4,
+    attended: ["Snowbasin", "Sun Valley", "Stratton", "Whistler"],
+    totalEP: 600
+  },
+  apparel: {
+    totalEP: 340
+  },
+  coaching: {
+    total: 5,
+    sessions: [{
+      name: "Goal Setting & Strategy",
+      coach: "Sarah Chen"
+    }, {
+      name: "Breathwork Fundamentals",
+      coach: "Michael Torres"
+    }, {
+      name: "Movement Mechanics",
+      coach: "Emma Davis"
+    }, {
+      name: "Recovery Protocols",
+      coach: "Sarah Chen"
+    }, {
+      name: "Peak Performance",
+      coach: "Michael Torres"
+    }],
+    totalEP: 500
+  }
+}, {
+  year: 2023,
+  events: {
+    total: 2,
+    attended: ["Trail Tahoe", "Stratton"],
+    totalEP: 300
+  },
+  apparel: {
+    totalEP: 180
+  },
+  coaching: {
+    total: 3,
+    sessions: [{
+      name: "Foundations",
+      coach: "Emma Davis"
+    }, {
+      name: "Goal Setting",
+      coach: "Sarah Chen"
+    }, {
+      name: "Habit Building",
+      coach: "Michael Torres"
+    }],
+    totalEP: 300
+  }
+}];
 export const ActivityFeed = () => {
   const [selectedYear, setSelectedYear] = useState("2025");
   const yearData = yearlyActivities.find(y => y.year.toString() === selectedYear);
-  
   if (!yearData) return null;
-  
   const totalYearEP = yearData.events.totalEP + yearData.apparel.totalEP + yearData.coaching.totalEP;
-  
-  return (
-    <section className="mb-24 section-reveal">
+  return <section className="mb-24 section-reveal">
       <div className="divider-red mb-12" />
       
       <div className="flex items-center justify-between mb-12">
-        <h2 className="text-section-title text-4xl md:text-5xl font-editorial">
+        <h2 className="text-section-title md:text-5xl font-editorial text-4xl font-light">
           History
         </h2>
         
@@ -111,15 +121,9 @@ export const ActivityFeed = () => {
             <SelectValue />
           </SelectTrigger>
           <SelectContent className="bg-[#1a1a1a] border-border">
-            {yearlyActivities.map((yearData) => (
-              <SelectItem 
-                key={yearData.year} 
-                value={yearData.year.toString()}
-                className="hover:bg-tier-accent/20 hover:text-tier-accent focus:bg-tier-accent/20 focus:text-tier-accent"
-              >
+            {yearlyActivities.map(yearData => <SelectItem key={yearData.year} value={yearData.year.toString()} className="hover:bg-tier-accent/20 hover:text-tier-accent focus:bg-tier-accent/20 focus:text-tier-accent">
                 {yearData.year}
-              </SelectItem>
-            ))}
+              </SelectItem>)}
           </SelectContent>
         </Select>
       </div>
@@ -196,11 +200,9 @@ export const ActivityFeed = () => {
                 </CollapsibleTrigger>
                 <CollapsibleContent className="mt-3">
                   <div className="space-y-2">
-                    {yearData.coaching.sessions.map((session, idx) => (
-                      <div key={idx} className="text-body pl-4">
+                    {yearData.coaching.sessions.map((session, idx) => <div key={idx} className="text-body pl-4">
                         • {session.name}
-                      </div>
-                    ))}
+                      </div>)}
                   </div>
                 </CollapsibleContent>
               </Collapsible>
@@ -208,6 +210,5 @@ export const ActivityFeed = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
