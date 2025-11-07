@@ -12,15 +12,30 @@ import {
   Headphones,
   Gift,
   Zap,
-  Award
+  Award,
+  Info
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 
 interface Reward {
   icon: any;
   title: string;
   description: string;
 }
+
+// 2025 Activity Data
+const activity2025 = {
+  events: {
+    totalEP: 290
+  },
+  apparel: {
+    totalEP: 180
+  },
+  coaching: {
+    totalEP: 250
+  }
+};
 
 const tierRewards: Record<string, Reward[]> = {
   "Base": [
@@ -52,7 +67,10 @@ export const TiersContinuum = () => {
   
   const visibleTiers = tiers.filter(t => t.name !== "Summit Circle");
   const currentTierName = "Ridge"; // This should come from user data
-  const currentEP = 720; // This should come from user data
+  const currentEP = activity2025.events.totalEP + activity2025.apparel.totalEP + activity2025.coaching.totalEP;
+  const nextTierEP = 1000;
+  const remainingEP = nextTierEP - currentEP;
+  const nextTierName = "Peak";
   
   const maxThreshold = 1000; // Peak threshold
   
@@ -134,7 +152,7 @@ export const TiersContinuum = () => {
       <div className="divider-red mb-12" />
       
       <h2 className="text-section-title text-4xl md:text-5xl mb-16 font-editorial">
-        Elevation Journey
+        Your Elevation Journey
       </h2>
       
       {/* Simplified Tier Bar */}
@@ -353,6 +371,71 @@ export const TiersContinuum = () => {
           </div>
         )}
         
+      </div>
+
+      {/* Stats Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-16">
+        <div className="text-center metric-animate-delay-1">
+          <div className="flex items-center justify-center gap-2 mb-3">
+            <div className="text-subhead text-center">
+              Total EPs
+            </div>
+            <Popover>
+              <PopoverTrigger>
+                <Info className="w-3.5 h-3.5 text-tier-accent hover:opacity-70 transition-opacity cursor-help" />
+              </PopoverTrigger>
+              <PopoverContent className="bg-[#1a1a1a] border-border max-w-[200px] text-xs">
+                <p className="text-white mb-2">
+                  <strong>Elevation Points (EP)</strong> are earned through events, apparel purchases, and coaching sessions.
+                </p>
+                <div className="space-y-1 text-muted-foreground">
+                  <div className="flex justify-between gap-4">
+                    <span>Events</span>
+                    <span className="font-bold text-white">{activity2025.events.totalEP} EP</span>
+                  </div>
+                  <div className="flex justify-between gap-4">
+                    <span>Apparel</span>
+                    <span className="font-bold text-white">{activity2025.apparel.totalEP} EP</span>
+                  </div>
+                  <div className="flex justify-between gap-4">
+                    <span>Coaching</span>
+                    <span className="font-bold text-white">{activity2025.coaching.totalEP} EP</span>
+                  </div>
+                </div>
+              </PopoverContent>
+            </Popover>
+          </div>
+          <div className="metric-large">{currentEP}</div>
+          <div className="text-supporting mt-2 flex justify-center">Elevation Points</div>
+        </div>
+
+        <div className="text-center metric-animate-delay-2">
+          <div className="text-subhead mb-3 text-center">
+            EPs Remaining
+          </div>
+          <div className="metric-large">{remainingEP}</div>
+          <div className="text-supporting mt-2 flex justify-center">Until {nextTierName}</div>
+        </div>
+
+        <div className="text-center metric-animate-delay-3">
+          <div className="flex items-center justify-center gap-2 mb-3">
+            <div className="text-subhead text-center">
+              Next Tier
+            </div>
+            <Popover>
+              <PopoverTrigger>
+                <Info className="w-3.5 h-3.5 text-tier-accent hover:opacity-70 transition-opacity cursor-help" />
+              </PopoverTrigger>
+              <PopoverContent className="bg-[#1a1a1a] border-border max-w-[200px] text-xs">
+                <p className="text-white">
+                  <strong>Cycle</strong> refers to the annual tier period. Cycles reset on January 1st each year.
+                </p>
+              </PopoverContent>
+            </Popover>
+          </div>
+          <div className="metric-large">{nextTierName.toUpperCase()}</div>
+          <div className="text-supporting mt-2 flex justify-center">Summit Awaits</div>
+        </div>
       </div>
     </section>
   );
