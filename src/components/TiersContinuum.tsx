@@ -374,18 +374,23 @@ export const TiersContinuum = () => {
           
         </div>
 
+        {/* Separator */}
+        <div className="w-full h-px bg-border/30 mt-16 mb-12"></div>
+
         {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-24">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
         <div className="text-center metric-animate-delay-1">
           <div className="flex items-center justify-center gap-2 mb-3">
             <div className="text-subhead text-center">
               Total EPs
             </div>
             <Popover>
-              <PopoverTrigger>
-                <Info className="w-3.5 h-3.5 text-tier-accent hover:opacity-70 transition-opacity cursor-help" />
+              <PopoverTrigger asChild>
+                <button className="inline-flex items-center justify-center">
+                  <Info className="w-3.5 h-3.5 text-tier-accent hover:opacity-70 transition-opacity cursor-help" />
+                </button>
               </PopoverTrigger>
-              <PopoverContent className="bg-[#1a1a1a] border-border max-w-[200px] text-xs">
+              <PopoverContent align="center" className="bg-[#1a1a1a] border-border max-w-[200px] text-xs">
                 <p className="text-white mb-2">
                   <strong>Elevation Points (EP)</strong> are earned through events, apparel purchases, and coaching sessions.
                 </p>
@@ -424,10 +429,12 @@ export const TiersContinuum = () => {
               Next Tier
             </div>
             <Popover>
-              <PopoverTrigger>
-                <Info className="w-3.5 h-3.5 text-tier-accent hover:opacity-70 transition-opacity cursor-help" />
+              <PopoverTrigger asChild>
+                <button className="inline-flex items-center justify-center">
+                  <Info className="w-3.5 h-3.5 text-tier-accent hover:opacity-70 transition-opacity cursor-help" />
+                </button>
               </PopoverTrigger>
-              <PopoverContent className="bg-[#1a1a1a] border-border max-w-[200px] text-xs">
+              <PopoverContent align="center" className="bg-[#1a1a1a] border-border max-w-[200px] text-xs">
                 <p className="text-white">
                   <strong>Cycle</strong> refers to the annual tier period. Cycles reset on January 1st each year.
                 </p>

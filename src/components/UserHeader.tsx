@@ -18,7 +18,7 @@ export const UserHeader = ({ isCollapsed = false }: UserHeaderProps) => {
         "transition-all duration-300 ease-in-out section-reveal",
         isCollapsed 
           ? "fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md border-b border-tier-accent/20 py-3" 
-          : "mb-24 py-16"
+          : "mb-16 py-8"
       )}
     >
       <div className="container mx-auto px-4">
@@ -28,18 +28,42 @@ export const UserHeader = ({ isCollapsed = false }: UserHeaderProps) => {
           isCollapsed ? "opacity-0 h-0 overflow-hidden" : "opacity-100"
         )}>
           {/* Centered Logo */}
-          <div className="flex justify-center mb-16">
-            <Logo29029 size={40} className="text-white glow-tier-accent opacity-90" />
+          <div className="flex justify-center mb-12">
+            <Logo29029 size={40} className="text-white opacity-90" />
           </div>
 
           {/* Inline Content: Avatar + Info on left, Tier on right */}
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             {/* Left: Avatar + Name + ID + Member */}
-            <div className="flex items-center gap-6 metric-animate-delay-1">
-              <Avatar className="w-24 h-24 border-4 border-tier-accent glow-tier-accent flex-shrink-0">
-                <AvatarImage src="https://i.pravatar.cc/300?img=12" alt="Alex Rivera" />
-                <AvatarFallback className="bg-secondary text-foreground text-lg font-semibold">AR</AvatarFallback>
-              </Avatar>
+            <div className="flex items-center gap-6 metric-animate-delay-1 group">
+              <div className="relative">
+                <Avatar className="w-24 h-24 border-4 border-tier-accent glow-tier-accent flex-shrink-0 transition-all duration-300 group-hover:scale-105">
+                  <AvatarImage src="https://i.pravatar.cc/300?img=12" alt="Alex Rivera" />
+                  <AvatarFallback className="bg-secondary text-foreground text-lg font-semibold">AR</AvatarFallback>
+                </Avatar>
+                
+                {/* Hover Details Card */}
+                <div className="absolute left-0 top-full mt-4 w-64 p-4 rounded-lg border border-tier-accent/30 bg-black/95 backdrop-blur-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 shadow-2xl">
+                  <div className="space-y-3">
+                    <div className="flex justify-between items-center pb-2 border-b border-border/30">
+                      <span className="text-xs text-muted-foreground">Total Events</span>
+                      <span className="text-sm font-bold text-tier-accent">12</span>
+                    </div>
+                    <div className="flex justify-between items-center pb-2 border-b border-border/30">
+                      <span className="text-xs text-muted-foreground">Total Ascents</span>
+                      <span className="text-sm font-bold text-tier-accent">348,000 ft</span>
+                    </div>
+                    <div className="flex justify-between items-center pb-2 border-b border-border/30">
+                      <span className="text-xs text-muted-foreground">Lifetime EP</span>
+                      <span className="text-sm font-bold text-tier-accent">2,450</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-xs text-muted-foreground">Achievement Badges</span>
+                      <span className="text-sm font-bold text-tier-accent">8</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
               
               <div className="text-left">
                 <h1 className="text-hero text-4xl md:text-5xl mb-2">
@@ -90,7 +114,7 @@ export const UserHeader = ({ isCollapsed = false }: UserHeaderProps) => {
 
           {/* Center: Logo */}
           <div className="flex justify-center">
-            <Logo29029 size={28} className="text-white glow-tier-accent opacity-80" />
+            <Logo29029 size={28} className="text-white opacity-80" />
           </div>
 
           {/* Right: EP */}
