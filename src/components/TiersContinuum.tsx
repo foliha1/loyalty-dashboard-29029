@@ -161,9 +161,9 @@ export const TiersContinuum = () => {
 
       <div className="card-29029 card-hover-tier p-10 md:p-14">
         {/* Simplified Tier Bar */}
-        <div className="relative mb-16 overflow-x-auto px-4 sm:px-0 -mx-4 sm:mx-0">
+        <div className="relative mb-16">
           {/* Simple Background Bar - Gray */}
-          <div className={cn("relative h-[76px] rounded-full overflow-visible transition-opacity duration-700 min-w-[640px] sm:min-w-0", isRevealed ? "opacity-100" : "opacity-80")}>
+          <div className={cn("relative h-24 rounded-full overflow-visible transition-opacity duration-700", isRevealed ? "opacity-100" : "opacity-80")}>
             <div className="absolute inset-0 rounded-full" style={{
             background: '#1d1d1d',
             boxShadow: 'inset 0 2px 8px rgba(0,0,0,0.2)'
@@ -202,19 +202,19 @@ export const TiersContinuum = () => {
                 }} />}
                     
                     {/* Marker Circle */}
-                    <div className={cn("w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center relative z-10 pointer-events-none", "transition-all duration-300 group-hover:scale-110")} style={{
+                    <div className={cn("w-16 h-16 rounded-full flex items-center justify-center relative z-10 pointer-events-none", "transition-all duration-300 group-hover:scale-110")} style={{
                   background: 'rgba(10, 10, 10, 0.95)',
                   border: `2px solid hsl(var(--${tier.color}))`,
                   boxShadow: isCurrent ? `0 0 24px hsl(var(--${tier.color}) / 0.6), inset 0 2px 8px rgba(255,255,255,0.1)` : `0 0 12px hsl(var(--${tier.color}) / 0.3), inset 0 2px 4px rgba(255,255,255,0.05)`
                 }}>
-                      <Icon className="w-6 h-6 sm:w-8 sm:h-8" style={{
+                      <Icon className="w-8 h-8" style={{
                     color: `hsl(var(--${tier.color}))`
                   }} />
                     </div>
                     
                     {/* Tier Label Below */}
-                    <div className="absolute top-16 sm:top-24 left-1/2 -translate-x-1/2 text-center whitespace-nowrap">
-                      <div className="font-editorial text-sm sm:text-lg font-bold mb-1 uppercase tracking-wider" style={{
+                    <div className="absolute top-24 left-1/2 -translate-x-1/2 text-center whitespace-nowrap">
+                      <div className="font-editorial text-lg font-bold mb-1 uppercase tracking-wider" style={{
                     color: `hsl(var(--${tier.color}))`,
                     letterSpacing: '0.12em',
                     textShadow: `0 2px 8px hsl(var(--${tier.color}) / 0.3)`
@@ -239,10 +239,22 @@ export const TiersContinuum = () => {
             const epNeeded = getEPNeeded(tier);
             const markerPos = getMarkerPosition(tier.threshold);
 
-            return <div key={tier.name} className="absolute pointer-events-none hidden sm:block" style={{
+            // Calculate tooltip positioning to keep it on screen
+            let tooltipTransform = 'translateX(-50%)';
+            let arrowLeft = '50%';
+            if (markerPos > 70) {
+              // Right side tiers - shift tooltip left
+              tooltipTransform = 'translateX(-85%)';
+              arrowLeft = '85%';
+            } else if (markerPos < 30) {
+              // Left side tiers - shift tooltip right
+              tooltipTransform = 'translateX(-15%)';
+              arrowLeft = '15%';
+            }
+            return <div key={tier.name} className="absolute pointer-events-none" style={{
               left: `${markerPos}%`,
               top: '-140px',
-              transform: 'translateX(-50%)',
+              transform: tooltipTransform,
               willChange: 'transform, opacity',
               animation: 'fade-in 0.15s ease-out forwards'
             }}>
@@ -257,7 +269,8 @@ export const TiersContinuum = () => {
                   background: 'rgba(10, 10, 10, 0.98)',
                   border: `1px solid hsl(var(--${tier.color}) / 0.5)`,
                   borderTop: 'none',
-                  borderLeft: 'none'
+                  borderLeft: 'none',
+                  left: arrowLeft
                 }} />
                       
                       {/* Status text */}
