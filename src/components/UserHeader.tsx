@@ -8,31 +8,60 @@ export const UserHeader = () => {
 
   return (
     <section className="mb-12 animate-fade-in">
-      <div className="border border-border rounded-2xl p-6 md:p-8 relative overflow-hidden" style={{ backgroundColor: '#343532' }}>
-        
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 md:gap-0 relative z-10">
-          <div className="flex items-center gap-3 md:gap-4">
-            <Avatar className="w-12 h-12 md:w-16 md:h-16 border-2 border-ridge">
+      <div 
+        className="border border-border rounded-2xl p-8 md:p-10 relative overflow-hidden card-elevated-high"
+        style={{ 
+          backgroundColor: '#0a0a0a',
+          background: 'radial-gradient(circle at top left, rgba(94, 184, 173, 0.05) 0%, transparent 50%)'
+        }}
+      >
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-center relative z-10">
+          {/* Avatar & Name */}
+          <div className="flex items-center gap-4">
+            <Avatar 
+              className="w-16 h-16 md:w-20 md:h-20 border-2 transition-all duration-300"
+              style={{ 
+                borderColor: `hsl(var(--${currentTier?.color}))`,
+                boxShadow: `0 0 20px hsl(var(--${currentTier?.color}) / 0.3)`
+              }}
+            >
               <AvatarImage src="https://i.pravatar.cc/300?img=12" alt="Alex Rivera" />
-              <AvatarFallback className="bg-secondary text-foreground text-base md:text-lg font-semibold">AR</AvatarFallback>
+              <AvatarFallback className="bg-secondary text-foreground text-lg font-semibold">AR</AvatarFallback>
             </Avatar>
             <div>
-              <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight">Welcome, Alex Rivera</h1>
+              <h1 className="text-2xl md:text-3xl font-bold tracking-tight mb-1">Alex Rivera</h1>
+              <div className="text-xs text-muted-foreground uppercase tracking-wider">
+                29029 ID: AR-5847
+              </div>
+              <div className="text-xs text-warm-gray-light mt-0.5">
+                Member since 2023
+              </div>
             </div>
           </div>
-          <div className="flex items-center gap-4 md:gap-6 w-full md:w-auto justify-between md:justify-end">
-            <div className="text-right">
-              <div className="inline-flex items-center justify-center px-3 py-1.5 rounded-md font-bold" style={{ backgroundColor: '#1a1a1e' }}>
-                <span className="text-xl sm:text-2xl md:text-3xl">720</span>
-              </div>
-              <div className="text-xs text-muted-foreground uppercase tracking-wider mt-1">
-                Total EP
-              </div>
+
+          {/* EP Stats */}
+          <div className="text-left lg:text-center">
+            <div className="text-xs text-muted-foreground uppercase tracking-wider mb-2">
+              Total EP This Cycle
             </div>
+            <div className="inline-flex items-center justify-center px-4 py-2 rounded-lg font-bold" style={{ backgroundColor: '#1a1a1e' }}>
+              <span className="text-3xl md:text-4xl">720</span>
+            </div>
+          </div>
+
+          {/* Tier Badge */}
+          <div className="flex justify-start lg:justify-end">
             {TierIcon && (
-              <div className="flex items-center gap-2 bg-secondary px-3 md:px-4 py-2 rounded-lg border border-ridge ridge-glow">
-                <TierIcon className="w-4 h-4 md:w-5 md:h-5 text-ridge" />
-                <span className="font-semibold text-xs sm:text-sm md:text-base">{currentTierName}</span>
+              <div 
+                className="flex items-center gap-3 px-5 py-3 rounded-full border-2 transition-all duration-300 hover:scale-105"
+                style={{ 
+                  backgroundColor: '#0f0f0f',
+                  borderColor: `hsl(var(--${currentTier?.color}))`,
+                  boxShadow: `0 0 24px hsl(var(--${currentTier?.color}) / 0.2)`
+                }}
+              >
+                <TierIcon className="w-5 h-5" style={{ color: `hsl(var(--${currentTier?.color}))` }} />
+                <span className="font-bold text-base tracking-wide">{currentTierName}</span>
               </div>
             )}
           </div>

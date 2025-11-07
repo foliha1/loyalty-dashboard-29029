@@ -1,7 +1,7 @@
 import { UserHeader } from "@/components/UserHeader";
 import { ProgressHero } from "@/components/ProgressHero";
 import { TierLadder } from "@/components/TierLadder";
-import { ImmersionsGrid } from "@/components/ImmersionsGrid";
+import { CalendarGrid } from "@/components/CalendarGrid";
 import { ActivityFeed } from "@/components/ActivityFeed";
 
 const Index = () => {
@@ -11,7 +11,7 @@ const Index = () => {
         <UserHeader />
         <ProgressHero />
         <TierLadder />
-        <ImmersionsGrid />
+        <CalendarGrid />
         <ActivityFeed />
       </div>
     </div>

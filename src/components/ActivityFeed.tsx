@@ -1,6 +1,7 @@
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { ChevronDown } from "lucide-react";
+import { useState } from "react";
 
 interface YearlyActivity {
   year: number;
@@ -89,138 +90,152 @@ const yearlyActivities: YearlyActivity[] = [
 ];
 
 export const ActivityFeed = () => {
+  const [selectedYear, setSelectedYear] = useState("2025");
+  const yearData = yearlyActivities.find(y => y.year.toString() === selectedYear);
+  
+  if (!yearData) return null;
+  
+  const totalYearEP = yearData.events.totalEP + yearData.apparel.totalEP + yearData.coaching.totalEP;
+  
   return (
-    <section className="animate-fade-in" style={{ animationDelay: "0.4s" }}>
-      <h2 className="text-2xl md:text-3xl font-bold mb-6 uppercase tracking-wider">
-        Your Activity
-      </h2>
+    <section className="mb-16 animate-fade-in" style={{ animationDelay: "0.4s" }}>
+      <div className="flex items-center justify-between mb-6">
+        <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-wider">
+          History
+        </h2>
+        
+        <Select value={selectedYear} onValueChange={setSelectedYear}>
+          <SelectTrigger className="w-[120px] border-border bg-background hover:border-[#DD0033] transition-colors">
+            <SelectValue placeholder="Year" />
+          </SelectTrigger>
+          <SelectContent className="bg-[#1a1a1a] border-border">
+            {yearlyActivities.map((yearData) => (
+              <SelectItem 
+                key={yearData.year} 
+                value={yearData.year.toString()}
+                className="hover:bg-[#DD0033]/10 focus:bg-[#DD0033]/20"
+              >
+                {yearData.year}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      </div>
       
-      <Tabs defaultValue="2025" className="w-full">
-        <TabsList className="mb-6">
-          {yearlyActivities.map((yearData) => (
-            <TabsTrigger key={yearData.year} value={yearData.year.toString()}>
-              {yearData.year}
-            </TabsTrigger>
-          ))}
-        </TabsList>
+      <div className="w-full border border-border rounded-xl p-8 transition-all duration-300 hover:border-muted-foreground/50 card-elevated" style={{ backgroundColor: '#343532' }}>
+        {/* Year header with total EP */}
+        <div className="flex items-center justify-between mb-8">
+          <h3 className="text-4xl md:text-5xl font-bold">{yearData.year}</h3>
+          <div className="text-right">
+            <div className="inline-flex items-center justify-center px-4 py-2 rounded-lg font-bold" style={{ backgroundColor: '#1a1a1e' }}>
+              <span className="text-2xl md:text-3xl">{totalYearEP} EP</span>
+            </div>
+            <div className="text-xs text-muted-foreground uppercase tracking-wide mt-1">
+              Total Earned
+            </div>
+          </div>
+        </div>
 
-        {yearlyActivities.map((yearData) => {
-          const totalYearEP = yearData.events.totalEP + yearData.apparel.totalEP + yearData.coaching.totalEP;
-          
-          return (
-            <TabsContent key={yearData.year} value={yearData.year.toString()}>
-              <div className="w-full border border-border rounded-xl p-6 md:p-8 transition-all duration-300 hover:border-muted-foreground/50 backdrop-blur-sm" style={{ backgroundColor: '#343532' }}>
-                {/* Year header with total EP */}
-                <div className="flex items-center justify-between mb-6">
-                  <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold">{yearData.year}</h3>
-                  <div className="text-right">
-                    <div className="inline-flex items-center justify-center px-3 py-1.5 rounded-md font-bold" style={{ backgroundColor: '#1a1a1e' }}>
-                      <span className="text-xl md:text-2xl">{totalYearEP} EP</span>
-                    </div>
-                    <div className="text-xs text-muted-foreground uppercase tracking-wide mt-1">
-                      Total Earned
-                    </div>
-                  </div>
+        {/* Categories */}
+        <div className="space-y-6">
+          {/* EVENTS */}
+          <div>
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-3">
+              Events
+            </h4>
+            <div className="flex items-start justify-between">
+              <div className="flex-1 min-w-0">
+                <div className="text-lg font-bold mb-1">
+                  Total EP Earned
                 </div>
-
-                {/* Categories */}
-                <div className="space-y-4 md:space-y-6">
-                  {/* EVENTS */}
-                  <div>
-                    <h4 className="text-xs md:text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-2 md:mb-3">
-                      Events
-                    </h4>
-                    <div className="flex items-start justify-between">
-                      <div className="flex-1 min-w-0">
-                        <div className="text-base md:text-lg font-semibold mb-2">
-                          {yearData.events.total} Events Attended
-                        </div>
-                        
-                        <Collapsible>
-                          <CollapsibleTrigger className="flex items-center gap-2 text-xs md:text-sm text-muted-foreground hover:text-foreground transition-colors group">
-                            <span>View Events</span>
-                            <ChevronDown className="h-3 w-3 transition-transform duration-200 group-data-[state=open]:rotate-180" />
-                          </CollapsibleTrigger>
-                          <CollapsibleContent className="mt-2">
-                            <div className="max-h-32 overflow-y-auto text-xs md:text-sm text-muted-foreground break-words pr-2">
-                              {yearData.events.attended.join(" • ")}
-                            </div>
-                          </CollapsibleContent>
-                        </Collapsible>
-                      </div>
-                      <div className="text-right flex-shrink-0 ml-3 md:ml-4">
-                        <div className="inline-flex items-center justify-center px-2.5 py-1 rounded-md font-bold text-sm md:text-base" style={{ backgroundColor: '#1a1a1e' }}>
-                          {yearData.events.totalEP} EP
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Separator */}
-                  <div className="border-t" style={{ borderColor: '#1c1a1f' }} />
-
-                  {/* APPAREL */}
-                  <div>
-                    <h4 className="text-xs md:text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-2 md:mb-3">
-                      Apparel Purchases
-                    </h4>
-                    <div className="flex items-start justify-between">
-                      <div className="flex-1">
-                        <div className="text-base md:text-lg font-semibold">
-                          Total Earned
-                        </div>
-                      </div>
-                      <div className="text-right flex-shrink-0 ml-3 md:ml-4">
-                        <div className="inline-flex items-center justify-center px-2.5 py-1 rounded-md font-bold text-sm md:text-base" style={{ backgroundColor: '#1a1a1e' }}>
-                          {yearData.apparel.totalEP} EP
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Separator */}
-                  <div className="border-t" style={{ borderColor: '#1c1a1f' }} />
-
-                  {/* COACHING */}
-                  <div>
-                    <h4 className="text-xs md:text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-2 md:mb-3">
-                      Coaching Sessions
-                    </h4>
-                    <div className="flex items-start justify-between">
-                      <div className="flex-1 min-w-0">
-                        <div className="text-base md:text-lg font-semibold mb-2">
-                          {yearData.coaching.total} Sessions Completed
-                        </div>
-                        
-                        <Collapsible>
-                          <CollapsibleTrigger className="flex items-center gap-2 text-xs md:text-sm text-muted-foreground hover:text-foreground transition-colors group">
-                            <span>View Sessions</span>
-                            <ChevronDown className="h-3 w-3 transition-transform duration-200 group-data-[state=open]:rotate-180" />
-                          </CollapsibleTrigger>
-                          <CollapsibleContent className="mt-2">
-                            <div className="max-h-32 overflow-y-auto space-y-1.5 md:space-y-2 pr-2">
-                              {yearData.coaching.sessions.map((session, idx) => (
-                                <div key={idx} className="text-xs md:text-sm text-muted-foreground pl-3 md:pl-4 break-words">
-                                  • {session.name}
-                                </div>
-                              ))}
-                            </div>
-                          </CollapsibleContent>
-                        </Collapsible>
-                      </div>
-                      <div className="text-right flex-shrink-0 ml-3 md:ml-4">
-                        <div className="inline-flex items-center justify-center px-2.5 py-1 rounded-md font-bold text-sm md:text-base" style={{ backgroundColor: '#1a1a1e' }}>
-                          {yearData.coaching.totalEP} EP
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                <div className="inline-flex items-center justify-center px-3 py-1.5 rounded-md font-bold mb-3" style={{ backgroundColor: '#1a1a1e' }}>
+                  {yearData.events.totalEP} EP
                 </div>
+                
+                <Collapsible>
+                  <CollapsibleTrigger className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors group">
+                    <span>View Events</span>
+                    <ChevronDown className="h-3.5 w-3.5 transition-transform duration-200 group-data-[state=open]:rotate-180 text-[#DD0033]" />
+                  </CollapsibleTrigger>
+                  <CollapsibleContent className="mt-3">
+                    <div className="text-sm text-muted-foreground">
+                      {yearData.events.attended.join(" • ")}
+                    </div>
+                  </CollapsibleContent>
+                </Collapsible>
               </div>
-            </TabsContent>
-          );
-        })}
-      </Tabs>
+            </div>
+          </div>
+
+          {/* Separator */}
+          <div className="border-t border-border/50" />
+
+          {/* APPAREL */}
+          <div>
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-3">
+              Apparel
+            </h4>
+            <div className="flex items-start justify-between">
+              <div className="flex-1 min-w-0">
+                <div className="text-lg font-bold mb-1">
+                  Total EP Earned
+                </div>
+                <div className="inline-flex items-center justify-center px-3 py-1.5 rounded-md font-bold mb-3" style={{ backgroundColor: '#1a1a1e' }}>
+                  {yearData.apparel.totalEP} EP
+                </div>
+                
+                <Collapsible>
+                  <CollapsibleTrigger className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors group">
+                    <span>View Purchases</span>
+                    <ChevronDown className="h-3.5 w-3.5 transition-transform duration-200 group-data-[state=open]:rotate-180 text-[#DD0033]" />
+                  </CollapsibleTrigger>
+                  <CollapsibleContent className="mt-3">
+                    <div className="text-sm text-muted-foreground">
+                      Purchase history coming soon
+                    </div>
+                  </CollapsibleContent>
+                </Collapsible>
+              </div>
+            </div>
+          </div>
+
+          {/* Separator */}
+          <div className="border-t border-border/50" />
+
+          {/* COACHING */}
+          <div>
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-3">
+              Coaching
+            </h4>
+            <div className="flex items-start justify-between">
+              <div className="flex-1 min-w-0">
+                <div className="text-lg font-bold mb-1">
+                  Total EP Earned
+                </div>
+                <div className="inline-flex items-center justify-center px-3 py-1.5 rounded-md font-bold mb-3" style={{ backgroundColor: '#1a1a1e' }}>
+                  {yearData.coaching.totalEP} EP
+                </div>
+                
+                <Collapsible>
+                  <CollapsibleTrigger className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors group">
+                    <span>View Subscriptions</span>
+                    <ChevronDown className="h-3.5 w-3.5 transition-transform duration-200 group-data-[state=open]:rotate-180 text-[#DD0033]" />
+                  </CollapsibleTrigger>
+                  <CollapsibleContent className="mt-3">
+                    <div className="space-y-2">
+                      {yearData.coaching.sessions.map((session, idx) => (
+                        <div key={idx} className="text-sm text-muted-foreground pl-4">
+                          • {session.name}
+                        </div>
+                      ))}
+                    </div>
+                  </CollapsibleContent>
+                </Collapsible>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };

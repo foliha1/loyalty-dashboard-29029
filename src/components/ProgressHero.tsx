@@ -1,156 +1,167 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { getCurrentTier } from "@/lib/tierConfig";
+import { Info } from "lucide-react";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 
-// 2025 Activity Data (matching ActivityFeed) - 72% to Peak
+// 2025 Activity Data - 72% to Peak
 const activity2025 = {
   events: { totalEP: 290 },
   apparel: { totalEP: 180 },
   coaching: { totalEP: 250 }
 };
 
-// Main progress color
-const mainColor = "#5eb8ad";
-
 export const ProgressHero = () => {
-  const [mounted, setMounted] = useState(false);
-  const [showBreakdown, setShowBreakdown] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
   
-  // Calculate totals from 2025 activity data
+  // Calculate totals
   const currentEP = activity2025.events.totalEP + activity2025.apparel.totalEP + activity2025.coaching.totalEP;
   const nextTierEP = 1000;
+  const remainingEP = nextTierEP - currentEP;
   const percentage = Math.min(100, Math.round((currentEP / nextTierEP) * 100));
-  
-  // Calculate percentages for breakdown
-  const eventsPercent = Math.round((activity2025.events.totalEP / currentEP) * 100);
-  const apparelPercent = Math.round((activity2025.apparel.totalEP / currentEP) * 100);
-  const coachingPercent = Math.round((activity2025.coaching.totalEP / currentEP) * 100);
   
   const currentTierName = "Ridge";
   const nextTierName = "Peak";
   const currentTier = getCurrentTier(currentTierName);
-  const nextTier = getCurrentTier(nextTierName);
-  const CurrentTierIcon = currentTier?.icon;
   
-  // Circle calculations - responsive sizing
-  const radius = 110; // Increased for larger graph
-  const circumference = 2 * Math.PI * radius;
-  const strokeDashoffset = circumference - (circumference * percentage) / 100;
-  
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   return (
     <section className="mb-16 animate-fade-in" style={{ animationDelay: "0.1s" }}>
       <h2 className="text-2xl md:text-3xl font-bold mb-6 uppercase tracking-wider">
         Elevation Progress
       </h2>
       
-      <div className="border border-border rounded-2xl p-4 md:p-8 lg:p-12 relative overflow-hidden" style={{ backgroundColor: '#343532' }}>
-        <div 
-          className="absolute inset-0 pointer-events-none opacity-10"
-          style={{ background: `radial-gradient(circle at top right, hsl(var(--${currentTier?.color})) 0%, transparent 60%)` }}
-        />
-        
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 relative z-10">
-          {/* Circular Progress */}
-          <div 
-            className="relative flex-shrink-0 w-full max-w-[360px] cursor-pointer transition-transform hover:scale-105"
-            onMouseEnter={() => setShowBreakdown(true)}
-            onMouseLeave={() => setShowBreakdown(false)}
-          >
-            <svg className="transform -rotate-90 w-full h-auto" viewBox="0 0 260 260">
-              {/* Background circle */}
-              <circle
-                cx="130"
-                cy="130"
-                r={radius}
-                stroke="#1a1a1a"
-                strokeWidth="14"
-                fill="none"
-              />
-              {/* Progress circle */}
-              <circle
-                cx="130"
-                cy="130"
-                r={radius}
-                stroke={mainColor}
-                strokeWidth="14"
-                fill="none"
-                strokeDasharray={circumference}
-                strokeDashoffset={mounted ? strokeDashoffset : circumference}
-                strokeLinecap="round"
-                className="transition-all duration-[2000ms] ease-out"
-              />
-            </svg>
-            <div className="absolute inset-0 flex flex-col items-center justify-center">
-              {!showBreakdown ? (
-                <>
-                  <div 
-                    className="text-5xl sm:text-6xl md:text-7xl font-bold transition-all duration-300"
-                    style={{ color: '#ffffff' }}
-                  >
-                    {percentage}%
-                  </div>
-                  <div className="text-xs text-muted-foreground uppercase tracking-wider mt-1">
-                    Complete
-                  </div>
-                </>
-              ) : (
-                <div className="text-center space-y-2 animate-fade-in px-4">
-                  <div className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-3">
-                    Breakdown
-                  </div>
-                  <div className="space-y-1.5 text-left">
-                    <div className="flex justify-between gap-4">
-                      <span className="text-sm text-muted-foreground">Events</span>
-                      <span className="text-sm font-bold" style={{ color: '#ffffff' }}>{eventsPercent}%</span>
-                    </div>
-                    <div className="flex justify-between gap-4">
-                      <span className="text-sm text-muted-foreground">Apparel</span>
-                      <span className="text-sm font-bold" style={{ color: '#ffffff' }}>{apparelPercent}%</span>
-                    </div>
-                    <div className="flex justify-between gap-4">
-                      <span className="text-sm text-muted-foreground">Coaching</span>
-                      <span className="text-sm font-bold" style={{ color: '#ffffff' }}>{coachingPercent}%</span>
-                    </div>
+      <div 
+        className="border border-border rounded-2xl p-8 md:p-10 relative overflow-hidden card-elevated" 
+        style={{ backgroundColor: '#0f0f0f' }}
+      >
+        <div className="space-y-8">
+          {/* Progress Bar */}
+          <TooltipProvider>
+            <Tooltip open={isHovered}>
+              <TooltipTrigger asChild>
+                <div 
+                  className="relative cursor-pointer"
+                  onMouseEnter={() => setIsHovered(true)}
+                  onMouseLeave={() => setIsHovered(false)}
+                >
+                  <div className="h-3 w-full bg-[#1a1a1a] rounded-full overflow-hidden">
+                    <div 
+                      className="h-full rounded-full transition-all duration-2000 ease-out"
+                      style={{ 
+                        width: `${percentage}%`,
+                        background: 'linear-gradient(90deg, #DD0033 0%, #990023 100%)'
+                      }}
+                    />
                   </div>
                 </div>
-              )}
+              </TooltipTrigger>
+              <TooltipContent 
+                side="top" 
+                className="bg-[#1a1a1a] border-border p-4"
+              >
+                <div className="space-y-1.5 text-sm">
+                  <div className="flex justify-between gap-6">
+                    <span className="text-muted-foreground">Events</span>
+                    <span className="font-bold text-white">{activity2025.events.totalEP} EP</span>
+                  </div>
+                  <div className="flex justify-between gap-6">
+                    <span className="text-muted-foreground">Apparel</span>
+                    <span className="font-bold text-white">{activity2025.apparel.totalEP} EP</span>
+                  </div>
+                  <div className="flex justify-between gap-6">
+                    <span className="text-muted-foreground">Coaching</span>
+                    <span className="font-bold text-white">{activity2025.coaching.totalEP} EP</span>
+                  </div>
+                </div>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+
+          {/* Stats Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Total EPs */}
+            <div>
+              <div className="flex items-center gap-2 mb-2">
+                <div className="text-xs uppercase tracking-wider text-muted-foreground">
+                  Total EPs
+                </div>
+                <Popover>
+                  <PopoverTrigger>
+                    <Info className="w-3.5 h-3.5 text-[#DD0033] hover:text-[#990023] transition-colors cursor-help" />
+                  </PopoverTrigger>
+                  <PopoverContent className="bg-[#1a1a1a] border-border max-w-[200px] text-xs">
+                    <p className="text-white">
+                      <strong>Elevation Points (EP)</strong> are earned through events, apparel purchases, and coaching sessions.
+                    </p>
+                  </PopoverContent>
+                </Popover>
+              </div>
+              <div className="text-3xl md:text-4xl font-bold text-white">
+                {currentEP} EP
+              </div>
+            </div>
+
+            {/* EPs Remaining */}
+            <div>
+              <div className="text-xs uppercase tracking-wider text-muted-foreground mb-2">
+                EPs Remaining
+              </div>
+              <div className="text-3xl md:text-4xl font-bold text-white">
+                {remainingEP} EP
+              </div>
+            </div>
+
+            {/* Pending EPs */}
+            <div>
+              <div className="flex items-center gap-2 mb-2">
+                <div className="text-xs uppercase tracking-wider text-muted-foreground">
+                  Pending EPs
+                </div>
+                <Popover>
+                  <PopoverTrigger>
+                    <Info className="w-3.5 h-3.5 text-[#DD0033] hover:text-[#990023] transition-colors cursor-help" />
+                  </PopoverTrigger>
+                  <PopoverContent className="bg-[#1a1a1a] border-border max-w-[200px] text-xs">
+                    <p className="text-white">
+                      Pending EPs are earned but not yet credited. They will be added after event completion.
+                    </p>
+                  </PopoverContent>
+                </Popover>
+              </div>
+              <div className="text-3xl md:text-4xl font-bold text-muted-foreground">
+                0 EP
+              </div>
             </div>
           </div>
 
-          {/* Progress Details */}
-          <div className="flex-1 space-y-4 md:space-y-6 w-full">
-            <div>
-              <div className="text-xs md:text-sm text-muted-foreground uppercase tracking-wider mb-2">
-                Current EP This Cycle
-              </div>
-              <div className="inline-flex items-center justify-center px-3 py-1.5 rounded-md font-bold" style={{ backgroundColor: '#1a1a1e' }}>
-                <span className="text-2xl sm:text-3xl md:text-4xl">{currentEP} EP</span>
-              </div>
-            </div>
-            
-            <div>
-              <div className="text-xs md:text-sm text-muted-foreground uppercase tracking-wider mb-2">
-                EP to Next Tier
-              </div>
-              <div className="text-lg sm:text-xl md:text-2xl font-semibold text-foreground/80">
-                {currentEP >= nextTierEP ? "Exceeded! Ready to advance" : `${nextTierEP - currentEP} EP remaining`}
-              </div>
-            </div>
-
-            <div className="pt-4 border-t border-border">
-              <div className="text-xs md:text-sm text-muted-foreground uppercase tracking-wider mb-2">
+          {/* Next Tier Info */}
+          <div className="pt-6 border-t border-border">
+            <div className="flex items-center gap-2 mb-2">
+              <div className="text-xs uppercase tracking-wider text-muted-foreground">
                 Next Tier
               </div>
-              <div className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground flex flex-wrap items-center gap-2">
-                {nextTierName}
-                <span className="text-xs md:text-sm text-muted-foreground font-normal">
-                  — {nextTier?.description}
-                </span>
-              </div>
+              <Popover>
+                <PopoverTrigger>
+                  <Info className="w-3.5 h-3.5 text-[#DD0033] hover:text-[#990023] transition-colors cursor-help" />
+                </PopoverTrigger>
+                <PopoverContent className="bg-[#1a1a1a] border-border max-w-[200px] text-xs">
+                  <p className="text-white">
+                    <strong>Cycle</strong> refers to the annual tier period. Cycles reset on January 1st each year.
+                  </p>
+                </PopoverContent>
+              </Popover>
+            </div>
+            <div className="text-2xl md:text-3xl font-bold text-white">
+              {nextTierName}
             </div>
           </div>
         </div>
