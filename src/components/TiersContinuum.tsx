@@ -155,7 +155,7 @@ export const TiersContinuum = () => {
       
       <h2 style={{
       letterSpacing: '-0.02em'
-    }} className="text-section-title md:text-5xl mb-12 font-editorial text-4xl text-left">
+    }} className="text-section-title md:text-5xl mb-12 font-editorial text-4xl text-left font-light">
         Your Elevation Journey
       </h2>
 
