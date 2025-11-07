@@ -140,14 +140,11 @@ export const ActivityFeed = () => {
           </div>
         </div>
 
-        {/* Categories - More Spacing */}
-        <div className="space-y-10">
+        {/* Categories - Inline Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           {/* Events Section */}
           <div className="metric-animate-delay-2">
-            <h4 className="text-subhead mb-6 flex items-center gap-3">
-              <span>Events</span>
-              <div className="h-px flex-1 bg-gradient-to-r from-tier-accent/30 to-transparent" />
-            </h4>
+            <h4 className="text-subhead mb-6">Events</h4>
             
             <div>
               <div className="metric-medium mb-2">{yearData.events.totalEP} EP</div>
@@ -166,15 +163,9 @@ export const ActivityFeed = () => {
             </div>
           </div>
 
-          {/* Separator */}
-          <div className="border-t border-border/50" />
-
           {/* APPAREL */}
           <div>
-            <h4 className="text-subhead mb-6 flex items-center gap-3">
-              <span>Apparel</span>
-              <div className="h-px flex-1 bg-gradient-to-r from-tier-accent/30 to-transparent" />
-            </h4>
+            <h4 className="text-subhead mb-6">Apparel</h4>
             <div>
               <div className="metric-medium mb-2">{yearData.apparel.totalEP} EP</div>
               
@@ -192,15 +183,9 @@ export const ActivityFeed = () => {
             </div>
           </div>
 
-          {/* Separator */}
-          <div className="border-t border-border/50" />
-
           {/* COACHING */}
           <div>
-            <h4 className="text-subhead mb-6 flex items-center gap-3">
-              <span>Coaching</span>
-              <div className="h-px flex-1 bg-gradient-to-r from-tier-accent/30 to-transparent" />
-            </h4>
+            <h4 className="text-subhead mb-6">Coaching</h4>
             <div>
               <div className="metric-medium mb-2">{yearData.coaching.totalEP} EP</div>
               
