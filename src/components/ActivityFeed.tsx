@@ -115,7 +115,7 @@ export const ActivityFeed = () => {
               <SelectItem 
                 key={yearData.year} 
                 value={yearData.year.toString()}
-                className="hover:bg-tier-accent/10 focus:bg-tier-accent/20"
+                className="hover:bg-tier-accent/20 hover:text-tier-accent focus:bg-tier-accent/20 focus:text-tier-accent"
               >
                 {yearData.year}
               </SelectItem>

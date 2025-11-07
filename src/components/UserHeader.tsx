@@ -2,6 +2,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { getCurrentTier } from "@/lib/tierConfig";
 import { cn } from "@/lib/utils";
 import { Logo29029 } from "@/components/Logo29029";
+import patagoniaImage from "@/assets/patagonia-mountains.jpg";
 
 interface UserHeaderProps {
   isCollapsed?: boolean;
@@ -15,13 +16,24 @@ export const UserHeader = ({ isCollapsed = false }: UserHeaderProps) => {
   return (
     <section 
       className={cn(
-        "transition-all duration-300 ease-in-out section-reveal",
+        "transition-all duration-300 ease-in-out section-reveal relative",
         isCollapsed 
           ? "fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md border-b border-tier-accent/20 py-3" 
           : "mb-16 py-8"
       )}
+      style={!isCollapsed ? {
+        backgroundImage: `url(${patagoniaImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      } : undefined}
     >
-      <div className="container mx-auto px-4">
+      {/* Black overlay at 30% */}
+      {!isCollapsed && (
+        <div className="absolute inset-0 bg-black/30 -z-10" />
+      )}
+      
+      <div className="container mx-auto px-4 relative z-10">
         {/* Expanded Layout */}
         <div className={cn(
           "transition-all duration-300 ease-in-out",

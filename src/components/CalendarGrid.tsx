@@ -106,7 +106,7 @@ export const CalendarGrid = () => {
               <span className={cn(
                 "text-[10px] px-3 py-1.5 rounded-full uppercase tracking-wider font-semibold",
                 event.eventType === "Mountain" 
-                  ? "bg-[#2a2a2a] text-white"
+                  ? "bg-red-900/30 border border-red-700/50 text-red-400"
                   : "bg-amber-900/30 border border-amber-700/50 text-amber-200"
               )}>
                 {event.eventType}
