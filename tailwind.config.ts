@@ -122,6 +122,24 @@ export default {
             transform: "translateY(-4px)",
           },
         },
+        "sweep": {
+          "0%": {
+            backgroundPosition: "-200% 0",
+          },
+          "100%": {
+            backgroundPosition: "200% 0",
+          },
+        },
+        "tier-pulse": {
+          "0%, 100%": {
+            boxShadow: "0 0 24px var(--glow-color, rgba(255,255,255,0.3))",
+            transform: "scale(1)",
+          },
+          "50%": {
+            boxShadow: "0 0 40px var(--glow-color, rgba(255,255,255,0.5))",
+            transform: "scale(1.05)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -131,6 +149,8 @@ export default {
         "fade-in": "fade-in 0.4s ease-out",
         "hover-lift": "hover-lift 0.3s ease-out",
         "floating": "floating 3s ease-in-out infinite",
+        "sweep": "sweep 8s ease-in-out infinite",
+        "tier-pulse": "tier-pulse 2s ease-in-out infinite",
       },
     },
   },

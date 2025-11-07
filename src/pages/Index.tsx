@@ -1,6 +1,6 @@
 import { UserHeader } from "@/components/UserHeader";
 import { ProgressHero } from "@/components/ProgressHero";
-import { TierLadder } from "@/components/TierLadder";
+import { TiersContinuum } from "@/components/TiersContinuum";
 import { CalendarGrid } from "@/components/CalendarGrid";
 import { ActivityFeed } from "@/components/ActivityFeed";
 
@@ -10,7 +10,7 @@ const Index = () => {
       <div className="container mx-auto px-4 py-8 max-w-7xl">
         <UserHeader />
         <ProgressHero />
-        <TierLadder />
+        <TiersContinuum />
         <CalendarGrid />
         <ActivityFeed />
       </div>
