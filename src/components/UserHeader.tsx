@@ -39,12 +39,17 @@ export const UserHeader = () => {
 
           {/* Tier Badge */}
           <div className="flex justify-center md:justify-end metric-animate-delay-3">
-            {TierIcon && (
-              <div className="px-8 py-4 rounded-lg border-2 border-[#5eb8ad] bg-black/40 backdrop-blur-sm">
-                <TierIcon className="w-8 h-8 text-[#5eb8ad] mx-auto mb-2" />
-                <div className="font-editorial text-xl text-center">{currentTierName.toUpperCase()}</div>
+            <div>
+              <div className="text-subhead mb-4 text-center">
+                Current Tier
               </div>
-            )}
+              {TierIcon && (
+                <div className="px-8 py-4 rounded-lg border-2 border-[#5eb8ad] bg-black/40 backdrop-blur-sm">
+                  <TierIcon className="w-8 h-8 text-[#5eb8ad] mx-auto mb-2" />
+                  <div className="font-editorial text-xl text-center">{currentTierName.toUpperCase()}</div>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>

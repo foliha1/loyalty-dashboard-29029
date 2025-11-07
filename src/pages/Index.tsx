@@ -2,7 +2,6 @@ import { UserHeader } from "@/components/UserHeader";
 import { ProgressHero } from "@/components/ProgressHero";
 import { TiersContinuum } from "@/components/TiersContinuum";
 import { CalendarGrid } from "@/components/CalendarGrid";
-import { ImmersionsGrid } from "@/components/ImmersionsGrid";
 import { ActivityFeed } from "@/components/ActivityFeed";
 import { useParallax } from "@/hooks/useParallax";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -16,7 +15,6 @@ const Index = () => {
   const progressReveal = useScrollReveal(0.1);
   const tiersReveal = useScrollReveal(0.1);
   const calendarReveal = useScrollReveal(0.1);
-  const immersionsReveal = useScrollReveal(0.1);
   const activityReveal = useScrollReveal(0.1);
 
   return (
@@ -91,13 +89,6 @@ const Index = () => {
           className={`section-fade-up section-fade-up-delay-2 ${calendarReveal.isVisible ? 'visible' : ''}`}
         >
           <CalendarGrid />
-        </div>
-        
-        <div 
-          ref={immersionsReveal.ref}
-          className={`section-fade-up section-fade-up-delay-3 ${immersionsReveal.isVisible ? 'visible' : ''}`}
-        >
-          <ImmersionsGrid />
         </div>
         
         <div 

@@ -104,8 +104,8 @@ export const ProgressHero = () => {
         {/* Stats - Larger Typography, More Space */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <div className="text-center metric-animate-delay-1">
-            <div className="flex items-center justify-center gap-2 mb-3">
-              <div className="text-subhead">
+          <div className="flex items-center justify-center gap-2 mb-3">
+              <div className="text-subhead text-center">
                 Total EPs
               </div>
               <Popover>
@@ -120,20 +120,20 @@ export const ProgressHero = () => {
               </Popover>
             </div>
             <div className="metric-large">{currentEP}</div>
-            <div className="text-supporting mt-2">Elevation Points</div>
+            <div className="text-supporting mt-2 text-center">Elevation Points</div>
           </div>
 
           <div className="text-center metric-animate-delay-2">
-            <div className="text-subhead mb-3">
+            <div className="text-subhead mb-3 text-center">
               EPs Remaining
             </div>
             <div className="metric-large">{remainingEP}</div>
-            <div className="text-supporting mt-2">Until {nextTierName}</div>
+            <div className="text-supporting mt-2 text-center">Until {nextTierName}</div>
           </div>
 
           <div className="text-center metric-animate-delay-3">
             <div className="flex items-center justify-center gap-2 mb-3">
-              <div className="text-subhead">
+              <div className="text-subhead text-center">
                 Next Tier
               </div>
               <Popover>
@@ -148,7 +148,7 @@ export const ProgressHero = () => {
               </Popover>
             </div>
             <div className="metric-large">{nextTierName.toUpperCase()}</div>
-            <div className="text-supporting mt-2">Summit Awaits</div>
+            <div className="text-supporting mt-2 text-center">Summit Awaits</div>
           </div>
         </div>
       </div>
