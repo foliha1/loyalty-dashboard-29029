@@ -252,15 +252,30 @@ export const TiersContinuum = () => {
               
               const isCurrent = tier.name === currentTierName;
               const epNeeded = getEPNeeded(tier);
+              const markerPos = getMarkerPosition(tier.threshold);
+              
+              // Calculate tooltip positioning to keep it on screen
+              let tooltipTransform = 'translateX(-50%)';
+              let arrowLeft = '50%';
+              
+              if (markerPos > 70) {
+                // Right side tiers - shift tooltip left
+                tooltipTransform = 'translateX(-85%)';
+                arrowLeft = '85%';
+              } else if (markerPos < 30) {
+                // Left side tiers - shift tooltip right
+                tooltipTransform = 'translateX(-15%)';
+                arrowLeft = '15%';
+              }
               
               return (
                 <div
                   key={tier.name}
                   className="absolute pointer-events-none animate-fade-in"
                   style={{
-                    left: `${getMarkerPosition(tier.threshold)}%`,
+                    left: `${markerPos}%`,
                     top: '-140px',
-                    transform: hoveredTier === 'Peak' ? 'translateX(-85%)' : 'translateX(-50%)',
+                    transform: tooltipTransform,
                     animation: 'fade-in 0.2s ease-out'
                   }}
                 >
@@ -280,7 +295,7 @@ export const TiersContinuum = () => {
                         border: `1px solid hsl(var(--${tier.color}) / 0.5)`,
                         borderTop: 'none',
                         borderLeft: 'none',
-                        left: hoveredTier === 'Peak' ? '85%' : '50%'
+                        left: arrowLeft
                       }}
                     />
                     
