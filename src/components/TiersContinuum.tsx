@@ -139,6 +139,11 @@ export const TiersContinuum = () => {
 
   // Calculate exact progress position to align with tier markers
   const getProgressPosition = () => {
+    // If at Peak tier (1000 EP), fill to 100%
+    if (currentEP >= 1000) {
+      return 100;
+    }
+    
     // Find which tier range we're in
     let lowerTier = visibleTiers[0];
     let upperTierThreshold = visibleTiers[1]?.threshold || maxThreshold;
