@@ -1,42 +1,35 @@
 import { useState } from "react";
 import { getCurrentTier } from "@/lib/tierConfig";
 import { Info } from "lucide-react";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 
 // 2025 Activity Data - 72% to Peak
 const activity2025 = {
-  events: { totalEP: 290 },
-  apparel: { totalEP: 180 },
-  coaching: { totalEP: 250 }
+  events: {
+    totalEP: 290
+  },
+  apparel: {
+    totalEP: 180
+  },
+  coaching: {
+    totalEP: 250
+  }
 };
-
 export const ProgressHero = () => {
   const [isHovered, setIsHovered] = useState(false);
-  
+
   // Calculate totals
   const currentEP = activity2025.events.totalEP + activity2025.apparel.totalEP + activity2025.coaching.totalEP;
   const nextTierEP = 1000;
   const remainingEP = nextTierEP - currentEP;
-  const percentage = Math.min(100, Math.round((currentEP / nextTierEP) * 100));
-  
+  const percentage = Math.min(100, Math.round(currentEP / nextTierEP * 100));
   const currentTierName = "Ridge";
   const nextTierName = "Peak";
   const currentTier = getCurrentTier(currentTierName);
-  
-  return (
-    <section className="mb-24 section-reveal">
+  return <section className="mb-24 section-reveal">
       {/* Section Divider */}
-      <div className="divider-red mb-12" />
+      
 
       {/* Title */}
       <h2 className="text-section-title text-4xl md:text-5xl mb-12 font-editorial">
@@ -49,11 +42,7 @@ export const ProgressHero = () => {
           <TooltipProvider>
             <Tooltip open={isHovered}>
               <TooltipTrigger asChild>
-                <div 
-                  className="cursor-pointer"
-                  onMouseEnter={() => setIsHovered(true)}
-                  onMouseLeave={() => setIsHovered(false)}
-                >
+                <div className="cursor-pointer" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
                   <div className="flex justify-between items-baseline mb-4">
                     <span className="text-subhead">
                       {currentTierName}
@@ -67,21 +56,15 @@ export const ProgressHero = () => {
                   </div>
                   
                   <div className="h-4 bg-black rounded-full overflow-hidden">
-                    <div 
-                      className="h-full transition-all duration-2000"
-                      style={{
-                        width: `${percentage}%`,
-                        background: 'linear-gradient(90deg, hsl(var(--current-tier-accent)) 0%, hsl(var(--current-tier-accent) / 0.7) 100%)',
-                        boxShadow: '0 0 20px hsl(var(--current-tier-accent) / 0.4)'
-                      }}
-                    />
+                    <div className="h-full transition-all duration-2000" style={{
+                    width: `${percentage}%`,
+                    background: 'linear-gradient(90deg, hsl(var(--current-tier-accent)) 0%, hsl(var(--current-tier-accent) / 0.7) 100%)',
+                    boxShadow: '0 0 20px hsl(var(--current-tier-accent) / 0.4)'
+                  }} />
                   </div>
                 </div>
               </TooltipTrigger>
-              <TooltipContent 
-                side="top" 
-                className="bg-[#1a1a1a] border-border p-4"
-              >
+              <TooltipContent side="top" className="bg-[#1a1a1a] border-border p-4">
                 <div className="space-y-1.5 text-sm">
                   <div className="flex justify-between gap-6">
                     <span className="text-muted-foreground">Events</span>
@@ -152,6 +135,5 @@ export const ProgressHero = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
