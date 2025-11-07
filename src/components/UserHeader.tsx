@@ -1,6 +1,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { getCurrentTier } from "@/lib/tierConfig";
 import { cn } from "@/lib/utils";
+import { Logo29029 } from "@/components/Logo29029";
 
 interface UserHeaderProps {
   isCollapsed?: boolean;
@@ -26,8 +27,11 @@ export const UserHeader = ({ isCollapsed = false }: UserHeaderProps) => {
           "transition-all duration-300 ease-in-out",
           isCollapsed ? "opacity-0 h-0 overflow-hidden" : "opacity-100"
         )}>
-          {/* Name + ID */}
-          <div className="mb-8">
+          {/* Logo + Name + ID */}
+          <div className="mb-8 text-center md:text-left">
+            <div className="flex justify-center md:justify-start mb-4">
+              <Logo29029 size={36} className="text-white glow-tier-accent opacity-90" />
+            </div>
             <h1 className="text-hero text-5xl md:text-7xl mb-2 metric-animate">
               Alex Rivera
             </h1>
@@ -73,23 +77,28 @@ export const UserHeader = ({ isCollapsed = false }: UserHeaderProps) => {
 
         {/* Collapsed Layout */}
         <div className={cn(
-          "flex items-center justify-between transition-all duration-300 ease-in-out",
+          "grid grid-cols-3 items-center gap-4 transition-all duration-300 ease-in-out",
           isCollapsed ? "opacity-100" : "opacity-0 h-0 overflow-hidden"
         )}>
           {/* Left: Avatar + Name */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 justify-start">
             <Avatar className="w-10 h-10 border-2 border-tier-accent">
               <AvatarImage src="https://i.pravatar.cc/300?img=12" alt="Alex Rivera" />
               <AvatarFallback className="bg-secondary text-foreground text-sm">AR</AvatarFallback>
             </Avatar>
-            <div>
+            <div className="hidden sm:block">
               <div className="text-lg font-semibold text-foreground">Alex Rivera</div>
               <div className="text-xs text-muted-foreground">AR-5847</div>
             </div>
           </div>
 
+          {/* Center: Logo */}
+          <div className="flex justify-center">
+            <Logo29029 size={28} className="text-white glow-tier-accent opacity-80" />
+          </div>
+
           {/* Right: EP + Tier */}
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-4 justify-end">
             <div className="text-right">
               <div className="text-sm text-muted-foreground">EP</div>
               <div className="text-xl font-bold text-tier-accent">720</div>
