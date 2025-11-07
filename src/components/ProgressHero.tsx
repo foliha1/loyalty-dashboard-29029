@@ -148,7 +148,7 @@ export const ProgressHero = () => {
               </Popover>
             </div>
             <div className="metric-large">{nextTierName.toUpperCase()}</div>
-            <div className="text-supporting mt-2 text-center">Summit Awaits</div>
+            <div className="text-supporting mt-2 flex justify-center">Summit Awaits</div>
           </div>
         </div>
       </div>
