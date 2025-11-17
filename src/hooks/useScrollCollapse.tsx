@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export const useScrollCollapse = (threshold: number = 200) => {
+export const useScrollCollapse = (threshold: number = 300) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
 
   useEffect(() => {
