@@ -80,7 +80,7 @@ export const UserHeader = ({ isCollapsed = false }: UserHeaderProps) => {
                 </Avatar>
                 
                 {/* Hover Details Card */}
-                <div className="absolute left-1/2 -translate-x-1/2 top-full mt-4 w-64 p-5 rounded-lg border border-tier-accent/30 bg-black/95 backdrop-blur-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 shadow-2xl">
+                <div className="absolute left-1/2 -translate-x-1/2 top-full mt-4 w-64 p-5 rounded-xl border border-tier-accent/30 bg-black/95 backdrop-blur-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 z-50 shadow-xl">
 ...
                 </div>
               </div>
@@ -91,7 +91,7 @@ export const UserHeader = ({ isCollapsed = false }: UserHeaderProps) => {
                   Current Tier
                 </div>
                 {TierIcon && (
-                  <div className="px-6 py-3 rounded-xl border border-tier-accent/30 bg-card/20 backdrop-blur-sm transition-all duration-500 hover:border-tier-accent/50 hover:bg-card/30">
+                  <div className="px-6 py-3 rounded-xl border border-tier-accent/30 bg-card/20 backdrop-blur-sm transition-all duration-500 hover:border-tier-accent/50 hover:bg-card/30 hover:shadow-lg">
                     <TierIcon className="w-8 h-8 text-tier-accent mx-auto mb-2" />
                     <div className="font-light text-base tracking-wide text-center text-foreground">{currentTierName}</div>
                   </div>

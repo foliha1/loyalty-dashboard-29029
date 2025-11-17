@@ -90,7 +90,7 @@ export const TiersContinuum = () => {
       {/* Main Progress Card */}
       <div 
         className={cn(
-          "card-29029 p-6 md:p-9 lg:p-12 transition-all duration-700",
+          "card-29029 p-8 md:p-10 lg:p-12 transition-all duration-700",
           isRevealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         )}
       >
@@ -193,35 +193,35 @@ export const TiersContinuum = () => {
           </div>
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 md:gap-12">
             <a 
-              href="#tier-benefits" 
-              className="group flex items-center gap-2 text-muted-foreground hover:text-foreground transition-all duration-300 tracking-[0.12em] uppercase text-[11px] font-light"
-            >
-              <ChevronRight className="w-3 h-3 text-tier-accent/60 group-hover:text-tier-accent group-hover:translate-x-0.5 transition-all duration-300" />
+            href="#tier-benefits" 
+            className="group flex items-center gap-2 text-muted-foreground hover:text-foreground transition-all duration-500 tracking-[0.12em] uppercase text-[11px] font-light"
+          >
+              <ChevronRight className="w-3 h-3 text-tier-accent/60 group-hover:text-tier-accent group-hover:translate-x-0.5 transition-all duration-500" />
               <span className="relative">
                 Tier Benefits
-                <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-tier-accent/50 group-hover:w-full transition-all duration-300" />
+                <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-tier-accent/50 group-hover:w-full transition-all duration-500" />
               </span>
             </a>
             
             <a 
-              href="#how-ep-works" 
-              className="group flex items-center gap-2 text-muted-foreground hover:text-foreground transition-all duration-300 tracking-[0.12em] uppercase text-[11px] font-light"
-            >
-              <ChevronRight className="w-3 h-3 text-tier-accent/60 group-hover:text-tier-accent group-hover:translate-x-0.5 transition-all duration-300" />
+            href="#how-ep-works" 
+            className="group flex items-center gap-2 text-muted-foreground hover:text-foreground transition-all duration-500 tracking-[0.12em] uppercase text-[11px] font-light"
+          >
+              <ChevronRight className="w-3 h-3 text-tier-accent/60 group-hover:text-tier-accent group-hover:translate-x-0.5 transition-all duration-500" />
               <span className="relative">
                 How Elevation Points Work
-                <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-tier-accent/50 group-hover:w-full transition-all duration-300" />
+                <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-tier-accent/50 group-hover:w-full transition-all duration-500" />
               </span>
             </a>
             
             <a 
-              href="#activity-feed" 
-              className="group flex items-center gap-2 text-muted-foreground hover:text-foreground transition-all duration-300 tracking-[0.12em] uppercase text-[11px] font-light"
-            >
-              <ChevronRight className="w-3 h-3 text-tier-accent/60 group-hover:text-tier-accent group-hover:translate-x-0.5 transition-all duration-300" />
+            href="#activity-feed" 
+            className="group flex items-center gap-2 text-muted-foreground hover:text-foreground transition-all duration-500 tracking-[0.12em] uppercase text-[11px] font-light"
+          >
+              <ChevronRight className="w-3 h-3 text-tier-accent/60 group-hover:text-tier-accent group-hover:translate-x-0.5 transition-all duration-500" />
               <span className="relative">
                 Your History
-                <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-tier-accent/50 group-hover:w-full transition-all duration-300" />
+                <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-tier-accent/50 group-hover:w-full transition-all duration-500" />
               </span>
             </a>
           </div>
