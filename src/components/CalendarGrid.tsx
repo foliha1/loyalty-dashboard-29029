@@ -97,7 +97,7 @@ export const CalendarGrid = () => {
           </p>
 
           {/* Event Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-7 mb-14 md:mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-14 md:mb-16">
             {upcomingEvents.map((event, idx) => {
               const daysRemaining = getDaysRemaining(event.eventDates);
               const config = eventTypeConfig[event.eventType];
@@ -212,11 +212,11 @@ export const CalendarGrid = () => {
       )}
 
       {/* CTAs Section */}
-      <div className="pt-12 md:pt-14 mt-6 md:mt-8 border-t border-border/10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 max-w-6xl mx-auto">
+      <div className="pt-12 md:pt-14 mt-6 md:mt-8 border-t border-border/20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
           <a
             href="#events"
-            className="group relative overflow-hidden px-8 py-10 md:py-12 bg-gradient-to-br from-card/40 to-card/20 backdrop-blur-sm border border-border/30 rounded-2xl transition-all duration-500 flex flex-col items-start hover:-translate-y-2 hover:border-tier-accent/40 hover:shadow-xl"
+            className="group relative overflow-hidden px-8 py-10 md:py-12 bg-gradient-to-br from-card/40 to-card/20 backdrop-blur-sm border border-border/30 rounded-xl transition-all duration-500 flex flex-col items-start hover:-translate-y-2 hover:border-tier-accent/40 hover:shadow-xl"
           >
             {/* Subtle gradient overlay on hover */}
             <div className="absolute inset-0 bg-gradient-to-br from-tier-accent/0 to-tier-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -243,7 +243,7 @@ export const CalendarGrid = () => {
 
           <a
             href="#coaching"
-            className="group relative overflow-hidden px-8 py-10 md:py-12 bg-gradient-to-br from-card/40 to-card/20 backdrop-blur-sm border border-border/30 rounded-2xl transition-all duration-500 flex flex-col items-start hover:-translate-y-2 hover:border-tier-accent/40 hover:shadow-xl"
+            className="group relative overflow-hidden px-8 py-10 md:py-12 bg-gradient-to-br from-card/40 to-card/20 backdrop-blur-sm border border-border/30 rounded-xl transition-all duration-500 flex flex-col items-start hover:-translate-y-2 hover:border-tier-accent/40 hover:shadow-xl"
           >
             {/* Subtle gradient overlay on hover */}
             <div className="absolute inset-0 bg-gradient-to-br from-tier-accent/0 to-tier-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -270,7 +270,7 @@ export const CalendarGrid = () => {
 
           <a
             href="#apparel"
-            className="group relative overflow-hidden px-8 py-10 md:py-12 bg-gradient-to-br from-card/40 to-card/20 backdrop-blur-sm border border-border/30 rounded-2xl transition-all duration-500 flex flex-col items-start hover:-translate-y-2 hover:border-tier-accent/40 hover:shadow-xl"
+            className="group relative overflow-hidden px-8 py-10 md:py-12 bg-gradient-to-br from-card/40 to-card/20 backdrop-blur-sm border border-border/30 rounded-xl transition-all duration-500 flex flex-col items-start hover:-translate-y-2 hover:border-tier-accent/40 hover:shadow-xl"
           >
             {/* Subtle gradient overlay on hover */}
             <div className="absolute inset-0 bg-gradient-to-br from-tier-accent/0 to-tier-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

@@ -123,9 +123,9 @@ export const ActivityFeed = () => {
         </Select>
       </div>
 
-      <div className="card-29029 p-7 md:p-10 lg:p-12">
+      <div className="card-29029 p-8 md:p-10 lg:p-12">
         {/* Year Display - More Dramatic */}
-        <div className="flex flex-col md:flex-row items-center justify-between mb-14 pb-10 border-b-2 border-tier-accent/20 gap-8">
+        <div className="flex flex-col md:flex-row items-center justify-between mb-12 pb-8 border-b border-tier-accent/20 gap-8">
           <div className="text-center md:text-left metric-animate">
             <div className="text-subhead mb-3">Year</div>
             <h3 className="text-7xl md:text-8xl font-light tracking-tight">
