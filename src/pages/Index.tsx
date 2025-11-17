@@ -42,7 +42,7 @@ const IndexContent = () => {
 
       {/* Header section */}
       <div className="bg-[#000000]" style={{ paddingTop: isHeaderCollapsed ? '80px' : '0' }}>
-        <div className="container mx-auto px-6 md:px-10 lg:px-12 py-12 md:py-20 max-w-7xl">
+        <div className="container mx-auto px-6 md:px-10 lg:px-12 max-w-7xl">
           <UserHeader isCollapsed={isHeaderCollapsed} />
         </div>
       </div>
