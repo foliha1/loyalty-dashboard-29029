@@ -81,16 +81,16 @@ export const TiersContinuum = () => {
 
   return (
     <section>
-      <div className="divider-red mb-20 md:mb-28" />
+      <div className="divider-red mb-14 md:mb-20" />
       
-      <h3 className="text-section-title mb-16 md:mb-20 text-left px-2">
+      <h3 className="text-section-title mb-10 md:mb-14 text-left px-2">
         Your Elevation Journey
       </h3>
 
       {/* Main Progress Card */}
       <div 
         className={cn(
-          "card-29029 p-8 md:p-12 lg:p-16 transition-all duration-700",
+          "card-29029 p-6 md:p-9 lg:p-12 transition-all duration-700",
           isRevealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         )}
       >

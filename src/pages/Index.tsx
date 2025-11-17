@@ -53,7 +53,7 @@ const IndexContent = () => {
         {/* Elevation Journey */}
         <div 
           ref={tiersReveal.ref} 
-          className={`py-20 md:py-32 section-fade-up ${tiersReveal.isVisible ? 'visible' : ''}`}
+          className={`py-14 md:py-24 section-fade-up ${tiersReveal.isVisible ? 'visible' : ''}`}
         >
           <TiersContinuum />
         </div>
@@ -61,7 +61,7 @@ const IndexContent = () => {
         {/* Continue the Journey */}
         <div 
           ref={calendarReveal.ref} 
-          className={`py-20 md:py-32 section-fade-up section-fade-up-delay-2 ${calendarReveal.isVisible ? 'visible' : ''}`}
+          className={`py-14 md:py-24 section-fade-up section-fade-up-delay-2 ${calendarReveal.isVisible ? 'visible' : ''}`}
         >
           <CalendarGrid />
         </div>
@@ -69,7 +69,7 @@ const IndexContent = () => {
         {/* History */}
         <div 
           ref={activityReveal.ref} 
-          className={`py-20 md:py-32 pb-40 section-fade-up ${activityReveal.isVisible ? 'visible' : ''}`}
+          className={`py-14 md:py-24 pb-28 section-fade-up ${activityReveal.isVisible ? 'visible' : ''}`}
         >
           <ActivityFeed />
         </div>
