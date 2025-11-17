@@ -212,51 +212,89 @@ export const CalendarGrid = () => {
       )}
 
       {/* CTAs Section */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 pt-10 md:pt-12 border-t border-border/20">
-        <a
-          href="#events"
-          className="group p-6 md:p-8 bg-card/30 hover:bg-card/50 border border-border/20 hover:border-tier-accent/30 rounded-lg transition-all duration-300 flex items-center justify-between hover:-translate-y-1"
-        >
-          <div>
-            <h5 className="text-base md:text-lg font-semibold mb-1 uppercase tracking-wide">
-              {hasEvents ? "Discover Events" : "Discover Challenges"}
-            </h5>
-            <p className="text-supporting text-[10px] md:text-xs uppercase tracking-wider">
-              Browse All Experiences
-            </p>
-          </div>
-          <ArrowRight className="w-4 h-4 md:w-5 md:h-5 text-tier-accent group-hover:translate-x-2 transition-transform" />
-        </a>
+      <div className="pt-16 md:pt-20 mt-8 md:mt-12 border-t border-border/10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
+          <a
+            href="#events"
+            className="group relative overflow-hidden px-8 py-10 md:py-12 bg-gradient-to-br from-card/40 to-card/20 backdrop-blur-sm border border-border/30 rounded-2xl transition-all duration-500 flex flex-col items-start hover:-translate-y-2 hover:border-tier-accent/40 hover:shadow-xl"
+          >
+            {/* Subtle gradient overlay on hover */}
+            <div className="absolute inset-0 bg-gradient-to-br from-tier-accent/0 to-tier-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            
+            <div className="relative z-10 flex-1">
+              <h5 className="text-lg md:text-xl font-light mb-2 tracking-tight leading-tight">
+                {hasEvents ? "Discover Events" : "Discover Challenges"}
+              </h5>
+              <p className="text-muted-foreground/70 text-xs uppercase tracking-[0.2em] font-light mb-8">
+                Browse All Experiences
+              </p>
+              
+              {/* Underline sweep effect */}
+              <div className="relative inline-block">
+                <span className="text-tier-accent text-xs uppercase tracking-[0.25em] font-light">
+                  Explore
+                </span>
+                <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-tier-accent group-hover:w-full transition-all duration-500" />
+              </div>
+            </div>
+            
+            <ArrowRight className="relative z-10 w-5 h-5 text-tier-accent mt-6 group-hover:translate-x-2 transition-transform duration-500" />
+          </a>
 
-        <a
-          href="#coaching"
-          className="group p-6 md:p-8 bg-card/30 hover:bg-card/50 border border-border/20 hover:border-tier-accent/30 rounded-lg transition-all duration-300 flex items-center justify-between hover:-translate-y-1"
-        >
-          <div>
-            <h5 className="text-base md:text-lg font-semibold mb-1 uppercase tracking-wide">
-              1:1 Coaching
-            </h5>
-            <p className="text-supporting text-[10px] md:text-xs uppercase tracking-wider">
-              Personal Experience
-            </p>
-          </div>
-          <ArrowRight className="w-4 h-4 md:w-5 md:h-5 text-tier-accent group-hover:translate-x-2 transition-transform" />
-        </a>
+          <a
+            href="#coaching"
+            className="group relative overflow-hidden px-8 py-10 md:py-12 bg-gradient-to-br from-card/40 to-card/20 backdrop-blur-sm border border-border/30 rounded-2xl transition-all duration-500 flex flex-col items-start hover:-translate-y-2 hover:border-tier-accent/40 hover:shadow-xl"
+          >
+            {/* Subtle gradient overlay on hover */}
+            <div className="absolute inset-0 bg-gradient-to-br from-tier-accent/0 to-tier-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            
+            <div className="relative z-10 flex-1">
+              <h5 className="text-lg md:text-xl font-light mb-2 tracking-tight leading-tight">
+                1:1 Coaching
+              </h5>
+              <p className="text-muted-foreground/70 text-xs uppercase tracking-[0.2em] font-light mb-8">
+                Personal Experience
+              </p>
+              
+              {/* Underline sweep effect */}
+              <div className="relative inline-block">
+                <span className="text-tier-accent text-xs uppercase tracking-[0.25em] font-light">
+                  Connect
+                </span>
+                <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-tier-accent group-hover:w-full transition-all duration-500" />
+              </div>
+            </div>
+            
+            <ArrowRight className="relative z-10 w-5 h-5 text-tier-accent mt-6 group-hover:translate-x-2 transition-transform duration-500" />
+          </a>
 
-        <a
-          href="#apparel"
-          className="group p-6 md:p-8 bg-card/30 hover:bg-card/50 border border-border/20 hover:border-tier-accent/30 rounded-lg transition-all duration-300 flex items-center justify-between hover:-translate-y-1"
-        >
-          <div>
-            <h5 className="text-base md:text-lg font-semibold mb-1 uppercase tracking-wide">
-              Apparel
-            </h5>
-            <p className="text-supporting text-[10px] md:text-xs uppercase tracking-wider">
-              Shop Collection
-            </p>
-          </div>
-          <ArrowRight className="w-4 h-4 md:w-5 md:h-5 text-tier-accent group-hover:translate-x-2 transition-transform" />
-        </a>
+          <a
+            href="#apparel"
+            className="group relative overflow-hidden px-8 py-10 md:py-12 bg-gradient-to-br from-card/40 to-card/20 backdrop-blur-sm border border-border/30 rounded-2xl transition-all duration-500 flex flex-col items-start hover:-translate-y-2 hover:border-tier-accent/40 hover:shadow-xl"
+          >
+            {/* Subtle gradient overlay on hover */}
+            <div className="absolute inset-0 bg-gradient-to-br from-tier-accent/0 to-tier-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            
+            <div className="relative z-10 flex-1">
+              <h5 className="text-lg md:text-xl font-light mb-2 tracking-tight leading-tight">
+                Apparel
+              </h5>
+              <p className="text-muted-foreground/70 text-xs uppercase tracking-[0.2em] font-light mb-8">
+                Shop Collection
+              </p>
+              
+              {/* Underline sweep effect */}
+              <div className="relative inline-block">
+                <span className="text-tier-accent text-xs uppercase tracking-[0.25em] font-light">
+                  Shop Now
+                </span>
+                <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-tier-accent group-hover:w-full transition-all duration-500" />
+              </div>
+            </div>
+            
+            <ArrowRight className="relative z-10 w-5 h-5 text-tier-accent mt-6 group-hover:translate-x-2 transition-transform duration-500" />
+          </a>
+        </div>
       </div>
     </section>
   );
