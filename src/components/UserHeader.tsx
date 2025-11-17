@@ -15,9 +15,9 @@ export const UserHeader = ({ isCollapsed = false }: UserHeaderProps) => {
   return (
     <section 
       className={cn(
-        "transition-all duration-700 ease-out section-reveal relative w-full overflow-hidden",
+        "transition-all duration-700 ease-out section-reveal relative w-full",
         isCollapsed 
-          ? "fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md border-b border-tier-accent/20 py-3" 
+          ? "fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-md border-b border-tier-accent/20 py-3" 
           : "mb-0 pt-10 md:pt-12 pb-10 md:pb-14"
       )}
     >
@@ -35,7 +35,7 @@ export const UserHeader = ({ isCollapsed = false }: UserHeaderProps) => {
         {/* Expanded Layout */}
         <div className={cn(
           "transition-all duration-700 ease-out",
-          isCollapsed ? "opacity-0 h-0 overflow-hidden" : "opacity-100 animate-fade-in"
+          isCollapsed ? "opacity-0 h-0 overflow-hidden absolute" : "opacity-100 animate-fade-in"
         )}>
           {/* Logo - Centered */}
           <div className="flex justify-center mb-12 md:mb-14">
