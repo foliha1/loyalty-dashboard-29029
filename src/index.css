@@ -280,7 +280,7 @@ h2, h3, .text-section-title {
     font-family: 'Inter', sans-serif;
     font-weight: 300;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.12em;
     font-size: 2rem;
     color: hsl(0 0% 92%);
     line-height: 1.15;
@@ -289,7 +289,7 @@ h2, h3, .text-section-title {
   @media (min-width: 768px) {
     h2, h3, .text-section-title {
       font-size: 2.75rem;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.144em;
     }
   }
 
