@@ -18,7 +18,7 @@ export const UserHeader = ({ isCollapsed = false }: UserHeaderProps) => {
         "transition-all duration-700 ease-out section-reveal relative w-full overflow-hidden",
         isCollapsed 
           ? "fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md border-b border-tier-accent/20 py-3" 
-          : "mb-0 py-10 md:py-12"
+          : "mb-0 pt-10 md:pt-12 pb-10 md:pb-14"
       )}
     >
       {/* Subtle neutral gradient background - Only shown when expanded */}

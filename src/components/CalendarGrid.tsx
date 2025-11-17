@@ -56,19 +56,19 @@ const upcomingEvents: UpcomingEvent[] = [
   {
     eventName: "Snowbasin",
     eventType: "Everest",
-    eventDates: "Jun 11-14, 2025",
+    eventDates: "Jun 11-14, 2026",
     location: "Snowbasin, Utah",
   },
   {
     eventName: "Rainier",
     eventType: "Everest",
-    eventDates: "Jun 25-28, 2025",
+    eventDates: "Jun 25-28, 2026",
     location: "Rainier, Washington",
   },
   {
     eventName: "Mont-Tremblant",
     eventType: "Everest",
-    eventDates: "Jul 23-26, 2025",
+    eventDates: "Jul 23-26, 2026",
     location: "Mont-Tremblant, Quebec",
   },
 ];
@@ -84,8 +84,6 @@ export const CalendarGrid = () => {
 
   return (
     <section>
-      <div className="divider-red mb-14 md:mb-20" />
-      
       <h3 className="text-section-title mb-6 md:mb-7 px-2">
         Continue the Journey
       </h3>
