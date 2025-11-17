@@ -15,7 +15,7 @@ const IndexContent = () => {
   const tiersReveal = useScrollReveal(0.1);
   const calendarReveal = useScrollReveal(0.1);
   const activityReveal = useScrollReveal(0.1);
-  const isHeaderCollapsed = useScrollCollapse(200);
+  const isHeaderCollapsed = useScrollCollapse(300);
   const { currentTier } = useTier();
   
   return (
@@ -44,7 +44,7 @@ const IndexContent = () => {
       <div 
         className="bg-[#000000]" 
         style={{ 
-          paddingTop: isHeaderCollapsed ? '80px' : '0',
+          paddingTop: isHeaderCollapsed ? '88px' : '0',
           transition: 'padding-top 0.7s cubic-bezier(0.4, 0, 0.2, 1)'
         }}
       >
@@ -57,7 +57,12 @@ const IndexContent = () => {
       <div className="bg-[#0a0a0a]">
       <div className="container mx-auto px-6 md:px-10 lg:px-12 max-w-7xl">
         {/* Section Divider */}
-        <div className="divider-red" />
+        <div 
+          className="divider-red transition-all duration-700 ease-out"
+          style={{
+            marginTop: isHeaderCollapsed ? '16px' : '0'
+          }}
+        />
         
         {/* Elevation Journey */}
         <div 

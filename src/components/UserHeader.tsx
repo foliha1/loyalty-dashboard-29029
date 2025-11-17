@@ -17,7 +17,7 @@ export const UserHeader = ({ isCollapsed = false }: UserHeaderProps) => {
       className={cn(
         "transition-all duration-700 ease-out section-reveal relative w-full",
         isCollapsed 
-          ? "fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-md border-b border-tier-accent/20 py-3" 
+          ? "fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-md border-b border-tier-accent/20 py-4 min-h-[72px]" 
           : "mb-0 pt-10 md:pt-12 pb-10 md:pb-14"
       )}
     >
@@ -105,17 +105,17 @@ export const UserHeader = ({ isCollapsed = false }: UserHeaderProps) => {
 
         {/* Collapsed Layout */}
         <div className={cn(
-          "grid grid-cols-3 items-center gap-4 transition-all duration-300 ease-in-out",
-          isCollapsed ? "opacity-100" : "opacity-0 h-0 overflow-hidden"
+          "grid grid-cols-3 items-center gap-4 transition-all duration-700 ease-out",
+          isCollapsed ? "opacity-100 h-auto" : "opacity-0 h-0 overflow-hidden absolute"
         )}>
           {/* Left: Avatar + Name */}
-          <div className="flex items-center gap-3 justify-start">
-            <Avatar className="w-10 h-10 border-2 border-tier-accent">
+          <div className="flex items-center gap-3 justify-start min-w-0">
+            <Avatar className="w-10 h-10 border-2 border-tier-accent flex-shrink-0">
               <AvatarImage src="https://i.pravatar.cc/300?img=12" alt="Alex Rivera" />
               <AvatarFallback className="bg-secondary text-foreground text-sm">AR</AvatarFallback>
             </Avatar>
-            <div className="hidden sm:block">
-              <div className="text-lg font-semibold text-foreground">Alex Rivera</div>
+            <div className="hidden sm:block min-w-0">
+              <div className="text-base font-semibold text-foreground truncate">Alex Rivera</div>
               <div className="text-xs text-muted-foreground">AR-5847</div>
             </div>
           </div>
@@ -128,7 +128,7 @@ export const UserHeader = ({ isCollapsed = false }: UserHeaderProps) => {
           {/* Right: EP */}
           <div className="flex items-center gap-4 justify-end">
             <div className="text-right">
-              <div className="text-sm text-muted-foreground">EP</div>
+              <div className="text-xs text-muted-foreground uppercase tracking-wider">EP</div>
               <div className="text-xl font-bold text-tier-accent">720</div>
             </div>
           </div>
