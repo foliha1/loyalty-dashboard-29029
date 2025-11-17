@@ -75,11 +75,15 @@ const registrationWindows: RegistrationWindow[] = [{
 }];
 export const CalendarGrid = () => {
   return <section className="section-reveal">
-      <div className="divider-red mb-16" />
+      <div className="divider-red mb-20" />
       
-      <h3 className="text-section-title mb-16">
-        The Year Ahead
+      <h3 className="text-section-title mb-8">
+        Continue the Journey
       </h3>
+      
+      <p className="text-supporting text-base mb-16 max-w-2xl">
+        Your upcoming events and registration windows
+      </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         {registrationWindows.map((event, idx) => <div key={idx} className="card-29029 p-10 relative overflow-hidden group metric-animate card-hover-tier">
