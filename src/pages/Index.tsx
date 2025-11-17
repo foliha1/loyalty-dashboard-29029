@@ -15,7 +15,7 @@ const IndexContent = () => {
   const tiersReveal = useScrollReveal(0.1);
   const calendarReveal = useScrollReveal(0.1);
   const activityReveal = useScrollReveal(0.1);
-  const isHeaderCollapsed = useScrollCollapse(150);
+  const isHeaderCollapsed = useScrollCollapse(200);
   const { currentTier } = useTier();
   
   return (
@@ -53,7 +53,7 @@ const IndexContent = () => {
         {/* Elevation Journey */}
         <div 
           ref={tiersReveal.ref} 
-          className={`py-14 md:py-24 section-fade-up ${tiersReveal.isVisible ? 'visible' : ''}`}
+          className={`pt-8 md:pt-10 pb-10 md:pb-14 section-fade-up ${tiersReveal.isVisible ? 'visible' : ''}`}
         >
           <TiersContinuum />
         </div>
@@ -61,7 +61,7 @@ const IndexContent = () => {
         {/* Continue the Journey */}
         <div 
           ref={calendarReveal.ref} 
-          className={`py-14 md:py-24 section-fade-up section-fade-up-delay-2 ${calendarReveal.isVisible ? 'visible' : ''}`}
+          className={`py-10 md:py-14 section-fade-up section-fade-up-delay-2 ${calendarReveal.isVisible ? 'visible' : ''}`}
         >
           <CalendarGrid />
         </div>
@@ -69,7 +69,7 @@ const IndexContent = () => {
         {/* History */}
         <div 
           ref={activityReveal.ref} 
-          className={`py-14 md:py-24 pb-28 section-fade-up ${activityReveal.isVisible ? 'visible' : ''}`}
+          className={`py-10 md:py-14 pb-20 md:pb-24 section-fade-up ${activityReveal.isVisible ? 'visible' : ''}`}
         >
           <ActivityFeed />
         </div>

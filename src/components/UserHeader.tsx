@@ -15,10 +15,10 @@ export const UserHeader = ({ isCollapsed = false }: UserHeaderProps) => {
   return (
     <section 
       className={cn(
-        "transition-all duration-300 ease-in-out section-reveal relative w-full overflow-hidden",
+        "transition-all duration-700 ease-out section-reveal relative w-full overflow-hidden",
         isCollapsed 
           ? "fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md border-b border-tier-accent/20 py-3" 
-          : "mb-0 py-12 md:py-16"
+          : "mb-0 py-10 md:py-12"
       )}
     >
       {/* Subtle neutral gradient background - Only shown when expanded */}
@@ -51,52 +51,54 @@ export const UserHeader = ({ isCollapsed = false }: UserHeaderProps) => {
               </span>
             </div>
             
-            {/* Name with editorial hierarchy */}
+            {/* Name - Most Prominent */}
             <h1 
-              className="text-hero mb-4 animate-fade-in"
+              className="text-6xl md:text-7xl lg:text-8xl font-light tracking-tight mb-6 animate-fade-in"
               style={{ animationDelay: '0.2s', animationFillMode: 'both' }}
             >
               Alex Rivera
             </h1>
             
-            {/* Subheader with expanded tracking */}
-            <div 
-              className="text-sm md:text-base tracking-[0.25em] uppercase font-light text-muted-foreground/80 mb-12 animate-fade-in"
-              style={{ animationDelay: '0.3s', animationFillMode: 'both' }}
-            >
-              Member Since 2023
-            </div>
-
             {/* Stats Row - Centered layout */}
             <div 
-              className="flex flex-wrap gap-8 md:gap-10 items-center justify-center animate-fade-in"
-              style={{ animationDelay: '0.4s', animationFillMode: 'both' }}
+              className="flex flex-wrap gap-8 md:gap-12 items-center justify-center mb-10 animate-fade-in"
+              style={{ animationDelay: '0.3s', animationFillMode: 'both' }}
             >
               {/* Avatar with hover details */}
               <div className="relative group">
-                <Avatar className="w-20 h-20 md:w-24 md:h-24 border-2 border-tier-accent/50 glow-tier-accent flex-shrink-0 transition-all duration-500 group-hover:scale-105 group-hover:border-tier-accent">
+                <Avatar className="w-20 h-20 md:w-24 md:h-24 border-2 border-tier-accent/50 flex-shrink-0 transition-all duration-500 group-hover:scale-105 group-hover:border-tier-accent group-hover:shadow-[0_0_20px_hsl(var(--tier-accent)/0.4)]">
                   <AvatarImage src="https://i.pravatar.cc/300?img=12" alt="Alex Rivera" />
                   <AvatarFallback className="bg-secondary text-foreground text-lg font-semibold">AR</AvatarFallback>
                 </Avatar>
                 
                 {/* Hover Details Card */}
                 <div className="absolute left-1/2 -translate-x-1/2 top-full mt-4 w-64 p-5 rounded-xl border border-tier-accent/30 bg-black/95 backdrop-blur-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 z-50 shadow-xl">
-...
+                  <div className="text-xs text-muted-foreground mb-1 uppercase tracking-wider">Member ID</div>
+                  <div className="font-mono text-sm text-foreground mb-3">AR-5847</div>
+                  <div className="text-xs text-muted-foreground mb-1 uppercase tracking-wider">Joined</div>
+                  <div className="text-sm text-foreground">January 2023</div>
                 </div>
               </div>
 
-              {/* Tier Badge - Refined to match dashboard */}
+              {/* Tier Badge - Matching Elevation Journey aesthetic */}
               <div className="flex-shrink-0">
                 <div className="text-supporting uppercase tracking-[0.25em] mb-3 text-xs font-light">
                   Current Tier
                 </div>
-                {TierIcon && (
-                  <div className="px-6 py-3 rounded-xl border border-tier-accent/30 bg-card/20 backdrop-blur-sm transition-all duration-500 hover:border-tier-accent/50 hover:bg-card/30 hover:shadow-lg">
-                    <TierIcon className="w-8 h-8 text-tier-accent mx-auto mb-2" />
-                    <div className="font-light text-base tracking-wide text-center text-foreground">{currentTierName}</div>
-                  </div>
-                )}
+                <div className="text-2xl md:text-3xl font-light tracking-tight" style={{
+                  color: currentTier ? `hsl(var(--${currentTier.color}))` : 'hsl(var(--tier-gold))'
+                }}>
+                  {currentTierName}
+                </div>
               </div>
+            </div>
+            
+            {/* Subheader with expanded tracking */}
+            <div 
+              className="text-sm md:text-base tracking-[0.25em] uppercase font-light text-muted-foreground/60 animate-fade-in"
+              style={{ animationDelay: '0.4s', animationFillMode: 'both' }}
+            >
+              Member Since 2023
             </div>
           </div>
         </div>
