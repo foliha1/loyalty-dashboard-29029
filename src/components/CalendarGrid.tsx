@@ -84,20 +84,20 @@ export const CalendarGrid = () => {
 
   return (
     <section>
-      <div className="divider-red mb-20 md:mb-28" />
+      <div className="divider-red mb-14 md:mb-20" />
       
-      <h3 className="text-section-title mb-8 md:mb-10 px-2">
+      <h3 className="text-section-title mb-6 md:mb-7 px-2">
         Continue the Journey
       </h3>
       
       {hasEvents ? (
         <>
-          <p className="text-supporting text-sm md:text-base mb-16 md:mb-24 max-w-2xl px-2 font-light">
+          <p className="text-supporting text-sm md:text-base mb-10 md:mb-16 max-w-2xl px-2 font-light">
             Your upcoming events
           </p>
 
           {/* Event Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 mb-20 md:mb-24">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-7 mb-14 md:mb-16">
             {upcomingEvents.map((event, idx) => {
               const daysRemaining = getDaysRemaining(event.eventDates);
               const config = eventTypeConfig[event.eventType];
@@ -212,8 +212,8 @@ export const CalendarGrid = () => {
       )}
 
       {/* CTAs Section */}
-      <div className="pt-16 md:pt-20 mt-8 md:mt-12 border-t border-border/10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
+      <div className="pt-12 md:pt-14 mt-6 md:mt-8 border-t border-border/10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 max-w-6xl mx-auto">
           <a
             href="#events"
             className="group relative overflow-hidden px-8 py-10 md:py-12 bg-gradient-to-br from-card/40 to-card/20 backdrop-blur-sm border border-border/30 rounded-2xl transition-all duration-500 flex flex-col items-start hover:-translate-y-2 hover:border-tier-accent/40 hover:shadow-xl"

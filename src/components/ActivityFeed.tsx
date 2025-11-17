@@ -111,32 +111,19 @@ export const ActivityFeed = () => {
   
   return (
     <section id="activity-feed">
-      <div className="divider-red mb-20 md:mb-28" />
+      <div className="divider-red mb-14 md:mb-20" />
       
-      <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-16 md:mb-20 gap-4 px-2">
+      <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-10 md:mb-14 gap-4 px-2">
         <h3 className="text-section-title">
           History
         </h3>
         
         <Select value={selectedYear} onValueChange={setSelectedYear}>
-          <SelectTrigger className="w-[140px] h-10 md:h-12 border-border bg-black hover:border-tier-accent transition-colors font-semibold">
-            <SelectValue />
-          </SelectTrigger>
-          <SelectContent className="bg-[#1a1a1a] border-border">
-            {yearlyActivities.map(yearData => (
-              <SelectItem 
-                key={yearData.year} 
-                value={yearData.year.toString()} 
-                className="hover:bg-tier-accent/20 hover:text-tier-accent focus:bg-tier-accent/20 focus:text-tier-accent"
-              >
-                {yearData.year}
-              </SelectItem>
-            ))}
-          </SelectContent>
+...
         </Select>
       </div>
 
-      <div className="card-29029 p-10 md:p-14 lg:p-16">
+      <div className="card-29029 p-7 md:p-10 lg:p-12">
         {/* Year Display - More Dramatic */}
         <div className="flex flex-col md:flex-row items-center justify-between mb-14 pb-10 border-b-2 border-tier-accent/20 gap-8">
           <div className="text-center md:text-left metric-animate">
