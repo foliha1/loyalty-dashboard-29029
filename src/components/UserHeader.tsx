@@ -3,52 +3,68 @@ import { getCurrentTier } from "@/lib/tierConfig";
 import { cn } from "@/lib/utils";
 import { Logo29029 } from "@/components/Logo29029";
 import heroTopoBg from "@/assets/hero-topo-bg.jpg";
+import { useHeaderCollapseProgress } from "@/hooks/useHeaderCollapseProgress";
 
-interface UserHeaderProps {
-  isCollapsed?: boolean;
-}
-
-export const UserHeader = ({ isCollapsed = false }: UserHeaderProps) => {
+export const UserHeader = () => {
   const currentTierName = "Ridge";
   const currentTier = getCurrentTier(currentTierName);
   const TierIcon = currentTier?.icon;
 
+  // Responsive collapse distance
+  const isMobile = typeof window !== "undefined" ? window.innerWidth < 768 : false;
+  const { progress, isCollapsed } = useHeaderCollapseProgress(isMobile ? 240 : 320);
+
+  // Interpolated layout values
+  const expandedH = 420; // px
+  const collapsedH = 72; // px
+  const height = Math.max(collapsedH, Math.round(expandedH - (expandedH - collapsedH) * progress));
+  const padExpanded = 40;
+  const padCollapsed = 12;
+  const padY = Math.round(padExpanded - (padExpanded - padCollapsed) * progress);
+
+  const bgOpacity = 0.15 * (1 - progress) + 0.06 * progress;
+
   return (
     <section 
       className={cn(
-        "transition-all duration-700 ease-out section-reveal relative w-full overflow-hidden",
-        isCollapsed 
-          ? "fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-md border-b border-tier-accent/20 py-4 min-h-[72px]" 
-          : "mb-0 pt-10 md:pt-12 pb-10 md:pb-14"
+        "sticky top-0 z-50 w-full overflow-hidden mb-3",
+        "transition-[background-color,box-shadow,border-color] duration-700 ease-out",
+        "bg-black/85 backdrop-blur-md",
+        isCollapsed ? "border-b border-tier-accent/20 shadow-[0_8px_20px_rgba(0,0,0,0.35)]" : "border-b border-transparent shadow-none"
       )}
+      style={{
+        height: `${height}px`,
+        paddingTop: `${padY}px`,
+        paddingBottom: `${padY}px`,
+      }}
     >
-      {/* Subtle background image - Only shown when expanded */}
-      {!isCollapsed && (
-        <>
-          <div 
-            className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
-            style={{
-              backgroundImage: `url(${heroTopoBg})`,
-              opacity: 0.15
-            }}
-          />
-          
-          {/* Layered gradients for text legibility */}
-          <div 
-            className="absolute inset-0 z-0"
-            style={{
-              background: 'linear-gradient(180deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.9) 100%)'
-            }}
-          />
-        </>
-      )}
+      {/* Subtle background image - fades with progress */}
+      <div
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat pointer-events-none"
+        style={{
+          backgroundImage: `url(${heroTopoBg})`,
+          opacity: bgOpacity,
+        }}
+      />
+      {/* Gradient overlay to keep text readable */}
+      <div
+        className="absolute inset-0 z-0 pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.9) 100%)",
+        }}
+      />
       
       <div className="container mx-auto px-6 md:px-10 lg:px-12 relative z-10">
         {/* Expanded Layout */}
-        <div className={cn(
-          "transition-all duration-700 ease-out",
-          isCollapsed ? "opacity-0 h-0 overflow-hidden absolute" : "opacity-100 animate-fade-in"
-        )}>
+        <div 
+          className="transition-all duration-500 ease-out"
+          style={{
+            opacity: 1 - progress,
+            transform: `translateY(${(-8 * progress).toFixed(1)}px)`,
+            pointerEvents: progress > 0.9 ? "none" : "auto",
+          }}
+        >
           {/* Logo - Centered */}
           <div className="flex justify-center mb-12 md:mb-14">
             <Logo29029 size={32} className="text-white/70" />
@@ -116,10 +132,14 @@ export const UserHeader = ({ isCollapsed = false }: UserHeaderProps) => {
         </div>
 
         {/* Collapsed Layout */}
-        <div className={cn(
-          "grid grid-cols-3 items-center gap-4 transition-all duration-700 ease-out",
-          isCollapsed ? "opacity-100 h-auto" : "opacity-0 h-0 overflow-hidden absolute"
-        )}>
+        <div 
+          className="grid grid-cols-3 items-center gap-4 transition-all duration-500 ease-out"
+          style={{
+            opacity: progress,
+            transform: `translateY(${(8 * (1 - progress)).toFixed(1)}px)`,
+            pointerEvents: progress < 0.1 ? "none" : "auto",
+          }}
+        >
           {/* Left: Avatar + Name */}
           <div className="flex items-center gap-3 justify-start min-w-0">
             <Avatar className="w-10 h-10 border-2 border-tier-accent flex-shrink-0">
