@@ -2,6 +2,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { getCurrentTier } from "@/lib/tierConfig";
 import { cn } from "@/lib/utils";
 import { Logo29029 } from "@/components/Logo29029";
+import heroTopoBg from "@/assets/hero-topo-bg.jpg";
 
 interface UserHeaderProps {
   isCollapsed?: boolean;
@@ -15,20 +16,31 @@ export const UserHeader = ({ isCollapsed = false }: UserHeaderProps) => {
   return (
     <section 
       className={cn(
-        "transition-all duration-700 ease-out section-reveal relative w-full",
+        "transition-all duration-700 ease-out section-reveal relative w-full overflow-hidden",
         isCollapsed 
           ? "fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-md border-b border-tier-accent/20 py-4 min-h-[72px]" 
           : "mb-0 pt-10 md:pt-12 pb-10 md:pb-14"
       )}
     >
-      {/* Subtle neutral gradient background - Only shown when expanded */}
+      {/* Subtle background image - Only shown when expanded */}
       {!isCollapsed && (
-        <div 
-          className="absolute inset-0 z-0"
-          style={{
-            background: 'linear-gradient(180deg, rgba(10,10,10,1) 0%, rgba(0,0,0,1) 100%)'
-          }}
-        />
+        <>
+          <div 
+            className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: `url(${heroTopoBg})`,
+              opacity: 0.15
+            }}
+          />
+          
+          {/* Layered gradients for text legibility */}
+          <div 
+            className="absolute inset-0 z-0"
+            style={{
+              background: 'linear-gradient(180deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.9) 100%)'
+            }}
+          />
+        </>
       )}
       
       <div className="container mx-auto px-6 md:px-10 lg:px-12 relative z-10">
