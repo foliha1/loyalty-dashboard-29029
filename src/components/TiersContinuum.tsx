@@ -185,50 +185,48 @@ export const TiersContinuum = () => {
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Navigation Links */}
-      <nav className="mt-16 md:mt-20 flex justify-start px-2">
-        <div className="relative pl-6 md:pl-8">
-          {/* Vertical accent line */}
-          <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-gradient-to-b from-tier-accent/40 via-tier-accent/20 to-transparent" />
-          
-          <div className="flex flex-col gap-5 md:gap-6">
+        {/* Integrated Navigation Links */}
+        <nav className="pt-8 md:pt-10 border-t border-border/20 mt-8 md:mt-10">
+          <div className="text-supporting uppercase tracking-[0.25em] mb-5 text-xs font-light">
+            Learn More
+          </div>
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 md:gap-12">
             <a 
               href="#tier-benefits" 
-              className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-500 tracking-[0.15em] uppercase text-[11px] font-light relative"
+              className="group flex items-center gap-2 text-muted-foreground hover:text-foreground transition-all duration-300 tracking-[0.12em] uppercase text-[11px] font-light"
             >
-              <ChevronRight className="w-3.5 h-3.5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 text-tier-accent" />
+              <ChevronRight className="w-3 h-3 text-tier-accent/60 group-hover:text-tier-accent group-hover:translate-x-0.5 transition-all duration-300" />
               <span className="relative">
                 Tier Benefits
-                <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-tier-accent/50 group-hover:w-full transition-all duration-500" />
+                <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-tier-accent/50 group-hover:w-full transition-all duration-300" />
               </span>
             </a>
             
             <a 
               href="#how-ep-works" 
-              className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-500 tracking-[0.15em] uppercase text-[11px] font-light relative"
+              className="group flex items-center gap-2 text-muted-foreground hover:text-foreground transition-all duration-300 tracking-[0.12em] uppercase text-[11px] font-light"
             >
-              <ChevronRight className="w-3.5 h-3.5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 text-tier-accent" />
+              <ChevronRight className="w-3 h-3 text-tier-accent/60 group-hover:text-tier-accent group-hover:translate-x-0.5 transition-all duration-300" />
               <span className="relative">
                 How Elevation Points Work
-                <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-tier-accent/50 group-hover:w-full transition-all duration-500" />
+                <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-tier-accent/50 group-hover:w-full transition-all duration-300" />
               </span>
             </a>
             
             <a 
               href="#activity-feed" 
-              className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-500 tracking-[0.15em] uppercase text-[11px] font-light relative"
+              className="group flex items-center gap-2 text-muted-foreground hover:text-foreground transition-all duration-300 tracking-[0.12em] uppercase text-[11px] font-light"
             >
-              <ChevronRight className="w-3.5 h-3.5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 text-tier-accent" />
+              <ChevronRight className="w-3 h-3 text-tier-accent/60 group-hover:text-tier-accent group-hover:translate-x-0.5 transition-all duration-300" />
               <span className="relative">
                 Your History
-                <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-tier-accent/50 group-hover:w-full transition-all duration-500" />
+                <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-tier-accent/50 group-hover:w-full transition-all duration-300" />
               </span>
             </a>
           </div>
-        </div>
-      </nav>
+        </nav>
+      </div>
     </section>
   );
 };
