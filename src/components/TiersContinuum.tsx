@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { tiers } from "@/lib/tierConfig";
 import { cn } from "@/lib/utils";
 import { useTier } from "@/contexts/TierContext";
+import { ChevronRight } from "lucide-react";
 
 // 2025 Activity Data
 const activity2025 = {
@@ -187,28 +188,45 @@ export const TiersContinuum = () => {
       </div>
 
       {/* Navigation Links */}
-      <nav className="mt-12 md:mt-16 flex justify-start px-2">
-        <div className="flex flex-col gap-3 md:gap-4 text-sm">
-          <a 
-            href="#tier-benefits" 
-            className="text-muted-foreground hover:text-foreground transition-colors duration-300 tracking-wide uppercase text-xs font-medium hover:translate-x-1 inline-block"
-          >
-            Tier Benefits
-          </a>
-          <div className="h-px w-10 md:w-12 bg-border/30" />
-          <a 
-            href="#how-ep-works" 
-            className="text-muted-foreground hover:text-foreground transition-colors duration-300 tracking-wide uppercase text-xs font-medium hover:translate-x-1 inline-block"
-          >
-            How Elevation Points Work
-          </a>
-          <div className="h-px w-10 md:w-12 bg-border/30" />
-          <a 
-            href="#activity-feed" 
-            className="text-muted-foreground hover:text-foreground transition-colors duration-300 tracking-wide uppercase text-xs font-medium hover:translate-x-1 inline-block"
-          >
-            Your History
-          </a>
+      <nav className="mt-16 md:mt-20 flex justify-start px-2">
+        <div className="relative pl-6 md:pl-8">
+          {/* Vertical accent line */}
+          <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-gradient-to-b from-tier-accent/40 via-tier-accent/20 to-transparent" />
+          
+          <div className="flex flex-col gap-5 md:gap-6">
+            <a 
+              href="#tier-benefits" 
+              className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-500 tracking-[0.15em] uppercase text-[11px] font-light relative"
+            >
+              <ChevronRight className="w-3.5 h-3.5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 text-tier-accent" />
+              <span className="relative">
+                Tier Benefits
+                <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-tier-accent/50 group-hover:w-full transition-all duration-500" />
+              </span>
+            </a>
+            
+            <a 
+              href="#how-ep-works" 
+              className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-500 tracking-[0.15em] uppercase text-[11px] font-light relative"
+            >
+              <ChevronRight className="w-3.5 h-3.5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 text-tier-accent" />
+              <span className="relative">
+                How Elevation Points Work
+                <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-tier-accent/50 group-hover:w-full transition-all duration-500" />
+              </span>
+            </a>
+            
+            <a 
+              href="#activity-feed" 
+              className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-500 tracking-[0.15em] uppercase text-[11px] font-light relative"
+            >
+              <ChevronRight className="w-3.5 h-3.5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 text-tier-accent" />
+              <span className="relative">
+                Your History
+                <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-tier-accent/50 group-hover:w-full transition-all duration-500" />
+              </span>
+            </a>
+          </div>
         </div>
       </nav>
     </section>
