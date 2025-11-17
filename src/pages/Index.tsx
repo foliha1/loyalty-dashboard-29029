@@ -56,40 +56,32 @@ const IndexContent = () => {
       {/* Main content section */}
       <div className="bg-[#0a0a0a]">
       <div className="container mx-auto px-6 md:px-10 lg:px-12 max-w-7xl">
-        {/* Section Divider */}
-        <div 
-          className="divider-red transition-all duration-700 ease-out"
-          style={{
-            marginTop: isHeaderCollapsed ? '16px' : '0'
-          }}
-        />
-        
         {/* Elevation Journey */}
         <div 
           ref={tiersReveal.ref} 
-          className={`pt-14 md:pt-20 pb-10 md:pb-14 section-fade-up ${tiersReveal.isVisible ? 'visible' : ''}`}
+          className={`pt-14 md:pt-20 pb-14 md:pb-20 section-fade-up ${tiersReveal.isVisible ? 'visible' : ''}`}
         >
           <TiersContinuum />
         </div>
         
         {/* Section Divider */}
-        <div className="divider-red" />
+        <div className="divider-red my-14 md:my-20" />
         
         {/* Continue the Journey */}
         <div 
           ref={calendarReveal.ref} 
-          className={`pt-14 md:pt-20 py-10 md:py-14 section-fade-up section-fade-up-delay-2 ${calendarReveal.isVisible ? 'visible' : ''}`}
+          className={`py-14 md:py-20 section-fade-up section-fade-up-delay-2 ${calendarReveal.isVisible ? 'visible' : ''}`}
         >
           <CalendarGrid />
         </div>
         
         {/* Section Divider */}
-        <div className="divider-red" />
+        <div className="divider-red my-14 md:my-20" />
         
         {/* History */}
         <div 
           ref={activityReveal.ref} 
-          className={`pt-14 md:pt-20 py-10 md:py-14 pb-20 md:pb-24 section-fade-up ${activityReveal.isVisible ? 'visible' : ''}`}
+          className={`py-14 md:py-20 pb-20 md:pb-28 section-fade-up ${activityReveal.isVisible ? 'visible' : ''}`}
         >
           <ActivityFeed />
         </div>
