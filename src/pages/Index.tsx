@@ -5,7 +5,6 @@ import { ActivityFeed } from "@/components/ActivityFeed";
 import { useParallax } from "@/hooks/useParallax";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useScrollVignette } from "@/hooks/useScrollVignette";
-import { useScrollCollapse } from "@/hooks/useScrollCollapse";
 import { TierProvider, useTier } from "@/contexts/TierContext";
 
 const IndexContent = () => {
@@ -15,7 +14,6 @@ const IndexContent = () => {
   const tiersReveal = useScrollReveal(0.1);
   const calendarReveal = useScrollReveal(0.1);
   const activityReveal = useScrollReveal(0.1);
-  const isHeaderCollapsed = useScrollCollapse(300);
   const { currentTier } = useTier();
   
   return (
@@ -40,18 +38,8 @@ const IndexContent = () => {
         }} 
       />
 
-      {/* Header section */}
-      <div 
-        className="bg-[#000000]" 
-        style={{ 
-          paddingTop: isHeaderCollapsed ? '88px' : '0',
-          transition: 'padding-top 0.7s cubic-bezier(0.4, 0, 0.2, 1)'
-        }}
-      >
-        <div className="container mx-auto px-6 md:px-10 lg:px-12 max-w-7xl">
-          <UserHeader isCollapsed={isHeaderCollapsed} />
-        </div>
-      </div>
+      {/* Header */}
+      <UserHeader />
       
       {/* Main content section */}
       <div className="bg-[#0a0a0a]">
