@@ -81,9 +81,9 @@ export const TiersContinuum = () => {
 
   return (
     <section>
-      <div className="divider-red mb-16 md:mb-20" />
+      <div className="divider-red mb-20 md:mb-28" />
       
-      <h3 className="text-section-title mb-12 md:mb-16 text-left px-2">
+      <h3 className="text-section-title mb-16 md:mb-20 text-left px-2">
         Your Elevation Journey
       </h3>
 
@@ -95,18 +95,18 @@ export const TiersContinuum = () => {
         )}
       >
         {/* Current Tier Badge */}
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-10 md:mb-12 gap-6">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-12 md:mb-16 gap-6">
           <div>
-            <div className="text-supporting uppercase tracking-widest mb-2 text-xs">Current Tier</div>
-            <h4 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight" style={{
+            <div className="text-supporting uppercase tracking-[0.25em] mb-3 text-xs font-light">Current Tier</div>
+            <h4 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-tight" style={{
               color: currentTier ? `hsl(var(--${currentTier.color}))` : 'hsl(var(--tier-gold))'
             }}>
               {currentTierName}
             </h4>
           </div>
           <div className="text-left md:text-right">
-            <div className="text-supporting uppercase tracking-widest mb-2 text-xs">Total Points</div>
-            <div className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight tabular-nums">
+            <div className="text-supporting uppercase tracking-[0.25em] mb-3 text-xs font-light">Total Points</div>
+            <div className="text-4xl md:text-5xl lg:text-6xl font-light tracking-tight tabular-nums">
               {animatedEP}
             </div>
           </div>
@@ -167,17 +167,17 @@ export const TiersContinuum = () => {
         </div>
 
         {/* Next Tier Info */}
-        <div className="pt-6 md:pt-8 border-t border-border/30">
+        <div className="pt-8 md:pt-10 border-t border-border/30">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div>
-              <div className="text-supporting uppercase tracking-widest mb-1 text-xs">Next Milestone</div>
-              <div className="text-xl md:text-2xl font-semibold tracking-tight">
+              <div className="text-supporting uppercase tracking-[0.25em] mb-2 text-xs font-light">Next Milestone</div>
+              <div className="text-2xl md:text-3xl font-light tracking-tight">
                 {nextTierName}
               </div>
             </div>
             <div className="text-left md:text-right">
-              <div className="text-supporting uppercase tracking-widest mb-1 text-xs">Points Needed</div>
-              <div className="text-2xl md:text-3xl font-bold tracking-tight tabular-nums" style={{
+              <div className="text-supporting uppercase tracking-[0.25em] mb-2 text-xs font-light">Points Needed</div>
+              <div className="text-3xl md:text-4xl font-light tracking-tight tabular-nums" style={{
                 color: nextTier ? `hsl(var(--${nextTier.color}))` : 'hsl(var(--foreground))'
               }}>
                 {remainingEP}

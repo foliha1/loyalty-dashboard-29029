@@ -84,15 +84,15 @@ export const UserHeader = ({ isCollapsed = false }: UserHeaderProps) => {
           {/* Hero Content - Left aligned */}
           <div className="max-w-4xl">
             {/* Premium ID Number */}
-            <div className="mb-6 animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
-              <span className="text-[10px] md:text-xs tracking-[0.3em] uppercase font-light text-muted-foreground/70 font-mono">
+            <div className="mb-8 animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
+              <span className="text-[11px] md:text-xs tracking-[0.3em] uppercase font-light text-muted-foreground/70">
                 29029 ID: AR-5847
               </span>
             </div>
             
             {/* Name with editorial hierarchy */}
             <h1 
-              className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tight text-foreground mb-4 animate-fade-in leading-[0.95]"
+              className="text-5xl md:text-7xl lg:text-8xl font-light tracking-[-0.02em] text-foreground mb-6 animate-fade-in leading-[0.95]"
               style={{ animationDelay: '0.2s', animationFillMode: 'both' }}
             >
               Alex Rivera
@@ -100,7 +100,7 @@ export const UserHeader = ({ isCollapsed = false }: UserHeaderProps) => {
             
             {/* Subheader with expanded tracking */}
             <div 
-              className="text-sm md:text-base tracking-[0.2em] uppercase font-light text-muted-foreground/80 mb-12 animate-fade-in"
+              className="text-sm md:text-base tracking-[0.25em] uppercase font-light text-muted-foreground/80 mb-16 animate-fade-in"
               style={{ animationDelay: '0.3s', animationFillMode: 'both' }}
             >
               Member Since 2023
