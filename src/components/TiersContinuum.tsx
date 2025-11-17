@@ -212,10 +212,7 @@ export const TiersContinuum = () => {
             </button>
           </div>
         )}
-    <section className="section-reveal">
-      <div className="divider-red mb-16" />
-      
-      <h3 className="text-section-title mb-16">
+
           {/* Simple Background Bar - Gray */}
           <div className={cn("relative h-[76px] rounded-full overflow-visible transition-opacity duration-700", isRevealed ? "opacity-100" : "opacity-80")}>
             <div className="absolute inset-0 rounded-full" style={{
@@ -288,7 +285,6 @@ export const TiersContinuum = () => {
                   </div>;
             })}
             </div>
-          </div>
           
           {/* Hover Tooltip with Rewards */}
           {hoveredTier && <div className="absolute inset-0 pointer-events-none">
@@ -423,5 +419,5 @@ export const TiersContinuum = () => {
         </div>
       </div>
       </div>
-    </section>;
+    </section>
 };
