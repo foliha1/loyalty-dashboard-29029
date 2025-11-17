@@ -186,7 +186,32 @@ export const TiersContinuum = () => {
         </div>
       </div>
 
-      {/* Space for navigation links */}
+      {/* Navigation Links */}
+      <nav className="mt-12 flex justify-start">
+        <div className="flex flex-col gap-4 text-sm">
+          <a 
+            href="#tier-benefits" 
+            className="text-muted-foreground hover:text-foreground transition-colors duration-300 tracking-wide uppercase text-xs font-medium"
+          >
+            Tier Benefits
+          </a>
+          <div className="h-px w-12 bg-border/30" />
+          <a 
+            href="#how-ep-works" 
+            className="text-muted-foreground hover:text-foreground transition-colors duration-300 tracking-wide uppercase text-xs font-medium"
+          >
+            How Elevation Points Work
+          </a>
+          <div className="h-px w-12 bg-border/30" />
+          <a 
+            href="#activity-feed" 
+            className="text-muted-foreground hover:text-foreground transition-colors duration-300 tracking-wide uppercase text-xs font-medium"
+          >
+            Your History
+          </a>
+        </div>
+      </nav>
+
       <div className="mt-16" />
     </section>
   );
