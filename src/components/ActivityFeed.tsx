@@ -108,27 +108,35 @@ export const ActivityFeed = () => {
   const yearData = yearlyActivities.find(y => y.year.toString() === selectedYear);
   if (!yearData) return null;
   const totalYearEP = yearData.events.totalEP + yearData.apparel.totalEP + yearData.coaching.totalEP;
-  return <section className="section-reveal">
-      <div className="divider-red mb-16" />
+  
+  return (
+    <section id="activity-feed">
+      <div className="divider-red mb-16 md:mb-20" />
       
-      <div className="flex items-center justify-between mb-16">
+      <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-12 md:mb-16 gap-4 px-2">
         <h3 className="text-section-title">
           History
         </h3>
         
         <Select value={selectedYear} onValueChange={setSelectedYear}>
-          <SelectTrigger className="w-[140px] h-12 border-border bg-black hover:border-tier-accent transition-colors font-semibold">
+          <SelectTrigger className="w-[140px] h-10 md:h-12 border-border bg-black hover:border-tier-accent transition-colors font-semibold">
             <SelectValue />
           </SelectTrigger>
           <SelectContent className="bg-[#1a1a1a] border-border">
-            {yearlyActivities.map(yearData => <SelectItem key={yearData.year} value={yearData.year.toString()} className="hover:bg-tier-accent/20 hover:text-tier-accent focus:bg-tier-accent/20 focus:text-tier-accent">
+            {yearlyActivities.map(yearData => (
+              <SelectItem 
+                key={yearData.year} 
+                value={yearData.year.toString()} 
+                className="hover:bg-tier-accent/20 hover:text-tier-accent focus:bg-tier-accent/20 focus:text-tier-accent"
+              >
                 {yearData.year}
-              </SelectItem>)}
+              </SelectItem>
+            ))}
           </SelectContent>
         </Select>
       </div>
 
-      <div className="card-29029 p-10 md:p-14">
+      <div className="card-29029 p-8 md:p-12 lg:p-14">
         {/* Year Display - More Dramatic */}
         <div className="flex flex-col md:flex-row items-center justify-between mb-12 pb-8 border-b-2 border-tier-accent/20 gap-6">
           <div className="text-center md:text-left metric-animate">
@@ -210,5 +218,6 @@ export const ActivityFeed = () => {
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };

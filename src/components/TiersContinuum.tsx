@@ -79,41 +79,41 @@ export const TiersContinuum = () => {
   }, [isRevealed, currentEP]);
 
   return (
-    <section className="section-reveal">
-      <div className="divider-red mb-16" />
+    <section>
+      <div className="divider-red mb-16 md:mb-20" />
       
-      <h3 className="text-section-title mb-20 text-left">
+      <h3 className="text-section-title mb-12 md:mb-16 text-left px-2">
         Your Elevation Journey
       </h3>
 
       {/* Main Progress Card */}
       <div 
         className={cn(
-          "card-29029 p-12 md:p-16 transition-all duration-700",
+          "card-29029 p-8 md:p-12 lg:p-16 transition-all duration-700",
           isRevealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         )}
       >
         {/* Current Tier Badge */}
-        <div className="flex items-center justify-between mb-12">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-10 md:mb-12 gap-6">
           <div>
-            <div className="text-supporting uppercase tracking-widest mb-2">Current Tier</div>
-            <h4 className="text-4xl md:text-5xl font-bold tracking-tight" style={{
+            <div className="text-supporting uppercase tracking-widest mb-2 text-xs">Current Tier</div>
+            <h4 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight" style={{
               color: currentTier ? `hsl(var(--${currentTier.color}))` : 'hsl(var(--tier-gold))'
             }}>
               {currentTierName}
             </h4>
           </div>
-          <div className="text-right">
-            <div className="text-supporting uppercase tracking-widest mb-2">Total Points</div>
-            <div className="text-4xl md:text-5xl font-bold tracking-tight tabular-nums">
+          <div className="text-left md:text-right">
+            <div className="text-supporting uppercase tracking-widest mb-2 text-xs">Total Points</div>
+            <div className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight tabular-nums">
               {animatedEP}
             </div>
           </div>
         </div>
 
         {/* Progress Bar */}
-        <div className="mb-12">
-          <div className="relative h-3 bg-muted/20 rounded-full overflow-hidden">
+        <div className="mb-10 md:mb-12">
+          <div className="relative h-2 md:h-3 bg-muted/20 rounded-full overflow-hidden">
             <div 
               className="absolute inset-y-0 left-0 rounded-full transition-all duration-1000 ease-out"
               style={{
@@ -129,7 +129,7 @@ export const TiersContinuum = () => {
           </div>
           
           {/* Tier Markers - Minimal */}
-          <div className="relative mt-6 flex justify-between items-center">
+          <div className="relative mt-6 md:mt-8 flex justify-between items-center">
             {visibleTiers.map((tier, idx) => {
               const isCurrentTier = tier.name === currentTierName;
               const isPassed = currentEP >= tier.threshold;
@@ -138,7 +138,7 @@ export const TiersContinuum = () => {
                 <div key={tier.name} className="flex flex-col items-center">
                   <div 
                     className={cn(
-                      "w-2 h-2 rounded-full mb-3 transition-all duration-500",
+                      "w-1.5 h-1.5 md:w-2 md:h-2 rounded-full mb-2 md:mb-3 transition-all duration-500",
                       isPassed ? "scale-125" : "scale-100"
                     )}
                     style={{
@@ -151,12 +151,12 @@ export const TiersContinuum = () => {
                     }}
                   />
                   <div className={cn(
-                    "text-xs uppercase tracking-wider transition-colors duration-500",
+                    "text-[10px] md:text-xs uppercase tracking-wider transition-colors duration-500 text-center",
                     isPassed ? "text-foreground font-semibold" : "text-muted-foreground"
                   )}>
                     {tier.name}
                   </div>
-                  <div className="text-xs text-muted-foreground mt-1 tabular-nums">
+                  <div className="text-[10px] md:text-xs text-muted-foreground mt-1 tabular-nums">
                     {tier.threshold}
                   </div>
                 </div>
@@ -166,17 +166,17 @@ export const TiersContinuum = () => {
         </div>
 
         {/* Next Tier Info */}
-        <div className="pt-8 border-t border-border/30">
-          <div className="flex items-center justify-between">
+        <div className="pt-6 md:pt-8 border-t border-border/30">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div>
-              <div className="text-supporting uppercase tracking-widest mb-1">Next Milestone</div>
-              <div className="text-2xl font-semibold tracking-tight">
+              <div className="text-supporting uppercase tracking-widest mb-1 text-xs">Next Milestone</div>
+              <div className="text-xl md:text-2xl font-semibold tracking-tight">
                 {nextTierName}
               </div>
             </div>
-            <div className="text-right">
-              <div className="text-supporting uppercase tracking-widest mb-1">Points Needed</div>
-              <div className="text-3xl font-bold tracking-tight tabular-nums" style={{
+            <div className="text-left md:text-right">
+              <div className="text-supporting uppercase tracking-widest mb-1 text-xs">Points Needed</div>
+              <div className="text-2xl md:text-3xl font-bold tracking-tight tabular-nums" style={{
                 color: nextTier ? `hsl(var(--${nextTier.color}))` : 'hsl(var(--foreground))'
               }}>
                 {remainingEP}
@@ -187,32 +187,30 @@ export const TiersContinuum = () => {
       </div>
 
       {/* Navigation Links */}
-      <nav className="mt-12 flex justify-start">
-        <div className="flex flex-col gap-4 text-sm">
+      <nav className="mt-12 md:mt-16 flex justify-start px-2">
+        <div className="flex flex-col gap-3 md:gap-4 text-sm">
           <a 
             href="#tier-benefits" 
-            className="text-muted-foreground hover:text-foreground transition-colors duration-300 tracking-wide uppercase text-xs font-medium"
+            className="text-muted-foreground hover:text-foreground transition-colors duration-300 tracking-wide uppercase text-xs font-medium hover:translate-x-1 inline-block"
           >
             Tier Benefits
           </a>
-          <div className="h-px w-12 bg-border/30" />
+          <div className="h-px w-10 md:w-12 bg-border/30" />
           <a 
             href="#how-ep-works" 
-            className="text-muted-foreground hover:text-foreground transition-colors duration-300 tracking-wide uppercase text-xs font-medium"
+            className="text-muted-foreground hover:text-foreground transition-colors duration-300 tracking-wide uppercase text-xs font-medium hover:translate-x-1 inline-block"
           >
             How Elevation Points Work
           </a>
-          <div className="h-px w-12 bg-border/30" />
+          <div className="h-px w-10 md:w-12 bg-border/30" />
           <a 
             href="#activity-feed" 
-            className="text-muted-foreground hover:text-foreground transition-colors duration-300 tracking-wide uppercase text-xs font-medium"
+            className="text-muted-foreground hover:text-foreground transition-colors duration-300 tracking-wide uppercase text-xs font-medium hover:translate-x-1 inline-block"
           >
             Your History
           </a>
         </div>
       </nav>
-
-      <div className="mt-16" />
     </section>
   );
 };

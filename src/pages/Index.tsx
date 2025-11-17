@@ -18,48 +18,65 @@ const IndexContent = () => {
   const isHeaderCollapsed = useScrollCollapse(150);
   const { currentTier } = useTier();
   
-  return <div className="min-h-screen bg-background relative overflow-hidden" data-current-tier={currentTier}>
+  return (
+    <div className="min-h-screen bg-background relative overflow-hidden" data-current-tier={currentTier}>
       {/* Parallax Background Layers */}
       <div className="fixed inset-0 -z-10">
-...
+        {/* ... keep existing code ... */}
       </div>
       
       {/* Scroll-based vignette */}
-      <div className="fixed inset-0 pointer-events-none transition-opacity duration-500 -z-5" style={{
-      background: `radial-gradient(
+      <div 
+        className="fixed inset-0 pointer-events-none transition-opacity duration-500 -z-5" 
+        style={{
+          background: `radial-gradient(
             ellipse 70% 60% at 50% 45%, 
             transparent 0%, 
             transparent 40%,
             rgba(0, 0, 0, ${vignetteIntensity * 0.5}) 70%,
             rgba(0, 0, 0, ${vignetteIntensity}) 100%
           )`,
-      opacity: 0.3 + scrollProgress * 0.5
-    }} />
+          opacity: 0.3 + scrollProgress * 0.5
+        }} 
+      />
 
-      {/* Header section - BLACK background */}
-      <div className="bg-[#000000]" style={{ paddingTop: isHeaderCollapsed ? '64px' : '0' }}>
-        <div className="container mx-auto px-8 py-16 max-w-7xl">
+      {/* Header section */}
+      <div className="bg-[#000000]" style={{ paddingTop: isHeaderCollapsed ? '80px' : '0' }}>
+        <div className="container mx-auto px-6 md:px-10 lg:px-12 py-12 md:py-20 max-w-7xl">
           <UserHeader isCollapsed={isHeaderCollapsed} />
         </div>
       </div>
       
-      {/* Main content section - Slightly lighter background */}
+      {/* Main content section */}
       <div className="bg-[#0a0a0a]">
-        <div className="container mx-auto px-8 py-16 max-w-7xl space-y-20">
-          <div ref={tiersReveal.ref} className={`section-fade-up ${tiersReveal.isVisible ? 'visible' : ''}`}>
+        <div className="container mx-auto px-6 md:px-10 lg:px-12 max-w-7xl">
+          {/* Elevation Journey */}
+          <div 
+            ref={tiersReveal.ref} 
+            className={`py-16 md:py-24 section-fade-up ${tiersReveal.isVisible ? 'visible' : ''}`}
+          >
             <TiersContinuum />
           </div>
           
-          <div ref={calendarReveal.ref} className={`section-fade-up section-fade-up-delay-2 ${calendarReveal.isVisible ? 'visible' : ''}`}>
+          {/* Continue the Journey */}
+          <div 
+            ref={calendarReveal.ref} 
+            className={`py-16 md:py-24 section-fade-up section-fade-up-delay-2 ${calendarReveal.isVisible ? 'visible' : ''}`}
+          >
             <CalendarGrid />
           </div>
           
-          <div ref={activityReveal.ref} className={`section-fade-up ${activityReveal.isVisible ? 'visible' : ''}`}>
+          {/* History */}
+          <div 
+            ref={activityReveal.ref} 
+            className={`py-16 md:py-24 pb-32 section-fade-up ${activityReveal.isVisible ? 'visible' : ''}`}
+          >
             <ActivityFeed />
           </div>
         </div>
       </div>
-    </div>;
+    </div>
+  );
 };
 
 const Index = () => {
