@@ -81,8 +81,6 @@ export const TiersContinuum = () => {
 
   return (
     <section>
-      <div className="divider-red mb-14 md:mb-20" />
-      
       <h3 className="text-section-title mb-10 md:mb-14 text-left px-2">
         Your Elevation Journey
       </h3>
