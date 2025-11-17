@@ -108,10 +108,10 @@ export const ActivityFeed = () => {
   const yearData = yearlyActivities.find(y => y.year.toString() === selectedYear);
   if (!yearData) return null;
   const totalYearEP = yearData.events.totalEP + yearData.apparel.totalEP + yearData.coaching.totalEP;
-  return <section className="mb-24 section-reveal">
-      <div className="divider-red mb-12" />
+  return <section className="section-reveal">
+      <div className="divider-red mb-16" />
       
-      <div className="flex items-center justify-between mb-12">
+      <div className="flex items-center justify-between mb-16">
         <h3 className="text-section-title">
           History
         </h3>

@@ -8,38 +8,38 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 4%;
-    --foreground: 0 0% 98%;
+    --background: 0 0% 3%;
+    --foreground: 0 0% 95%;
 
-    --card: 0 0% 6%;
-    --card-foreground: 0 0% 98%;
+    --card: 0 0% 5%;
+    --card-foreground: 0 0% 95%;
     
-    --warm-charcoal: 0 0% 12%;
-    --warm-smoke: 30 5% 20%;
+    --warm-charcoal: 0 0% 10%;
+    --warm-smoke: 30 3% 18%;
 
-    --popover: 0 0% 10%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 95%;
 
-    --primary: 0 0% 100%;
+    --primary: 0 0% 98%;
     --primary-foreground: 0 0% 8%;
 
-    --secondary: 0 0% 16%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 0 0% 14%;
+    --secondary-foreground: 0 0% 95%;
 
-    --muted: 0 0% 20%;
-    --muted-foreground: 0 0% 60%;
+    --muted: 0 0% 18%;
+    --muted-foreground: 0 0% 55%;
 
-    --accent: 0 0% 100%;
+    --accent: 0 0% 98%;
     --accent-foreground: 0 0% 8%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 20%;
-    --input: 0 0% 16%;
-    --ring: 0 0% 100%;
+    --border: 0 0% 16%;
+    --input: 0 0% 14%;
+    --ring: 0 0% 98%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
     
     /* 29029 Brand Accent */
     --accent-29029: 348 100% 42%;
@@ -71,12 +71,22 @@ All colors MUST be HSL.
     --current-tier-accent: var(--ridge);
     --current-tier-accent-glow: var(--ridge-glow);
     
-    /* Cinematic gradients */
-    --gradient-soft: radial-gradient(circle at top, hsl(var(--card)), hsl(var(--background)));
-    --gradient-ember: radial-gradient(circle at center, hsl(var(--ember) / 0.1), transparent);
-    --gradient-29029: linear-gradient(135deg, hsl(var(--accent-29029)) 0%, hsl(348 100% 32%) 100%);
-    --gradient-hero: linear-gradient(180deg, rgba(0,0,0,0.95) 0%, rgba(10,10,10,1) 100%);
-    --gradient-section: linear-gradient(135deg, rgba(0,0,0,1) 0%, rgba(20,20,20,1) 100%);
+    /* Premium gradients */
+    --gradient-soft: radial-gradient(ellipse at top, hsl(var(--card) / 0.6), hsl(var(--background)));
+    --gradient-ember: radial-gradient(circle at center, hsl(var(--ember) / 0.08), transparent);
+    --gradient-29029: linear-gradient(135deg, hsl(var(--accent-29029)) 0%, hsl(348 100% 28%) 100%);
+    --gradient-hero: linear-gradient(180deg, rgba(0,0,0,0.98) 0%, rgba(8,8,8,1) 100%);
+    --gradient-section: linear-gradient(135deg, rgba(0,0,0,1) 0%, rgba(15,15,15,1) 100%);
+    
+    /* Premium shadows */
+    --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.15);
+    --shadow-md: 0 4px 12px -2px rgb(0 0 0 / 0.25);
+    --shadow-lg: 0 10px 30px -5px rgb(0 0 0 / 0.35);
+    --shadow-xl: 0 20px 50px -10px rgb(0 0 0 / 0.45);
+    
+    /* Premium transitions */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -171,23 +181,23 @@ All colors MUST be HSL.
     box-shadow: 0 0 20px hsl(var(--summit) / 0.3);
   }
   
-  /* Hover Lift Effect */
+  /* Premium Hover Effects */
   .hover-lift {
-    transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
   
   .hover-lift:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
   }
   
-  /* Card Elevation */
+  /* Card Elevation with refined shadows */
   .card-elevated {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-sm);
   }
   
   .card-elevated-high {
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--shadow-lg);
   }
   
   .gradient-card {
@@ -273,6 +283,8 @@ h2, h3, .text-section-title {
     text-transform: uppercase;
     letter-spacing: 0.09em;
     font-size: 1.8rem;
+    color: hsl(0 0% 88%);
+    line-height: 1.2;
   }
   
   @media (min-width: 768px) {
@@ -285,32 +297,35 @@ h2, h3, .text-section-title {
   font-family: 'Inter', sans-serif;
   font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-size: 0.75rem;
-  color: #8A8A8A;
-  line-height: 1.4;
+  letter-spacing: 0.14em;
+  font-size: 0.7rem;
+  color: hsl(0 0% 50%);
+  line-height: 1.6;
 }
 
   .text-body {
     font-family: 'Inter', sans-serif;
     font-weight: 400;
-    color: #B3B3B3;
-    line-height: 1.6;
+    color: hsl(0 0% 65%);
+    line-height: 1.7;
+    font-size: 0.95rem;
   }
 
   .text-supporting {
     font-family: 'Inter', sans-serif;
     font-weight: 400;
-    font-size: 0.875rem;
-    color: #B3B3B3;
+    font-size: 0.85rem;
+    color: hsl(0 0% 60%);
     text-align: left;
+    line-height: 1.6;
   }
 
-  /* Red accent dividers */
+  /* Premium accent dividers */
   .divider-red {
-    height: 2px;
-    background: linear-gradient(90deg, hsl(var(--current-tier-accent)) 0%, transparent 100%);
-    margin: 3rem 0;
+    height: 1px;
+    background: linear-gradient(90deg, hsl(var(--current-tier-accent)) 0%, hsl(var(--current-tier-accent) / 0.3) 40%, transparent 100%);
+    margin: 4rem 0;
+    opacity: 0.6;
   }
 
 /* Dynamic Tier Classes */
@@ -529,12 +544,12 @@ h2, h3, .text-section-title {
     animation: gradient-shift 12s ease-in-out infinite;
   }
   
-  /* Section fade-up with blur transition */
+  /* Premium section fade-up with blur */
   .section-fade-up {
     opacity: 0;
     transform: translateY(30px);
-    filter: blur(8px);
-    transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+    filter: blur(6px);
+    transition: all 1s cubic-bezier(0.34, 1.2, 0.64, 1);
   }
 
   .section-fade-up.visible {
@@ -620,16 +635,15 @@ h2, h3, .text-section-title {
     opacity: 1;
   }
 
-  /* Card hover with subtle scale and glow */
-  .hover-glow-card {
-    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Premium card hover effects */
+  .card-hover-tier {
+    position: relative;
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
 
-  .hover-glow-card:hover {
-    transform: translateY(-2px) scale(1.01);
-    box-shadow: 
-      0 12px 40px rgba(0, 0, 0, 0.5),
-      0 0 30px rgba(242, 242, 242, 0.15);
+  .card-hover-tier:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 16px 48px hsl(var(--current-tier-accent) / 0.2), var(--shadow-lg);
   }
   
   /* Ripple effect on click */
@@ -666,24 +680,33 @@ h2, h3, .text-section-title {
 }
 
 @layer utilities {
-  /* Enhanced card with gradient overlay on hover */
+  /* Premium card utilities - Oura-inspired */
   .card-29029 {
-    background: linear-gradient(135deg, rgba(12,12,12,1) 0%, rgba(18,18,18,1) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 0.5rem;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 0.75rem;
+    border: 1px solid hsl(var(--border) / 0.5);
+    background: linear-gradient(
+      135deg, 
+      hsl(var(--card) / 0.8) 0%, 
+      hsl(var(--background) / 0.9) 100%
+    );
+    backdrop-filter: blur(20px);
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
     position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
   }
 
   .card-29029::before {
     content: '';
     position: absolute;
     inset: 0;
-    border-radius: inherit;
+    background: linear-gradient(
+      135deg,
+      hsl(var(--current-tier-accent) / 0.08) 0%,
+      transparent 60%
+    );
     opacity: 0;
-    background: linear-gradient(135deg, rgba(242, 242, 242, 0.05) 0%, transparent 100%);
-    transition: opacity 0.4s ease;
-    pointer-events: none;
+    transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .card-29029:hover::before {
@@ -691,11 +714,9 @@ h2, h3, .text-section-title {
   }
 
   .card-29029:hover {
-    border-color: rgba(242, 242, 242, 0.3);
+    border-color: hsl(var(--current-tier-accent) / 0.3);
+    box-shadow: 0 12px 36px hsl(var(--current-tier-accent) / 0.15), var(--shadow-md);
     transform: translateY(-2px);
-    box-shadow: 
-      0 12px 40px rgba(0, 0, 0, 0.5),
-      0 0 20px rgba(242, 242, 242, 0.2);
   }
 }
 

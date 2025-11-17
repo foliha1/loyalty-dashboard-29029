@@ -38,14 +38,14 @@ const IndexContent = () => {
 
       {/* Header section - BLACK background */}
       <div className="bg-[#000000]" style={{ paddingTop: isHeaderCollapsed ? '64px' : '0' }}>
-        <div className="container mx-auto px-6 py-12 max-w-7xl">
+        <div className="container mx-auto px-8 py-16 max-w-7xl">
           <UserHeader isCollapsed={isHeaderCollapsed} />
         </div>
       </div>
       
       {/* Main content section - Slightly lighter background */}
-      <div className="bg-[#1f1f1f]">
-        <div className="container mx-auto px-6 py-12 max-w-7xl">
+      <div className="bg-[#0a0a0a]">
+        <div className="container mx-auto px-8 py-16 max-w-7xl space-y-20">
           <div ref={tiersReveal.ref} className={`section-fade-up ${tiersReveal.isVisible ? 'visible' : ''}`}>
             <TiersContinuum />
           </div>

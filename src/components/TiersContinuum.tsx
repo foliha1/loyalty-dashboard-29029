@@ -189,10 +189,10 @@ export const TiersContinuum = () => {
     setGlobalTier("Ridge");
     setGlobalTestMode(false);
   };
-  return <section className="mb-24 section-reveal">
+  return <section className="section-reveal">
+      <div className="divider-red mb-16" />
       
-      
-      <h3 className="text-section-title mb-12 text-left">
+      <h3 className="text-section-title mb-16 text-left">
         Your Elevation Journey
       </h3>
 
@@ -212,8 +212,10 @@ export const TiersContinuum = () => {
             </button>
           </div>
         )}
-        {/* Simplified Tier Bar */}
-        <div className="relative mb-16">
+    <section className="section-reveal">
+      <div className="divider-red mb-16" />
+      
+      <h3 className="text-section-title mb-16">
           {/* Simple Background Bar - Gray */}
           <div className={cn("relative h-[76px] rounded-full overflow-visible transition-opacity duration-700", isRevealed ? "opacity-100" : "opacity-80")}>
             <div className="absolute inset-0 rounded-full" style={{
