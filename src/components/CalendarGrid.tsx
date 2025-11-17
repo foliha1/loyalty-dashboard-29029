@@ -74,15 +74,15 @@ const registrationWindows: RegistrationWindow[] = [{
   hasPriorityAccess: false
 }];
 export const CalendarGrid = () => {
-  return <section className="mb-24 section-reveal">
-      <div className="divider-red mb-12" />
+  return <section className="section-reveal">
+      <div className="divider-red mb-16" />
       
-      <h3 className="text-section-title mb-12">
+      <h3 className="text-section-title mb-16">
         The Year Ahead
       </h3>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {registrationWindows.map((event, idx) => <div key={idx} className="card-29029 p-8 relative overflow-hidden group metric-animate card-hover-tier">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        {registrationWindows.map((event, idx) => <div key={idx} className="card-29029 p-10 relative overflow-hidden group metric-animate card-hover-tier">
             {/* Badges Row */}
             <div className="flex items-center justify-between mb-6">
               <span className={cn("text-[10px] px-3 py-1.5 rounded-full uppercase tracking-wider font-semibold", event.eventType === "Mountain" ? "bg-red-900/30 border border-red-700/50 text-red-400" : "bg-amber-900/30 border border-amber-700/50 text-amber-200")}>
