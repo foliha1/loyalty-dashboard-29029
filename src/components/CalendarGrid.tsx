@@ -84,15 +84,15 @@ export const CalendarGrid = () => {
 
   return (
     <section>
-      <div className="divider-red mb-16 md:mb-20" />
+      <div className="divider-red mb-20 md:mb-28" />
       
-      <h3 className="text-section-title mb-6 md:mb-8 px-2">
+      <h3 className="text-section-title mb-8 md:mb-10 px-2">
         Continue the Journey
       </h3>
       
       {hasEvents ? (
         <>
-          <p className="text-supporting text-sm md:text-base mb-14 md:mb-20 max-w-2xl px-2">
+          <p className="text-supporting text-sm md:text-base mb-16 md:mb-24 max-w-2xl px-2 font-light">
             Your upcoming events
           </p>
 
@@ -150,7 +150,7 @@ export const CalendarGrid = () => {
 
                     {/* Location - Hero */}
                     <h4 
-                      className="text-2xl md:text-3xl font-light tracking-tight mb-4 leading-tight transition-colors duration-500"
+                      className="text-2xl md:text-3xl font-light tracking-[-0.01em] mb-4 leading-tight transition-colors duration-500"
                       style={{
                         color: isRevealed ? 'hsl(var(--foreground))' : 'hsl(var(--muted-foreground))'
                       }}
@@ -169,20 +169,20 @@ export const CalendarGrid = () => {
                     {/* Days Remaining - Prominent & Motivational */}
                     <div className="mb-4">
                       <div 
-                        className="text-4xl md:text-5xl font-light tabular-nums tracking-tight mb-1"
+                        className="text-5xl md:text-6xl font-light tabular-nums tracking-tight mb-2"
                         style={{
                           color: `hsl(${config.glowColor})`
                         }}
                       >
                         {daysRemaining}
                       </div>
-                      <div className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground/80 font-light">
+                      <div className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground/80 font-light">
                         Days Until Summit
                       </div>
                     </div>
 
                     {/* Date */}
-                    <p className="text-supporting text-xs uppercase tracking-[0.15em] mt-6 pt-6 border-t border-border/20">
+                    <p className="text-supporting text-xs uppercase tracking-[0.2em] mt-6 pt-6 border-t border-border/20 font-light">
                       {event.eventDates}
                     </p>
                   </div>

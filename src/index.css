@@ -111,7 +111,7 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply bg-background text-foreground font-body antialiased;
   }
 }
 
@@ -270,61 +270,61 @@ All colors MUST be HSL.
   
   /* Cinematic text treatments */
   .text-hero {
-    font-family: 'Oswald', sans-serif;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    letter-spacing: -0.02em;
     line-height: 1.05;
   }
 
 h2, h3, .text-section-title {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 300;
     text-transform: uppercase;
-    letter-spacing: 0.09em;
-    font-size: 1.8rem;
-    color: hsl(0 0% 88%);
-    line-height: 1.2;
+    letter-spacing: 0.15em;
+    font-size: 2rem;
+    color: hsl(0 0% 92%);
+    line-height: 1.15;
   }
   
   @media (min-width: 768px) {
     h2, h3, .text-section-title {
-      font-size: 2.4rem;
+      font-size: 2.75rem;
+      letter-spacing: 0.18em;
     }
   }
 
 .text-subhead {
   font-family: 'Inter', sans-serif;
-  font-weight: 500;
+  font-weight: 300;
   text-transform: uppercase;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.2em;
   font-size: 0.7rem;
-  color: hsl(0 0% 50%);
+  color: hsl(0 0% 55%);
   line-height: 1.6;
 }
 
   .text-body {
     font-family: 'Inter', sans-serif;
     font-weight: 400;
-    color: hsl(0 0% 65%);
-    line-height: 1.7;
-    font-size: 0.95rem;
+    color: hsl(0 0% 70%);
+    line-height: 1.75;
+    font-size: 1rem;
   }
 
   .text-supporting {
     font-family: 'Inter', sans-serif;
     font-weight: 400;
-    font-size: 0.85rem;
-    color: hsl(0 0% 60%);
+    font-size: 0.875rem;
+    color: hsl(0 0% 62%);
     text-align: left;
-    line-height: 1.6;
+    line-height: 1.65;
   }
 
   /* Premium accent dividers */
   .divider-red {
     height: 1px;
     background: linear-gradient(90deg, hsl(var(--current-tier-accent)) 0%, hsl(var(--current-tier-accent) / 0.3) 40%, transparent 100%);
-    margin: 4rem 0;
+    margin: 5rem 0;
     opacity: 0.6;
   }
 

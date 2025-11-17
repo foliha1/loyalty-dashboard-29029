@@ -111,9 +111,9 @@ export const ActivityFeed = () => {
   
   return (
     <section id="activity-feed">
-      <div className="divider-red mb-16 md:mb-20" />
+      <div className="divider-red mb-20 md:mb-28" />
       
-      <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-12 md:mb-16 gap-4 px-2">
+      <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-16 md:mb-20 gap-4 px-2">
         <h3 className="text-section-title">
           History
         </h3>

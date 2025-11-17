@@ -49,31 +49,31 @@ const IndexContent = () => {
       
       {/* Main content section */}
       <div className="bg-[#0a0a0a]">
-        <div className="container mx-auto px-6 md:px-10 lg:px-12 max-w-7xl">
-          {/* Elevation Journey */}
-          <div 
-            ref={tiersReveal.ref} 
-            className={`py-16 md:py-24 section-fade-up ${tiersReveal.isVisible ? 'visible' : ''}`}
-          >
-            <TiersContinuum />
-          </div>
-          
-          {/* Continue the Journey */}
-          <div 
-            ref={calendarReveal.ref} 
-            className={`py-16 md:py-24 section-fade-up section-fade-up-delay-2 ${calendarReveal.isVisible ? 'visible' : ''}`}
-          >
-            <CalendarGrid />
-          </div>
-          
-          {/* History */}
-          <div 
-            ref={activityReveal.ref} 
-            className={`py-16 md:py-24 pb-32 section-fade-up ${activityReveal.isVisible ? 'visible' : ''}`}
-          >
-            <ActivityFeed />
-          </div>
+      <div className="container mx-auto px-6 md:px-10 lg:px-12 max-w-7xl">
+        {/* Elevation Journey */}
+        <div 
+          ref={tiersReveal.ref} 
+          className={`py-20 md:py-32 section-fade-up ${tiersReveal.isVisible ? 'visible' : ''}`}
+        >
+          <TiersContinuum />
         </div>
+        
+        {/* Continue the Journey */}
+        <div 
+          ref={calendarReveal.ref} 
+          className={`py-20 md:py-32 section-fade-up section-fade-up-delay-2 ${calendarReveal.isVisible ? 'visible' : ''}`}
+        >
+          <CalendarGrid />
+        </div>
+        
+        {/* History */}
+        <div 
+          ref={activityReveal.ref} 
+          className={`py-20 md:py-32 pb-40 section-fade-up ${activityReveal.isVisible ? 'visible' : ''}`}
+        >
+          <ActivityFeed />
+        </div>
+      </div>
       </div>
     </div>
   );
