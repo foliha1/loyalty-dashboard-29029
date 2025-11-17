@@ -1,80 +1,36 @@
-import { Calendar, MapPin, Bell } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
-interface RegistrationWindow {
+
+interface UpcomingEvent {
   eventName: string;
-  eventType: "Mountain" | "Trail";
-  registrationOpens: string;
+  eventType: "Everest" | "Basecamp" | "Trail";
   eventDates: string;
   location: string;
-  hasPriorityAccess: boolean;
 }
-const registrationWindows: RegistrationWindow[] = [{
-  eventName: "Snowbasin",
-  eventType: "Mountain",
-  registrationOpens: "Nov 6, 2025 at 12P EST",
-  eventDates: "Jun 11-14, 2025",
-  location: "Snowbasin",
-  hasPriorityAccess: true
-}, {
-  eventName: "Rainier",
-  eventType: "Mountain",
-  registrationOpens: "Nov 6, 2025 at 12P EST",
-  eventDates: "Jun 25-28, 2025",
-  location: "Rainier",
-  hasPriorityAccess: true
-}, {
-  eventName: "Mont-Tremblant",
-  eventType: "Mountain",
-  registrationOpens: "Nov 6, 2025 at 12P EST",
-  eventDates: "Jul 23-26, 2025",
-  location: "Mont-Tremblant",
-  hasPriorityAccess: true
-}, {
-  eventName: "Steamboat",
-  eventType: "Mountain",
-  registrationOpens: "Nov 6, 2025 at 12P EST",
-  eventDates: "Aug 13-16, 2025",
-  location: "Steamboat",
-  hasPriorityAccess: true
-}, {
-  eventName: "Whistler",
-  eventType: "Mountain",
-  registrationOpens: "Nov 6, 2025 at 12P EST",
-  eventDates: "Aug 27-30, 2025",
-  location: "Whistler",
-  hasPriorityAccess: true
-}, {
-  eventName: "Sun Valley",
-  eventType: "Mountain",
-  registrationOpens: "Nov 6, 2025 at 12P EST",
-  eventDates: "Sep 10-13, 2025",
-  location: "Sun Valley",
-  hasPriorityAccess: true
-}, {
-  eventName: "TRAIL Park City",
-  eventType: "Trail",
-  registrationOpens: "Nov 6, 2025 at 12P EST",
-  eventDates: "Sep 16-20, 2025",
-  location: "Park City",
-  hasPriorityAccess: true
-}, {
-  eventName: "TRAIL Tahoe",
-  eventType: "Trail",
-  registrationOpens: "Nov 6, 2025 at 12P EST",
-  eventDates: "Oct 7-11, 2025",
-  location: "Tahoe",
-  hasPriorityAccess: false
-}, {
-  eventName: "Stratton",
-  eventType: "Mountain",
-  registrationOpens: "Nov 6, 2025 at 12P EST",
-  eventDates: "Oct 22-25, 2025",
-  location: "Stratton",
-  hasPriorityAccess: false
-}];
+
+const upcomingEvents: UpcomingEvent[] = [
+  {
+    eventName: "Snowbasin",
+    eventType: "Everest",
+    eventDates: "Jun 11-14, 2025",
+    location: "Snowbasin, Utah",
+  },
+  {
+    eventName: "Rainier",
+    eventType: "Everest",
+    eventDates: "Jun 25-28, 2025",
+    location: "Rainier, Washington",
+  },
+  {
+    eventName: "Mont-Tremblant",
+    eventType: "Everest",
+    eventDates: "Jul 23-26, 2025",
+    location: "Mont-Tremblant, Quebec",
+  },
+];
 export const CalendarGrid = () => {
-  return <section className="section-reveal">
+  return (
+    <section className="section-reveal">
       <div className="divider-red mb-20" />
       
       <h3 className="text-section-title mb-8">
@@ -82,55 +38,91 @@ export const CalendarGrid = () => {
       </h3>
       
       <p className="text-supporting text-base mb-16 max-w-2xl">
-        Your upcoming events and registration windows
+        Your upcoming events
       </p>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-        {registrationWindows.map((event, idx) => <div key={idx} className="card-29029 p-10 relative overflow-hidden group metric-animate card-hover-tier">
-            {/* Badges Row */}
-            <div className="flex items-center justify-between mb-6">
-              <span className={cn("text-[10px] px-3 py-1.5 rounded-full uppercase tracking-wider font-semibold", event.eventType === "Mountain" ? "bg-red-900/30 border border-red-700/50 text-red-400" : "bg-amber-900/30 border border-amber-700/50 text-amber-200")}>
+      {/* Event Cards Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+        {upcomingEvents.map((event, idx) => (
+          <div
+            key={idx}
+            className="card-29029 p-8 group hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+          >
+            {/* Event Type Badge */}
+            <div className="mb-6">
+              <span className={cn(
+                "text-[10px] px-3 py-1.5 rounded-full uppercase tracking-widest font-semibold",
+                event.eventType === "Everest" && "bg-red-900/30 border border-red-700/50 text-red-400",
+                event.eventType === "Basecamp" && "bg-blue-900/30 border border-blue-700/50 text-blue-400",
+                event.eventType === "Trail" && "bg-amber-900/30 border border-amber-700/50 text-amber-200"
+              )}>
                 {event.eventType}
               </span>
-              
-              {event.hasPriorityAccess && <span className="text-[10px] px-3 py-1.5 rounded-full bg-tier-accent/20 border border-tier-accent/50 text-tier-accent uppercase tracking-wider">
-                  Priority Access
-                </span>}
             </div>
 
-            {/* Event Name - Large & Bold */}
-            <h3 className="font-editorial text-3xl font-bold mb-6 group-hover:text-tier-accent transition-colors uppercase" style={{
-          letterSpacing: '0.08em'
-        }}>
-              {event.eventName}
-            </h3>
+            {/* Location - Hero */}
+            <h4 className="text-2xl font-bold mb-3 uppercase tracking-wide group-hover:text-tier-accent transition-colors">
+              {event.location}
+            </h4>
 
-            {/* Accent Line */}
-            <div className="h-0.5 w-16 bg-tier-accent mb-6" />
+            {/* Divider */}
+            <div className="h-px w-12 bg-tier-accent/40 mb-4" />
 
-            {/* Details */}
-            <div className="space-y-3">
-              <div>
-                <span className="text-subhead">Registration Opens</span>
-                <div className="text-body mt-1">{event.registrationOpens}</div>
-              </div>
-              
-              <div>
-                <span className="text-subhead">Event Dates</span>
-                <div className="text-body mt-1">{event.eventDates}</div>
-              </div>
-              
-              <div>
-                <span className="text-subhead">Location</span>
-                <div className="text-body mt-1">{event.location}</div>
-              </div>
-            </div>
-
-            {/* CTA Button */}
-            <Button className="w-full mt-8 bg-tier-accent hover:bg-tier-accent/80 text-white font-semibold uppercase tracking-wider transition-colors">
-              Learn More
-            </Button>
-          </div>)}
+            {/* Date */}
+            <p className="text-supporting text-sm uppercase tracking-wider">
+              {event.eventDates}
+            </p>
+          </div>
+        ))}
       </div>
-    </section>;
+
+      {/* CTAs Section */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-12 border-t border-border/20">
+        <a
+          href="#events"
+          className="group p-8 bg-card/30 hover:bg-card/50 border border-border/20 hover:border-tier-accent/30 rounded-lg transition-all duration-300 flex items-center justify-between"
+        >
+          <div>
+            <h5 className="text-lg font-semibold mb-1 uppercase tracking-wide">
+              Discover Events
+            </h5>
+            <p className="text-supporting text-xs uppercase tracking-wider">
+              Browse All Experiences
+            </p>
+          </div>
+          <ArrowRight className="w-5 h-5 text-tier-accent group-hover:translate-x-1 transition-transform" />
+        </a>
+
+        <a
+          href="#coaching"
+          className="group p-8 bg-card/30 hover:bg-card/50 border border-border/20 hover:border-tier-accent/30 rounded-lg transition-all duration-300 flex items-center justify-between"
+        >
+          <div>
+            <h5 className="text-lg font-semibold mb-1 uppercase tracking-wide">
+              1:1 Coaching
+            </h5>
+            <p className="text-supporting text-xs uppercase tracking-wider">
+              Personal Experience
+            </p>
+          </div>
+          <ArrowRight className="w-5 h-5 text-tier-accent group-hover:translate-x-1 transition-transform" />
+        </a>
+
+        <a
+          href="#apparel"
+          className="group p-8 bg-card/30 hover:bg-card/50 border border-border/20 hover:border-tier-accent/30 rounded-lg transition-all duration-300 flex items-center justify-between"
+        >
+          <div>
+            <h5 className="text-lg font-semibold mb-1 uppercase tracking-wide">
+              Apparel
+            </h5>
+            <p className="text-supporting text-xs uppercase tracking-wider">
+              Shop Collection
+            </p>
+          </div>
+          <ArrowRight className="w-5 h-5 text-tier-accent group-hover:translate-x-1 transition-transform" />
+        </a>
+      </div>
+    </section>
+  );
 };
