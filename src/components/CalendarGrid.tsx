@@ -1,5 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useState, useEffect } from "react";
+import patagoniaImage from "@/assets/patagonia-mountains.jpg";
 
 interface UpcomingEvent {
   eventName: string;
@@ -8,32 +10,77 @@ interface UpcomingEvent {
   location: string;
 }
 
-// Toggle this to test empty state
-const upcomingEvents: UpcomingEvent[] = [];
+// Calculate days remaining until event
+const getDaysRemaining = (dateStr: string): number => {
+  // Parse date like "Jun 11-14, 2025" - use start date
+  const match = dateStr.match(/([A-Za-z]+)\s+(\d+)/);
+  if (!match) return 0;
+  
+  const [, month, day] = match;
+  const yearMatch = dateStr.match(/\d{4}/);
+  const year = yearMatch ? yearMatch[0] : String(new Date().getFullYear());
+  const monthMap: { [key: string]: number } = {
+    Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5,
+    Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11
+  };
+  
+  const eventDate = new Date(parseInt(year, 10), monthMap[month], parseInt(day));
+  const today = new Date();
+  const diffTime = eventDate.getTime() - today.getTime();
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  
+  return Math.max(0, diffDays);
+};
 
-// Example with events:
-// const upcomingEvents: UpcomingEvent[] = [
-//   {
-//     eventName: "Snowbasin",
-//     eventType: "Everest",
-//     eventDates: "Jun 11-14, 2025",
-//     location: "Snowbasin, Utah",
-//   },
-//   {
-//     eventName: "Rainier",
-//     eventType: "Everest",
-//     eventDates: "Jun 25-28, 2025",
-//     location: "Rainier, Washington",
-//   },
-//   {
-//     eventName: "Mont-Tremblant",
-//     eventType: "Everest",
-//     eventDates: "Jul 23-26, 2025",
-//     location: "Mont-Tremblant, Quebec",
-//   },
-// ];
+// Event type color configurations
+const eventTypeConfig = {
+  Everest: {
+    gradient: "linear-gradient(135deg, rgba(220, 38, 38, 0.08) 0%, rgba(127, 29, 29, 0.12) 100%)",
+    accentColor: "5 85% 50%",
+    glowColor: "5 85% 60%"
+  },
+  Basecamp: {
+    gradient: "linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(29, 78, 216, 0.12) 100%)",
+    accentColor: "217 91% 60%",
+    glowColor: "217 91% 70%"
+  },
+  Trail: {
+    gradient: "linear-gradient(135deg, rgba(251, 191, 36, 0.08) 0%, rgba(217, 119, 6, 0.12) 100%)",
+    accentColor: "38 92% 50%",
+    glowColor: "38 92% 60%"
+  }
+};
+
+// Toggle this to test empty state
+const upcomingEvents: UpcomingEvent[] = [
+  {
+    eventName: "Snowbasin",
+    eventType: "Everest",
+    eventDates: "Jun 11-14, 2025",
+    location: "Snowbasin, Utah",
+  },
+  {
+    eventName: "Rainier",
+    eventType: "Everest",
+    eventDates: "Jun 25-28, 2025",
+    location: "Rainier, Washington",
+  },
+  {
+    eventName: "Mont-Tremblant",
+    eventType: "Everest",
+    eventDates: "Jul 23-26, 2025",
+    location: "Mont-Tremblant, Quebec",
+  },
+];
 export const CalendarGrid = () => {
   const hasEvents = upcomingEvents.length > 0;
+  const [isRevealed, setIsRevealed] = useState(false);
+
+  // Reveal animation
+  useEffect(() => {
+    const timer = setTimeout(() => setIsRevealed(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <section>
@@ -45,43 +92,103 @@ export const CalendarGrid = () => {
       
       {hasEvents ? (
         <>
-          <p className="text-supporting text-sm md:text-base mb-12 md:mb-16 max-w-2xl px-2">
+          <p className="text-supporting text-sm md:text-base mb-14 md:mb-20 max-w-2xl px-2">
             Your upcoming events
           </p>
 
           {/* Event Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-16 md:mb-20">
-            {upcomingEvents.map((event, idx) => (
-              <div
-                key={idx}
-                className="card-29029 p-6 md:p-8 group hover:-translate-y-2 transition-all duration-300 cursor-pointer"
-              >
-                {/* Event Type Badge */}
-                <div className="mb-5 md:mb-6">
-                  <span className={cn(
-                    "text-[10px] px-3 py-1.5 rounded-full uppercase tracking-widest font-semibold",
-                    event.eventType === "Everest" && "bg-red-900/30 border border-red-700/50 text-red-400",
-                    event.eventType === "Basecamp" && "bg-blue-900/30 border border-blue-700/50 text-blue-400",
-                    event.eventType === "Trail" && "bg-amber-900/30 border border-amber-700/50 text-amber-200"
-                  )}>
-                    {event.eventType}
-                  </span>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 mb-20 md:mb-24">
+            {upcomingEvents.map((event, idx) => {
+              const daysRemaining = getDaysRemaining(event.eventDates);
+              const config = eventTypeConfig[event.eventType];
+              
+              return (
+                <div
+                  key={idx}
+                  className={cn(
+                    "relative card-29029 p-8 md:p-10 group hover:-translate-y-2 transition-all duration-500 cursor-pointer overflow-hidden",
+                    "opacity-0 translate-y-4",
+                    isRevealed && "animate-fade-in"
+                  )}
+                  style={{
+                    animationDelay: `${idx * 150}ms`,
+                    animationFillMode: 'forwards'
+                  }}
+                >
+                  {/* Atmospheric gradient background */}
+                  <div 
+                    className="absolute inset-0 opacity-60 group-hover:opacity-80 transition-opacity duration-500"
+                    style={{
+                      background: config.gradient
+                    }}
+                  />
+                  
+                  {/* Ultra-faint mountain silhouette */}
+                  <div 
+                    className="absolute inset-0 opacity-[0.02] group-hover:opacity-[0.04] transition-opacity duration-500"
+                    style={{
+                      backgroundImage: `url(${patagoniaImage})`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center 40%'
+                    }}
+                  />
+
+                  <div className="relative z-10">
+                    {/* Event Type Badge */}
+                    <div className="mb-6 md:mb-8">
+                      <span 
+                        className="text-[10px] px-3.5 py-2 rounded-full uppercase tracking-[0.2em] font-light border backdrop-blur-sm"
+                        style={{
+                          borderColor: `hsl(${config.accentColor} / 0.4)`,
+                          backgroundColor: `hsl(${config.accentColor} / 0.1)`,
+                          color: `hsl(${config.glowColor})`
+                        }}
+                      >
+                        {event.eventType}
+                      </span>
+                    </div>
+
+                    {/* Location - Hero */}
+                    <h4 
+                      className="text-2xl md:text-3xl font-light tracking-tight mb-4 leading-tight transition-colors duration-500"
+                      style={{
+                        color: isRevealed ? 'hsl(var(--foreground))' : 'hsl(var(--muted-foreground))'
+                      }}
+                    >
+                      {event.location}
+                    </h4>
+
+                    {/* Divider with accent color */}
+                    <div 
+                      className="h-[2px] w-12 md:w-16 mb-6 md:mb-8 group-hover:w-20 transition-all duration-500"
+                      style={{
+                        background: `linear-gradient(90deg, hsl(${config.accentColor}) 0%, transparent 100%)`
+                      }}
+                    />
+
+                    {/* Days Remaining - Prominent & Motivational */}
+                    <div className="mb-4">
+                      <div 
+                        className="text-4xl md:text-5xl font-light tabular-nums tracking-tight mb-1"
+                        style={{
+                          color: `hsl(${config.glowColor})`
+                        }}
+                      >
+                        {daysRemaining}
+                      </div>
+                      <div className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground/80 font-light">
+                        Days Until Summit
+                      </div>
+                    </div>
+
+                    {/* Date */}
+                    <p className="text-supporting text-xs uppercase tracking-[0.15em] mt-6 pt-6 border-t border-border/20">
+                      {event.eventDates}
+                    </p>
+                  </div>
                 </div>
-
-                {/* Location - Hero */}
-                <h4 className="text-xl md:text-2xl font-bold mb-3 uppercase tracking-wide group-hover:text-tier-accent transition-colors">
-                  {event.location}
-                </h4>
-
-                {/* Divider */}
-                <div className="h-px w-10 md:w-12 bg-tier-accent/40 mb-3 md:mb-4 group-hover:w-16 transition-all" />
-
-                {/* Date */}
-                <p className="text-supporting text-xs md:text-sm uppercase tracking-wider">
-                  {event.eventDates}
-                </p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </>
       ) : (
