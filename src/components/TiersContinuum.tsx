@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { tiers } from "@/lib/tierConfig";
 import { cn } from "@/lib/utils";
 import { useTier } from "@/contexts/TierContext";
+import { ChevronDown } from "lucide-react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 // 2025 Activity Data
 const activity2025 = {
@@ -189,140 +191,150 @@ export const TiersContinuum = () => {
 
       </div>
 
-      {/* Always-Visible Info Sections */}
-      <div className="mt-8 space-y-6">
-        {/* Tier Benefits Section */}
-        <div className="border border-border/30 rounded-lg overflow-hidden bg-card/30 backdrop-blur-sm">
-          <div className="px-8 py-6 border-b border-border/20 bg-muted/5">
-            <h4 className="text-lg md:text-xl font-light tracking-[0.08em] uppercase text-foreground">
-              Tier Benefits
-            </h4>
-          </div>
-          <div className="px-8 py-8">
-            <div className="border-l-2 border-tier-accent/20 pl-8 pr-4 py-2 bg-gradient-to-br from-muted/5 to-transparent rounded-r-lg">
-              <div className="space-y-10">
-                {/* Ridge Tier */}
-                <div>
-                  <h5 className="text-xl md:text-2xl font-semibold tracking-tight text-tier-gold mb-4">
-                    Ridge <span className="text-sm font-light text-muted-foreground">(500+ EPs)</span>
-                  </h5>
-                  <ul className="space-y-3 text-supporting leading-relaxed">
-                    <li className="flex items-start gap-3">
-                      <span className="text-tier-accent/60 mt-1">•</span>
-                      <span>Priority event registration</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="text-tier-accent/60 mt-1">•</span>
-                      <span>Exclusive Ridge merchandise collection</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="text-tier-accent/60 mt-1">•</span>
-                      <span>10% discount on apparel</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="text-tier-accent/60 mt-1">•</span>
-                      <span>Access to member-only content</span>
-                    </li>
-                  </ul>
-                </div>
+      {/* Two-Column Accordion Layout */}
+      <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Tier Benefits Accordion */}
+        <Accordion type="single" collapsible>
+          <AccordionItem value="tier-benefits" className="border border-border/30 rounded-lg overflow-hidden bg-card/30 backdrop-blur-sm">
+            <AccordionTrigger className="px-6 md:px-8 py-5 md:py-6 hover:no-underline hover:bg-muted/10 transition-colors duration-300 [&[data-state=open]>div>svg]:rotate-180">
+              <div className="flex items-center gap-3 text-left w-full">
+                <ChevronDown className="h-4 w-4 md:h-5 md:w-5 text-tier-accent/60 transition-transform duration-300 ease-out shrink-0" />
+                <span className="text-sm md:text-base lg:text-lg font-light tracking-[0.08em] uppercase text-foreground">
+                  Tier Benefits
+                </span>
+              </div>
+            </AccordionTrigger>
+            <AccordionContent className="px-6 md:px-8 pb-6 md:pb-8 pt-2">
+              <div className="border-l-2 border-tier-accent/20 pl-6 md:pl-8 pr-4 py-6 bg-gradient-to-br from-muted/5 to-transparent rounded-r-lg">
+                <div className="space-y-8 md:space-y-10">
+                  {/* Ridge Tier */}
+                  <div>
+                    <h5 className="text-lg md:text-xl lg:text-2xl font-semibold tracking-tight text-tier-gold mb-3 md:mb-4">
+                      Ridge <span className="text-xs md:text-sm font-light text-muted-foreground">(500+ EPs)</span>
+                    </h5>
+                    <ul className="space-y-2 md:space-y-3 text-sm md:text-base text-supporting leading-relaxed">
+                      <li className="flex items-start gap-2 md:gap-3">
+                        <span className="text-tier-accent/60 mt-1">•</span>
+                        <span>Priority event registration</span>
+                      </li>
+                      <li className="flex items-start gap-2 md:gap-3">
+                        <span className="text-tier-accent/60 mt-1">•</span>
+                        <span>Exclusive Ridge merchandise collection</span>
+                      </li>
+                      <li className="flex items-start gap-2 md:gap-3">
+                        <span className="text-tier-accent/60 mt-1">•</span>
+                        <span>10% discount on apparel</span>
+                      </li>
+                      <li className="flex items-start gap-2 md:gap-3">
+                        <span className="text-tier-accent/60 mt-1">•</span>
+                        <span>Access to member-only content</span>
+                      </li>
+                    </ul>
+                  </div>
 
-                {/* Peak Tier */}
-                <div className="pt-8 border-t border-border/20">
-                  <h5 className="text-xl md:text-2xl font-semibold tracking-tight text-tier-silver mb-4">
-                    Peak <span className="text-sm font-light text-muted-foreground">(1000+ EPs)</span>
-                  </h5>
-                  <ul className="space-y-3 text-supporting leading-relaxed">
-                    <li className="flex items-start gap-3">
-                      <span className="text-tier-accent/60 mt-1">•</span>
-                      <span>All Ridge benefits</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="text-tier-accent/60 mt-1">•</span>
-                      <span>VIP event experiences</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="text-tier-accent/60 mt-1">•</span>
-                      <span>Exclusive Peak merchandise</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="text-tier-accent/60 mt-1">•</span>
-                      <span>15% discount on apparel</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="text-tier-accent/60 mt-1">•</span>
-                      <span>Free coaching session annually</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="text-tier-accent/60 mt-1">•</span>
-                      <span>Early access to new events</span>
-                    </li>
-                  </ul>
+                  {/* Peak Tier */}
+                  <div className="pt-6 md:pt-8 border-t border-border/20">
+                    <h5 className="text-lg md:text-xl lg:text-2xl font-semibold tracking-tight text-tier-silver mb-3 md:mb-4">
+                      Peak <span className="text-xs md:text-sm font-light text-muted-foreground">(1000+ EPs)</span>
+                    </h5>
+                    <ul className="space-y-2 md:space-y-3 text-sm md:text-base text-supporting leading-relaxed">
+                      <li className="flex items-start gap-2 md:gap-3">
+                        <span className="text-tier-accent/60 mt-1">•</span>
+                        <span>All Ridge benefits</span>
+                      </li>
+                      <li className="flex items-start gap-2 md:gap-3">
+                        <span className="text-tier-accent/60 mt-1">•</span>
+                        <span>VIP event experiences</span>
+                      </li>
+                      <li className="flex items-start gap-2 md:gap-3">
+                        <span className="text-tier-accent/60 mt-1">•</span>
+                        <span>Exclusive Peak merchandise</span>
+                      </li>
+                      <li className="flex items-start gap-2 md:gap-3">
+                        <span className="text-tier-accent/60 mt-1">•</span>
+                        <span>15% discount on apparel</span>
+                      </li>
+                      <li className="flex items-start gap-2 md:gap-3">
+                        <span className="text-tier-accent/60 mt-1">•</span>
+                        <span>Free coaching session annually</span>
+                      </li>
+                      <li className="flex items-start gap-2 md:gap-3">
+                        <span className="text-tier-accent/60 mt-1">•</span>
+                        <span>Early access to new events</span>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
 
-        {/* How Elevation Points Work Section */}
-        <div className="border border-border/30 rounded-lg overflow-hidden bg-card/30 backdrop-blur-sm">
-          <div className="px-8 py-6 border-b border-border/20 bg-muted/5">
-            <h4 className="text-lg md:text-xl font-light tracking-[0.08em] uppercase text-foreground">
-              How Elevation Points (EPs) Work
-            </h4>
-          </div>
-          <div className="px-8 py-8">
-            <div className="border-l-2 border-tier-accent/20 pl-8 pr-4 py-2 bg-gradient-to-br from-muted/5 to-transparent rounded-r-lg">
-              <div className="space-y-10">
-                {/* Earning EPs */}
-                <div>
-                  <h5 className="text-xl md:text-2xl font-semibold tracking-tight text-tier-accent mb-5">
-                    Earning EPs
-                  </h5>
-                  <div className="space-y-4 text-supporting leading-relaxed">
-                    <p>
-                      <span className="font-semibold text-foreground">Events:</span> 150 EPs per event attended
-                    </p>
-                    <p>
-                      <span className="font-semibold text-foreground">Coaching:</span> Variable EPs based on session type
-                    </p>
-                    <p>
-                      <span className="font-semibold text-foreground">Apparel:</span> 1 EP per dollar spent
+        {/* How Elevation Points Work Accordion */}
+        <Accordion type="single" collapsible>
+          <AccordionItem value="how-eps-work" className="border border-border/30 rounded-lg overflow-hidden bg-card/30 backdrop-blur-sm">
+            <AccordionTrigger className="px-6 md:px-8 py-5 md:py-6 hover:no-underline hover:bg-muted/10 transition-colors duration-300 [&[data-state=open]>div>svg]:rotate-180">
+              <div className="flex items-center gap-3 text-left w-full">
+                <ChevronDown className="h-4 w-4 md:h-5 md:w-5 text-tier-accent/60 transition-transform duration-300 ease-out shrink-0" />
+                <span className="text-sm md:text-base lg:text-lg font-light tracking-[0.08em] uppercase text-foreground">
+                  How Elevation Points (EPs) Work
+                </span>
+              </div>
+            </AccordionTrigger>
+            <AccordionContent className="px-6 md:px-8 pb-6 md:pb-8 pt-2">
+              <div className="border-l-2 border-tier-accent/20 pl-6 md:pl-8 pr-4 py-6 bg-gradient-to-br from-muted/5 to-transparent rounded-r-lg">
+                <div className="space-y-8 md:space-y-10">
+                  {/* Earning EPs */}
+                  <div>
+                    <h5 className="text-lg md:text-xl lg:text-2xl font-semibold tracking-tight text-tier-accent mb-4 md:mb-5">
+                      Earning EPs
+                    </h5>
+                    <div className="space-y-3 md:space-y-4 text-sm md:text-base text-supporting leading-relaxed">
+                      <p>
+                        <span className="font-semibold text-foreground">Events:</span> 150 EPs per event attended
+                      </p>
+                      <p>
+                        <span className="font-semibold text-foreground">Coaching:</span> Variable EPs based on session type
+                      </p>
+                      <p>
+                        <span className="font-semibold text-foreground">Apparel:</span> 1 EP per dollar spent
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Tier Thresholds */}
+                  <div className="pt-6 md:pt-8 border-t border-border/20">
+                    <h5 className="text-lg md:text-xl lg:text-2xl font-semibold tracking-tight text-tier-accent mb-4 md:mb-5">
+                      Tier Thresholds
+                    </h5>
+                    <div className="space-y-3 md:space-y-4 text-sm md:text-base text-supporting leading-relaxed">
+                      <p>
+                        <span className="font-semibold text-foreground">Base:</span> 0 EPs (Starting tier)
+                      </p>
+                      <p>
+                        <span className="font-semibold text-foreground">Ridge:</span> 500 EPs
+                      </p>
+                      <p>
+                        <span className="font-semibold text-foreground">Peak:</span> 1,000 EPs
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Your Progress */}
+                  <div className="pt-6 md:pt-8 border-t border-border/20">
+                    <h5 className="text-lg md:text-xl lg:text-2xl font-semibold tracking-tight text-tier-accent mb-4 md:mb-5">
+                      Your Progress
+                    </h5>
+                    <p className="text-sm md:text-base text-supporting leading-relaxed">
+                      Your EPs accumulate over your entire member journey. Each tier unlocks new benefits 
+                      and experiences as you progress through Base, Ridge, and Peak tiers.
                     </p>
                   </div>
                 </div>
-
-                {/* Tier Thresholds */}
-                <div className="pt-8 border-t border-border/20">
-                  <h5 className="text-xl md:text-2xl font-semibold tracking-tight text-tier-accent mb-5">
-                    Tier Thresholds
-                  </h5>
-                  <div className="space-y-4 text-supporting leading-relaxed">
-                    <p>
-                      <span className="font-semibold text-foreground">Base:</span> 0 EPs (Starting tier)
-                    </p>
-                    <p>
-                      <span className="font-semibold text-foreground">Ridge:</span> 500 EPs
-                    </p>
-                    <p>
-                      <span className="font-semibold text-foreground">Peak:</span> 1,000 EPs
-                    </p>
-                  </div>
-                </div>
-
-                {/* Your Progress */}
-                <div className="pt-8 border-t border-border/20">
-                  <h5 className="text-xl md:text-2xl font-semibold tracking-tight text-tier-accent mb-5">
-                    Your Progress
-                  </h5>
-                  <p className="text-supporting leading-relaxed text-base">
-                    Your EPs accumulate over your entire member journey. Each tier unlocks new benefits 
-                    and experiences as you progress through Base, Ridge, and Peak tiers.
-                  </p>
-                </div>
               </div>
-            </div>
-          </div>
-        </div>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
       </div>
     </section>
   );
