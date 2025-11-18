@@ -2,8 +2,6 @@ import { useState, useEffect } from "react";
 import { tiers } from "@/lib/tierConfig";
 import { cn } from "@/lib/utils";
 import { useTier } from "@/contexts/TierContext";
-import { ChevronRight, ChevronDown } from "lucide-react";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 // 2025 Activity Data
 const activity2025 = {
@@ -28,7 +26,7 @@ export const TiersContinuum = () => {
   const currentEP = activity2025.events.totalEP + activity2025.apparel.totalEP + activity2025.coaching.totalEP;
   const currentTierName = "Ridge";
   
-  // Find current and next tier
+  // Find current and next tier - exclude Summit Circle
   const visibleTiers = tiers.filter(t => t.name !== "Summit Circle");
   const currentTierIndex = visibleTiers.findIndex(t => t.name === currentTierName);
   const currentTier = visibleTiers[currentTierIndex];
@@ -191,26 +189,23 @@ export const TiersContinuum = () => {
 
       </div>
 
-      {/* Premium Editorial Accordion Sections */}
-      <Accordion type="single" collapsible className="mt-6 space-y-4">
-        {/* Tier Benefits Accordion */}
-        <AccordionItem value="tier-benefits" className="border border-border/30 rounded-lg overflow-hidden bg-card/30 backdrop-blur-sm">
-          <AccordionTrigger className="px-8 py-6 hover:no-underline hover:bg-muted/10 transition-colors duration-300 [&[data-state=open]>svg]:rotate-180">
-            <div className="flex items-center gap-3 text-left">
-              <ChevronDown className="h-5 w-5 text-tier-accent/60 transition-transform duration-300 ease-out" />
-              <span className="text-base md:text-lg font-light tracking-[0.08em] uppercase text-foreground">
-                Tier Benefits
-              </span>
-            </div>
-          </AccordionTrigger>
-          <AccordionContent className="px-8 pb-8 pt-2">
-            <div className="border-l-2 border-tier-accent/20 pl-8 pr-4 py-6 bg-gradient-to-br from-muted/5 to-transparent rounded-r-lg">
+      {/* Always-Visible Info Sections */}
+      <div className="mt-8 space-y-6">
+        {/* Tier Benefits Section */}
+        <div className="border border-border/30 rounded-lg overflow-hidden bg-card/30 backdrop-blur-sm">
+          <div className="px-8 py-6 border-b border-border/20 bg-muted/5">
+            <h4 className="text-lg md:text-xl font-light tracking-[0.08em] uppercase text-foreground">
+              Tier Benefits
+            </h4>
+          </div>
+          <div className="px-8 py-8">
+            <div className="border-l-2 border-tier-accent/20 pl-8 pr-4 py-2 bg-gradient-to-br from-muted/5 to-transparent rounded-r-lg">
               <div className="space-y-10">
                 {/* Ridge Tier */}
                 <div>
-                  <h4 className="text-xl md:text-2xl font-semibold tracking-tight text-tier-gold mb-4">
+                  <h5 className="text-xl md:text-2xl font-semibold tracking-tight text-tier-gold mb-4">
                     Ridge <span className="text-sm font-light text-muted-foreground">(500+ EPs)</span>
-                  </h4>
+                  </h5>
                   <ul className="space-y-3 text-supporting leading-relaxed">
                     <li className="flex items-start gap-3">
                       <span className="text-tier-accent/60 mt-1">•</span>
@@ -233,9 +228,9 @@ export const TiersContinuum = () => {
 
                 {/* Peak Tier */}
                 <div className="pt-8 border-t border-border/20">
-                  <h4 className="text-xl md:text-2xl font-semibold tracking-tight text-tier-silver mb-4">
+                  <h5 className="text-xl md:text-2xl font-semibold tracking-tight text-tier-silver mb-4">
                     Peak <span className="text-sm font-light text-muted-foreground">(1000+ EPs)</span>
-                  </h4>
+                  </h5>
                   <ul className="space-y-3 text-supporting leading-relaxed">
                     <li className="flex items-start gap-3">
                       <span className="text-tier-accent/60 mt-1">•</span>
@@ -263,62 +258,26 @@ export const TiersContinuum = () => {
                     </li>
                   </ul>
                 </div>
-
-                {/* Summit Circle Tier */}
-                <div className="pt-8 border-t border-border/20">
-                  <h4 className="text-xl md:text-2xl font-semibold tracking-tight text-tier-platinum mb-4">
-                    Summit Circle <span className="text-sm font-light text-muted-foreground">(Invitation Only)</span>
-                  </h4>
-                  <ul className="space-y-3 text-supporting leading-relaxed">
-                    <li className="flex items-start gap-3">
-                      <span className="text-tier-accent/60 mt-1">•</span>
-                      <span>All Peak benefits</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="text-tier-accent/60 mt-1">•</span>
-                      <span>Exclusive Summit Circle events</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="text-tier-accent/60 mt-1">•</span>
-                      <span>Private community access</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="text-tier-accent/60 mt-1">•</span>
-                      <span>Complimentary coaching sessions</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="text-tier-accent/60 mt-1">•</span>
-                      <span>20% discount on all apparel</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="text-tier-accent/60 mt-1">•</span>
-                      <span>Direct access to 29029 leadership</span>
-                    </li>
-                  </ul>
-                </div>
               </div>
             </div>
-          </AccordionContent>
-        </AccordionItem>
+          </div>
+        </div>
 
-        {/* How Elevation Points Work Accordion */}
-        <AccordionItem value="how-eps-work" className="border border-border/30 rounded-lg overflow-hidden bg-card/30 backdrop-blur-sm">
-          <AccordionTrigger className="px-8 py-6 hover:no-underline hover:bg-muted/10 transition-colors duration-300 [&[data-state=open]>svg]:rotate-180">
-            <div className="flex items-center gap-3 text-left">
-              <ChevronDown className="h-5 w-5 text-tier-accent/60 transition-transform duration-300 ease-out" />
-              <span className="text-base md:text-lg font-light tracking-[0.08em] uppercase text-foreground">
-                How Elevation Points Work
-              </span>
-            </div>
-          </AccordionTrigger>
-          <AccordionContent className="px-8 pb-8 pt-2">
-            <div className="border-l-2 border-tier-accent/20 pl-8 pr-4 py-6 bg-gradient-to-br from-muted/5 to-transparent rounded-r-lg">
+        {/* How Elevation Points Work Section */}
+        <div className="border border-border/30 rounded-lg overflow-hidden bg-card/30 backdrop-blur-sm">
+          <div className="px-8 py-6 border-b border-border/20 bg-muted/5">
+            <h4 className="text-lg md:text-xl font-light tracking-[0.08em] uppercase text-foreground">
+              How Elevation Points (EPs) Work
+            </h4>
+          </div>
+          <div className="px-8 py-8">
+            <div className="border-l-2 border-tier-accent/20 pl-8 pr-4 py-2 bg-gradient-to-br from-muted/5 to-transparent rounded-r-lg">
               <div className="space-y-10">
                 {/* Earning EPs */}
                 <div>
-                  <h4 className="text-xl md:text-2xl font-semibold tracking-tight text-tier-accent mb-5">
+                  <h5 className="text-xl md:text-2xl font-semibold tracking-tight text-tier-accent mb-5">
                     Earning EPs
-                  </h4>
+                  </h5>
                   <div className="space-y-4 text-supporting leading-relaxed">
                     <p>
                       <span className="font-semibold text-foreground">Events:</span> 150 EPs per event attended
@@ -334,9 +293,9 @@ export const TiersContinuum = () => {
 
                 {/* Tier Thresholds */}
                 <div className="pt-8 border-t border-border/20">
-                  <h4 className="text-xl md:text-2xl font-semibold tracking-tight text-tier-accent mb-5">
+                  <h5 className="text-xl md:text-2xl font-semibold tracking-tight text-tier-accent mb-5">
                     Tier Thresholds
-                  </h4>
+                  </h5>
                   <div className="space-y-4 text-supporting leading-relaxed">
                     <p>
                       <span className="font-semibold text-foreground">Base:</span> 0 EPs (Starting tier)
@@ -347,45 +306,24 @@ export const TiersContinuum = () => {
                     <p>
                       <span className="font-semibold text-foreground">Peak:</span> 1,000 EPs
                     </p>
-                    <p>
-                      <span className="font-semibold text-foreground">Summit Circle:</span> Invitation only
-                    </p>
                   </div>
                 </div>
 
                 {/* Your Progress */}
                 <div className="pt-8 border-t border-border/20">
-                  <h4 className="text-xl md:text-2xl font-semibold tracking-tight text-tier-accent mb-5">
+                  <h5 className="text-xl md:text-2xl font-semibold tracking-tight text-tier-accent mb-5">
                     Your Progress
-                  </h4>
+                  </h5>
                   <p className="text-supporting leading-relaxed text-base">
                     Your EPs accumulate over your entire member journey. Each tier unlocks new benefits 
-                    and experiences, building toward the ultimate Summit Circle invitation.
+                    and experiences as you progress through Base, Ridge, and Peak tiers.
                   </p>
                 </div>
               </div>
             </div>
-          </AccordionContent>
-        </AccordionItem>
-
-        {/* Your History Link */}
-        <div className="pt-2">
-          <a 
-            href="#activity-feed" 
-            onClick={(e) => {
-              e.preventDefault();
-              const section = document.getElementById('activity-feed');
-              section?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }}
-            className="group flex items-center gap-3 px-8 py-6 border border-border/30 rounded-lg bg-card/30 backdrop-blur-sm hover:bg-muted/10 transition-all duration-300"
-          >
-            <ChevronRight className="w-5 h-5 text-tier-accent/60 group-hover:text-tier-accent group-hover:translate-x-1 transition-all duration-300" />
-            <span className="text-base md:text-lg font-light tracking-[0.08em] uppercase text-foreground group-hover:text-tier-accent transition-colors duration-300">
-              Your History
-            </span>
-          </a>
+          </div>
         </div>
-      </Accordion>
+      </div>
     </section>
   );
 };
