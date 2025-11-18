@@ -101,7 +101,7 @@ export const CalendarGrid = () => {
           </p>
 
           {/* Event Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-14 md:mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 md:gap-10 mb-14 md:mb-16">
             {upcomingEvents.map((event, idx) => {
               const daysRemaining = getDaysRemaining(event.eventDates);
               const config = eventTypeConfig[event.eventType];
