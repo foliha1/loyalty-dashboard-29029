@@ -86,37 +86,37 @@ export const TiersContinuum = () => {
 
   return (
     <section>
-      <h3 className="text-section-title mb-10 md:mb-14 text-left px-2">
+      <h3 className="text-section-title mb-8 sm:mb-10 md:mb-14 text-left px-2">
         Your Elevation Journey
       </h3>
 
       {/* Main Progress Card */}
       <div 
         className={cn(
-          "card-29029 p-8 md:p-10 lg:p-12 transition-all duration-700",
+          "card-29029 p-6 sm:p-8 md:p-10 lg:p-12 transition-all duration-700",
           isRevealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         )}
       >
         {/* Current Tier Badge */}
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-12 md:mb-16 gap-6">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-10 sm:mb-12 md:mb-16 gap-6">
           <div>
-            <div className="text-supporting uppercase tracking-[0.25em] mb-3 text-xs font-normal">Current Tier</div>
-            <h4 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-tight" style={{
+            <div className="text-supporting uppercase tracking-[0.25em] mb-2 sm:mb-3 text-xs font-normal">Current Tier</div>
+            <h4 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-tight" style={{
               color: currentTier ? `hsl(var(--${currentTier.color}))` : 'hsl(var(--tier-gold))'
             }}>
               {currentTierName}
             </h4>
           </div>
           <div className="text-left md:text-right">
-            <div className="text-supporting uppercase tracking-[0.25em] mb-3 text-xs font-normal">Total EPs</div>
-            <div className="text-4xl md:text-5xl lg:text-6xl font-light tracking-tight tabular-nums">
+            <div className="text-supporting uppercase tracking-[0.25em] mb-2 sm:mb-3 text-xs font-normal">Total EPs</div>
+            <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-tight tabular-nums">
               {animatedEP}
             </div>
           </div>
         </div>
 
         {/* Progress Bar */}
-        <div className="mb-10 md:mb-12">
+        <div className="mb-8 sm:mb-10 md:mb-12">
           <div className="relative h-2 md:h-3 bg-muted/20 rounded-full overflow-hidden">
             <div 
               className="absolute inset-y-0 left-0 rounded-full transition-all duration-1000 ease-out"
@@ -131,7 +131,7 @@ export const TiersContinuum = () => {
           </div>
           
           {/* Tier Markers - Minimal */}
-          <div className="relative mt-6 md:mt-8 flex justify-between items-center">
+          <div className="relative mt-5 sm:mt-6 md:mt-8 flex justify-between items-center px-1">
             {visibleTiers.map((tier, idx) => {
               const isCurrentTier = tier.name === currentTierName;
               const isPassed = currentEP >= tier.threshold;
@@ -153,12 +153,12 @@ export const TiersContinuum = () => {
                     }}
                   />
                   <div className={cn(
-                    "text-[10px] md:text-xs uppercase tracking-wider transition-colors duration-500 text-center",
+                    "text-[9px] sm:text-[10px] md:text-xs uppercase tracking-wider transition-colors duration-500 text-center",
                     isPassed ? "text-foreground font-semibold" : "text-muted-foreground"
                   )}>
                     {tier.name}
                   </div>
-                  <div className="text-[10px] md:text-xs text-muted-foreground mt-1 tabular-nums">
+                  <div className="text-[9px] sm:text-[10px] md:text-xs text-muted-foreground mt-0.5 sm:mt-1 tabular-nums">
                     {tier.threshold}
                   </div>
                 </div>
@@ -168,17 +168,17 @@ export const TiersContinuum = () => {
         </div>
 
         {/* Next Tier Info */}
-        <div className="pt-8 md:pt-10 border-t border-border/30">
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div className="pt-6 sm:pt-8 md:pt-10 border-t border-border/30">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-5 sm:gap-6">
             <div>
               <div className="text-supporting uppercase tracking-[0.25em] mb-2 text-xs font-normal">Next Milestone</div>
-              <div className="text-2xl md:text-3xl font-light tracking-tight">
+              <div className="text-xl sm:text-2xl md:text-3xl font-light tracking-tight">
                 {nextTierName}
               </div>
             </div>
             <div className="text-left md:text-right">
               <div className="text-supporting uppercase tracking-[0.25em] mb-2 text-xs font-normal">EPs Needed</div>
-              <div className="text-3xl md:text-4xl font-light tracking-tight tabular-nums" style={{
+              <div className="text-2xl sm:text-3xl md:text-4xl font-light tracking-tight tabular-nums" style={{
                 color: nextTier ? `hsl(var(--${nextTier.color}))` : 'hsl(var(--foreground))'
               }}>
                 {remainingEP}
@@ -190,7 +190,7 @@ export const TiersContinuum = () => {
       </div>
 
       {/* Two-Column Accordion Layout */}
-      <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="mt-6 sm:mt-8 grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6">
         {/* Tier Benefits Accordion */}
         <Accordion type="single" collapsible>
           <AccordionItem value="tier-benefits" className="border border-border/30 rounded-lg overflow-hidden bg-card/30 backdrop-blur-sm">
