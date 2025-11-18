@@ -202,7 +202,7 @@ export const TiersContinuum = () => {
                 </span>
               </div>
             </AccordionTrigger>
-            <AccordionContent className="px-6 md:px-8 pb-6 md:pb-8 pt-2">
+            <AccordionContent className="px-6 md:px-8 pb-6 md:pb-8 pt-2 !text-foreground">
               <div className="border-l-2 border-foreground/10 pl-6 md:pl-8 pr-4 py-6 bg-gradient-to-br from-muted/5 to-transparent rounded-r-lg">
                 <div className="space-y-8 md:space-y-10">
                   {/* Ridge Tier */}
@@ -210,7 +210,7 @@ export const TiersContinuum = () => {
                     <h5 className="text-lg md:text-xl lg:text-2xl font-semibold tracking-tight text-tier-gold mb-3 md:mb-4">
                       Ridge <span className="text-xs md:text-sm font-light text-muted-foreground">(500+ EPs)</span>
                     </h5>
-                    <ul className="space-y-2 md:space-y-3 text-sm md:text-base text-supporting leading-relaxed">
+                    <ul className="space-y-2 md:space-y-3 text-sm md:text-base !text-muted-foreground leading-relaxed">
                       <li className="flex items-start gap-2 md:gap-3">
                         <span className="text-foreground/50 mt-1">•</span>
                         <span>Priority event registration</span>
@@ -235,7 +235,7 @@ export const TiersContinuum = () => {
                     <h5 className="text-lg md:text-xl lg:text-2xl font-semibold tracking-tight text-tier-silver mb-3 md:mb-4">
                       Peak <span className="text-xs md:text-sm font-light text-muted-foreground">(1000+ EPs)</span>
                     </h5>
-                    <ul className="space-y-2 md:space-y-3 text-sm md:text-base text-supporting leading-relaxed">
+                    <ul className="space-y-2 md:space-y-3 text-sm md:text-base !text-muted-foreground leading-relaxed">
                       <li className="flex items-start gap-2 md:gap-3">
                         <span className="text-foreground/50 mt-1">•</span>
                         <span>All Ridge benefits</span>
@@ -279,7 +279,7 @@ export const TiersContinuum = () => {
                 </span>
               </div>
             </AccordionTrigger>
-            <AccordionContent className="px-6 md:px-8 pb-6 md:pb-8 pt-2">
+            <AccordionContent className="px-6 md:px-8 pb-6 md:pb-8 pt-2 !text-foreground">
               <div className="border-l-2 border-foreground/10 pl-6 md:pl-8 pr-4 py-6 bg-gradient-to-br from-muted/5 to-transparent rounded-r-lg">
                 <div className="space-y-8 md:space-y-10">
                   {/* Earning EPs */}
@@ -287,7 +287,7 @@ export const TiersContinuum = () => {
                     <h5 className="text-lg md:text-xl lg:text-2xl font-semibold tracking-tight text-foreground/80 mb-4 md:mb-5">
                       Earning EPs
                     </h5>
-                    <div className="space-y-3 md:space-y-4 text-sm md:text-base text-supporting leading-relaxed">
+                    <div className="space-y-3 md:space-y-4 text-sm md:text-base !text-muted-foreground leading-relaxed">
                       <p>
                         <span className="font-semibold text-foreground">Events:</span> 150 EPs per event attended
                       </p>
@@ -305,7 +305,7 @@ export const TiersContinuum = () => {
                     <h5 className="text-lg md:text-xl lg:text-2xl font-semibold tracking-tight text-foreground/80 mb-4 md:mb-5">
                       Tier Thresholds
                     </h5>
-                    <div className="space-y-3 md:space-y-4 text-sm md:text-base text-supporting leading-relaxed">
+                    <div className="space-y-3 md:space-y-4 text-sm md:text-base !text-muted-foreground leading-relaxed">
                       <p>
                         <span className="font-semibold text-foreground">Base:</span> 0 EPs (Starting tier)
                       </p>
@@ -323,7 +323,7 @@ export const TiersContinuum = () => {
                     <h5 className="text-lg md:text-xl lg:text-2xl font-semibold tracking-tight text-foreground/80 mb-4 md:mb-5">
                       Your Progress
                     </h5>
-                    <p className="text-sm md:text-base text-supporting leading-relaxed">
+                    <p className="text-sm md:text-base !text-muted-foreground leading-relaxed">
                       Your EPs accumulate over your entire member journey. Each tier unlocks new benefits 
                       and experiences as you progress through Base, Ridge, and Peak tiers.
                     </p>
