@@ -122,7 +122,7 @@ export const TiersContinuum = () => {
               className="absolute inset-y-0 left-0 rounded-full transition-all duration-1000 ease-out"
               style={{
                 width: `${animatedProgress}%`,
-                background: 'linear-gradient(90deg, hsl(174 59% 46%) 0%, hsl(40 60% 50%) 50%, hsl(5 85% 50%) 100%)',
+                background: 'linear-gradient(90deg, hsl(174 59% 46%) 0%, hsl(174 59% 46%) 12.5%, hsl(100 60% 48%) 31.25%, hsl(40 60% 50%) 50%, hsl(22.5 72.5% 50%) 68.75%, hsl(5 85% 50%) 87.5%, hsl(5 85% 50%) 100%)',
                 boxShadow: currentTier 
                   ? `0 0 20px hsl(var(--${currentTier.color}) / 0.35)`
                   : '0 0 20px hsl(var(--tier-gold) / 0.35)'
