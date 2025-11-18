@@ -2,7 +2,6 @@ import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
 import patagoniaImage from "@/assets/patagonia-mountains.jpg";
-import { type, colors, motion, shadows } from "@/design/tokens";
 
 interface UpcomingEvent {
   eventName: string;
@@ -111,13 +110,12 @@ export const CalendarGrid = () => {
                 <div
                   key={idx}
                   className={cn(
-                    "relative card-29029 p-6 sm:p-8 md:p-10 group hover:-translate-y-2 cursor-pointer overflow-hidden min-h-[44px]",
+                    "relative card-29029 p-6 sm:p-8 md:p-10 group hover:-translate-y-2 transition-all duration-500 cursor-pointer overflow-hidden min-h-[44px]",
                     "opacity-0 translate-y-4",
                     isRevealed && "animate-fade-in"
                   )}
                   style={{
                     animationDelay: `${idx * 150}ms`,
-                    transition: `all ${motion.durations.slow} ${motion.easing.softSpring}`,
                     animationFillMode: 'forwards'
                   }}
                 >
@@ -156,12 +154,9 @@ export const CalendarGrid = () => {
 
                     {/* Location - Hero */}
                     <h4 
-                      className="mb-4 leading-tight"
+                      className="text-2xl md:text-3xl font-light tracking-[-0.01em] mb-4 leading-tight transition-colors duration-500"
                       style={{
-                        ...type.sectionTitle,
-                        fontSize: '1.75rem',
-                        color: isRevealed ? 'hsl(var(--foreground))' : 'hsl(var(--muted-foreground))',
-                        transition: `color ${motion.durations.slow} ${motion.easing.standard}`
+                        color: isRevealed ? 'hsl(var(--foreground))' : 'hsl(var(--muted-foreground))'
                       }}
                     >
                       {event.location}
@@ -169,44 +164,29 @@ export const CalendarGrid = () => {
 
                     {/* Divider with accent color */}
                     <div 
-                      className="h-[2px] w-12 md:w-16 mb-6 md:mb-8 group-hover:w-20"
+                      className="h-[2px] w-12 md:w-16 mb-6 md:mb-8 group-hover:w-20 transition-all duration-500"
                       style={{
-                        background: `linear-gradient(90deg, hsl(${config.accentColor}) 0%, transparent 100%)`,
-                        transition: `all ${motion.durations.slow} ${motion.easing.standard}`
+                        background: `linear-gradient(90deg, hsl(${config.accentColor}) 0%, transparent 100%)`
                       }}
                     />
 
                     {/* Days Remaining - Prominent & Motivational */}
                     <div className="mb-4">
                       <div 
-                        className="tabular-nums mb-2"
+                        className="text-5xl md:text-6xl font-light tabular-nums tracking-tight mb-2"
                         style={{
-                          ...type.heroH1,
-                          fontSize: '3.5rem',
                           color: `hsl(${config.glowColor})`
                         }}
                       >
                         {daysRemaining}
                       </div>
-                      <div 
-                        className="uppercase text-muted-foreground"
-                        style={{ 
-                          ...type.label,
-                          fontSize: '10px'
-                        }}
-                      >
+                      <div className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground font-light">
                         Days Until Summit
                       </div>
                     </div>
 
                     {/* Date */}
-                    <p 
-                      className="text-supporting uppercase mt-6 pt-6 border-t border-border/20"
-                      style={{ 
-                        ...type.label,
-                        fontSize: type.label.fontSize
-                      }}
-                    >
+                    <p className="text-supporting text-xs uppercase tracking-[0.2em] mt-6 pt-6 border-t border-border/20 font-light">
                       {event.eventDates}
                     </p>
                   </div>

@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { useTier } from "@/contexts/TierContext";
 import { getCurrentTier } from "@/lib/tierConfig";
 import heroTopoBg from "@/assets/hero-topo-bg.jpg";
-import { type, motion, shadows } from "@/design/tokens";
 
 export const UserHeader = () => {
   const navigate = useNavigate();
@@ -50,14 +49,8 @@ export const UserHeader = () => {
             
             {/* Welcome Statement - Most Prominent */}
             <h1 
-              className="mb-5 sm:mb-6 px-2 animate-fade-in"
-              style={{ 
-                ...type.heroH1,
-                fontSize: '2.25rem',
-                animationDelay: '0.2s', 
-                animationFillMode: 'both', 
-                textShadow: shadows.md 
-              }}
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light tracking-tight mb-5 sm:mb-6 px-2 animate-fade-in"
+              style={{ animationDelay: '0.2s', animationFillMode: 'both', textShadow: '0 2px 8px rgba(0,0,0,0.4)', lineHeight: '1.1' }}
             >
               Keep climbing, Alex.
             </h1>
@@ -72,15 +65,9 @@ export const UserHeader = () => {
                 onClick={() => navigate("/profile")}
                 className="relative group cursor-pointer min-w-[44px] min-h-[44px]"
               >
-                <Avatar 
-                  className="w-20 h-20 sm:w-22 sm:h-22 md:w-24 md:h-24 border-2 border-tier-accent/50 flex-shrink-0 hover:scale-105 hover:border-tier-accent hover:shadow-[0_0_20px_hsl(var(--tier-accent)/0.4)]"
-                  style={{ transition: `all ${motion.durations.medium} ${motion.easing.softSpring}` }}
-                >
+                <Avatar className="w-20 h-20 sm:w-22 sm:h-22 md:w-24 md:h-24 border-2 border-tier-accent/50 flex-shrink-0 transition-all duration-500 hover:scale-105 hover:border-tier-accent hover:shadow-[0_0_20px_hsl(var(--tier-accent)/0.4)]">
                   <AvatarImage src="https://i.pravatar.cc/300?img=12" alt="Alex Rivera" />
-                  <AvatarFallback 
-                    className="bg-secondary text-foreground"
-                    style={{ fontSize: type.meta.fontSize, fontWeight: type.meta.fontWeight }}
-                  >AR</AvatarFallback>
+                  <AvatarFallback className="bg-secondary text-foreground text-lg font-semibold">AR</AvatarFallback>
                 </Avatar>
               </button>
             </div>

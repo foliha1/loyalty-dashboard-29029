@@ -4,7 +4,6 @@ import { cn } from "@/lib/utils";
 import { useTier } from "@/contexts/TierContext";
 import { ChevronDown } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { type, colors, gradients, motion, shadows } from "@/design/tokens";
 
 // 2025 Activity Data
 const activity2025 = {
@@ -101,38 +100,16 @@ export const TiersContinuum = () => {
         {/* Current Tier Badge */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-10 sm:mb-12 md:mb-16 gap-6">
           <div>
-            <div 
-              className="uppercase mb-2 sm:mb-3"
-              style={{ 
-                ...type.label,
-                color: colors.text.secondary 
-              }}
-            >Current Tier</div>
-            <h4 
-              style={{
-                ...type.heroH1,
-                fontSize: '3rem',
-                color: currentTier ? `hsl(var(--${currentTier.color}))` : colors.tiers.ridge
-              }}
-            >
+            <div className="text-supporting uppercase tracking-[0.25em] mb-2 sm:mb-3 text-xs font-normal">Current Tier</div>
+            <h4 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-tight" style={{
+              color: currentTier ? `hsl(var(--${currentTier.color}))` : 'hsl(var(--tier-gold))'
+            }}>
               {currentTierName}
             </h4>
           </div>
           <div className="text-left md:text-right">
-            <div 
-              className="uppercase mb-2 sm:mb-3"
-              style={{ 
-                ...type.label,
-                color: colors.text.secondary 
-              }}
-            >Total EPs</div>
-            <div 
-              className="tabular-nums"
-              style={{
-                ...type.heroH1,
-                fontSize: '3rem'
-              }}
-            >
+            <div className="text-supporting uppercase tracking-[0.25em] mb-2 sm:mb-3 text-xs font-normal">Total EPs</div>
+            <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-tight tabular-nums">
               {animatedEP}
             </div>
           </div>
@@ -142,14 +119,13 @@ export const TiersContinuum = () => {
         <div className="mb-8 sm:mb-10 md:mb-12">
           <div className="relative h-2 md:h-3 bg-muted/20 rounded-full overflow-hidden">
             <div 
-              className="absolute inset-y-0 left-0 rounded-full"
+              className="absolute inset-y-0 left-0 rounded-full transition-all duration-1000 ease-out"
               style={{
                 width: `${animatedProgress}%`,
-                background: `linear-gradient(to right, ${gradients.elevation.baseStart} 0%, ${gradients.elevation.baseEnd} 25%, ${gradients.elevation.ridgeCenter} 50%, ${gradients.elevation.peakStart} 75%, ${gradients.elevation.peakEnd} 100%)`,
+                background: 'linear-gradient(to right, #31BCAF 0%, #31BCAF 25%, #CC9933 50%, #E1251B 75%, #E1251B 100%)',
                 boxShadow: currentTier 
                   ? `0 0 20px hsl(var(--${currentTier.color}) / 0.35)`
-                  : shadows.md,
-                transition: `all ${motion.durations.slow} ${motion.easing.decelerate}`
+                  : '0 0 20px hsl(var(--tier-gold) / 0.35)'
               }}
             />
           </div>
@@ -164,7 +140,7 @@ export const TiersContinuum = () => {
                 <div key={tier.name} className="flex flex-col items-center">
                   <div 
                     className={cn(
-                      "w-1.5 h-1.5 md:w-2 md:h-2 rounded-full mb-2 md:mb-3",
+                      "w-1.5 h-1.5 md:w-2 md:h-2 rounded-full mb-2 md:mb-3 transition-all duration-500",
                       isPassed ? "scale-125" : "scale-100"
                     )}
                     style={{
@@ -173,28 +149,16 @@ export const TiersContinuum = () => {
                         : 'hsl(var(--muted))',
                       boxShadow: isCurrentTier 
                         ? `0 0 12px hsl(var(--${tier.color}) / 0.6)` 
-                        : 'none',
-                      transition: `all ${motion.durations.slow} ${motion.easing.standard}`
+                        : 'none'
                     }}
                   />
-                  <div 
-                    className={cn(
-                      "uppercase text-center",
-                      isPassed ? "text-foreground" : "text-muted-foreground"
-                    )}
-                    style={{
-                      ...type.tierLabel,
-                      fontSize: '10px',
-                      fontWeight: isPassed ? type.tierLabel.fontWeight : type.bodySecondary.fontWeight,
-                      transition: `color ${motion.durations.slow} ${motion.easing.standard}`
-                    }}
-                  >
+                  <div className={cn(
+                    "text-[9px] sm:text-[10px] md:text-xs uppercase tracking-wider transition-colors duration-500 text-center",
+                    isPassed ? "text-foreground font-semibold" : "text-muted-foreground"
+                  )}>
                     {tier.name}
                   </div>
-                  <div 
-                    className="text-muted-foreground mt-0.5 sm:mt-1 tabular-nums"
-                    style={{ fontSize: type.label.fontSize }}
-                  >
+                  <div className="text-[9px] sm:text-[10px] md:text-xs text-muted-foreground mt-0.5 sm:mt-1 tabular-nums">
                     {tier.threshold}
                   </div>
                 </div>
@@ -207,17 +171,8 @@ export const TiersContinuum = () => {
         <div className="pt-6 sm:pt-8 md:pt-10 border-t border-border/30">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-5 sm:gap-6">
             <div>
-              <div 
-                className="uppercase mb-2"
-                style={{ 
-                  ...type.label,
-                  color: colors.text.secondary 
-                }}
-              >Next Milestone</div>
-              <div style={{
-                ...type.sectionTitle,
-                fontSize: '1.5rem'
-              }}>
+              <div className="text-supporting uppercase tracking-[0.25em] mb-2 text-xs font-normal">Next Milestone</div>
+              <div className="text-xl sm:text-2xl md:text-3xl font-light tracking-tight">
                 {nextTierName}
               </div>
             </div>
