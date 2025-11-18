@@ -23,6 +23,21 @@ export const TiersContinuum = () => {
   const [animatedProgress, setAnimatedProgress] = useState(0);
   const [animatedEP, setAnimatedEP] = useState(0);
   
+  // Add keyboard support for modals
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        const tierModal = document.getElementById('tier-benefits-modal');
+        const epModal = document.getElementById('ep-modal');
+        if (tierModal?.style.display === 'flex') tierModal.style.display = 'none';
+        if (epModal?.style.display === 'flex') epModal.style.display = 'none';
+      }
+    };
+    
+    window.addEventListener('keydown', handleEscape);
+    return () => window.removeEventListener('keydown', handleEscape);
+  }, []);
+  
   // User data
   const currentEP = activity2025.events.totalEP + activity2025.apparel.totalEP + activity2025.coaching.totalEP;
   const currentTierName = "Ridge";
@@ -244,11 +259,15 @@ export const TiersContinuum = () => {
       {/* Tier Benefits Modal - Full Screen */}
       <div 
         id="tier-benefits-modal" 
-        className="fixed inset-0 bg-black/95 backdrop-blur-sm z-[100] items-center justify-center" 
+        className="fixed inset-0 bg-black/95 backdrop-blur-sm z-[100] flex items-center justify-center" 
         style={{display: 'none'}} 
-        onClick={(e) => { if (e.target === e.currentTarget) e.currentTarget.style.display = 'none'; }}
+        onClick={(e) => { 
+          if (e.target === e.currentTarget) {
+            e.currentTarget.style.display = 'none';
+          }
+        }}
       >
-        <div className="card-29029 w-full h-full p-6 md:p-12 lg:p-16 overflow-y-auto">
+        <div className="card-29029 w-full h-full p-6 md:p-12 lg:p-16 overflow-y-auto" onClick={(e) => e.stopPropagation()}>
           <h3 className="text-4xl md:text-5xl font-light tracking-tight mb-10">Tier Benefits</h3>
           
           <div className="space-y-8 mb-12">
@@ -288,9 +307,12 @@ export const TiersContinuum = () => {
           </div>
           
           <button 
-            onClick={() => { 
+            onClick={(e) => { 
+              e.stopPropagation();
               const modal = document.getElementById('tier-benefits-modal'); 
-              if (modal) modal.style.display = 'none'; 
+              if (modal) {
+                modal.style.display = 'none';
+              }
             }}
             className="w-full px-6 py-4 bg-tier-accent/10 border border-tier-accent/30 rounded-lg hover:bg-tier-accent/20 transition-colors text-lg"
           >
@@ -302,11 +324,15 @@ export const TiersContinuum = () => {
       {/* How EP Works Modal - Full Screen */}
       <div 
         id="ep-modal" 
-        className="fixed inset-0 bg-black/95 backdrop-blur-sm z-[100] items-center justify-center" 
+        className="fixed inset-0 bg-black/95 backdrop-blur-sm z-[100] flex items-center justify-center" 
         style={{display: 'none'}} 
-        onClick={(e) => { if (e.target === e.currentTarget) e.currentTarget.style.display = 'none'; }}
+        onClick={(e) => { 
+          if (e.target === e.currentTarget) {
+            e.currentTarget.style.display = 'none';
+          }
+        }}
       >
-        <div className="card-29029 w-full h-full p-6 md:p-12 lg:p-16 overflow-y-auto">
+        <div className="card-29029 w-full h-full p-6 md:p-12 lg:p-16 overflow-y-auto" onClick={(e) => e.stopPropagation()}>
           <h3 className="text-4xl md:text-5xl font-light tracking-tight mb-10">How Elevation Points Work</h3>
           
           <div className="space-y-8 mb-12">
@@ -339,9 +365,12 @@ export const TiersContinuum = () => {
           </div>
           
           <button 
-            onClick={() => { 
+            onClick={(e) => { 
+              e.stopPropagation();
               const modal = document.getElementById('ep-modal'); 
-              if (modal) modal.style.display = 'none'; 
+              if (modal) {
+                modal.style.display = 'none';
+              }
             }}
             className="w-full px-6 py-4 bg-tier-accent/10 border border-tier-accent/30 rounded-lg hover:bg-tier-accent/20 transition-colors text-lg"
           >
