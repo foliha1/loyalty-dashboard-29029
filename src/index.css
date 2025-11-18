@@ -322,9 +322,15 @@ h2, h3, .text-section-title {
 
   /* Premium accent dividers */
   .divider-red {
-    height: 2px;
+    height: 1.5px;
     background: linear-gradient(90deg, transparent 0%, hsl(var(--current-tier-accent) / 0.35) 20%, hsl(var(--current-tier-accent) / 0.55) 50%, hsl(var(--current-tier-accent) / 0.35) 80%, transparent 100%);
     margin: 0;
+  }
+
+  @media (min-width: 640px) {
+    .divider-red {
+      height: 2px;
+    }
   }
 
 /* Dynamic Tier Classes */

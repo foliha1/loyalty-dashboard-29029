@@ -48,38 +48,39 @@ export default function Profile() {
     <div className="min-h-screen bg-background">
       {/* Header with Back Button */}
       <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container mx-auto px-6 md:px-10 lg:px-12 py-6">
-          <div className="flex items-center justify-between">
+        <div className="container mx-auto px-5 sm:px-6 md:px-10 lg:px-12 py-5 sm:py-6">
+          <div className="flex items-center justify-between gap-3 sm:gap-4">
             <button
               onClick={() => navigate("/")}
-              className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors group"
+              className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors group min-h-[44px] min-w-[44px]"
             >
-              <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
-              <span className="text-sm uppercase tracking-wider">Back to Dashboard</span>
+              <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5 group-hover:-translate-x-1 transition-transform" />
+              <span className="text-xs sm:text-sm uppercase tracking-wider hidden sm:inline">Back to Dashboard</span>
+              <span className="text-xs uppercase tracking-wider sm:hidden">Back</span>
             </button>
             
             {!isEditing ? (
               <Button
                 onClick={() => setIsEditing(true)}
-                className="bg-tier-accent hover:bg-tier-accent/90 text-black font-medium uppercase tracking-wider"
+                className="bg-tier-accent hover:bg-tier-accent/90 text-black font-medium uppercase tracking-wider text-xs sm:text-sm min-h-[44px] px-4 sm:px-6"
               >
                 Edit Profile
               </Button>
             ) : (
-              <div className="flex gap-3">
+              <div className="flex gap-2 sm:gap-3">
                 <Button
                   onClick={handleCancel}
                   variant="outline"
-                  className="uppercase tracking-wider"
+                  className="uppercase tracking-wider text-xs sm:text-sm min-h-[44px] px-3 sm:px-4"
                 >
                   Cancel
                 </Button>
                 <Button
                   onClick={handleSave}
-                  className="bg-tier-accent hover:bg-tier-accent/90 text-black font-medium uppercase tracking-wider"
+                  className="bg-tier-accent hover:bg-tier-accent/90 text-black font-medium uppercase tracking-wider text-xs sm:text-sm min-h-[44px] px-3 sm:px-4"
                 >
-                  <Save className="w-4 h-4 mr-2" />
-                  Save Changes
+                  <Save className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
+                  Save
                 </Button>
               </div>
             )}
@@ -88,16 +89,16 @@ export default function Profile() {
       </header>
 
       {/* Main Content */}
-      <main className="container mx-auto px-6 md:px-10 lg:px-12 py-12">
+      <main className="container mx-auto px-5 sm:px-6 md:px-10 lg:px-12 py-8 sm:py-10 md:py-12">
         <div className="max-w-4xl mx-auto">
           {/* Page Title */}
-          <div className="mb-12">
-            <h1 className="text-4xl md:text-5xl font-light tracking-tight mb-3">Member Profile</h1>
-            <p className="text-foreground/70">Manage your personal information and member details</p>
+          <div className="mb-8 sm:mb-10 md:mb-12">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight mb-2 sm:mb-3">Member Profile</h1>
+            <p className="text-foreground/70 text-sm sm:text-base">Manage your personal information and member details</p>
           </div>
 
           {/* Profile Avatar Section */}
-          <Card className="card-29029 p-8 md:p-10 mb-8">
+          <Card className="card-29029 p-6 sm:p-8 md:p-10 mb-6 sm:mb-7 md:mb-8">
             <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
               <div className="relative">
                 <Avatar className="w-32 h-32 border-2 border-tier-accent">
@@ -129,12 +130,12 @@ export default function Profile() {
           </Card>
 
           {/* Personal Information */}
-          <Card className="card-29029 p-8 md:p-10 mb-8">
-            <h3 className="text-2xl font-light tracking-tight mb-8 pb-4 border-b border-border/30">
+          <Card className="card-29029 p-6 sm:p-8 md:p-10 mb-6 sm:mb-7 md:mb-8">
+            <h3 className="text-xl sm:text-2xl font-light tracking-tight mb-6 sm:mb-7 md:mb-8 pb-3 sm:pb-4 border-b border-border/30">
               Personal Information
             </h3>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
               <div>
                 <Label htmlFor="firstName" className="text-xs uppercase tracking-wider text-foreground/70 mb-2 block">
                   First Name
@@ -206,12 +207,12 @@ export default function Profile() {
           </Card>
 
           {/* Address Information */}
-          <Card className="card-29029 p-8 md:p-10 mb-8">
-            <h3 className="text-2xl font-light tracking-tight mb-8 pb-4 border-b border-border/30">
+          <Card className="card-29029 p-6 sm:p-8 md:p-10 mb-6 sm:mb-7 md:mb-8">
+            <h3 className="text-xl sm:text-2xl font-light tracking-tight mb-6 sm:mb-7 md:mb-8 pb-3 sm:pb-4 border-b border-border/30">
               Address
             </h3>
             
-            <div className="grid grid-cols-1 gap-6">
+            <div className="grid grid-cols-1 gap-5 sm:gap-6">
               <div>
                 <Label htmlFor="address" className="text-xs uppercase tracking-wider text-foreground/70 mb-2 block">
                   Street Address
@@ -225,7 +226,7 @@ export default function Profile() {
                 />
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6">
                 <div>
                   <Label htmlFor="city" className="text-xs uppercase tracking-wider text-foreground/70 mb-2 block">
                     City
@@ -269,12 +270,12 @@ export default function Profile() {
           </Card>
 
           {/* Emergency Contact */}
-          <Card className="card-29029 p-8 md:p-10 mb-8">
-            <h3 className="text-2xl font-light tracking-tight mb-8 pb-4 border-b border-border/30">
+          <Card className="card-29029 p-6 sm:p-8 md:p-10 mb-6 sm:mb-7 md:mb-8">
+            <h3 className="text-xl sm:text-2xl font-light tracking-tight mb-6 sm:mb-7 md:mb-8 pb-3 sm:pb-4 border-b border-border/30">
               Emergency Contact
             </h3>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
               <div>
                 <Label htmlFor="emergencyContact" className="text-xs uppercase tracking-wider text-foreground/70 mb-2 block">
                   Contact Name
@@ -305,40 +306,40 @@ export default function Profile() {
           </Card>
 
           {/* Lifetime Stats (Read-only) */}
-          <Card className="card-29029 p-8 md:p-10">
-            <h3 className="text-2xl font-light tracking-tight mb-8 pb-4 border-b border-border/30">
+          <Card className="card-29029 p-6 sm:p-8 md:p-10">
+            <h3 className="text-xl sm:text-2xl font-light tracking-tight mb-6 sm:mb-7 md:mb-8 pb-3 sm:pb-4 border-b border-border/30">
               Lifetime Statistics
             </h3>
             
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-              <div className="bg-card/30 border border-border/20 rounded-lg p-6">
-                <div className="text-xs text-foreground/65 mb-2 uppercase tracking-wider">Total Elevation</div>
-                <div className="text-3xl font-light tracking-tight">145,800 ft</div>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
+              <div className="bg-card/30 border border-border/20 rounded-lg p-4 sm:p-5 md:p-6">
+                <div className="text-[10px] sm:text-xs text-foreground/65 mb-1.5 sm:mb-2 uppercase tracking-wider">Total Elevation</div>
+                <div className="text-2xl sm:text-3xl font-light tracking-tight">145,800 ft</div>
               </div>
               
-              <div className="bg-card/30 border border-border/20 rounded-lg p-6">
-                <div className="text-xs text-foreground/65 mb-2 uppercase tracking-wider">Miles Climbed</div>
-                <div className="text-3xl font-light tracking-tight">87.4 mi</div>
+              <div className="bg-card/30 border border-border/20 rounded-lg p-4 sm:p-5 md:p-6">
+                <div className="text-[10px] sm:text-xs text-foreground/65 mb-1.5 sm:mb-2 uppercase tracking-wider">Miles Climbed</div>
+                <div className="text-2xl sm:text-3xl font-light tracking-tight">87.4 mi</div>
               </div>
               
-              <div className="bg-card/30 border border-border/20 rounded-lg p-6">
-                <div className="text-xs text-foreground/65 mb-2 uppercase tracking-wider">Events</div>
-                <div className="text-3xl font-light tracking-tight">9</div>
+              <div className="bg-card/30 border border-border/20 rounded-lg p-4 sm:p-5 md:p-6">
+                <div className="text-[10px] sm:text-xs text-foreground/65 mb-1.5 sm:mb-2 uppercase tracking-wider">Events</div>
+                <div className="text-2xl sm:text-3xl font-light tracking-tight">9</div>
               </div>
               
-              <div className="bg-card/30 border border-border/20 rounded-lg p-6">
-                <div className="text-xs text-foreground/65 mb-2 uppercase tracking-wider">Total EPs</div>
-                <div className="text-3xl font-light tracking-tight">1,440</div>
+              <div className="bg-card/30 border border-border/20 rounded-lg p-4 sm:p-5 md:p-6">
+                <div className="text-[10px] sm:text-xs text-foreground/65 mb-1.5 sm:mb-2 uppercase tracking-wider">Total EPs</div>
+                <div className="text-2xl sm:text-3xl font-light tracking-tight">1,440</div>
               </div>
               
-              <div className="bg-card/30 border border-border/20 rounded-lg p-6">
-                <div className="text-xs text-foreground/65 mb-2 uppercase tracking-wider">Coaching</div>
-                <div className="text-3xl font-light tracking-tight">12</div>
+              <div className="bg-card/30 border border-border/20 rounded-lg p-4 sm:p-5 md:p-6">
+                <div className="text-[10px] sm:text-xs text-foreground/65 mb-1.5 sm:mb-2 uppercase tracking-wider">Coaching</div>
+                <div className="text-2xl sm:text-3xl font-light tracking-tight">12</div>
               </div>
               
-              <div className="bg-card/30 border border-border/20 rounded-lg p-6">
-                <div className="text-xs text-foreground/65 mb-2 uppercase tracking-wider">Days Active</div>
-                <div className="text-3xl font-light tracking-tight">1,044</div>
+              <div className="bg-card/30 border border-border/20 rounded-lg p-4 sm:p-5 md:p-6">
+                <div className="text-[10px] sm:text-xs text-foreground/65 mb-1.5 sm:mb-2 uppercase tracking-wider">Days Active</div>
+                <div className="text-2xl sm:text-3xl font-light tracking-tight">1,044</div>
               </div>
             </div>
           </Card>
