@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { tiers } from "@/lib/tierConfig";
 import { cn } from "@/lib/utils";
 import { useTier } from "@/contexts/TierContext";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, ChevronDown } from "lucide-react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 // 2025 Activity Data
 const activity2025 = {
@@ -22,21 +23,6 @@ export const TiersContinuum = () => {
   const [isRevealed, setIsRevealed] = useState(false);
   const [animatedProgress, setAnimatedProgress] = useState(0);
   const [animatedEP, setAnimatedEP] = useState(0);
-  
-  // Add keyboard support for modals
-  useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        const tierModal = document.getElementById('tier-benefits-modal');
-        const epModal = document.getElementById('ep-modal');
-        if (tierModal?.style.display === 'flex') tierModal.style.display = 'none';
-        if (epModal?.style.display === 'flex') epModal.style.display = 'none';
-      }
-    };
-    
-    window.addEventListener('keydown', handleEscape);
-    return () => window.removeEventListener('keydown', handleEscape);
-  }, []);
   
   // User data
   const currentEP = activity2025.events.totalEP + activity2025.apparel.totalEP + activity2025.coaching.totalEP;
@@ -203,181 +189,203 @@ export const TiersContinuum = () => {
           </div>
         </div>
 
-        {/* Integrated Navigation Links */}
-        <nav className="pt-8 md:pt-10 border-t border-border/20 mt-8 md:mt-10">
-          <div className="text-supporting uppercase tracking-[0.25em] mb-5 text-xs font-light">
-            Learn More
-          </div>
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 md:gap-12">
-            <button 
-            onClick={() => {
-              const modal = document.getElementById('tier-benefits-modal');
-              if (modal) modal.style.display = 'flex';
-            }}
-            className="group flex items-center gap-2 text-muted-foreground hover:text-foreground transition-all duration-500 tracking-[0.12em] uppercase text-[11px] font-light"
-          >
-              <ChevronRight className="w-3 h-3 text-tier-accent/60 group-hover:text-tier-accent group-hover:translate-x-0.5 transition-all duration-500" />
-              <span className="relative">
+      </div>
+
+      {/* Premium Editorial Accordion Sections */}
+      <Accordion type="single" collapsible className="mt-6 space-y-4">
+        {/* Tier Benefits Accordion */}
+        <AccordionItem value="tier-benefits" className="border border-border/30 rounded-lg overflow-hidden bg-card/30 backdrop-blur-sm">
+          <AccordionTrigger className="px-8 py-6 hover:no-underline hover:bg-muted/10 transition-colors duration-300 [&[data-state=open]>svg]:rotate-180">
+            <div className="flex items-center gap-3 text-left">
+              <ChevronDown className="h-5 w-5 text-tier-accent/60 transition-transform duration-300 ease-out" />
+              <span className="text-base md:text-lg font-light tracking-[0.08em] uppercase text-foreground">
                 Tier Benefits
-                <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-tier-accent/50 group-hover:w-full transition-all duration-500" />
               </span>
-            </button>
-            
-            <button 
-            onClick={() => {
-              const modal = document.getElementById('ep-modal');
-              if (modal) modal.style.display = 'flex';
-            }}
-            className="group flex items-center gap-2 text-muted-foreground hover:text-foreground transition-all duration-500 tracking-[0.12em] uppercase text-[11px] font-light"
-          >
-              <ChevronRight className="w-3 h-3 text-tier-accent/60 group-hover:text-tier-accent group-hover:translate-x-0.5 transition-all duration-500" />
-              <span className="relative">
+            </div>
+          </AccordionTrigger>
+          <AccordionContent className="px-8 pb-8 pt-2">
+            <div className="border-l-2 border-tier-accent/20 pl-8 pr-4 py-6 bg-gradient-to-br from-muted/5 to-transparent rounded-r-lg">
+              <div className="space-y-10">
+                {/* Ridge Tier */}
+                <div>
+                  <h4 className="text-xl md:text-2xl font-semibold tracking-tight text-tier-gold mb-4">
+                    Ridge <span className="text-sm font-light text-muted-foreground">(500+ EPs)</span>
+                  </h4>
+                  <ul className="space-y-3 text-supporting leading-relaxed">
+                    <li className="flex items-start gap-3">
+                      <span className="text-tier-accent/60 mt-1">•</span>
+                      <span>Priority event registration</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-tier-accent/60 mt-1">•</span>
+                      <span>Exclusive Ridge merchandise collection</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-tier-accent/60 mt-1">•</span>
+                      <span>10% discount on apparel</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-tier-accent/60 mt-1">•</span>
+                      <span>Access to member-only content</span>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Peak Tier */}
+                <div className="pt-8 border-t border-border/20">
+                  <h4 className="text-xl md:text-2xl font-semibold tracking-tight text-tier-silver mb-4">
+                    Peak <span className="text-sm font-light text-muted-foreground">(1000+ EPs)</span>
+                  </h4>
+                  <ul className="space-y-3 text-supporting leading-relaxed">
+                    <li className="flex items-start gap-3">
+                      <span className="text-tier-accent/60 mt-1">•</span>
+                      <span>All Ridge benefits</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-tier-accent/60 mt-1">•</span>
+                      <span>VIP event experiences</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-tier-accent/60 mt-1">•</span>
+                      <span>Exclusive Peak merchandise</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-tier-accent/60 mt-1">•</span>
+                      <span>15% discount on apparel</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-tier-accent/60 mt-1">•</span>
+                      <span>Free coaching session annually</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-tier-accent/60 mt-1">•</span>
+                      <span>Early access to new events</span>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Summit Circle Tier */}
+                <div className="pt-8 border-t border-border/20">
+                  <h4 className="text-xl md:text-2xl font-semibold tracking-tight text-tier-platinum mb-4">
+                    Summit Circle <span className="text-sm font-light text-muted-foreground">(Invitation Only)</span>
+                  </h4>
+                  <ul className="space-y-3 text-supporting leading-relaxed">
+                    <li className="flex items-start gap-3">
+                      <span className="text-tier-accent/60 mt-1">•</span>
+                      <span>All Peak benefits</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-tier-accent/60 mt-1">•</span>
+                      <span>Exclusive Summit Circle events</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-tier-accent/60 mt-1">•</span>
+                      <span>Private community access</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-tier-accent/60 mt-1">•</span>
+                      <span>Complimentary coaching sessions</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-tier-accent/60 mt-1">•</span>
+                      <span>20% discount on all apparel</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-tier-accent/60 mt-1">•</span>
+                      <span>Direct access to 29029 leadership</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </AccordionContent>
+        </AccordionItem>
+
+        {/* How Elevation Points Work Accordion */}
+        <AccordionItem value="how-eps-work" className="border border-border/30 rounded-lg overflow-hidden bg-card/30 backdrop-blur-sm">
+          <AccordionTrigger className="px-8 py-6 hover:no-underline hover:bg-muted/10 transition-colors duration-300 [&[data-state=open]>svg]:rotate-180">
+            <div className="flex items-center gap-3 text-left">
+              <ChevronDown className="h-5 w-5 text-tier-accent/60 transition-transform duration-300 ease-out" />
+              <span className="text-base md:text-lg font-light tracking-[0.08em] uppercase text-foreground">
                 How Elevation Points Work
-                <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-tier-accent/50 group-hover:w-full transition-all duration-500" />
               </span>
-            </button>
-            
-            <a 
+            </div>
+          </AccordionTrigger>
+          <AccordionContent className="px-8 pb-8 pt-2">
+            <div className="border-l-2 border-tier-accent/20 pl-8 pr-4 py-6 bg-gradient-to-br from-muted/5 to-transparent rounded-r-lg">
+              <div className="space-y-10">
+                {/* Earning EPs */}
+                <div>
+                  <h4 className="text-xl md:text-2xl font-semibold tracking-tight text-tier-accent mb-5">
+                    Earning EPs
+                  </h4>
+                  <div className="space-y-4 text-supporting leading-relaxed">
+                    <p>
+                      <span className="font-semibold text-foreground">Events:</span> 150 EPs per event attended
+                    </p>
+                    <p>
+                      <span className="font-semibold text-foreground">Coaching:</span> Variable EPs based on session type
+                    </p>
+                    <p>
+                      <span className="font-semibold text-foreground">Apparel:</span> 1 EP per dollar spent
+                    </p>
+                  </div>
+                </div>
+
+                {/* Tier Thresholds */}
+                <div className="pt-8 border-t border-border/20">
+                  <h4 className="text-xl md:text-2xl font-semibold tracking-tight text-tier-accent mb-5">
+                    Tier Thresholds
+                  </h4>
+                  <div className="space-y-4 text-supporting leading-relaxed">
+                    <p>
+                      <span className="font-semibold text-foreground">Base:</span> 0 EPs (Starting tier)
+                    </p>
+                    <p>
+                      <span className="font-semibold text-foreground">Ridge:</span> 500 EPs
+                    </p>
+                    <p>
+                      <span className="font-semibold text-foreground">Peak:</span> 1,000 EPs
+                    </p>
+                    <p>
+                      <span className="font-semibold text-foreground">Summit Circle:</span> Invitation only
+                    </p>
+                  </div>
+                </div>
+
+                {/* Your Progress */}
+                <div className="pt-8 border-t border-border/20">
+                  <h4 className="text-xl md:text-2xl font-semibold tracking-tight text-tier-accent mb-5">
+                    Your Progress
+                  </h4>
+                  <p className="text-supporting leading-relaxed text-base">
+                    Your EPs accumulate over your entire member journey. Each tier unlocks new benefits 
+                    and experiences, building toward the ultimate Summit Circle invitation.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </AccordionContent>
+        </AccordionItem>
+
+        {/* Your History Link */}
+        <div className="pt-2">
+          <a 
             href="#activity-feed" 
             onClick={(e) => {
               e.preventDefault();
               const section = document.getElementById('activity-feed');
               section?.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }}
-            className="group flex items-center gap-2 text-muted-foreground hover:text-foreground transition-all duration-500 tracking-[0.12em] uppercase text-[11px] font-light"
+            className="group flex items-center gap-3 px-8 py-6 border border-border/30 rounded-lg bg-card/30 backdrop-blur-sm hover:bg-muted/10 transition-all duration-300"
           >
-              <ChevronRight className="w-3 h-3 text-tier-accent/60 group-hover:text-tier-accent group-hover:translate-x-0.5 transition-all duration-500" />
-              <span className="relative">
-                Your History
-                <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-tier-accent/50 group-hover:w-full transition-all duration-500" />
-              </span>
-            </a>
-          </div>
-        </nav>
-      </div>
-
-      {/* Tier Benefits Modal - Full Screen */}
-      <div 
-        id="tier-benefits-modal" 
-        className="fixed inset-0 bg-black/95 backdrop-blur-sm z-[100] flex items-center justify-center" 
-        style={{display: 'none'}} 
-        onClick={(e) => { 
-          if (e.target === e.currentTarget) {
-            e.currentTarget.style.display = 'none';
-          }
-        }}
-      >
-        <div className="card-29029 w-full h-full p-6 md:p-12 lg:p-16 overflow-y-auto" onClick={(e) => e.stopPropagation()}>
-          <h3 className="text-4xl md:text-5xl font-light tracking-tight mb-10">Tier Benefits</h3>
-          
-          <div className="space-y-8 mb-12">
-            <div className="pb-8 border-b border-border/30">
-              <div className="text-base text-tier-accent mb-2 uppercase tracking-wider">Ridge (500+ EPs)</div>
-              <ul className="space-y-2 text-supporting">
-                <li>• Priority event registration</li>
-                <li>• Exclusive Ridge merchandise collection</li>
-                <li>• 10% discount on apparel</li>
-                <li>• Access to member-only content</li>
-              </ul>
-            </div>
-            
-            <div className="pb-8 border-b border-border/30">
-              <div className="text-peak text-tier-accent mb-2 uppercase tracking-wider">Peak (1000+ EPs)</div>
-              <ul className="space-y-2 text-supporting">
-                <li>• All Ridge benefits</li>
-                <li>• VIP event experiences</li>
-                <li>• Exclusive Peak merchandise</li>
-                <li>• 15% discount on apparel</li>
-                <li>• Free coaching session annually</li>
-                <li>• Early access to new events</li>
-              </ul>
-            </div>
-            
-            <div>
-              <div className="text-summit text-tier-accent mb-2 uppercase tracking-wider">Summit Circle (Invitation Only)</div>
-              <ul className="space-y-2 text-supporting">
-                <li>• All Peak benefits</li>
-                <li>• Exclusive Summit Circle events</li>
-                <li>• Private community access</li>
-                <li>• Complimentary coaching sessions</li>
-                <li>• 20% discount on all apparel</li>
-                <li>• Direct access to 29029 leadership</li>
-              </ul>
-            </div>
-          </div>
-          
-          <button 
-            onClick={(e) => { 
-              e.stopPropagation();
-              const modal = document.getElementById('tier-benefits-modal'); 
-              if (modal) {
-                modal.style.display = 'none';
-              }
-            }}
-            className="w-full px-6 py-4 bg-tier-accent/10 border border-tier-accent/30 rounded-lg hover:bg-tier-accent/20 transition-colors text-lg"
-          >
-            Close
-          </button>
+            <ChevronRight className="w-5 h-5 text-tier-accent/60 group-hover:text-tier-accent group-hover:translate-x-1 transition-all duration-300" />
+            <span className="text-base md:text-lg font-light tracking-[0.08em] uppercase text-foreground group-hover:text-tier-accent transition-colors duration-300">
+              Your History
+            </span>
+          </a>
         </div>
-      </div>
-
-      {/* How EP Works Modal - Full Screen */}
-      <div 
-        id="ep-modal" 
-        className="fixed inset-0 bg-black/95 backdrop-blur-sm z-[100] flex items-center justify-center" 
-        style={{display: 'none'}} 
-        onClick={(e) => { 
-          if (e.target === e.currentTarget) {
-            e.currentTarget.style.display = 'none';
-          }
-        }}
-      >
-        <div className="card-29029 w-full h-full p-6 md:p-12 lg:p-16 overflow-y-auto" onClick={(e) => e.stopPropagation()}>
-          <h3 className="text-4xl md:text-5xl font-light tracking-tight mb-10">How Elevation Points Work</h3>
-          
-          <div className="space-y-8 mb-12">
-            <div>
-              <h4 className="text-xl text-tier-accent mb-4 uppercase tracking-wider">Earning EPs</h4>
-              <div className="space-y-3 text-supporting">
-                <p>• <span className="text-foreground">Events:</span> 150 EPs per event attended</p>
-                <p>• <span className="text-foreground">Coaching:</span> Variable EPs based on session type</p>
-                <p>• <span className="text-foreground">Apparel:</span> 1 EP per dollar spent</p>
-              </div>
-            </div>
-            
-            <div>
-              <h4 className="text-xl text-tier-accent mb-4 uppercase tracking-wider">Tier Thresholds</h4>
-              <div className="space-y-3 text-supporting">
-                <p>• <span className="text-foreground">Base:</span> 0 EPs (Starting tier)</p>
-                <p>• <span className="text-foreground">Ridge:</span> 500 EPs</p>
-                <p>• <span className="text-foreground">Peak:</span> 1,000 EPs</p>
-                <p>• <span className="text-foreground">Summit Circle:</span> Invitation only</p>
-              </div>
-            </div>
-            
-            <div>
-              <h4 className="text-xl text-tier-accent mb-4 uppercase tracking-wider">Your Progress</h4>
-              <p className="text-supporting">
-                Your EPs accumulate over your entire member journey. Each tier unlocks new benefits 
-                and experiences, building toward the ultimate Summit Circle invitation.
-              </p>
-            </div>
-          </div>
-          
-          <button 
-            onClick={(e) => { 
-              e.stopPropagation();
-              const modal = document.getElementById('ep-modal'); 
-              if (modal) {
-                modal.style.display = 'none';
-              }
-            }}
-            className="w-full px-6 py-4 bg-tier-accent/10 border border-tier-accent/30 rounded-lg hover:bg-tier-accent/20 transition-colors text-lg"
-          >
-            Close
-          </button>
-        </div>
-      </div>
+      </Accordion>
     </section>
   );
 };
