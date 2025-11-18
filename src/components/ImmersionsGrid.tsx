@@ -41,20 +41,20 @@ export const ImmersionsGrid = () => {
     <section className="mb-24 section-reveal">
       <div className="divider-red mb-12" />
       
-      <h2 className="text-section-title mb-12">
+      <h3 className="text-section-title mb-12">
         Next Immersions
-      </h2>
+      </h3>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {immersions.map((immersion, index) => (
-          <div key={index} className="card-29029 card-hover-lift p-8 group metric-animate">
+          <div key={index} className="card-29029 p-8 group metric-animate card-hover-tier">
             {/* Type Badge */}
             <div className="text-[10px] px-3 py-1.5 rounded-full bg-muted/30 border border-border/50 text-foreground uppercase tracking-wider inline-block mb-4">
               {immersion.type}
             </div>
 
             {/* Event Name */}
-            <h3 className="text-subsection text-xl mb-3 group-hover:text-foreground transition-colors">
+            <h3 className="font-editorial text-2xl font-bold mb-3 group-hover:text-foreground transition-colors uppercase" style={{ letterSpacing: '0.08em' }}>
               {immersion.title}
             </h3>
 
@@ -65,11 +65,11 @@ export const ImmersionsGrid = () => {
             <div className="space-y-3 mb-6">
               <div className="flex items-center gap-2">
                 <Calendar className="w-4 h-4 text-muted-foreground" />
-                <span className="text-metadata">{immersion.date}</span>
+                <span className="text-body">{immersion.date}</span>
               </div>
               <div className="flex items-center gap-2">
                 <MapPin className="w-4 h-4 text-muted-foreground" />
-                <span className="text-metadata">{immersion.location}</span>
+                <span className="text-body">{immersion.location}</span>
               </div>
             </div>
 

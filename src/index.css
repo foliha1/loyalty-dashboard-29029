@@ -268,70 +268,46 @@ All colors MUST be HSL.
     box-shadow: 0 0 40px rgba(221, 0, 51, 0.5), 0 0 72px rgba(221, 0, 51, 0.25);
   }
   
-  /* ========================================
-     UNIFIED TYPOGRAPHIC SYSTEM
-     ======================================== */
-  
-  /* H1: Hero headlines */
+  /* Cinematic text treatments */
   .text-hero {
     font-family: 'Inter', sans-serif;
     font-weight: 300;
     letter-spacing: -0.02em;
-    line-height: 1.1;
+    line-height: 1.05;
   }
 
-  /* H2: Section titles */
-  h2, .text-section-title {
+h2, h3, .text-section-title {
     font-family: 'Inter', sans-serif;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.096em;
     font-size: 0.96rem;
     color: hsl(0 0% 92%);
-    line-height: 1.2;
+    line-height: 1.15;
   }
   
   @media (min-width: 768px) {
-    h2, .text-section-title {
+    h2, h3, .text-section-title {
       font-size: 1.32rem;
       letter-spacing: 0.115em;
     }
   }
 
-  /* H3: Subsection labels */
-  h3, .text-subsection {
-    font-family: 'Inter', sans-serif;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    font-size: 0.875rem;
-    color: hsl(0 0% 85%);
-    line-height: 1.2;
-  }
+.text-subhead {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.7rem;
+  color: hsl(0 0% 48%);
+  line-height: 1.6;
+}
 
-  @media (min-width: 768px) {
-    h3, .text-subsection {
-      font-size: 1rem;
-    }
-  }
-
-  /* Subhead: Category labels, tier names */
-  .text-subhead {
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    font-size: 0.7rem;
-    color: hsl(0 0% 48%);
-    line-height: 1.4;
-  }
-
-  /* Body: Primary content text */
   .text-body {
     font-family: 'Inter', sans-serif;
     font-weight: 400;
     color: hsl(0 0% 55%);
-    line-height: 1.5;
+    line-height: 1.75;
     font-size: 1rem;
   }
   
@@ -357,128 +333,14 @@ All colors MUST be HSL.
     color: inherit;
   }
 
-  /* Supporting: Descriptive, helper text */
-  .text-supporting {
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    font-size: 0.875rem;
-    color: hsl(0 0% 45%) !important;
-    text-align: left;
-    line-height: 1.5;
-  }
-
-  /* Metadata: Dates, sublabels, small context */
-  .text-metadata {
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    font-size: 0.875rem;
-    color: hsl(0 0% 50%);
-    line-height: 1.4;
-  }
-
-  /* Links: Unified link styling */
-  .link-standard {
-    font-family: 'Inter', sans-serif;
-    font-weight: 500;
-    font-size: 0.875rem;
-    color: hsl(0 0% 70%);
-    text-decoration: none;
-    transition: color 0.2s ease;
-    line-height: 1.4;
-  }
-
-  .link-standard:hover {
-    color: hsl(0 0% 92%);
-  }
-
-  /* ========================================
-     UNIFIED HOVER INTERACTION SYSTEM
-     ======================================== */
-  
-  /* Card Hover: Lift + Shadow + Border Glow */
-  .card-hover-lift {
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .card-hover-lift:hover {
-    transform: translateY(-8px);
-    border-color: hsl(var(--primary) / 0.4);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 0 1px hsl(var(--primary) / 0.1);
-  }
-
-  /* Subtle Card Hover: Minimal lift for dense layouts */
-  .card-hover-subtle {
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .card-hover-subtle:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-  }
-
-  /* Button Hover: Scale + Shadow */
-  .button-hover-premium {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .button-hover-premium:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-  }
-
-  /* Link Hover: Underline sweep */
-  .link-hover-sweep {
-    position: relative;
-    transition: color 0.3s ease;
-  }
-
-  .link-hover-sweep::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background: hsl(var(--foreground));
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .link-hover-sweep:hover::after {
-    transform: scaleX(1);
-    transform-origin: left;
-  }
-
-  /* Interactive Element: Soft scale for icons/avatars */
-  .interact-scale {
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .interact-scale:hover {
-    transform: scale(1.05);
-  }
-
-  /* CTA Hover: Lift + Gradient overlay + Border glow */
-  .cta-hover-premium {
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-  }
-
-  .cta-hover-premium:hover {
-    transform: translateY(-8px);
-    border-color: hsl(var(--primary) / 0.4);
-    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3);
-  }
-
-  /* Collapsible Trigger Hover */
-  .collapsible-hover {
-    transition: color 0.2s ease;
-  }
-
-  .collapsible-hover:hover {
-    color: hsl(var(--foreground));
-  }
+.text-supporting {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 0.875rem;
+  color: hsl(0 0% 45%) !important;
+  text-align: left;
+  line-height: 1.65;
+}
 
   /* Premium accent dividers */
   .divider-red {

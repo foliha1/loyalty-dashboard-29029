@@ -90,13 +90,13 @@ export const CalendarGrid = () => {
 
   return (
     <section>
-      <h2 className="text-section-title mb-6 sm:mb-7 md:mb-8 px-2">
+      <h3 className="text-section-title mb-6 sm:mb-7 md:mb-8 px-2">
         Continue the Journey
-      </h2>
+      </h3>
       
       {hasEvents ? (
         <>
-          <p className="text-metadata text-center mb-10 sm:mb-12 md:mb-16 max-w-2xl mx-auto !text-muted-foreground">
+          <p className="text-sm md:text-base mb-10 sm:mb-12 md:mb-16 max-w-2xl px-2 font-light !text-muted-foreground">
             Your upcoming events
           </p>
 
@@ -110,7 +110,7 @@ export const CalendarGrid = () => {
                 <div
                   key={idx}
                   className={cn(
-                    "relative card-29029 card-hover-lift p-6 sm:p-8 md:p-10 group cursor-pointer overflow-hidden min-h-[44px]",
+                    "relative card-29029 p-6 sm:p-8 md:p-10 group hover:-translate-y-2 transition-all duration-500 cursor-pointer overflow-hidden min-h-[44px]",
                     "opacity-0 translate-y-4",
                     isRevealed && "animate-fade-in"
                   )}
@@ -139,7 +139,7 @@ export const CalendarGrid = () => {
 
                   <div className="relative z-10">
                     {/* Event Type Badge */}
-                    <div className="mb-8">
+                    <div className="mb-6 md:mb-8">
                       <span 
                         className="text-[10px] px-3.5 py-2 rounded-full uppercase tracking-[0.2em] font-light border backdrop-blur-sm"
                         style={{
@@ -154,7 +154,7 @@ export const CalendarGrid = () => {
 
                     {/* Location - Hero */}
                     <h4 
-                      className="text-2xl md:text-3xl font-light tracking-[-0.01em] mb-5 leading-tight transition-colors duration-500"
+                      className="text-2xl md:text-3xl font-light tracking-[-0.01em] mb-4 leading-tight transition-colors duration-500"
                       style={{
                         color: isRevealed ? 'hsl(var(--foreground))' : 'hsl(var(--muted-foreground))'
                       }}
@@ -164,14 +164,14 @@ export const CalendarGrid = () => {
 
                     {/* Divider with accent color */}
                     <div 
-                      className="h-[2px] w-12 md:w-16 mb-8 group-hover:w-20 transition-all duration-500"
+                      className="h-[2px] w-12 md:w-16 mb-6 md:mb-8 group-hover:w-20 transition-all duration-500"
                       style={{
                         background: `linear-gradient(90deg, hsl(${config.accentColor}) 0%, transparent 100%)`
                       }}
                     />
 
                     {/* Days Remaining - Prominent & Motivational */}
-                    <div className="mb-6">
+                    <div className="mb-4">
                       <div 
                         className="text-5xl md:text-6xl font-light tabular-nums tracking-tight mb-2"
                         style={{
@@ -186,7 +186,7 @@ export const CalendarGrid = () => {
                     </div>
 
                     {/* Date */}
-                    <p className="text-supporting text-xs uppercase tracking-[0.2em] mt-auto pt-6 border-t border-border/20 font-light">
+                    <p className="text-supporting text-xs uppercase tracking-[0.2em] mt-6 pt-6 border-t border-border/20 font-light">
                       {event.eventDates}
                     </p>
                   </div>
@@ -216,30 +216,31 @@ export const CalendarGrid = () => {
       )}
 
       {/* CTAs Section */}
-      <div className="pt-8 sm:pt-10 md:pt-12 mt-4 sm:mt-5 md:mt-6 border-t border-border/20">
+      <div className="pt-10 sm:pt-12 md:pt-14 mt-6 sm:mt-7 md:mt-8 border-t border-border/20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 md:gap-7 lg:gap-8 max-w-6xl mx-auto">
           <a
             href="https://29029everesting.com/collections/tickets"
             target="_blank"
             rel="noopener noreferrer"
-            className="group cta-hover-premium relative overflow-hidden px-6 sm:px-8 py-10 sm:py-11 md:py-12 bg-gradient-to-br from-card/40 to-card/20 backdrop-blur-sm border border-border/30 rounded-xl flex flex-col items-start min-h-[200px]"
+            className="group relative overflow-hidden px-6 sm:px-8 py-10 sm:py-11 md:py-12 bg-gradient-to-br from-card/40 to-card/20 backdrop-blur-sm border border-border/30 rounded-xl transition-all duration-500 flex flex-col items-start hover:-translate-y-2 hover:border-primary/40 hover:shadow-xl min-h-[200px]"
           >
             {/* Subtle gradient overlay on hover */}
             <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             
             <div className="relative z-10 flex-1">
-              <h3 className="text-subsection mb-2 tracking-tight leading-tight !text-foreground">
+              <h5 className="text-base sm:text-lg md:text-xl font-light mb-2 tracking-tight leading-tight !text-foreground">
                 {hasEvents ? "Discover Events" : "Discover Challenges"}
-              </h3>
+              </h5>
               <p className="text-foreground/60 text-[11px] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] font-light mb-6 sm:mb-8">
                 Browse All Experiences
               </p>
               
               {/* Underline sweep effect */}
               <div className="relative inline-block">
-                <span className="text-foreground text-xs uppercase tracking-[0.25em] font-light link-hover-sweep">
+                <span className="text-foreground text-xs uppercase tracking-[0.25em] font-light">
                   Explore
                 </span>
+                <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-primary group-hover:w-full transition-all duration-500" />
               </div>
             </div>
             
@@ -250,24 +251,25 @@ export const CalendarGrid = () => {
             href="https://29029coaching.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="group cta-hover-premium relative overflow-hidden px-6 sm:px-8 py-10 sm:py-11 md:py-12 bg-gradient-to-br from-card/40 to-card/20 backdrop-blur-sm border border-border/30 rounded-xl flex flex-col items-start min-h-[200px]"
+            className="group relative overflow-hidden px-6 sm:px-8 py-10 sm:py-11 md:py-12 bg-gradient-to-br from-card/40 to-card/20 backdrop-blur-sm border border-border/30 rounded-xl transition-all duration-500 flex flex-col items-start hover:-translate-y-2 hover:border-primary/40 hover:shadow-xl min-h-[200px]"
           >
             {/* Subtle gradient overlay on hover */}
             <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             
             <div className="relative z-10 flex-1">
-              <h3 className="text-subsection mb-2 tracking-tight leading-tight !text-foreground">
+              <h5 className="text-base sm:text-lg md:text-xl font-light mb-2 tracking-tight leading-tight !text-foreground">
                 1:1 Coaching
-              </h3>
+              </h5>
               <p className="text-foreground/60 text-[11px] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] font-light mb-6 sm:mb-8">
                 Personal Experience
               </p>
               
               {/* Underline sweep effect */}
               <div className="relative inline-block">
-                <span className="text-foreground text-xs uppercase tracking-[0.25em] font-light link-hover-sweep">
+                <span className="text-foreground text-xs uppercase tracking-[0.25em] font-light">
                   Build
                 </span>
+                <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-primary group-hover:w-full transition-all duration-500" />
               </div>
             </div>
             
@@ -278,24 +280,25 @@ export const CalendarGrid = () => {
             href="https://29029everesting.com/collections/frontpage"
             target="_blank"
             rel="noopener noreferrer"
-            className="group cta-hover-premium relative overflow-hidden px-6 sm:px-8 py-10 sm:py-11 md:py-12 bg-gradient-to-br from-card/40 to-card/20 backdrop-blur-sm border border-border/30 rounded-xl flex flex-col items-start min-h-[200px]"
+            className="group relative overflow-hidden px-6 sm:px-8 py-10 sm:py-11 md:py-12 bg-gradient-to-br from-card/40 to-card/20 backdrop-blur-sm border border-border/30 rounded-xl transition-all duration-500 flex flex-col items-start hover:-translate-y-2 hover:border-primary/40 hover:shadow-xl min-h-[200px]"
           >
             {/* Subtle gradient overlay on hover */}
             <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             
             <div className="relative z-10 flex-1">
-              <h3 className="text-subsection mb-2 tracking-tight leading-tight !text-foreground">
+              <h5 className="text-base sm:text-lg md:text-xl font-light mb-2 tracking-tight leading-tight !text-foreground">
                 Apparel
-              </h3>
+              </h5>
               <p className="text-foreground/60 text-[11px] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] font-light mb-6 sm:mb-8">
                 Shop Collection
               </p>
               
               {/* Underline sweep effect */}
               <div className="relative inline-block">
-                <span className="text-foreground text-xs uppercase tracking-[0.25em] font-light link-hover-sweep">
+                <span className="text-foreground text-xs uppercase tracking-[0.25em] font-light">
                   Shop Now
                 </span>
+                <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-primary group-hover:w-full transition-all duration-500" />
               </div>
             </div>
             

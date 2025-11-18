@@ -52,9 +52,9 @@ export default function Profile() {
           <div className="flex items-center justify-between gap-3 sm:gap-4">
             <button
               onClick={() => navigate("/")}
-              className="flex items-center gap-2 text-muted-foreground collapsible-hover group min-h-[44px] min-w-[44px]"
+              className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors group min-h-[44px] min-w-[44px]"
             >
-              <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5 group-hover:-translate-x-1 transition-transform duration-300" />
+              <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5 group-hover:-translate-x-1 transition-transform" />
               <span className="text-xs sm:text-sm uppercase tracking-wider hidden sm:inline">Back to Dashboard</span>
               <span className="text-xs uppercase tracking-wider sm:hidden">Back</span>
             </button>
@@ -62,24 +62,24 @@ export default function Profile() {
             {!isEditing ? (
               <Button
                 onClick={() => setIsEditing(true)}
-                className="bg-tier-accent hover:bg-tier-accent/90 button-hover-premium text-black font-medium uppercase tracking-wider text-xs sm:text-sm min-h-[44px] px-4 sm:px-6"
+                className="bg-tier-accent hover:bg-tier-accent/90 text-black font-medium uppercase tracking-wider text-xs sm:text-sm min-h-[44px] px-4 sm:px-6 shadow-lg hover:shadow-xl transition-all"
               >
                 Edit Profile
               </Button>
             ) : (
-              <div className="flex gap-3">
+              <div className="flex gap-2 sm:gap-3">
                 <Button
                   onClick={handleCancel}
                   variant="outline"
-                  className="button-hover-premium uppercase tracking-wider text-xs sm:text-sm min-h-[44px] px-4 sm:px-5"
+                  className="uppercase tracking-wider text-xs sm:text-sm min-h-[44px] px-3 sm:px-4"
                 >
                   Cancel
                 </Button>
                 <Button
                   onClick={handleSave}
-                  className="bg-tier-accent hover:bg-tier-accent/90 button-hover-premium text-black font-semibold uppercase tracking-wider text-sm sm:text-base min-h-[48px] px-6 sm:px-8 shadow-lg"
+                  className="bg-tier-accent hover:bg-tier-accent/90 text-black font-semibold uppercase tracking-wider text-xs sm:text-sm min-h-[44px] px-4 sm:px-6 shadow-lg hover:shadow-xl transition-all"
                 >
-                  <Save className="w-4 h-4 mr-2" />
+                  <Save className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
                   Save Changes
                 </Button>
               </div>

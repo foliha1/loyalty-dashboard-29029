@@ -86,17 +86,17 @@ export const TiersContinuum = () => {
 
   return (
     <section>
-      <h2 className="text-section-title mb-8 sm:mb-10 md:mb-14 text-left px-2">
+      <h3 className="text-section-title mb-8 sm:mb-10 md:mb-14 text-left px-2">
         Your Elevation Journey
-      </h2>
+      </h3>
 
-        {/* Main Progress Card */}
-        <div 
-          className={cn(
-            "card-29029 card-hover-subtle p-6 sm:p-8 md:p-10 lg:p-12",
-            isRevealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          )}
-        >
+      {/* Main Progress Card */}
+      <div 
+        className={cn(
+          "card-29029 p-6 sm:p-8 md:p-10 lg:p-12 transition-all duration-700",
+          isRevealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        )}
+      >
         {/* Current Tier Badge */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-10 sm:mb-12 md:mb-16 gap-6">
           <div>
@@ -131,44 +131,39 @@ export const TiersContinuum = () => {
           </div>
           
           {/* Tier Markers - Minimal */}
-          <div className="relative mt-5 sm:mt-6 md:mt-8 flex justify-between items-center" style={{ paddingLeft: '0%', paddingRight: '0%' }}>
-            <div className="absolute inset-x-0 flex justify-between" style={{ left: '0%', right: '0%' }}>
-              {visibleTiers.map((tier, idx) => {
-                const isCurrentTier = tier.name === currentTierName;
-                const isPassed = currentEP >= tier.threshold;
-                
-                // Position markers at exact gradient stops: 0%, 25%, 50%, 75%
-                const positions = ['0%', '25%', '50%', '75%'];
-                
-                return (
-                  <div key={tier.name} className="flex flex-col items-center absolute" style={{ left: positions[idx], transform: 'translateX(-50%)' }}>
-                    <div 
-                      className={cn(
-                        "w-1.5 h-1.5 md:w-2 md:h-2 rounded-full mb-2 md:mb-3 transition-all duration-500",
-                        isPassed ? "scale-125" : "scale-100"
-                      )}
-                      style={{
-                        backgroundColor: isPassed 
-                          ? `hsl(var(--${tier.color}))` 
-                          : 'hsl(var(--muted))',
-                        boxShadow: isCurrentTier 
-                          ? `0 0 12px hsl(var(--${tier.color}) / 0.6)` 
-                          : 'none'
-                      }}
-                    />
-                    <div className={cn(
-                      "text-[9px] sm:text-[10px] md:text-xs uppercase tracking-wider transition-colors duration-500 text-center whitespace-nowrap",
-                      isPassed ? "text-foreground font-semibold" : "text-muted-foreground"
-                    )}>
-                      {tier.name}
-                    </div>
-                    <div className="text-[9px] sm:text-[10px] md:text-xs text-muted-foreground mt-0.5 sm:mt-1 tabular-nums">
-                      {tier.threshold}
-                    </div>
+          <div className="relative mt-5 sm:mt-6 md:mt-8 flex justify-between items-center px-1">
+            {visibleTiers.map((tier, idx) => {
+              const isCurrentTier = tier.name === currentTierName;
+              const isPassed = currentEP >= tier.threshold;
+              
+              return (
+                <div key={tier.name} className="flex flex-col items-center">
+                  <div 
+                    className={cn(
+                      "w-1.5 h-1.5 md:w-2 md:h-2 rounded-full mb-2 md:mb-3 transition-all duration-500",
+                      isPassed ? "scale-125" : "scale-100"
+                    )}
+                    style={{
+                      backgroundColor: isPassed 
+                        ? `hsl(var(--${tier.color}))` 
+                        : 'hsl(var(--muted))',
+                      boxShadow: isCurrentTier 
+                        ? `0 0 12px hsl(var(--${tier.color}) / 0.6)` 
+                        : 'none'
+                    }}
+                  />
+                  <div className={cn(
+                    "text-[9px] sm:text-[10px] md:text-xs uppercase tracking-wider transition-colors duration-500 text-center",
+                    isPassed ? "text-foreground font-semibold" : "text-muted-foreground"
+                  )}>
+                    {tier.name}
                   </div>
-                );
-              })}
-            </div>
+                  <div className="text-[9px] sm:text-[10px] md:text-xs text-muted-foreground mt-0.5 sm:mt-1 tabular-nums">
+                    {tier.threshold}
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
 
@@ -195,7 +190,7 @@ export const TiersContinuum = () => {
       </div>
 
       {/* Two-Column Accordion Layout */}
-      <div className="mt-4 grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6">
+      <div className="mt-6 sm:mt-8 grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6">
         {/* Tier Benefits Accordion */}
         <Accordion type="single" collapsible>
           <AccordionItem value="tier-benefits" className="border border-border/30 rounded-lg overflow-hidden bg-card/30 backdrop-blur-sm">
