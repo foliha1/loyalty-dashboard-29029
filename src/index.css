@@ -331,7 +331,7 @@ h2, h3, .text-section-title {
 [data-current-tier="Base"] {
   --current-tier-accent: var(--base);
   --current-tier-accent-glow: var(--base-glow);
-  --button-text-color: #0a0a0a; /* Dark text for light gray background */
+  --button-text-color: #0a0a0a; /* Dark text for teal background */
 }
 
 [data-current-tier="Ridge"] {
