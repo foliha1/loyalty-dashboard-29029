@@ -47,24 +47,24 @@ const IndexContent = () => {
         {/* Elevation Journey */}
         <div 
           ref={tiersReveal.ref} 
-          className={`pt-14 md:pt-20 pb-14 md:pb-20 section-fade-up ${tiersReveal.isVisible ? 'visible' : ''}`}
+          className={`pt-8 md:pt-14 pb-12 md:pb-16 section-fade-up ${tiersReveal.isVisible ? 'visible' : ''}`}
         >
           <TiersContinuum />
         </div>
         
         {/* Section Divider */}
-        <div className="divider-red my-14 md:my-20" />
+        <div className="divider-red my-12 md:my-16" />
         
         {/* Continue the Journey */}
         <div 
           ref={calendarReveal.ref} 
-          className={`py-14 md:py-20 section-fade-up section-fade-up-delay-2 ${calendarReveal.isVisible ? 'visible' : ''}`}
+          className={`py-12 md:py-16 section-fade-up section-fade-up-delay-2 ${calendarReveal.isVisible ? 'visible' : ''}`}
         >
           <CalendarGrid />
         </div>
         
         {/* Section Divider */}
-        <div className="divider-red my-14 md:my-20" />
+        <div className="divider-red my-12 md:my-16" />
         
         {/* History */}
         <div 

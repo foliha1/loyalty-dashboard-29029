@@ -139,7 +139,7 @@ export const CalendarGrid = () => {
 
                   <div className="relative z-10">
                     {/* Event Type Badge */}
-                    <div className="mb-6 md:mb-8">
+                    <div className="mb-8">
                       <span 
                         className="text-[10px] px-3.5 py-2 rounded-full uppercase tracking-[0.2em] font-light border backdrop-blur-sm"
                         style={{
@@ -154,7 +154,7 @@ export const CalendarGrid = () => {
 
                     {/* Location - Hero */}
                     <h4 
-                      className="text-2xl md:text-3xl font-light tracking-[-0.01em] mb-4 leading-tight transition-colors duration-500"
+                      className="text-2xl md:text-3xl font-light tracking-[-0.01em] mb-5 leading-tight transition-colors duration-500"
                       style={{
                         color: isRevealed ? 'hsl(var(--foreground))' : 'hsl(var(--muted-foreground))'
                       }}
@@ -164,14 +164,14 @@ export const CalendarGrid = () => {
 
                     {/* Divider with accent color */}
                     <div 
-                      className="h-[2px] w-12 md:w-16 mb-6 md:mb-8 group-hover:w-20 transition-all duration-500"
+                      className="h-[2px] w-12 md:w-16 mb-8 group-hover:w-20 transition-all duration-500"
                       style={{
                         background: `linear-gradient(90deg, hsl(${config.accentColor}) 0%, transparent 100%)`
                       }}
                     />
 
                     {/* Days Remaining - Prominent & Motivational */}
-                    <div className="mb-4">
+                    <div className="mb-6">
                       <div 
                         className="text-5xl md:text-6xl font-light tabular-nums tracking-tight mb-2"
                         style={{
@@ -186,7 +186,7 @@ export const CalendarGrid = () => {
                     </div>
 
                     {/* Date */}
-                    <p className="text-supporting text-xs uppercase tracking-[0.2em] mt-6 pt-6 border-t border-border/20 font-light">
+                    <p className="text-supporting text-xs uppercase tracking-[0.2em] mt-auto pt-6 border-t border-border/20 font-light">
                       {event.eventDates}
                     </p>
                   </div>
@@ -216,7 +216,7 @@ export const CalendarGrid = () => {
       )}
 
       {/* CTAs Section */}
-      <div className="pt-10 sm:pt-12 md:pt-14 mt-6 sm:mt-7 md:mt-8 border-t border-border/20">
+      <div className="pt-8 sm:pt-10 md:pt-12 mt-4 sm:mt-5 md:mt-6 border-t border-border/20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 md:gap-7 lg:gap-8 max-w-6xl mx-auto">
           <a
             href="https://29029everesting.com/collections/tickets"
@@ -237,10 +237,9 @@ export const CalendarGrid = () => {
               
               {/* Underline sweep effect */}
               <div className="relative inline-block">
-                <span className="text-foreground text-xs uppercase tracking-[0.25em] font-light">
+                <span className="text-foreground text-xs uppercase tracking-[0.25em] font-light link-hover-sweep">
                   Explore
                 </span>
-                <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-primary group-hover:w-full transition-all duration-500" />
               </div>
             </div>
             
@@ -266,10 +265,9 @@ export const CalendarGrid = () => {
               
               {/* Underline sweep effect */}
               <div className="relative inline-block">
-                <span className="text-foreground text-xs uppercase tracking-[0.25em] font-light">
+                <span className="text-foreground text-xs uppercase tracking-[0.25em] font-light link-hover-sweep">
                   Build
                 </span>
-                <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-primary group-hover:w-full transition-all duration-500" />
               </div>
             </div>
             
@@ -295,10 +293,9 @@ export const CalendarGrid = () => {
               
               {/* Underline sweep effect */}
               <div className="relative inline-block">
-                <span className="text-foreground text-xs uppercase tracking-[0.25em] font-light">
+                <span className="text-foreground text-xs uppercase tracking-[0.25em] font-light link-hover-sweep">
                   Shop Now
                 </span>
-                <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-primary group-hover:w-full transition-all duration-500" />
               </div>
             </div>
             
