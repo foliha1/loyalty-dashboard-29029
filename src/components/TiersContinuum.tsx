@@ -194,10 +194,10 @@ export const TiersContinuum = () => {
         {/* Tier Benefits Accordion */}
         <Accordion type="single" collapsible>
           <AccordionItem value="tier-benefits" className="border border-border/30 rounded-lg overflow-hidden bg-card/30 backdrop-blur-sm">
-            <AccordionTrigger className="px-6 md:px-8 py-6 md:py-7 hover:no-underline hover:bg-muted/10 transition-colors duration-300 [&[data-state=open]>div>svg]:rotate-180">
+            <AccordionTrigger className="px-6 md:px-8 py-6 md:py-7 hover:no-underline hover:bg-muted/10 transition-colors duration-300 [&[data-state=open]>div>svg]:rotate-180 [&>svg]:hidden">
               <div className="flex items-center gap-3 text-left w-full">
-                <ChevronDown className="h-4 w-4 md:h-5 md:w-5 text-muted-foreground transition-transform duration-300 ease-out shrink-0" />
-                <span className="text-base md:text-lg lg:text-xl font-normal tracking-[0.12em] uppercase text-foreground">
+                <ChevronDown className="h-4 w-4 md:h-5 md:w-5 !text-muted-foreground transition-transform duration-300 ease-out shrink-0" />
+                <span className="text-base md:text-lg lg:text-xl font-normal tracking-[0.12em] uppercase !text-foreground">
                   Tier Benefits
                 </span>
               </div>
@@ -271,10 +271,10 @@ export const TiersContinuum = () => {
         {/* How Elevation Points Work Accordion */}
         <Accordion type="single" collapsible>
           <AccordionItem value="how-eps-work" className="border border-border/30 rounded-lg overflow-hidden bg-card/30 backdrop-blur-sm">
-            <AccordionTrigger className="px-6 md:px-8 py-6 md:py-7 hover:no-underline hover:bg-muted/10 transition-colors duration-300 [&[data-state=open]>div>svg]:rotate-180">
+            <AccordionTrigger className="px-6 md:px-8 py-6 md:py-7 hover:no-underline hover:bg-muted/10 transition-colors duration-300 [&[data-state=open]>div>svg]:rotate-180 [&>svg]:hidden">
               <div className="flex items-center gap-3 text-left w-full">
-                <ChevronDown className="h-4 w-4 md:h-5 md:w-5 text-muted-foreground transition-transform duration-300 ease-out shrink-0" />
-                <span className="text-base md:text-lg lg:text-xl font-normal tracking-[0.12em] uppercase text-foreground">
+                <ChevronDown className="h-4 w-4 md:h-5 md:w-5 !text-muted-foreground transition-transform duration-300 ease-out shrink-0" />
+                <span className="text-base md:text-lg lg:text-xl font-normal tracking-[0.12em] uppercase !text-foreground">
                   How Elevation Points (EPs) Work
                 </span>
               </div>
