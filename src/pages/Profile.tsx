@@ -93,7 +93,7 @@ export default function Profile() {
           {/* Page Title */}
           <div className="mb-12">
             <h1 className="text-4xl md:text-5xl font-light tracking-tight mb-3">Member Profile</h1>
-            <p className="text-muted-foreground">Manage your personal information and member details</p>
+            <p className="text-foreground/70">Manage your personal information and member details</p>
           </div>
 
           {/* Profile Avatar Section */}
@@ -136,7 +136,7 @@ export default function Profile() {
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <Label htmlFor="firstName" className="text-xs uppercase tracking-wider text-muted-foreground mb-2 block">
+                <Label htmlFor="firstName" className="text-xs uppercase tracking-wider text-foreground/70 mb-2 block">
                   First Name
                 </Label>
                 <Input
@@ -149,7 +149,7 @@ export default function Profile() {
               </div>
 
               <div>
-                <Label htmlFor="lastName" className="text-xs uppercase tracking-wider text-muted-foreground mb-2 block">
+                <Label htmlFor="lastName" className="text-xs uppercase tracking-wider text-foreground/70 mb-2 block">
                   Last Name
                 </Label>
                 <Input
@@ -162,7 +162,7 @@ export default function Profile() {
               </div>
 
               <div>
-                <Label htmlFor="email" className="text-xs uppercase tracking-wider text-muted-foreground mb-2 block">
+                <Label htmlFor="email" className="text-xs uppercase tracking-wider text-foreground/70 mb-2 block">
                   Email
                 </Label>
                 <Input
@@ -176,7 +176,7 @@ export default function Profile() {
               </div>
 
               <div>
-                <Label htmlFor="phone" className="text-xs uppercase tracking-wider text-muted-foreground mb-2 block">
+                <Label htmlFor="phone" className="text-xs uppercase tracking-wider text-foreground/70 mb-2 block">
                   Phone
                 </Label>
                 <Input
@@ -190,7 +190,7 @@ export default function Profile() {
               </div>
 
               <div>
-                <Label htmlFor="birthday" className="text-xs uppercase tracking-wider text-muted-foreground mb-2 block">
+                <Label htmlFor="birthday" className="text-xs uppercase tracking-wider text-foreground/70 mb-2 block">
                   Birthday
                 </Label>
                 <Input
@@ -213,7 +213,7 @@ export default function Profile() {
             
             <div className="grid grid-cols-1 gap-6">
               <div>
-                <Label htmlFor="address" className="text-xs uppercase tracking-wider text-muted-foreground mb-2 block">
+                <Label htmlFor="address" className="text-xs uppercase tracking-wider text-foreground/70 mb-2 block">
                   Street Address
                 </Label>
                 <Input
@@ -227,7 +227,7 @@ export default function Profile() {
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div>
-                  <Label htmlFor="city" className="text-xs uppercase tracking-wider text-muted-foreground mb-2 block">
+                  <Label htmlFor="city" className="text-xs uppercase tracking-wider text-foreground/70 mb-2 block">
                     City
                   </Label>
                   <Input
@@ -240,7 +240,7 @@ export default function Profile() {
                 </div>
 
                 <div>
-                  <Label htmlFor="state" className="text-xs uppercase tracking-wider text-muted-foreground mb-2 block">
+                  <Label htmlFor="state" className="text-xs uppercase tracking-wider text-foreground/70 mb-2 block">
                     State
                   </Label>
                   <Input
@@ -253,7 +253,7 @@ export default function Profile() {
                 </div>
 
                 <div>
-                  <Label htmlFor="zipCode" className="text-xs uppercase tracking-wider text-muted-foreground mb-2 block">
+                  <Label htmlFor="zipCode" className="text-xs uppercase tracking-wider text-foreground/70 mb-2 block">
                     Zip Code
                   </Label>
                   <Input
@@ -276,7 +276,7 @@ export default function Profile() {
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <Label htmlFor="emergencyContact" className="text-xs uppercase tracking-wider text-muted-foreground mb-2 block">
+                <Label htmlFor="emergencyContact" className="text-xs uppercase tracking-wider text-foreground/70 mb-2 block">
                   Contact Name
                 </Label>
                 <Input
@@ -289,7 +289,7 @@ export default function Profile() {
               </div>
 
               <div>
-                <Label htmlFor="emergencyPhone" className="text-xs uppercase tracking-wider text-muted-foreground mb-2 block">
+                <Label htmlFor="emergencyPhone" className="text-xs uppercase tracking-wider text-foreground/70 mb-2 block">
                   Contact Phone
                 </Label>
                 <Input
@@ -312,32 +312,32 @@ export default function Profile() {
             
             <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
               <div className="bg-card/30 border border-border/20 rounded-lg p-6">
-                <div className="text-xs text-muted-foreground mb-2 uppercase tracking-wider">Total Elevation</div>
+                <div className="text-xs text-foreground/65 mb-2 uppercase tracking-wider">Total Elevation</div>
                 <div className="text-3xl font-light tracking-tight">145,800 ft</div>
               </div>
               
               <div className="bg-card/30 border border-border/20 rounded-lg p-6">
-                <div className="text-xs text-muted-foreground mb-2 uppercase tracking-wider">Miles Climbed</div>
+                <div className="text-xs text-foreground/65 mb-2 uppercase tracking-wider">Miles Climbed</div>
                 <div className="text-3xl font-light tracking-tight">87.4 mi</div>
               </div>
               
               <div className="bg-card/30 border border-border/20 rounded-lg p-6">
-                <div className="text-xs text-muted-foreground mb-2 uppercase tracking-wider">Events</div>
+                <div className="text-xs text-foreground/65 mb-2 uppercase tracking-wider">Events</div>
                 <div className="text-3xl font-light tracking-tight">9</div>
               </div>
               
               <div className="bg-card/30 border border-border/20 rounded-lg p-6">
-                <div className="text-xs text-muted-foreground mb-2 uppercase tracking-wider">Total EPs</div>
+                <div className="text-xs text-foreground/65 mb-2 uppercase tracking-wider">Total EPs</div>
                 <div className="text-3xl font-light tracking-tight">1,440</div>
               </div>
               
               <div className="bg-card/30 border border-border/20 rounded-lg p-6">
-                <div className="text-xs text-muted-foreground mb-2 uppercase tracking-wider">Coaching</div>
+                <div className="text-xs text-foreground/65 mb-2 uppercase tracking-wider">Coaching</div>
                 <div className="text-3xl font-light tracking-tight">12</div>
               </div>
               
               <div className="bg-card/30 border border-border/20 rounded-lg p-6">
-                <div className="text-xs text-muted-foreground mb-2 uppercase tracking-wider">Days Active</div>
+                <div className="text-xs text-foreground/65 mb-2 uppercase tracking-wider">Days Active</div>
                 <div className="text-3xl font-light tracking-tight">1,044</div>
               </div>
             </div>
