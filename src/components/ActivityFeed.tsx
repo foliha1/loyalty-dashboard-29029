@@ -188,7 +188,7 @@ export const ActivityFeed = () => {
               
               <Collapsible>
                 <CollapsibleTrigger className="flex items-center gap-2 text-supporting hover:text-tier-accent transition-colors group">
-                  <span className="text-subhead">View Subscriptions</span>
+                  <span className="text-subhead">View Sessions</span>
                   <ChevronDown className="h-4 w-4 text-tier-accent" />
                 </CollapsibleTrigger>
                 <CollapsibleContent className="mt-4">

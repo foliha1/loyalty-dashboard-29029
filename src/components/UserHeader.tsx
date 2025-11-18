@@ -72,27 +72,26 @@ export const UserHeader = () => {
 
           {/* Hero Content - Centered */}
           <div className="max-w-3xl mx-auto text-center">
-            {/* Premium ID Number */}
+            {/* Welcome Statement */}
             <div className="mb-6 animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
-              <span className="text-[11px] md:text-xs tracking-[0.3em] uppercase font-light text-muted-foreground/70">
-                29029 ID: AR-5847
+              <span className="text-lg md:text-xl tracking-wide font-light text-muted-foreground/80">
+                Keep climbing, Alex.
               </span>
             </div>
             
             {/* Name - Most Prominent */}
             <h1 
-              className="text-6xl md:text-7xl lg:text-8xl font-light tracking-tight mb-6 animate-fade-in"
+              className="text-6xl md:text-7xl lg:text-8xl font-light tracking-tight mb-10 animate-fade-in"
               style={{ animationDelay: '0.2s', animationFillMode: 'both' }}
             >
               Alex Rivera
             </h1>
             
-            {/* Stats Row - Centered layout */}
+            {/* Avatar - Centered */}
             <div 
-              className="flex flex-wrap gap-8 md:gap-12 items-center justify-center mb-10 animate-fade-in"
+              className="flex justify-center mb-10 animate-fade-in"
               style={{ animationDelay: '0.3s', animationFillMode: 'both' }}
             >
-              {/* Avatar with hover details */}
               <div className="relative group">
                 <Avatar className="w-20 h-20 md:w-24 md:h-24 border-2 border-tier-accent/50 flex-shrink-0 transition-all duration-500 group-hover:scale-105 group-hover:border-tier-accent group-hover:shadow-[0_0_20px_hsl(var(--tier-accent)/0.4)]">
                   <AvatarImage src="https://i.pravatar.cc/300?img=12" alt="Alex Rivera" />
@@ -105,18 +104,6 @@ export const UserHeader = () => {
                   <div className="font-mono text-sm text-foreground mb-3">AR-5847</div>
                   <div className="text-xs text-muted-foreground mb-1 uppercase tracking-wider">Joined</div>
                   <div className="text-sm text-foreground">January 2023</div>
-                </div>
-              </div>
-
-              {/* Tier Badge - Matching Elevation Journey aesthetic */}
-              <div className="flex-shrink-0">
-                <div className="text-supporting uppercase tracking-[0.25em] mb-3 text-xs font-light">
-                  Current Tier
-                </div>
-                <div className="text-2xl md:text-3xl font-light tracking-tight" style={{
-                  color: currentTier ? `hsl(var(--${currentTier.color}))` : 'hsl(var(--tier-gold))'
-                }}>
-                  {currentTierName}
                 </div>
               </div>
             </div>

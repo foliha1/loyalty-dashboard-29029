@@ -60,6 +60,12 @@ const upcomingEvents: UpcomingEvent[] = [
     location: "Snowbasin, Utah",
   },
   {
+    eventName: "Tahoe Trail",
+    eventType: "Trail",
+    eventDates: "May 15-16, 2026",
+    location: "Lake Tahoe, California",
+  },
+  {
     eventName: "Rainier",
     eventType: "Everest",
     eventDates: "Jun 25-28, 2026",
@@ -213,7 +219,9 @@ export const CalendarGrid = () => {
       <div className="pt-12 md:pt-14 mt-6 md:mt-8 border-t border-border/20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
           <a
-            href="#events"
+            href="https://29029everesting.com/collections/tickets"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group relative overflow-hidden px-8 py-10 md:py-12 bg-gradient-to-br from-card/40 to-card/20 backdrop-blur-sm border border-border/30 rounded-xl transition-all duration-500 flex flex-col items-start hover:-translate-y-2 hover:border-tier-accent/40 hover:shadow-xl"
           >
             {/* Subtle gradient overlay on hover */}
@@ -240,7 +248,9 @@ export const CalendarGrid = () => {
           </a>
 
           <a
-            href="#coaching"
+            href="https://29029coaching.com/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group relative overflow-hidden px-8 py-10 md:py-12 bg-gradient-to-br from-card/40 to-card/20 backdrop-blur-sm border border-border/30 rounded-xl transition-all duration-500 flex flex-col items-start hover:-translate-y-2 hover:border-tier-accent/40 hover:shadow-xl"
           >
             {/* Subtle gradient overlay on hover */}
@@ -257,7 +267,7 @@ export const CalendarGrid = () => {
               {/* Underline sweep effect */}
               <div className="relative inline-block">
                 <span className="text-tier-accent text-xs uppercase tracking-[0.25em] font-light">
-                  Connect
+                  Build
                 </span>
                 <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-tier-accent group-hover:w-full transition-all duration-500" />
               </div>
@@ -267,7 +277,9 @@ export const CalendarGrid = () => {
           </a>
 
           <a
-            href="#apparel"
+            href="https://29029everesting.com/collections/frontpage"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group relative overflow-hidden px-8 py-10 md:py-12 bg-gradient-to-br from-card/40 to-card/20 backdrop-blur-sm border border-border/30 rounded-xl transition-all duration-500 flex flex-col items-start hover:-translate-y-2 hover:border-tier-accent/40 hover:shadow-xl"
           >
             {/* Subtle gradient overlay on hover */}
