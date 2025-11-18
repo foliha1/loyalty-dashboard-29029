@@ -1,10 +1,14 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Logo29029 } from "@/components/Logo29029";
 import { useNavigate } from "react-router-dom";
+import { useTier } from "@/contexts/TierContext";
+import { getCurrentTier } from "@/lib/tierConfig";
 import heroTopoBg from "@/assets/hero-topo-bg.jpg";
 
 export const UserHeader = () => {
   const navigate = useNavigate();
+  const { currentTier: currentTierName } = useTier();
+  const currentTier = getCurrentTier(currentTierName);
   
   return (
     <section 
@@ -80,8 +84,13 @@ export const UserHeader = () => {
             
             {/* Subheader with expanded tracking */}
             <div 
-              className="text-xs sm:text-sm md:text-base tracking-[0.2em] sm:tracking-[0.25em] uppercase font-normal text-muted-foreground animate-fade-in px-4"
-              style={{ animationDelay: '0.5s', animationFillMode: 'both', textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}
+              className="text-xs sm:text-sm md:text-base tracking-[0.2em] sm:tracking-[0.25em] uppercase font-normal animate-fade-in px-4"
+              style={{ 
+                animationDelay: '0.5s', 
+                animationFillMode: 'both', 
+                textShadow: '0 2px 4px rgba(0,0,0,0.5)',
+                color: currentTier ? `hsl(var(--${currentTier.color}))` : 'hsl(var(--muted-foreground))'
+              }}
             >
               Member Since 2023
             </div>
