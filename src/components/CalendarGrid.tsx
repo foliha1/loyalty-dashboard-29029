@@ -199,7 +199,7 @@ export const CalendarGrid = () => {
         <>
           {/* Empty State Card */}
           <div className="card-29029 p-10 md:p-16 text-center mb-16 md:mb-20 max-w-3xl mx-auto">
-            <div className="h-px w-20 md:w-24 bg-tier-accent/40 mx-auto mb-6 md:mb-8" />
+            <div className="h-px w-20 md:w-24 bg-border/40 mx-auto mb-6 md:mb-8" />
             
             <h4 className="text-xl md:text-2xl font-bold mb-4 tracking-wide px-4">
               Your Next Challenge Awaits
@@ -210,7 +210,7 @@ export const CalendarGrid = () => {
               and find your next summit.
             </p>
             
-            <div className="h-px w-20 md:w-24 bg-tier-accent/40 mx-auto mt-6 md:mt-8" />
+            <div className="h-px w-20 md:w-24 bg-border/40 mx-auto mt-6 md:mt-8" />
           </div>
         </>
       )}
@@ -222,10 +222,10 @@ export const CalendarGrid = () => {
             href="https://29029everesting.com/collections/tickets"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative overflow-hidden px-6 sm:px-8 py-10 sm:py-11 md:py-12 bg-gradient-to-br from-card/40 to-card/20 backdrop-blur-sm border border-border/30 rounded-xl transition-all duration-500 flex flex-col items-start hover:-translate-y-2 hover:border-tier-accent/40 hover:shadow-xl min-h-[200px]"
+            className="group relative overflow-hidden px-6 sm:px-8 py-10 sm:py-11 md:py-12 bg-gradient-to-br from-card/40 to-card/20 backdrop-blur-sm border border-border/30 rounded-xl transition-all duration-500 flex flex-col items-start hover:-translate-y-2 hover:border-primary/40 hover:shadow-xl min-h-[200px]"
           >
             {/* Subtle gradient overlay on hover */}
-            <div className="absolute inset-0 bg-gradient-to-br from-tier-accent/0 to-tier-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             
             <div className="relative z-10 flex-1">
               <h5 className="text-base sm:text-lg md:text-xl font-light mb-2 tracking-tight leading-tight">
@@ -237,24 +237,24 @@ export const CalendarGrid = () => {
               
               {/* Underline sweep effect */}
               <div className="relative inline-block">
-                <span className="text-tier-accent text-xs uppercase tracking-[0.25em] font-light">
+                <span className="text-foreground text-xs uppercase tracking-[0.25em] font-light">
                   Explore
                 </span>
-                <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-tier-accent group-hover:w-full transition-all duration-500" />
+                <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-primary group-hover:w-full transition-all duration-500" />
               </div>
             </div>
             
-            <ArrowRight className="relative z-10 w-5 h-5 text-tier-accent mt-6 group-hover:translate-x-2 transition-transform duration-500" />
+            <ArrowRight className="relative z-10 w-5 h-5 text-primary mt-6 group-hover:translate-x-2 transition-transform duration-500" />
           </a>
 
           <a
             href="https://29029coaching.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative overflow-hidden px-6 sm:px-8 py-10 sm:py-11 md:py-12 bg-gradient-to-br from-card/40 to-card/20 backdrop-blur-sm border border-border/30 rounded-xl transition-all duration-500 flex flex-col items-start hover:-translate-y-2 hover:border-tier-accent/40 hover:shadow-xl min-h-[200px]"
+            className="group relative overflow-hidden px-6 sm:px-8 py-10 sm:py-11 md:py-12 bg-gradient-to-br from-card/40 to-card/20 backdrop-blur-sm border border-border/30 rounded-xl transition-all duration-500 flex flex-col items-start hover:-translate-y-2 hover:border-primary/40 hover:shadow-xl min-h-[200px]"
           >
             {/* Subtle gradient overlay on hover */}
-            <div className="absolute inset-0 bg-gradient-to-br from-tier-accent/0 to-tier-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             
             <div className="relative z-10 flex-1">
               <h5 className="text-base sm:text-lg md:text-xl font-light mb-2 tracking-tight leading-tight">
@@ -266,24 +266,24 @@ export const CalendarGrid = () => {
               
               {/* Underline sweep effect */}
               <div className="relative inline-block">
-                <span className="text-tier-accent text-xs uppercase tracking-[0.25em] font-light">
+                <span className="text-foreground text-xs uppercase tracking-[0.25em] font-light">
                   Build
                 </span>
-                <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-tier-accent group-hover:w-full transition-all duration-500" />
+                <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-primary group-hover:w-full transition-all duration-500" />
               </div>
             </div>
             
-            <ArrowRight className="relative z-10 w-5 h-5 text-tier-accent mt-6 group-hover:translate-x-2 transition-transform duration-500" />
+            <ArrowRight className="relative z-10 w-5 h-5 text-primary mt-6 group-hover:translate-x-2 transition-transform duration-500" />
           </a>
 
           <a
             href="https://29029everesting.com/collections/frontpage"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative overflow-hidden px-6 sm:px-8 py-10 sm:py-11 md:py-12 bg-gradient-to-br from-card/40 to-card/20 backdrop-blur-sm border border-border/30 rounded-xl transition-all duration-500 flex flex-col items-start hover:-translate-y-2 hover:border-tier-accent/40 hover:shadow-xl min-h-[200px]"
+            className="group relative overflow-hidden px-6 sm:px-8 py-10 sm:py-11 md:py-12 bg-gradient-to-br from-card/40 to-card/20 backdrop-blur-sm border border-border/30 rounded-xl transition-all duration-500 flex flex-col items-start hover:-translate-y-2 hover:border-primary/40 hover:shadow-xl min-h-[200px]"
           >
             {/* Subtle gradient overlay on hover */}
-            <div className="absolute inset-0 bg-gradient-to-br from-tier-accent/0 to-tier-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             
             <div className="relative z-10 flex-1">
               <h5 className="text-base sm:text-lg md:text-xl font-light mb-2 tracking-tight leading-tight">
@@ -295,14 +295,14 @@ export const CalendarGrid = () => {
               
               {/* Underline sweep effect */}
               <div className="relative inline-block">
-                <span className="text-tier-accent text-xs uppercase tracking-[0.25em] font-light">
+                <span className="text-foreground text-xs uppercase tracking-[0.25em] font-light">
                   Shop Now
                 </span>
-                <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-tier-accent group-hover:w-full transition-all duration-500" />
+                <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-primary group-hover:w-full transition-all duration-500" />
               </div>
             </div>
             
-            <ArrowRight className="relative z-10 w-5 h-5 text-tier-accent mt-6 group-hover:translate-x-2 transition-transform duration-500" />
+            <ArrowRight className="relative z-10 w-5 h-5 text-primary mt-6 group-hover:translate-x-2 transition-transform duration-500" />
           </a>
         </div>
       </div>
