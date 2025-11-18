@@ -11,7 +11,7 @@ All colors MUST be HSL.
     --background: 0 0% 3%;
     --foreground: 0 0% 95%;
 
-    --card: 0 0% 5%;
+    --card: 30 3% 9%;
     --card-foreground: 0 0% 95%;
     
     --warm-charcoal: 0 0% 10%;
@@ -35,9 +35,11 @@ All colors MUST be HSL.
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 16%;
+    --border: 0 0% 22%;
     --input: 0 0% 14%;
     --ring: 0 0% 98%;
+    
+    --shadow-card: 0 8px 16px -4px rgb(0 0 0 / 0.5);
 
     --radius: 0.5rem;
     
