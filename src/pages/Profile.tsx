@@ -62,7 +62,7 @@ export default function Profile() {
             {!isEditing ? (
               <Button
                 onClick={() => setIsEditing(true)}
-                className="bg-tier-accent hover:bg-tier-accent/90 text-black font-medium uppercase tracking-wider text-xs sm:text-sm min-h-[44px] px-4 sm:px-6"
+                className="bg-tier-accent hover:bg-tier-accent/90 text-black font-medium uppercase tracking-wider text-xs sm:text-sm min-h-[44px] px-4 sm:px-6 shadow-lg hover:shadow-xl transition-all"
               >
                 Edit Profile
               </Button>
@@ -77,10 +77,10 @@ export default function Profile() {
                 </Button>
                 <Button
                   onClick={handleSave}
-                  className="bg-tier-accent hover:bg-tier-accent/90 text-black font-medium uppercase tracking-wider text-xs sm:text-sm min-h-[44px] px-3 sm:px-4"
+                  className="bg-tier-accent hover:bg-tier-accent/90 text-black font-semibold uppercase tracking-wider text-xs sm:text-sm min-h-[44px] px-4 sm:px-6 shadow-lg hover:shadow-xl transition-all"
                 >
                   <Save className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
-                  Save
+                  Save Changes
                 </Button>
               </div>
             )}
@@ -89,26 +89,29 @@ export default function Profile() {
       </header>
 
       {/* Main Content */}
-      <main className="container mx-auto px-5 sm:px-6 md:px-10 lg:px-12 py-8 sm:py-10 md:py-12">
+      <main className="container mx-auto px-5 sm:px-6 md:px-10 lg:px-12 py-8 sm:py-10 md:py-12 pb-20">
         <div className="max-w-4xl mx-auto">
           {/* Page Title */}
-          <div className="mb-8 sm:mb-10 md:mb-12">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight mb-2 sm:mb-3">Member Profile</h1>
-            <p className="text-foreground/70 text-sm sm:text-base">Manage your personal information and member details</p>
+          <div className="mb-10 sm:mb-12 md:mb-14">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight mb-3 sm:mb-4">Member Profile</h1>
+            <p className="text-foreground/75 text-sm sm:text-base">Manage your personal information and member details</p>
           </div>
 
           {/* Profile Avatar Section */}
-          <Card className="card-29029 p-6 sm:p-8 md:p-10 mb-6 sm:mb-7 md:mb-8">
-            <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
+          <Card className="card-29029 p-6 sm:p-8 md:p-10 mb-8 sm:mb-10">
+            <div className="flex flex-col md:flex-row items-center md:items-start gap-6 sm:gap-8">
               <div className="relative">
-                <Avatar className="w-32 h-32 border-2 border-tier-accent">
+                <Avatar className="w-28 h-28 sm:w-32 sm:h-32 border-2 border-tier-accent/50">
                   <AvatarImage src="https://i.pravatar.cc/300?img=12" alt="Profile" />
                   <AvatarFallback className="bg-secondary text-foreground text-3xl">
                     {profileData.firstName[0]}{profileData.lastName[0]}
                   </AvatarFallback>
                 </Avatar>
                 {isEditing && (
-                  <button className="absolute bottom-0 right-0 bg-tier-accent hover:bg-tier-accent/90 text-black rounded-full p-2 transition-colors">
+                  <button 
+                    className="absolute bottom-0 right-0 bg-tier-accent hover:bg-tier-accent/90 text-black rounded-full p-2.5 transition-colors shadow-lg min-w-[44px] min-h-[44px] flex items-center justify-center"
+                    aria-label="Change profile picture"
+                  >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -118,53 +121,57 @@ export default function Profile() {
               </div>
               
               <div className="flex-1 text-center md:text-left">
-                <h2 className="text-3xl font-light tracking-tight mb-2">
+                <h2 className="text-2xl sm:text-3xl font-light tracking-tight mb-3 sm:mb-4">
                   {profileData.firstName} {profileData.lastName}
                 </h2>
-                <div className="space-y-1 text-muted-foreground">
-                  <p className="font-mono text-sm">Member ID: {profileData.memberId}</p>
-                  <p className="text-sm">Member Since: {profileData.joinDate}</p>
+                <div className="space-y-1.5 text-foreground/70">
+                  <p className="font-mono text-xs sm:text-sm uppercase tracking-wider">Member ID: {profileData.memberId}</p>
+                  <p className="text-xs sm:text-sm uppercase tracking-wider">Member Since: {profileData.joinDate}</p>
                 </div>
               </div>
             </div>
           </Card>
 
           {/* Personal Information */}
-          <Card className="card-29029 p-6 sm:p-8 md:p-10 mb-6 sm:mb-7 md:mb-8">
-            <h3 className="text-xl sm:text-2xl font-light tracking-tight mb-6 sm:mb-7 md:mb-8 pb-3 sm:pb-4 border-b border-border/30">
-              Personal Information
-            </h3>
+          <Card className="card-29029 p-6 sm:p-8 md:p-10 mb-8 sm:mb-10">
+            <div className="mb-8 sm:mb-10">
+              <h3 className="text-xl sm:text-2xl font-light tracking-tight mb-1.5">Personal Information</h3>
+              <p className="text-xs sm:text-sm text-foreground/60 uppercase tracking-wider">Basic details and contact information</p>
+            </div>
+            <div className="h-px bg-gradient-to-r from-tier-accent/20 via-tier-accent/40 to-tier-accent/20 mb-8 sm:mb-10" />
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
-              <div>
-                <Label htmlFor="firstName" className="text-xs uppercase tracking-wider text-foreground/70 mb-2 block">
-                  First Name
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-7 md:gap-8">
+              <div className="space-y-2">
+                <Label htmlFor="firstName" className="text-xs uppercase tracking-wider text-foreground/80 font-medium block">
+                  First Name *
                 </Label>
                 <Input
                   id="firstName"
                   value={profileData.firstName}
                   onChange={(e) => handleInputChange("firstName", e.target.value)}
                   disabled={!isEditing}
-                  className="bg-card/50 border-border/30"
+                  placeholder="Enter first name"
+                  required
                 />
               </div>
 
-              <div>
-                <Label htmlFor="lastName" className="text-xs uppercase tracking-wider text-foreground/70 mb-2 block">
-                  Last Name
+              <div className="space-y-2">
+                <Label htmlFor="lastName" className="text-xs uppercase tracking-wider text-foreground/80 font-medium block">
+                  Last Name *
                 </Label>
                 <Input
                   id="lastName"
                   value={profileData.lastName}
                   onChange={(e) => handleInputChange("lastName", e.target.value)}
                   disabled={!isEditing}
-                  className="bg-card/50 border-border/30"
+                  placeholder="Enter last name"
+                  required
                 />
               </div>
 
-              <div>
-                <Label htmlFor="email" className="text-xs uppercase tracking-wider text-foreground/70 mb-2 block">
-                  Email
+              <div className="space-y-2">
+                <Label htmlFor="email" className="text-xs uppercase tracking-wider text-foreground/80 font-medium block">
+                  Email Address *
                 </Label>
                 <Input
                   id="email"
@@ -172,13 +179,14 @@ export default function Profile() {
                   value={profileData.email}
                   onChange={(e) => handleInputChange("email", e.target.value)}
                   disabled={!isEditing}
-                  className="bg-card/50 border-border/30"
+                  placeholder="your.email@example.com"
+                  required
                 />
               </div>
 
-              <div>
-                <Label htmlFor="phone" className="text-xs uppercase tracking-wider text-foreground/70 mb-2 block">
-                  Phone
+              <div className="space-y-2">
+                <Label htmlFor="phone" className="text-xs uppercase tracking-wider text-foreground/80 font-medium block">
+                  Phone Number
                 </Label>
                 <Input
                   id="phone"
@@ -186,13 +194,13 @@ export default function Profile() {
                   value={profileData.phone}
                   onChange={(e) => handleInputChange("phone", e.target.value)}
                   disabled={!isEditing}
-                  className="bg-card/50 border-border/30"
+                  placeholder="+1 (555) 000-0000"
                 />
               </div>
 
-              <div>
-                <Label htmlFor="birthday" className="text-xs uppercase tracking-wider text-foreground/70 mb-2 block">
-                  Birthday
+              <div className="space-y-2">
+                <Label htmlFor="birthday" className="text-xs uppercase tracking-wider text-foreground/80 font-medium block">
+                  Date of Birth
                 </Label>
                 <Input
                   id="birthday"
@@ -200,21 +208,22 @@ export default function Profile() {
                   value={profileData.birthday}
                   onChange={(e) => handleInputChange("birthday", e.target.value)}
                   disabled={!isEditing}
-                  className="bg-card/50 border-border/30"
                 />
               </div>
             </div>
           </Card>
 
           {/* Address Information */}
-          <Card className="card-29029 p-6 sm:p-8 md:p-10 mb-6 sm:mb-7 md:mb-8">
-            <h3 className="text-xl sm:text-2xl font-light tracking-tight mb-6 sm:mb-7 md:mb-8 pb-3 sm:pb-4 border-b border-border/30">
-              Address
-            </h3>
+          <Card className="card-29029 p-6 sm:p-8 md:p-10 mb-8 sm:mb-10">
+            <div className="mb-8 sm:mb-10">
+              <h3 className="text-xl sm:text-2xl font-light tracking-tight mb-1.5">Address</h3>
+              <p className="text-xs sm:text-sm text-foreground/60 uppercase tracking-wider">Mailing and billing address</p>
+            </div>
+            <div className="h-px bg-gradient-to-r from-tier-accent/20 via-tier-accent/40 to-tier-accent/20 mb-8 sm:mb-10" />
             
-            <div className="grid grid-cols-1 gap-5 sm:gap-6">
-              <div>
-                <Label htmlFor="address" className="text-xs uppercase tracking-wider text-foreground/70 mb-2 block">
+            <div className="space-y-6 sm:space-y-7 md:space-y-8">
+              <div className="space-y-2">
+                <Label htmlFor="address" className="text-xs uppercase tracking-wider text-foreground/80 font-medium block">
                   Street Address
                 </Label>
                 <Input
@@ -222,13 +231,13 @@ export default function Profile() {
                   value={profileData.address}
                   onChange={(e) => handleInputChange("address", e.target.value)}
                   disabled={!isEditing}
-                  className="bg-card/50 border-border/30"
+                  placeholder="123 Main Street"
                 />
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6">
-                <div>
-                  <Label htmlFor="city" className="text-xs uppercase tracking-wider text-foreground/70 mb-2 block">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-7 md:gap-8">
+                <div className="space-y-2">
+                  <Label htmlFor="city" className="text-xs uppercase tracking-wider text-foreground/80 font-medium block">
                     City
                   </Label>
                   <Input
@@ -236,12 +245,12 @@ export default function Profile() {
                     value={profileData.city}
                     onChange={(e) => handleInputChange("city", e.target.value)}
                     disabled={!isEditing}
-                    className="bg-card/50 border-border/30"
+                    placeholder="City name"
                   />
                 </div>
 
-                <div>
-                  <Label htmlFor="state" className="text-xs uppercase tracking-wider text-foreground/70 mb-2 block">
+                <div className="space-y-2">
+                  <Label htmlFor="state" className="text-xs uppercase tracking-wider text-foreground/80 font-medium block">
                     State
                   </Label>
                   <Input
@@ -249,12 +258,12 @@ export default function Profile() {
                     value={profileData.state}
                     onChange={(e) => handleInputChange("state", e.target.value)}
                     disabled={!isEditing}
-                    className="bg-card/50 border-border/30"
+                    placeholder="State"
                   />
                 </div>
 
-                <div>
-                  <Label htmlFor="zipCode" className="text-xs uppercase tracking-wider text-foreground/70 mb-2 block">
+                <div className="space-y-2">
+                  <Label htmlFor="zipCode" className="text-xs uppercase tracking-wider text-foreground/80 font-medium block">
                     Zip Code
                   </Label>
                   <Input
@@ -262,7 +271,7 @@ export default function Profile() {
                     value={profileData.zipCode}
                     onChange={(e) => handleInputChange("zipCode", e.target.value)}
                     disabled={!isEditing}
-                    className="bg-card/50 border-border/30"
+                    placeholder="00000"
                   />
                 </div>
               </div>
@@ -270,28 +279,31 @@ export default function Profile() {
           </Card>
 
           {/* Emergency Contact */}
-          <Card className="card-29029 p-6 sm:p-8 md:p-10 mb-6 sm:mb-7 md:mb-8">
-            <h3 className="text-xl sm:text-2xl font-light tracking-tight mb-6 sm:mb-7 md:mb-8 pb-3 sm:pb-4 border-b border-border/30">
-              Emergency Contact
-            </h3>
+          <Card className="card-29029 p-6 sm:p-8 md:p-10 mb-8 sm:mb-10">
+            <div className="mb-8 sm:mb-10">
+              <h3 className="text-xl sm:text-2xl font-light tracking-tight mb-1.5">Emergency Contact</h3>
+              <p className="text-xs sm:text-sm text-foreground/60 uppercase tracking-wider">Primary emergency contact information</p>
+            </div>
+            <div className="h-px bg-gradient-to-r from-tier-accent/20 via-tier-accent/40 to-tier-accent/20 mb-8 sm:mb-10" />
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
-              <div>
-                <Label htmlFor="emergencyContact" className="text-xs uppercase tracking-wider text-foreground/70 mb-2 block">
-                  Contact Name
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-7 md:gap-8">
+              <div className="space-y-2">
+                <Label htmlFor="emergencyContact" className="text-xs uppercase tracking-wider text-foreground/80 font-medium block">
+                  Contact Name *
                 </Label>
                 <Input
                   id="emergencyContact"
                   value={profileData.emergencyContact}
                   onChange={(e) => handleInputChange("emergencyContact", e.target.value)}
                   disabled={!isEditing}
-                  className="bg-card/50 border-border/30"
+                  placeholder="Full name"
+                  required
                 />
               </div>
 
-              <div>
-                <Label htmlFor="emergencyPhone" className="text-xs uppercase tracking-wider text-foreground/70 mb-2 block">
-                  Contact Phone
+              <div className="space-y-2">
+                <Label htmlFor="emergencyPhone" className="text-xs uppercase tracking-wider text-foreground/80 font-medium block">
+                  Contact Phone *
                 </Label>
                 <Input
                   id="emergencyPhone"
@@ -299,17 +311,19 @@ export default function Profile() {
                   value={profileData.emergencyPhone}
                   onChange={(e) => handleInputChange("emergencyPhone", e.target.value)}
                   disabled={!isEditing}
-                  className="bg-card/50 border-border/30"
+                  placeholder="+1 (555) 000-0000"
+                  required
                 />
               </div>
             </div>
           </Card>
-
           {/* Lifetime Stats (Read-only) */}
           <Card className="card-29029 p-6 sm:p-8 md:p-10">
-            <h3 className="text-xl sm:text-2xl font-light tracking-tight mb-6 sm:mb-7 md:mb-8 pb-3 sm:pb-4 border-b border-border/30">
-              Lifetime Statistics
-            </h3>
+            <div className="mb-8 sm:mb-10">
+              <h3 className="text-xl sm:text-2xl font-light tracking-tight mb-1.5">Lifetime Statistics</h3>
+              <p className="text-xs sm:text-sm text-foreground/60 uppercase tracking-wider">Your complete journey at a glance</p>
+            </div>
+            <div className="h-px bg-gradient-to-r from-tier-accent/20 via-tier-accent/40 to-tier-accent/20 mb-8 sm:mb-10" />
             
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
               <div className="bg-card/30 border border-border/20 rounded-lg p-4 sm:p-5 md:p-6">
