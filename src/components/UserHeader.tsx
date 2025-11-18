@@ -68,10 +68,20 @@ export const UserHeader = () => {
               </button>
             </div>
             
+            {/* Micro-metric line */}
+            <div 
+              className="flex items-center justify-center gap-3 mb-6 text-xs tracking-[0.2em] uppercase font-normal text-muted-foreground/80 animate-fade-in"
+              style={{ animationDelay: '0.4s', animationFillMode: 'both' }}
+            >
+              <span className="text-tier-accent font-medium">720 EPs</span>
+              <span className="text-muted-foreground/50">•</span>
+              <span>280 to Peak</span>
+            </div>
+            
             {/* Subheader with expanded tracking */}
             <div 
               className="text-sm md:text-base tracking-[0.25em] uppercase font-normal text-muted-foreground/70 animate-fade-in"
-              style={{ animationDelay: '0.4s', animationFillMode: 'both', textShadow: '0 1px 2px rgba(0,0,0,0.3)' }}
+              style={{ animationDelay: '0.5s', animationFillMode: 'both', textShadow: '0 1px 2px rgba(0,0,0,0.3)' }}
             >
               Member Since 2023
             </div>
