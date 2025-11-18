@@ -132,7 +132,7 @@ export const ActivityFeed = () => {
 
       <div className="card-29029 p-8 md:p-10 lg:p-12">
         {/* Year Display - More Dramatic */}
-        <div className="flex flex-col md:flex-row items-center justify-between mb-12 pb-8 border-b border-tier-accent/20 gap-8">
+        <div className="flex flex-col md:flex-row items-center justify-between mb-12 pb-8 border-b border-border/30 gap-8">
           <div className="text-center md:text-left metric-animate">
             <div className="text-subhead mb-3">Year</div>
             <h3 className="text-7xl md:text-8xl font-light tracking-tight">
@@ -156,9 +156,9 @@ export const ActivityFeed = () => {
               <div className="text-3xl md:text-4xl font-light tracking-tight mb-3">{yearData.events.totalEP} EPs</div>
               
               <Collapsible>
-                <CollapsibleTrigger className="flex items-center gap-2 text-supporting hover:text-tier-accent transition-colors group">
+                <CollapsibleTrigger className="flex items-center gap-2 text-supporting hover:text-foreground transition-colors group">
                   <span className="text-subhead">View Events</span>
-                  <ChevronDown className="h-4 w-4 text-tier-accent" />
+                  <ChevronDown className="h-4 w-4 text-muted-foreground" />
                 </CollapsibleTrigger>
                 <CollapsibleContent className="mt-4">
                   <div className="text-body font-light">
@@ -176,9 +176,9 @@ export const ActivityFeed = () => {
               <div className="text-3xl md:text-4xl font-light tracking-tight mb-3">{yearData.apparel.totalEP} EPs</div>
               
               <Collapsible>
-                <CollapsibleTrigger className="flex items-center gap-2 text-supporting hover:text-tier-accent transition-colors group">
+                <CollapsibleTrigger className="flex items-center gap-2 text-supporting hover:text-foreground transition-colors group">
                   <span className="text-subhead">View Purchases</span>
-                  <ChevronDown className="h-4 w-4 text-tier-accent" />
+                  <ChevronDown className="h-4 w-4 text-muted-foreground" />
                 </CollapsibleTrigger>
                 <CollapsibleContent className="mt-4">
                   <div className="text-body font-light">
@@ -196,9 +196,9 @@ export const ActivityFeed = () => {
               <div className="text-3xl md:text-4xl font-light tracking-tight mb-3">{yearData.coaching.totalEP} EPs</div>
               
               <Collapsible>
-                <CollapsibleTrigger className="flex items-center gap-2 text-supporting hover:text-tier-accent transition-colors group">
+                <CollapsibleTrigger className="flex items-center gap-2 text-supporting hover:text-foreground transition-colors group">
                   <span className="text-subhead">View Sessions</span>
-                  <ChevronDown className="h-4 w-4 text-tier-accent" />
+                  <ChevronDown className="h-4 w-4 text-muted-foreground" />
                 </CollapsibleTrigger>
                 <CollapsibleContent className="mt-4">
                   <div className="space-y-2">
