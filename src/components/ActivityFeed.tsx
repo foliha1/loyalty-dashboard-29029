@@ -117,7 +117,16 @@ export const ActivityFeed = () => {
         </h3>
         
         <Select value={selectedYear} onValueChange={setSelectedYear}>
-...
+          <SelectTrigger className="w-[180px] bg-card/50 border-border/30">
+            <SelectValue placeholder="Select year" />
+          </SelectTrigger>
+          <SelectContent>
+            {yearlyActivities.map((activity) => (
+              <SelectItem key={activity.year} value={activity.year.toString()}>
+                {activity.year}
+              </SelectItem>
+            ))}
+          </SelectContent>
         </Select>
       </div>
 

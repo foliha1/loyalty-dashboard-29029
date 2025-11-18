@@ -41,6 +41,10 @@ export const TiersContinuum = () => {
   const progressPercent = Math.min(100, (progressInTier / tierRange) * 100);
   const remainingEP = Math.max(0, nextThreshold - currentEP);
   const nextTierName = nextTier?.name || "Peak";
+  
+  // Calculate overall progress for the bar (0 to max tier threshold)
+  const maxTierThreshold = tiers[tiers.length - 1]?.threshold || 2000;
+  const overallProgressPercent = Math.min(100, (currentEP / maxTierThreshold) * 100);
 
   // Reveal animation
   useEffect(() => {
@@ -52,11 +56,11 @@ export const TiersContinuum = () => {
   useEffect(() => {
     if (isRevealed) {
       const timer = setTimeout(() => {
-        setAnimatedProgress(progressPercent);
+        setAnimatedProgress(overallProgressPercent);
       }, 300);
       return () => clearTimeout(timer);
     }
-  }, [isRevealed, progressPercent]);
+  }, [isRevealed, overallProgressPercent]);
 
   // Animate number roll-up
   useEffect(() => {
