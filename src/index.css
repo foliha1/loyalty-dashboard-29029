@@ -310,15 +310,37 @@ h2, h3, .text-section-title {
     line-height: 1.75;
     font-size: 1rem;
   }
-
-  .text-supporting {
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    font-size: 0.875rem;
-    color: hsl(0 0% 45%);
-    text-align: left;
-    line-height: 1.65;
+  
+  /* Force neutral text - immune to tier color inheritance */
+  .text-neutral-body {
+    color: hsl(0 0% 55%) !important;
   }
+
+  .text-neutral-supporting {
+    color: hsl(0 0% 45%) !important;
+  }
+
+  .text-neutral-muted {
+    color: hsl(var(--muted-foreground)) !important;
+  }
+
+  /* Isolate content from tier color cascade */
+  .color-neutral-zone {
+    color: hsl(var(--foreground));
+  }
+
+  .color-neutral-zone * {
+    color: inherit;
+  }
+
+.text-supporting {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 0.875rem;
+  color: hsl(0 0% 45%) !important;
+  text-align: left;
+  line-height: 1.65;
+}
 
   /* Premium accent dividers */
   .divider-red {

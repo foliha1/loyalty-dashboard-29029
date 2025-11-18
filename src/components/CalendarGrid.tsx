@@ -96,7 +96,7 @@ export const CalendarGrid = () => {
       
       {hasEvents ? (
         <>
-          <p className="text-supporting text-sm md:text-base mb-10 sm:mb-12 md:mb-16 max-w-2xl px-2 font-light">
+          <p className="text-sm md:text-base mb-10 sm:mb-12 md:mb-16 max-w-2xl px-2 font-light !text-muted-foreground">
             Your upcoming events
           </p>
 
@@ -228,7 +228,7 @@ export const CalendarGrid = () => {
             <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             
             <div className="relative z-10 flex-1">
-              <h5 className="text-base sm:text-lg md:text-xl font-light mb-2 tracking-tight leading-tight">
+              <h5 className="text-base sm:text-lg md:text-xl font-light mb-2 tracking-tight leading-tight !text-foreground">
                 {hasEvents ? "Discover Events" : "Discover Challenges"}
               </h5>
               <p className="text-foreground/60 text-[11px] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] font-light mb-6 sm:mb-8">
@@ -257,7 +257,7 @@ export const CalendarGrid = () => {
             <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             
             <div className="relative z-10 flex-1">
-              <h5 className="text-base sm:text-lg md:text-xl font-light mb-2 tracking-tight leading-tight">
+              <h5 className="text-base sm:text-lg md:text-xl font-light mb-2 tracking-tight leading-tight !text-foreground">
                 1:1 Coaching
               </h5>
               <p className="text-foreground/60 text-[11px] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] font-light mb-6 sm:mb-8">
@@ -286,7 +286,7 @@ export const CalendarGrid = () => {
             <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             
             <div className="relative z-10 flex-1">
-              <h5 className="text-base sm:text-lg md:text-xl font-light mb-2 tracking-tight leading-tight">
+              <h5 className="text-base sm:text-lg md:text-xl font-light mb-2 tracking-tight leading-tight !text-foreground">
                 Apparel
               </h5>
               <p className="text-foreground/60 text-[11px] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] font-light mb-6 sm:mb-8">
