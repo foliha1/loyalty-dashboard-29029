@@ -180,7 +180,7 @@ export const CalendarGrid = () => {
                       >
                         {daysRemaining}
                       </div>
-                      <div className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground/80 font-light">
+                      <div className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground font-light">
                         Days Until Summit
                       </div>
                     </div>
@@ -231,7 +231,7 @@ export const CalendarGrid = () => {
               <h5 className="text-lg md:text-xl font-light mb-2 tracking-tight leading-tight">
                 {hasEvents ? "Discover Events" : "Discover Challenges"}
               </h5>
-              <p className="text-muted-foreground/70 text-xs uppercase tracking-[0.2em] font-light mb-8">
+              <p className="text-foreground/60 text-xs uppercase tracking-[0.2em] font-light mb-8">
                 Browse All Experiences
               </p>
               
@@ -260,7 +260,7 @@ export const CalendarGrid = () => {
               <h5 className="text-lg md:text-xl font-light mb-2 tracking-tight leading-tight">
                 1:1 Coaching
               </h5>
-              <p className="text-muted-foreground/70 text-xs uppercase tracking-[0.2em] font-light mb-8">
+              <p className="text-foreground/60 text-xs uppercase tracking-[0.2em] font-light mb-8">
                 Personal Experience
               </p>
               
@@ -289,7 +289,7 @@ export const CalendarGrid = () => {
               <h5 className="text-lg md:text-xl font-light mb-2 tracking-tight leading-tight">
                 Apparel
               </h5>
-              <p className="text-muted-foreground/70 text-xs uppercase tracking-[0.2em] font-light mb-8">
+              <p className="text-foreground/60 text-xs uppercase tracking-[0.2em] font-light mb-8">
                 Shop Collection
               </p>
               

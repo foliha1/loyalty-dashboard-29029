@@ -27,7 +27,7 @@ All colors MUST be HSL.
     --secondary-foreground: 0 0% 95%;
 
     --muted: 0 0% 18%;
-    --muted-foreground: 0 0% 47%;
+    --muted-foreground: 0 0% 40%;
 
     --accent: 0 0% 98%;
     --accent-foreground: 0 0% 8%;
@@ -58,8 +58,8 @@ All colors MUST be HSL.
     --silver: 0 0% 85%;
     
     /* Tier colors - Seamless continuum gradient */
-    --base: 0 0% 75%;           /* Light gray */
-    --base-glow: 0 0% 85%;      /* Lighter gray glow */
+    --base: 174 59% 46%;        /* Teal #31BCAF */
+    --base-glow: 174 59% 56%;   /* Lighter teal glow */
     --ridge: 40 60% 50%;        /* Gold #CC9933 */
     --ridge-glow: 40 70% 60%;   /* Brighter gold glow */
     --peak: 5 85% 50%;          /* Red #E1251B */
@@ -299,14 +299,14 @@ h2, h3, .text-section-title {
   text-transform: uppercase;
   letter-spacing: 0.2em;
   font-size: 0.7rem;
-  color: hsl(0 0% 55%);
+  color: hsl(0 0% 48%);
   line-height: 1.6;
 }
 
   .text-body {
     font-family: 'Inter', sans-serif;
     font-weight: 400;
-    color: hsl(0 0% 62%);
+    color: hsl(0 0% 55%);
     line-height: 1.75;
     font-size: 1rem;
   }
@@ -315,7 +315,7 @@ h2, h3, .text-section-title {
     font-family: 'Inter', sans-serif;
     font-weight: 400;
     font-size: 0.875rem;
-    color: hsl(0 0% 52%);
+    color: hsl(0 0% 45%);
     text-align: left;
     line-height: 1.65;
   }
@@ -354,6 +354,14 @@ h2, h3, .text-section-title {
 
 .text-tier-accent {
   color: hsl(var(--current-tier-accent));
+}
+
+.text-tier-gold {
+  color: hsl(var(--ridge));
+}
+
+.text-tier-silver {
+  color: hsl(var(--peak));
 }
 
 .border-tier-accent {

@@ -38,7 +38,7 @@ export const UserHeader = () => {
           <div className="max-w-3xl mx-auto text-center">
             {/* Premium ID Number */}
             <div className="mb-6 animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
-              <span className="text-[11px] md:text-xs tracking-[0.3em] uppercase font-normal text-muted-foreground/80" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.3)' }}>
+              <span className="text-[11px] md:text-xs tracking-[0.3em] uppercase font-normal text-muted-foreground" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>
                 29029 ID: AR-5847
               </span>
             </div>
@@ -70,18 +70,18 @@ export const UserHeader = () => {
             
             {/* Micro-metric line */}
             <div 
-              className="flex items-center justify-center gap-3 mb-6 text-xs tracking-[0.2em] uppercase font-normal text-muted-foreground/80 animate-fade-in"
+              className="flex items-center justify-center gap-3 mb-6 text-xs tracking-[0.2em] uppercase font-normal text-muted-foreground animate-fade-in"
               style={{ animationDelay: '0.4s', animationFillMode: 'both' }}
             >
               <span className="text-tier-accent font-medium">720 EPs</span>
-              <span className="text-muted-foreground/50">•</span>
+              <span className="text-muted-foreground/70">•</span>
               <span>280 to Peak</span>
             </div>
             
             {/* Subheader with expanded tracking */}
             <div 
-              className="text-sm md:text-base tracking-[0.25em] uppercase font-normal text-muted-foreground/70 animate-fade-in"
-              style={{ animationDelay: '0.5s', animationFillMode: 'both', textShadow: '0 1px 2px rgba(0,0,0,0.3)' }}
+              className="text-sm md:text-base tracking-[0.25em] uppercase font-normal text-muted-foreground animate-fade-in"
+              style={{ animationDelay: '0.5s', animationFillMode: 'both', textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}
             >
               Member Since 2023
             </div>
