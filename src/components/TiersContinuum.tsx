@@ -196,14 +196,14 @@ export const TiersContinuum = () => {
           <AccordionItem value="tier-benefits" className="border border-border/30 rounded-lg overflow-hidden bg-card/30 backdrop-blur-sm">
             <AccordionTrigger className="px-6 md:px-8 py-6 md:py-7 hover:no-underline hover:bg-muted/10 transition-colors duration-300 [&[data-state=open]>div>svg]:rotate-180">
               <div className="flex items-center gap-3 text-left w-full">
-                <ChevronDown className="h-4 w-4 md:h-5 md:w-5 text-tier-accent transition-transform duration-300 ease-out shrink-0" />
+                <ChevronDown className="h-4 w-4 md:h-5 md:w-5 text-muted-foreground transition-transform duration-300 ease-out shrink-0" />
                 <span className="text-base md:text-lg lg:text-xl font-normal tracking-[0.12em] uppercase text-foreground">
                   Tier Benefits
                 </span>
               </div>
             </AccordionTrigger>
             <AccordionContent className="px-6 md:px-8 pb-6 md:pb-8 pt-2">
-              <div className="border-l-2 border-tier-accent/20 pl-6 md:pl-8 pr-4 py-6 bg-gradient-to-br from-muted/5 to-transparent rounded-r-lg">
+              <div className="border-l-2 border-foreground/10 pl-6 md:pl-8 pr-4 py-6 bg-gradient-to-br from-muted/5 to-transparent rounded-r-lg">
                 <div className="space-y-8 md:space-y-10">
                   {/* Ridge Tier */}
                   <div>
@@ -212,19 +212,19 @@ export const TiersContinuum = () => {
                     </h5>
                     <ul className="space-y-2 md:space-y-3 text-sm md:text-base text-supporting leading-relaxed">
                       <li className="flex items-start gap-2 md:gap-3">
-                        <span className="text-tier-accent/75 mt-1">•</span>
+                        <span className="text-foreground/50 mt-1">•</span>
                         <span>Priority event registration</span>
                       </li>
                       <li className="flex items-start gap-2 md:gap-3">
-                        <span className="text-tier-accent/75 mt-1">•</span>
+                        <span className="text-foreground/50 mt-1">•</span>
                         <span>Exclusive Ridge merchandise collection</span>
                       </li>
                       <li className="flex items-start gap-2 md:gap-3">
-                        <span className="text-tier-accent/75 mt-1">•</span>
+                        <span className="text-foreground/50 mt-1">•</span>
                         <span>10% discount on apparel</span>
                       </li>
                       <li className="flex items-start gap-2 md:gap-3">
-                        <span className="text-tier-accent/75 mt-1">•</span>
+                        <span className="text-foreground/50 mt-1">•</span>
                         <span>Access to member-only content</span>
                       </li>
                     </ul>
@@ -237,27 +237,27 @@ export const TiersContinuum = () => {
                     </h5>
                     <ul className="space-y-2 md:space-y-3 text-sm md:text-base text-supporting leading-relaxed">
                       <li className="flex items-start gap-2 md:gap-3">
-                        <span className="text-tier-accent/75 mt-1">•</span>
+                        <span className="text-foreground/50 mt-1">•</span>
                         <span>All Ridge benefits</span>
                       </li>
                       <li className="flex items-start gap-2 md:gap-3">
-                        <span className="text-tier-accent/75 mt-1">•</span>
+                        <span className="text-foreground/50 mt-1">•</span>
                         <span>VIP event experiences</span>
                       </li>
                       <li className="flex items-start gap-2 md:gap-3">
-                        <span className="text-tier-accent/75 mt-1">•</span>
+                        <span className="text-foreground/50 mt-1">•</span>
                         <span>Exclusive Peak merchandise</span>
                       </li>
                       <li className="flex items-start gap-2 md:gap-3">
-                        <span className="text-tier-accent/75 mt-1">•</span>
+                        <span className="text-foreground/50 mt-1">•</span>
                         <span>15% discount on apparel</span>
                       </li>
                       <li className="flex items-start gap-2 md:gap-3">
-                        <span className="text-tier-accent/75 mt-1">•</span>
+                        <span className="text-foreground/50 mt-1">•</span>
                         <span>Free coaching session annually</span>
                       </li>
                       <li className="flex items-start gap-2 md:gap-3">
-                        <span className="text-tier-accent/75 mt-1">•</span>
+                        <span className="text-foreground/50 mt-1">•</span>
                         <span>Early access to new events</span>
                       </li>
                     </ul>
@@ -273,18 +273,18 @@ export const TiersContinuum = () => {
           <AccordionItem value="how-eps-work" className="border border-border/30 rounded-lg overflow-hidden bg-card/30 backdrop-blur-sm">
             <AccordionTrigger className="px-6 md:px-8 py-6 md:py-7 hover:no-underline hover:bg-muted/10 transition-colors duration-300 [&[data-state=open]>div>svg]:rotate-180">
               <div className="flex items-center gap-3 text-left w-full">
-                <ChevronDown className="h-4 w-4 md:h-5 md:w-5 text-tier-accent transition-transform duration-300 ease-out shrink-0" />
+                <ChevronDown className="h-4 w-4 md:h-5 md:w-5 text-muted-foreground transition-transform duration-300 ease-out shrink-0" />
                 <span className="text-base md:text-lg lg:text-xl font-normal tracking-[0.12em] uppercase text-foreground">
                   How Elevation Points (EPs) Work
                 </span>
               </div>
             </AccordionTrigger>
             <AccordionContent className="px-6 md:px-8 pb-6 md:pb-8 pt-2">
-              <div className="border-l-2 border-tier-accent/20 pl-6 md:pl-8 pr-4 py-6 bg-gradient-to-br from-muted/5 to-transparent rounded-r-lg">
+              <div className="border-l-2 border-foreground/10 pl-6 md:pl-8 pr-4 py-6 bg-gradient-to-br from-muted/5 to-transparent rounded-r-lg">
                 <div className="space-y-8 md:space-y-10">
                   {/* Earning EPs */}
                   <div>
-                    <h5 className="text-lg md:text-xl lg:text-2xl font-semibold tracking-tight text-tier-accent mb-4 md:mb-5">
+                    <h5 className="text-lg md:text-xl lg:text-2xl font-semibold tracking-tight text-foreground/80 mb-4 md:mb-5">
                       Earning EPs
                     </h5>
                     <div className="space-y-3 md:space-y-4 text-sm md:text-base text-supporting leading-relaxed">
@@ -302,7 +302,7 @@ export const TiersContinuum = () => {
 
                   {/* Tier Thresholds */}
                   <div className="pt-6 md:pt-8 border-t border-border/20">
-                    <h5 className="text-lg md:text-xl lg:text-2xl font-semibold tracking-tight text-tier-accent mb-4 md:mb-5">
+                    <h5 className="text-lg md:text-xl lg:text-2xl font-semibold tracking-tight text-foreground/80 mb-4 md:mb-5">
                       Tier Thresholds
                     </h5>
                     <div className="space-y-3 md:space-y-4 text-sm md:text-base text-supporting leading-relaxed">
@@ -320,7 +320,7 @@ export const TiersContinuum = () => {
 
                   {/* Your Progress */}
                   <div className="pt-6 md:pt-8 border-t border-border/20">
-                    <h5 className="text-lg md:text-xl lg:text-2xl font-semibold tracking-tight text-tier-accent mb-4 md:mb-5">
+                    <h5 className="text-lg md:text-xl lg:text-2xl font-semibold tracking-tight text-foreground/80 mb-4 md:mb-5">
                       Your Progress
                     </h5>
                     <p className="text-sm md:text-base text-supporting leading-relaxed">
