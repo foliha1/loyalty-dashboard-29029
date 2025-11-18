@@ -43,7 +43,7 @@ export const TiersContinuum = () => {
   const nextTierName = nextTier?.name || "Peak";
   
   // Calculate overall progress for the bar (0 to max tier threshold)
-  const maxTierThreshold = tiers[tiers.length - 1]?.threshold || 2000;
+  const maxTierThreshold = visibleTiers[visibleTiers.length - 1]?.threshold || 1000;
   const overallProgressPercent = Math.min(100, (currentEP / maxTierThreshold) * 100);
 
   // Reveal animation
@@ -107,7 +107,7 @@ export const TiersContinuum = () => {
             </h4>
           </div>
           <div className="text-left md:text-right">
-            <div className="text-supporting uppercase tracking-[0.25em] mb-3 text-xs font-light">Total Points</div>
+            <div className="text-supporting uppercase tracking-[0.25em] mb-3 text-xs font-light">Total EPs</div>
             <div className="text-4xl md:text-5xl lg:text-6xl font-light tracking-tight tabular-nums">
               {animatedEP}
             </div>
@@ -178,7 +178,7 @@ export const TiersContinuum = () => {
               </div>
             </div>
             <div className="text-left md:text-right">
-              <div className="text-supporting uppercase tracking-[0.25em] mb-2 text-xs font-light">Points Needed</div>
+              <div className="text-supporting uppercase tracking-[0.25em] mb-2 text-xs font-light">EPs Needed</div>
               <div className="text-3xl md:text-4xl font-light tracking-tight tabular-nums" style={{
                 color: nextTier ? `hsl(var(--${nextTier.color}))` : 'hsl(var(--foreground))'
               }}>
@@ -241,73 +241,109 @@ export const TiersContinuum = () => {
         </nav>
       </div>
 
-      {/* Mock Modals */}
-      <div id="tier-benefits-modal" className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] items-center justify-center p-4" style={{display: 'none'}} onClick={(e) => { if (e.target === e.currentTarget) e.currentTarget.style.display = 'none'; }}>
-        <div className="card-29029 max-w-2xl w-full p-8 md:p-12 max-h-[80vh] overflow-y-auto">
-          <h2 className="text-3xl md:text-4xl font-light tracking-tight mb-8">Tier Benefits</h2>
-          <div className="space-y-6">
-            <div>
-              <h3 className="text-xl font-light mb-2 text-tier-base">Base Tier</h3>
-              <p className="text-supporting">Access to community events, exclusive merchandise discounts, and member portal access.</p>
+      {/* Tier Benefits Modal - Full Screen */}
+      <div 
+        id="tier-benefits-modal" 
+        className="fixed inset-0 bg-black/95 backdrop-blur-sm z-[100] items-center justify-center" 
+        style={{display: 'none'}} 
+        onClick={(e) => { if (e.target === e.currentTarget) e.currentTarget.style.display = 'none'; }}
+      >
+        <div className="card-29029 w-full h-full p-6 md:p-12 lg:p-16 overflow-y-auto">
+          <h3 className="text-4xl md:text-5xl font-light tracking-tight mb-10">Tier Benefits</h3>
+          
+          <div className="space-y-8 mb-12">
+            <div className="pb-8 border-b border-border/30">
+              <div className="text-base text-tier-accent mb-2 uppercase tracking-wider">Ridge (500+ EPs)</div>
+              <ul className="space-y-2 text-supporting">
+                <li>• Priority event registration</li>
+                <li>• Exclusive Ridge merchandise collection</li>
+                <li>• 10% discount on apparel</li>
+                <li>• Access to member-only content</li>
+              </ul>
             </div>
-            <div>
-              <h3 className="text-xl font-light mb-2 text-tier-ridge">Ridge Tier</h3>
-              <p className="text-supporting">All Base benefits plus early event registration, 15% merchandise discount, and priority coaching waitlist.</p>
+            
+            <div className="pb-8 border-b border-border/30">
+              <div className="text-peak text-tier-accent mb-2 uppercase tracking-wider">Peak (1000+ EPs)</div>
+              <ul className="space-y-2 text-supporting">
+                <li>• All Ridge benefits</li>
+                <li>• VIP event experiences</li>
+                <li>• Exclusive Peak merchandise</li>
+                <li>• 15% discount on apparel</li>
+                <li>• Free coaching session annually</li>
+                <li>• Early access to new events</li>
+              </ul>
             </div>
+            
             <div>
-              <h3 className="text-xl font-light mb-2 text-tier-peak">Peak Tier</h3>
-              <p className="text-supporting">All Ridge benefits plus VIP event experiences, 25% merchandise discount, complimentary coaching session, and exclusive Peak member events.</p>
-            </div>
-            <div>
-              <h3 className="text-xl font-light mb-2 text-tier-summit">Summit Circle</h3>
-              <p className="text-supporting">Invitation-only elite tier with all Peak benefits plus unlimited coaching access, 40% merchandise discount, private Summit experiences, and direct access to 29029 leadership.</p>
+              <div className="text-summit text-tier-accent mb-2 uppercase tracking-wider">Summit Circle (Invitation Only)</div>
+              <ul className="space-y-2 text-supporting">
+                <li>• All Peak benefits</li>
+                <li>• Exclusive Summit Circle events</li>
+                <li>• Private community access</li>
+                <li>• Complimentary coaching sessions</li>
+                <li>• 20% discount on all apparel</li>
+                <li>• Direct access to 29029 leadership</li>
+              </ul>
             </div>
           </div>
+          
           <button 
             onClick={() => { 
               const modal = document.getElementById('tier-benefits-modal'); 
               if (modal) modal.style.display = 'none'; 
             }}
-            className="mt-8 px-6 py-3 bg-tier-accent/10 border border-tier-accent/30 rounded-lg hover:bg-tier-accent/20 transition-colors"
+            className="w-full px-6 py-4 bg-tier-accent/10 border border-tier-accent/30 rounded-lg hover:bg-tier-accent/20 transition-colors text-lg"
           >
             Close
           </button>
         </div>
       </div>
 
-      <div id="ep-modal" className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] items-center justify-center p-4" style={{display: 'none'}} onClick={(e) => { if (e.target === e.currentTarget) e.currentTarget.style.display = 'none'; }}>
-        <div className="card-29029 max-w-2xl w-full p-8 md:p-12 max-h-[80vh] overflow-y-auto">
-          <h2 className="text-3xl md:text-4xl font-light tracking-tight mb-8">How Elevation Points Work</h2>
-          <div className="space-y-6">
+      {/* How EP Works Modal - Full Screen */}
+      <div 
+        id="ep-modal" 
+        className="fixed inset-0 bg-black/95 backdrop-blur-sm z-[100] items-center justify-center" 
+        style={{display: 'none'}} 
+        onClick={(e) => { if (e.target === e.currentTarget) e.currentTarget.style.display = 'none'; }}
+      >
+        <div className="card-29029 w-full h-full p-6 md:p-12 lg:p-16 overflow-y-auto">
+          <h3 className="text-4xl md:text-5xl font-light tracking-tight mb-10">How Elevation Points Work</h3>
+          
+          <div className="space-y-8 mb-12">
             <div>
-              <h3 className="text-xl font-light mb-2">Earn Points Through Engagement</h3>
-              <p className="text-supporting mb-4">Elevation Points (EP) are earned through active participation in the 29029 community:</p>
-              <ul className="space-y-2 text-supporting">
-                <li><strong>Events:</strong> 100 EP per Everest event, 50 EP per Basecamp, 30 EP per Trail event</li>
-                <li><strong>Coaching:</strong> 50 EP per 1:1 coaching session, 25 EP per group session</li>
-                <li><strong>Apparel:</strong> 1 EP per dollar spent on official merchandise</li>
-              </ul>
+              <h4 className="text-xl text-tier-accent mb-4 uppercase tracking-wider">Earning EPs</h4>
+              <div className="space-y-3 text-supporting">
+                <p>• <span className="text-foreground">Events:</span> 150 EPs per event attended</p>
+                <p>• <span className="text-foreground">Coaching:</span> Variable EPs based on session type</p>
+                <p>• <span className="text-foreground">Apparel:</span> 1 EP per dollar spent</p>
+              </div>
             </div>
+            
             <div>
-              <h3 className="text-xl font-light mb-2">Tier Thresholds</h3>
-              <ul className="space-y-2 text-supporting">
-                <li><strong>Base:</strong> 0-499 EP</li>
-                <li><strong>Ridge:</strong> 500-999 EP</li>
-                <li><strong>Peak:</strong> 1000-1999 EP</li>
-                <li><strong>Summit Circle:</strong> 2000+ EP (invitation only)</li>
-              </ul>
+              <h4 className="text-xl text-tier-accent mb-4 uppercase tracking-wider">Tier Thresholds</h4>
+              <div className="space-y-3 text-supporting">
+                <p>• <span className="text-foreground">Base:</span> 0 EPs (Starting tier)</p>
+                <p>• <span className="text-foreground">Ridge:</span> 500 EPs</p>
+                <p>• <span className="text-foreground">Peak:</span> 1,000 EPs</p>
+                <p>• <span className="text-foreground">Summit Circle:</span> Invitation only</p>
+              </div>
             </div>
+            
             <div>
-              <h3 className="text-xl font-light mb-2">Points Never Expire</h3>
-              <p className="text-supporting">Your lifetime EP accumulation determines your tier status. Once earned, points remain forever, ensuring your commitment is always recognized.</p>
+              <h4 className="text-xl text-tier-accent mb-4 uppercase tracking-wider">Your Progress</h4>
+              <p className="text-supporting">
+                Your EPs accumulate over your entire member journey. Each tier unlocks new benefits 
+                and experiences, building toward the ultimate Summit Circle invitation.
+              </p>
             </div>
           </div>
+          
           <button 
             onClick={() => { 
               const modal = document.getElementById('ep-modal'); 
               if (modal) modal.style.display = 'none'; 
             }}
-            className="mt-8 px-6 py-3 bg-tier-accent/10 border border-tier-accent/30 rounded-lg hover:bg-tier-accent/20 transition-colors"
+            className="w-full px-6 py-4 bg-tier-accent/10 border border-tier-accent/30 rounded-lg hover:bg-tier-accent/20 transition-colors text-lg"
           >
             Close
           </button>

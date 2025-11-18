@@ -141,7 +141,7 @@ export const ActivityFeed = () => {
           </div>
           
           <div className="text-center metric-animate-delay-1">
-            <div className="text-subhead mb-3">Total EP Earned</div>
+            <div className="text-subhead mb-3">Total EPs Earned</div>
             <div className="text-5xl md:text-6xl font-light tracking-tight tabular-nums">{totalYearEP}</div>
           </div>
         </div>
@@ -153,7 +153,7 @@ export const ActivityFeed = () => {
             <h4 className="text-subhead mb-6">Events</h4>
             
             <div>
-              <div className="text-3xl md:text-4xl font-light tracking-tight mb-3">{yearData.events.totalEP} EP</div>
+              <div className="text-3xl md:text-4xl font-light tracking-tight mb-3">{yearData.events.totalEP} EPs</div>
               
               <Collapsible>
                 <CollapsibleTrigger className="flex items-center gap-2 text-supporting hover:text-tier-accent transition-colors group">
@@ -173,7 +173,7 @@ export const ActivityFeed = () => {
           <div>
             <h4 className="text-subhead mb-6">Apparel</h4>
             <div>
-              <div className="text-3xl md:text-4xl font-light tracking-tight mb-3">{yearData.apparel.totalEP} EP</div>
+              <div className="text-3xl md:text-4xl font-light tracking-tight mb-3">{yearData.apparel.totalEP} EPs</div>
               
               <Collapsible>
                 <CollapsibleTrigger className="flex items-center gap-2 text-supporting hover:text-tier-accent transition-colors group">
@@ -193,7 +193,7 @@ export const ActivityFeed = () => {
           <div>
             <h4 className="text-subhead mb-6">Coaching</h4>
             <div>
-              <div className="text-3xl md:text-4xl font-light tracking-tight mb-3">{yearData.coaching.totalEP} EP</div>
+              <div className="text-3xl md:text-4xl font-light tracking-tight mb-3">{yearData.coaching.totalEP} EPs</div>
               
               <Collapsible>
                 <CollapsibleTrigger className="flex items-center gap-2 text-supporting hover:text-tier-accent transition-colors group">
