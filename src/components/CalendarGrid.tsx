@@ -90,13 +90,13 @@ export const CalendarGrid = () => {
 
   return (
     <section>
-      <h3 className="text-section-title mb-6 sm:mb-7 md:mb-8 px-2">
+      <h2 className="text-section-title mb-6 sm:mb-7 md:mb-8 px-2">
         Continue the Journey
-      </h3>
+      </h2>
       
       {hasEvents ? (
         <>
-          <p className="text-sm md:text-base mb-10 sm:mb-12 md:mb-16 max-w-2xl px-2 font-light !text-muted-foreground">
+          <p className="text-metadata text-center mb-10 sm:mb-12 md:mb-16 max-w-2xl mx-auto !text-muted-foreground">
             Your upcoming events
           </p>
 
@@ -228,9 +228,9 @@ export const CalendarGrid = () => {
             <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             
             <div className="relative z-10 flex-1">
-              <h5 className="text-base sm:text-lg md:text-xl font-light mb-2 tracking-tight leading-tight !text-foreground">
+              <h3 className="text-subsection mb-2 tracking-tight leading-tight !text-foreground">
                 {hasEvents ? "Discover Events" : "Discover Challenges"}
-              </h5>
+              </h3>
               <p className="text-foreground/60 text-[11px] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] font-light mb-6 sm:mb-8">
                 Browse All Experiences
               </p>
@@ -257,9 +257,9 @@ export const CalendarGrid = () => {
             <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             
             <div className="relative z-10 flex-1">
-              <h5 className="text-base sm:text-lg md:text-xl font-light mb-2 tracking-tight leading-tight !text-foreground">
+              <h3 className="text-subsection mb-2 tracking-tight leading-tight !text-foreground">
                 1:1 Coaching
-              </h5>
+              </h3>
               <p className="text-foreground/60 text-[11px] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] font-light mb-6 sm:mb-8">
                 Personal Experience
               </p>
@@ -286,9 +286,9 @@ export const CalendarGrid = () => {
             <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             
             <div className="relative z-10 flex-1">
-              <h5 className="text-base sm:text-lg md:text-xl font-light mb-2 tracking-tight leading-tight !text-foreground">
+              <h3 className="text-subsection mb-2 tracking-tight leading-tight !text-foreground">
                 Apparel
-              </h5>
+              </h3>
               <p className="text-foreground/60 text-[11px] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] font-light mb-6 sm:mb-8">
                 Shop Collection
               </p>

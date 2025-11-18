@@ -268,46 +268,70 @@ All colors MUST be HSL.
     box-shadow: 0 0 40px rgba(221, 0, 51, 0.5), 0 0 72px rgba(221, 0, 51, 0.25);
   }
   
-  /* Cinematic text treatments */
+  /* ========================================
+     UNIFIED TYPOGRAPHIC SYSTEM
+     ======================================== */
+  
+  /* H1: Hero headlines */
   .text-hero {
     font-family: 'Inter', sans-serif;
     font-weight: 300;
     letter-spacing: -0.02em;
-    line-height: 1.05;
+    line-height: 1.1;
   }
 
-h2, h3, .text-section-title {
+  /* H2: Section titles */
+  h2, .text-section-title {
     font-family: 'Inter', sans-serif;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.096em;
     font-size: 0.96rem;
     color: hsl(0 0% 92%);
-    line-height: 1.15;
+    line-height: 1.2;
   }
   
   @media (min-width: 768px) {
-    h2, h3, .text-section-title {
+    h2, .text-section-title {
       font-size: 1.32rem;
       letter-spacing: 0.115em;
     }
   }
 
-.text-subhead {
-  font-family: 'Inter', sans-serif;
-  font-weight: 300;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  font-size: 0.7rem;
-  color: hsl(0 0% 48%);
-  line-height: 1.6;
-}
+  /* H3: Subsection labels */
+  h3, .text-subsection {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.875rem;
+    color: hsl(0 0% 85%);
+    line-height: 1.2;
+  }
 
+  @media (min-width: 768px) {
+    h3, .text-subsection {
+      font-size: 1rem;
+    }
+  }
+
+  /* Subhead: Category labels, tier names */
+  .text-subhead {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.7rem;
+    color: hsl(0 0% 48%);
+    line-height: 1.4;
+  }
+
+  /* Body: Primary content text */
   .text-body {
     font-family: 'Inter', sans-serif;
     font-weight: 400;
     color: hsl(0 0% 55%);
-    line-height: 1.75;
+    line-height: 1.5;
     font-size: 1rem;
   }
   
@@ -333,14 +357,39 @@ h2, h3, .text-section-title {
     color: inherit;
   }
 
-.text-supporting {
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  font-size: 0.875rem;
-  color: hsl(0 0% 45%) !important;
-  text-align: left;
-  line-height: 1.65;
-}
+  /* Supporting: Descriptive, helper text */
+  .text-supporting {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 0.875rem;
+    color: hsl(0 0% 45%) !important;
+    text-align: left;
+    line-height: 1.5;
+  }
+
+  /* Metadata: Dates, sublabels, small context */
+  .text-metadata {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 0.875rem;
+    color: hsl(0 0% 50%);
+    line-height: 1.4;
+  }
+
+  /* Links: Unified link styling */
+  .link-standard {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: hsl(0 0% 70%);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    line-height: 1.4;
+  }
+
+  .link-standard:hover {
+    color: hsl(0 0% 92%);
+  }
 
   /* Premium accent dividers */
   .divider-red {
