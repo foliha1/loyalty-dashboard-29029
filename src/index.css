@@ -27,7 +27,7 @@ All colors MUST be HSL.
     --secondary-foreground: 0 0% 95%;
 
     --muted: 0 0% 18%;
-    --muted-foreground: 0 0% 55%;
+    --muted-foreground: 0 0% 47%;
 
     --accent: 0 0% 98%;
     --accent-foreground: 0 0% 8%;
@@ -42,9 +42,9 @@ All colors MUST be HSL.
     --radius: 0.5rem;
     
     /* 29029 Brand Accent */
-    --accent-29029: 348 100% 42%;
-    --accent-red: 348 100% 42%;
-    --accent-red-dim: 348 100% 32%;
+    --accent-29029: 348 100% 38%;
+    --accent-red: 348 100% 38%;
+    --accent-red-dim: 348 100% 28%;
     
     /* Warm Neutrals */
     --warm-gray: 30 5% 25%;
@@ -306,7 +306,7 @@ h2, h3, .text-section-title {
   .text-body {
     font-family: 'Inter', sans-serif;
     font-weight: 400;
-    color: hsl(0 0% 70%);
+    color: hsl(0 0% 62%);
     line-height: 1.75;
     font-size: 1rem;
   }
@@ -315,7 +315,7 @@ h2, h3, .text-section-title {
     font-family: 'Inter', sans-serif;
     font-weight: 400;
     font-size: 0.875rem;
-    color: hsl(0 0% 62%);
+    color: hsl(0 0% 52%);
     text-align: left;
     line-height: 1.65;
   }
@@ -323,7 +323,7 @@ h2, h3, .text-section-title {
   /* Premium accent dividers */
   .divider-red {
     height: 2px;
-    background: linear-gradient(90deg, transparent 0%, hsl(var(--current-tier-accent) / 0.4) 50%, transparent 100%);
+    background: linear-gradient(90deg, transparent 0%, hsl(var(--current-tier-accent) / 0.52) 50%, transparent 100%);
     margin: 0;
   }
 

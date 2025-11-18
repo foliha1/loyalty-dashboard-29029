@@ -38,7 +38,7 @@ export const UserHeader = () => {
           <div className="max-w-3xl mx-auto text-center">
             {/* Premium ID Number */}
             <div className="mb-6 animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
-              <span className="text-[11px] md:text-xs tracking-[0.3em] uppercase font-light text-muted-foreground/70">
+              <span className="text-[11px] md:text-xs tracking-[0.3em] uppercase font-normal text-muted-foreground/80" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.3)' }}>
                 29029 ID: AR-5847
               </span>
             </div>
@@ -46,7 +46,7 @@ export const UserHeader = () => {
             {/* Welcome Statement - Most Prominent */}
             <h1 
               className="text-5xl md:text-6xl lg:text-7xl font-light tracking-tight mb-6 animate-fade-in"
-              style={{ animationDelay: '0.2s', animationFillMode: 'both' }}
+              style={{ animationDelay: '0.2s', animationFillMode: 'both', textShadow: '0 2px 8px rgba(0,0,0,0.4)' }}
             >
               Keep climbing, Alex.
             </h1>
@@ -70,8 +70,8 @@ export const UserHeader = () => {
             
             {/* Subheader with expanded tracking */}
             <div 
-              className="text-sm md:text-base tracking-[0.25em] uppercase font-light text-muted-foreground/60 animate-fade-in"
-              style={{ animationDelay: '0.4s', animationFillMode: 'both' }}
+              className="text-sm md:text-base tracking-[0.25em] uppercase font-normal text-muted-foreground/70 animate-fade-in"
+              style={{ animationDelay: '0.4s', animationFillMode: 'both', textShadow: '0 1px 2px rgba(0,0,0,0.3)' }}
             >
               Member Since 2023
             </div>
