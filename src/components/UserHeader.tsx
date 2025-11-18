@@ -79,40 +79,100 @@ export const UserHeader = () => {
         </div>
       </div>
 
-      {/* Profile Modal */}
-      <div id="profile-modal" className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] items-center justify-center p-4" style={{display: 'none'}} onClick={(e) => { if (e.target === e.currentTarget) e.currentTarget.style.display = 'none'; }}>
-        <div className="card-29029 max-w-md w-full p-8 md:p-10">
-          <div className="flex items-center justify-center mb-6">
-            <Avatar className="w-24 h-24 border-2 border-tier-accent">
-              <AvatarImage src="https://i.pravatar.cc/300?img=12" alt="Alex Rivera" />
-              <AvatarFallback className="bg-secondary text-foreground text-2xl">AR</AvatarFallback>
-            </Avatar>
+      {/* Profile Modal - Enhanced with Lifetime Stats */}
+      <div 
+        id="profile-modal" 
+        className="fixed inset-0 bg-black/95 backdrop-blur-sm z-[100] items-center justify-center" 
+        style={{display: 'none'}} 
+        onClick={(e) => { if (e.target === e.currentTarget) e.currentTarget.style.display = 'none'; }}
+      >
+        <div className="card-29029 w-full h-full p-6 md:p-12 lg:p-16 overflow-y-auto">
+          <div className="max-w-4xl mx-auto">
+            <h3 className="text-4xl md:text-5xl font-light tracking-tight mb-12">Member Profile</h3>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
+              {/* Profile Info */}
+              <div className="space-y-8">
+                <div className="flex items-center justify-center lg:justify-start mb-8">
+                  <Avatar className="w-32 h-32 border-2 border-tier-accent">
+                    <AvatarImage src="https://i.pravatar.cc/300?img=12" alt="Alex Rivera" />
+                    <AvatarFallback className="bg-secondary text-foreground text-3xl">AR</AvatarFallback>
+                  </Avatar>
+                </div>
+                
+                <div className="space-y-6 text-center lg:text-left">
+                  <div>
+                    <div className="text-xs text-muted-foreground mb-2 uppercase tracking-wider">Full Name</div>
+                    <div className="text-2xl font-light text-foreground">Alex Rivera</div>
+                  </div>
+                  <div>
+                    <div className="text-xs text-muted-foreground mb-2 uppercase tracking-wider">Member ID</div>
+                    <div className="font-mono text-xl text-foreground">AR-5847</div>
+                  </div>
+                  <div>
+                    <div className="text-xs text-muted-foreground mb-2 uppercase tracking-wider">Joined</div>
+                    <div className="text-xl text-foreground">January 2023</div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Lifetime Stats */}
+              <div>
+                <h4 className="text-2xl font-light tracking-tight mb-8 text-tier-accent uppercase">Lifetime Stats</h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div className="bg-card/30 border border-border/20 rounded-lg p-6">
+                    <div className="text-xs text-muted-foreground mb-2 uppercase tracking-wider">Total Elevation</div>
+                    <div className="text-3xl font-light tracking-tight">145,800 ft</div>
+                  </div>
+                  
+                  <div className="bg-card/30 border border-border/20 rounded-lg p-6">
+                    <div className="text-xs text-muted-foreground mb-2 uppercase tracking-wider">Miles Climbed</div>
+                    <div className="text-3xl font-light tracking-tight">87.4 mi</div>
+                  </div>
+                  
+                  <div className="bg-card/30 border border-border/20 rounded-lg p-6">
+                    <div className="text-xs text-muted-foreground mb-2 uppercase tracking-wider">Events Completed</div>
+                    <div className="text-3xl font-light tracking-tight">9</div>
+                  </div>
+                  
+                  <div className="bg-card/30 border border-border/20 rounded-lg p-6">
+                    <div className="text-xs text-muted-foreground mb-2 uppercase tracking-wider">Total EPs Earned</div>
+                    <div className="text-3xl font-light tracking-tight">1,440</div>
+                  </div>
+                  
+                  <div className="bg-card/30 border border-border/20 rounded-lg p-6">
+                    <div className="text-xs text-muted-foreground mb-2 uppercase tracking-wider">Coaching Sessions</div>
+                    <div className="text-3xl font-light tracking-tight">12</div>
+                  </div>
+                  
+                  <div className="bg-card/30 border border-border/20 rounded-lg p-6">
+                    <div className="text-xs text-muted-foreground mb-2 uppercase tracking-wider">Member Since</div>
+                    <div className="text-3xl font-light tracking-tight">1,044 days</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row gap-4">
+              <button 
+                onClick={() => { 
+                  alert('Profile update feature coming soon!');
+                }}
+                className="flex-1 px-6 py-4 bg-tier-accent text-black font-medium rounded-lg hover:bg-tier-accent/90 transition-colors text-lg uppercase tracking-wider"
+              >
+                Update Profile
+              </button>
+              <button 
+                onClick={() => { 
+                  const modal = document.getElementById('profile-modal'); 
+                  if (modal) modal.style.display = 'none'; 
+                }}
+                className="flex-1 px-6 py-4 bg-card/50 border border-border/30 rounded-lg hover:bg-card/70 transition-colors text-lg"
+              >
+                Close
+              </button>
+            </div>
           </div>
-          
-          <div className="space-y-4 text-center">
-            <div>
-              <div className="text-xs text-muted-foreground mb-1 uppercase tracking-wider">Full Name</div>
-              <div className="text-xl font-light text-foreground">Alex Rivera</div>
-            </div>
-            <div>
-              <div className="text-xs text-muted-foreground mb-1 uppercase tracking-wider">Member ID</div>
-              <div className="font-mono text-lg text-foreground">AR-5847</div>
-            </div>
-            <div>
-              <div className="text-xs text-muted-foreground mb-1 uppercase tracking-wider">Joined</div>
-              <div className="text-lg text-foreground">January 2023</div>
-            </div>
-          </div>
-          
-          <button 
-            onClick={() => { 
-              const modal = document.getElementById('profile-modal'); 
-              if (modal) modal.style.display = 'none'; 
-            }}
-            className="mt-8 w-full px-6 py-3 bg-tier-accent/10 border border-tier-accent/30 rounded-lg hover:bg-tier-accent/20 transition-colors"
-          >
-            Close
-          </button>
         </div>
       </div>
     </section>

@@ -281,14 +281,14 @@ h2, h3, .text-section-title {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.096em;
-    font-size: 1.6rem;
+    font-size: 0.96rem;
     color: hsl(0 0% 92%);
     line-height: 1.15;
   }
   
   @media (min-width: 768px) {
     h2, h3, .text-section-title {
-      font-size: 2.2rem;
+      font-size: 1.32rem;
       letter-spacing: 0.115em;
     }
   }
