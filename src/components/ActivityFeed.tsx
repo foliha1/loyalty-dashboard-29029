@@ -2,6 +2,7 @@ import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/component
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
+import { type, colors, motion, shadows } from "@/design/tokens";
 interface YearlyActivity {
   year: number;
   events: {
@@ -134,15 +135,32 @@ export const ActivityFeed = () => {
         {/* Year Display - More Dramatic */}
         <div className="flex flex-col md:flex-row items-center justify-between mb-12 pb-8 border-b border-border/30 gap-8">
           <div className="text-center md:text-left metric-animate">
-            <div className="text-subhead mb-3">Year</div>
-            <h3 className="text-7xl md:text-8xl font-light tracking-tight">
+            <div 
+              className="mb-3"
+              style={{ ...type.label }}
+            >Year</div>
+            <h3 
+              style={{
+                ...type.heroH1,
+                fontSize: '4.5rem'
+              }}
+            >
               {yearData.year}
             </h3>
           </div>
           
           <div className="text-center metric-animate-delay-1">
-            <div className="text-subhead mb-3">Total EPs Earned</div>
-            <div className="text-5xl md:text-6xl font-light tracking-tight tabular-nums">{totalYearEP}</div>
+            <div 
+              className="mb-3"
+              style={{ ...type.label }}
+            >Total EPs Earned</div>
+            <div 
+              className="tabular-nums"
+              style={{
+                ...type.heroH1,
+                fontSize: '3.5rem'
+              }}
+            >{totalYearEP}</div>
           </div>
         </div>
 

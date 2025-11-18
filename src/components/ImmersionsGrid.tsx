@@ -1,5 +1,6 @@
 import { Calendar, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { type, colors, motion, shadows } from "@/design/tokens";
 
 const immersions = [
   {
@@ -49,12 +50,25 @@ export const ImmersionsGrid = () => {
         {immersions.map((immersion, index) => (
           <div key={index} className="card-29029 p-8 group metric-animate card-hover-tier">
             {/* Type Badge */}
-            <div className="text-[10px] px-3 py-1.5 rounded-full bg-muted/30 border border-border/50 text-foreground uppercase tracking-wider inline-block mb-4">
+            <div 
+              className="rounded-full bg-muted/30 border border-border/50 text-foreground inline-block mb-4"
+              style={{
+                ...type.label,
+                fontSize: '10px',
+                padding: '6px 12px'
+              }}
+            >
               {immersion.type}
             </div>
 
             {/* Event Name */}
-            <h3 className="font-editorial text-2xl font-bold mb-3 group-hover:text-foreground transition-colors uppercase" style={{ letterSpacing: '0.08em' }}>
+            <h3 
+              className="mb-3 group-hover:text-foreground uppercase"
+              style={{ 
+                ...type.sectionTitle,
+                transition: `color ${motion.durations.medium} ${motion.easing.standard}`
+              }}
+            >
               {immersion.title}
             </h3>
 
@@ -65,23 +79,33 @@ export const ImmersionsGrid = () => {
             <div className="space-y-3 mb-6">
               <div className="flex items-center gap-2">
                 <Calendar className="w-4 h-4 text-muted-foreground" />
-                <span className="text-body">{immersion.date}</span>
+                <span style={{ ...type.bodyPrimary }}>{immersion.date}</span>
               </div>
               <div className="flex items-center gap-2">
                 <MapPin className="w-4 h-4 text-muted-foreground" />
-                <span className="text-body">{immersion.location}</span>
+                <span style={{ ...type.bodyPrimary }}>{immersion.location}</span>
               </div>
             </div>
 
             {/* EP Display */}
             <div className="mb-6 text-center">
-              <div className="text-subhead mb-2">Elevation Points</div>
-              <div className="metric-medium text-foreground">+{immersion.ep}</div>
+              <div style={{ ...type.label }} className="mb-2">Elevation Points</div>
+              <div 
+                className="text-foreground"
+                style={{ 
+                  fontSize: type.sectionTitle.fontSize,
+                  fontWeight: type.sectionTitle.fontWeight 
+                }}
+              >+{immersion.ep}</div>
             </div>
 
             {/* CTA */}
             <Button 
-              className="w-full text-white font-semibold uppercase tracking-wider"
+              className="w-full text-white uppercase"
+              style={{
+                ...type.button,
+                transition: `all ${motion.durations.medium} ${motion.easing.softSpring}`
+              }}
               disabled={!immersion.available}
             >
               {immersion.available ? "Enroll" : "Request Invite"}
