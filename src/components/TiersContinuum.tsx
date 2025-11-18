@@ -264,7 +264,10 @@ export const TiersContinuum = () => {
             </div>
           </div>
           <button 
-            onClick={(e) => { const modal = document.getElementById('tier-benefits-modal'); if (modal) modal.style.display = 'none'; }}
+            onClick={() => { 
+              const modal = document.getElementById('tier-benefits-modal'); 
+              if (modal) modal.style.display = 'none'; 
+            }}
             className="mt-8 px-6 py-3 bg-tier-accent/10 border border-tier-accent/30 rounded-lg hover:bg-tier-accent/20 transition-colors"
           >
             Close
@@ -300,7 +303,10 @@ export const TiersContinuum = () => {
             </div>
           </div>
           <button 
-            onClick={(e) => { const modal = document.getElementById('ep-modal'); if (modal) modal.style.display = 'none'; }}
+            onClick={() => { 
+              const modal = document.getElementById('ep-modal'); 
+              if (modal) modal.style.display = 'none'; 
+            }}
             className="mt-8 px-6 py-3 bg-tier-accent/10 border border-tier-accent/30 rounded-lg hover:bg-tier-accent/20 transition-colors"
           >
             Close
