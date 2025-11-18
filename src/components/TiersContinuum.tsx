@@ -190,8 +190,11 @@ export const TiersContinuum = () => {
             Learn More
           </div>
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 md:gap-12">
-            <a 
-            href="#tier-benefits" 
+            <button 
+            onClick={() => {
+              const modal = document.getElementById('tier-benefits-modal');
+              if (modal) modal.style.display = 'flex';
+            }}
             className="group flex items-center gap-2 text-muted-foreground hover:text-foreground transition-all duration-500 tracking-[0.12em] uppercase text-[11px] font-light"
           >
               <ChevronRight className="w-3 h-3 text-tier-accent/60 group-hover:text-tier-accent group-hover:translate-x-0.5 transition-all duration-500" />
@@ -199,10 +202,13 @@ export const TiersContinuum = () => {
                 Tier Benefits
                 <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-tier-accent/50 group-hover:w-full transition-all duration-500" />
               </span>
-            </a>
+            </button>
             
-            <a 
-            href="#how-ep-works" 
+            <button 
+            onClick={() => {
+              const modal = document.getElementById('ep-modal');
+              if (modal) modal.style.display = 'flex';
+            }}
             className="group flex items-center gap-2 text-muted-foreground hover:text-foreground transition-all duration-500 tracking-[0.12em] uppercase text-[11px] font-light"
           >
               <ChevronRight className="w-3 h-3 text-tier-accent/60 group-hover:text-tier-accent group-hover:translate-x-0.5 transition-all duration-500" />
@@ -210,10 +216,15 @@ export const TiersContinuum = () => {
                 How Elevation Points Work
                 <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-tier-accent/50 group-hover:w-full transition-all duration-500" />
               </span>
-            </a>
+            </button>
             
             <a 
             href="#activity-feed" 
+            onClick={(e) => {
+              e.preventDefault();
+              const section = document.getElementById('activity-feed');
+              section?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }}
             className="group flex items-center gap-2 text-muted-foreground hover:text-foreground transition-all duration-500 tracking-[0.12em] uppercase text-[11px] font-light"
           >
               <ChevronRight className="w-3 h-3 text-tier-accent/60 group-hover:text-tier-accent group-hover:translate-x-0.5 transition-all duration-500" />
@@ -224,6 +235,73 @@ export const TiersContinuum = () => {
             </a>
           </div>
         </nav>
+      </div>
+
+      {/* Mock Modals */}
+      <div id="tier-benefits-modal" className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] items-center justify-center p-4" style={{display: 'none'}} onClick={(e) => { if (e.target === e.currentTarget) e.currentTarget.style.display = 'none'; }}>
+        <div className="card-29029 max-w-2xl w-full p-8 md:p-12 max-h-[80vh] overflow-y-auto">
+          <h2 className="text-3xl md:text-4xl font-light tracking-tight mb-8">Tier Benefits</h2>
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-xl font-light mb-2 text-tier-base">Base Tier</h3>
+              <p className="text-supporting">Access to community events, exclusive merchandise discounts, and member portal access.</p>
+            </div>
+            <div>
+              <h3 className="text-xl font-light mb-2 text-tier-ridge">Ridge Tier</h3>
+              <p className="text-supporting">All Base benefits plus early event registration, 15% merchandise discount, and priority coaching waitlist.</p>
+            </div>
+            <div>
+              <h3 className="text-xl font-light mb-2 text-tier-peak">Peak Tier</h3>
+              <p className="text-supporting">All Ridge benefits plus VIP event experiences, 25% merchandise discount, complimentary coaching session, and exclusive Peak member events.</p>
+            </div>
+            <div>
+              <h3 className="text-xl font-light mb-2 text-tier-summit">Summit Circle</h3>
+              <p className="text-supporting">Invitation-only elite tier with all Peak benefits plus unlimited coaching access, 40% merchandise discount, private Summit experiences, and direct access to 29029 leadership.</p>
+            </div>
+          </div>
+          <button 
+            onClick={(e) => { const modal = document.getElementById('tier-benefits-modal'); if (modal) modal.style.display = 'none'; }}
+            className="mt-8 px-6 py-3 bg-tier-accent/10 border border-tier-accent/30 rounded-lg hover:bg-tier-accent/20 transition-colors"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+
+      <div id="ep-modal" className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] items-center justify-center p-4" style={{display: 'none'}} onClick={(e) => { if (e.target === e.currentTarget) e.currentTarget.style.display = 'none'; }}>
+        <div className="card-29029 max-w-2xl w-full p-8 md:p-12 max-h-[80vh] overflow-y-auto">
+          <h2 className="text-3xl md:text-4xl font-light tracking-tight mb-8">How Elevation Points Work</h2>
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-xl font-light mb-2">Earn Points Through Engagement</h3>
+              <p className="text-supporting mb-4">Elevation Points (EP) are earned through active participation in the 29029 community:</p>
+              <ul className="space-y-2 text-supporting">
+                <li><strong>Events:</strong> 100 EP per Everest event, 50 EP per Basecamp, 30 EP per Trail event</li>
+                <li><strong>Coaching:</strong> 50 EP per 1:1 coaching session, 25 EP per group session</li>
+                <li><strong>Apparel:</strong> 1 EP per dollar spent on official merchandise</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-xl font-light mb-2">Tier Thresholds</h3>
+              <ul className="space-y-2 text-supporting">
+                <li><strong>Base:</strong> 0-499 EP</li>
+                <li><strong>Ridge:</strong> 500-999 EP</li>
+                <li><strong>Peak:</strong> 1000-1999 EP</li>
+                <li><strong>Summit Circle:</strong> 2000+ EP (invitation only)</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-xl font-light mb-2">Points Never Expire</h3>
+              <p className="text-supporting">Your lifetime EP accumulation determines your tier status. Once earned, points remain forever, ensuring your commitment is always recognized.</p>
+            </div>
+          </div>
+          <button 
+            onClick={(e) => { const modal = document.getElementById('ep-modal'); if (modal) modal.style.display = 'none'; }}
+            className="mt-8 px-6 py-3 bg-tier-accent/10 border border-tier-accent/30 rounded-lg hover:bg-tier-accent/20 transition-colors"
+          >
+            Close
+          </button>
+        </div>
       </div>
     </section>
   );
