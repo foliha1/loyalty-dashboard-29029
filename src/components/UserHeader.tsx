@@ -65,21 +65,11 @@ export const UserHeader = () => {
                 onClick={() => navigate("/profile")}
                 className="relative group cursor-pointer min-w-[44px] min-h-[44px]"
               >
-                <Avatar className="w-20 h-20 sm:w-22 sm:h-22 md:w-24 md:h-24 border-2 border-border/50 flex-shrink-0 transition-all duration-500 hover:scale-105 hover:border-border hover:shadow-lg">
+                <Avatar className="w-20 h-20 sm:w-22 sm:h-22 md:w-24 md:h-24 border-2 border-tier-accent/50 flex-shrink-0 transition-all duration-500 hover:scale-105 hover:border-tier-accent hover:shadow-[0_0_20px_hsl(var(--tier-accent)/0.4)]">
                   <AvatarImage src="https://i.pravatar.cc/300?img=12" alt="Alex Rivera" />
                   <AvatarFallback className="bg-secondary text-foreground text-lg font-semibold">AR</AvatarFallback>
                 </Avatar>
               </button>
-            </div>
-            
-            {/* Micro-metric line */}
-            <div 
-              className="flex items-center justify-center gap-2 sm:gap-3 mb-5 sm:mb-6 text-[11px] sm:text-xs tracking-[0.15em] sm:tracking-[0.2em] uppercase font-normal text-muted-foreground animate-fade-in px-4"
-              style={{ animationDelay: '0.4s', animationFillMode: 'both' }}
-            >
-              <span className="text-tier-accent font-medium">720 EPs</span>
-              <span className="text-muted-foreground/70">•</span>
-              <span className="whitespace-nowrap">280 to Peak</span>
             </div>
             
             {/* Subheader with expanded tracking */}
