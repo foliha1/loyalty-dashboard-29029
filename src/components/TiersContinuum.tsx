@@ -90,13 +90,13 @@ export const TiersContinuum = () => {
         Your Elevation Journey
       </h2>
 
-      {/* Main Progress Card */}
-      <div 
-        className={cn(
-          "card-29029 p-6 sm:p-8 md:p-10 lg:p-12 transition-all duration-700",
-          isRevealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-        )}
-      >
+        {/* Main Progress Card */}
+        <div 
+          className={cn(
+            "card-29029 card-hover-subtle p-6 sm:p-8 md:p-10 lg:p-12",
+            isRevealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          )}
+        >
         {/* Current Tier Badge */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-10 sm:mb-12 md:mb-16 gap-6">
           <div>

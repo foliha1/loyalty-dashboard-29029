@@ -47,7 +47,7 @@ export const ImmersionsGrid = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {immersions.map((immersion, index) => (
-          <div key={index} className="card-29029 p-8 group metric-animate card-hover-tier">
+          <div key={index} className="card-29029 card-hover-lift p-8 group metric-animate">
             {/* Type Badge */}
             <div className="text-[10px] px-3 py-1.5 rounded-full bg-muted/30 border border-border/50 text-foreground uppercase tracking-wider inline-block mb-4">
               {immersion.type}
