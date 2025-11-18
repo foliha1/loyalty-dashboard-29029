@@ -100,7 +100,7 @@ export const TiersContinuum = () => {
         {/* Current Tier Badge */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-12 md:mb-16 gap-6">
           <div>
-            <div className="text-supporting uppercase tracking-[0.25em] mb-3 text-xs font-light">Current Tier</div>
+            <div className="text-supporting uppercase tracking-[0.25em] mb-3 text-xs font-normal">Current Tier</div>
             <h4 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-tight" style={{
               color: currentTier ? `hsl(var(--${currentTier.color}))` : 'hsl(var(--tier-gold))'
             }}>
@@ -108,7 +108,7 @@ export const TiersContinuum = () => {
             </h4>
           </div>
           <div className="text-left md:text-right">
-            <div className="text-supporting uppercase tracking-[0.25em] mb-3 text-xs font-light">Total EPs</div>
+            <div className="text-supporting uppercase tracking-[0.25em] mb-3 text-xs font-normal">Total EPs</div>
             <div className="text-4xl md:text-5xl lg:text-6xl font-light tracking-tight tabular-nums">
               {animatedEP}
             </div>
@@ -173,13 +173,13 @@ export const TiersContinuum = () => {
         <div className="pt-8 md:pt-10 border-t border-border/30">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div>
-              <div className="text-supporting uppercase tracking-[0.25em] mb-2 text-xs font-light">Next Milestone</div>
+              <div className="text-supporting uppercase tracking-[0.25em] mb-2 text-xs font-normal">Next Milestone</div>
               <div className="text-2xl md:text-3xl font-light tracking-tight">
                 {nextTierName}
               </div>
             </div>
             <div className="text-left md:text-right">
-              <div className="text-supporting uppercase tracking-[0.25em] mb-2 text-xs font-light">EPs Needed</div>
+              <div className="text-supporting uppercase tracking-[0.25em] mb-2 text-xs font-normal">EPs Needed</div>
               <div className="text-3xl md:text-4xl font-light tracking-tight tabular-nums" style={{
                 color: nextTier ? `hsl(var(--${nextTier.color}))` : 'hsl(var(--foreground))'
               }}>
@@ -198,8 +198,8 @@ export const TiersContinuum = () => {
           <AccordionItem value="tier-benefits" className="border border-border/30 rounded-lg overflow-hidden bg-card/30 backdrop-blur-sm">
             <AccordionTrigger className="px-6 md:px-8 py-5 md:py-6 hover:no-underline hover:bg-muted/10 transition-colors duration-300 [&[data-state=open]>div>svg]:rotate-180">
               <div className="flex items-center gap-3 text-left w-full">
-                <ChevronDown className="h-4 w-4 md:h-5 md:w-5 text-tier-accent/60 transition-transform duration-300 ease-out shrink-0" />
-                <span className="text-sm md:text-base lg:text-lg font-light tracking-[0.08em] uppercase text-foreground">
+                <ChevronDown className="h-4 w-4 md:h-5 md:w-5 text-tier-accent/70 transition-transform duration-300 ease-out shrink-0" />
+                <span className="text-sm md:text-base lg:text-lg font-normal tracking-[0.08em] uppercase text-foreground">
                   Tier Benefits
                 </span>
               </div>
@@ -275,8 +275,8 @@ export const TiersContinuum = () => {
           <AccordionItem value="how-eps-work" className="border border-border/30 rounded-lg overflow-hidden bg-card/30 backdrop-blur-sm">
             <AccordionTrigger className="px-6 md:px-8 py-5 md:py-6 hover:no-underline hover:bg-muted/10 transition-colors duration-300 [&[data-state=open]>div>svg]:rotate-180">
               <div className="flex items-center gap-3 text-left w-full">
-                <ChevronDown className="h-4 w-4 md:h-5 md:w-5 text-tier-accent/60 transition-transform duration-300 ease-out shrink-0" />
-                <span className="text-sm md:text-base lg:text-lg font-light tracking-[0.08em] uppercase text-foreground">
+                <ChevronDown className="h-4 w-4 md:h-5 md:w-5 text-tier-accent/70 transition-transform duration-300 ease-out shrink-0" />
+                <span className="text-sm md:text-base lg:text-lg font-normal tracking-[0.08em] uppercase text-foreground">
                   How Elevation Points (EPs) Work
                 </span>
               </div>
