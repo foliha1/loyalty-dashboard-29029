@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
 import { ArrowLeft, Save } from "lucide-react";
 import { toast } from "sonner";
+import { type, colors, motion, shadows } from "@/design/tokens";
 
 export default function Profile() {
   const navigate = useNavigate();
@@ -52,11 +53,21 @@ export default function Profile() {
           <div className="flex items-center justify-between gap-3 sm:gap-4">
             <button
               onClick={() => navigate("/")}
-              className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors group min-h-[44px] min-w-[44px]"
+              className="flex items-center gap-2 text-muted-foreground hover:text-foreground group min-h-[44px] min-w-[44px]"
+              style={{ transition: `color ${motion.durations.medium} ${motion.easing.standard}` }}
             >
-              <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5 group-hover:-translate-x-1 transition-transform" />
-              <span className="text-xs sm:text-sm uppercase tracking-wider hidden sm:inline">Back to Dashboard</span>
-              <span className="text-xs uppercase tracking-wider sm:hidden">Back</span>
+              <ArrowLeft 
+                className="w-4 h-4 sm:w-5 sm:h-5 group-hover:-translate-x-1"
+                style={{ transition: `transform ${motion.durations.fast} ${motion.easing.standard}` }}
+              />
+              <span 
+                className="uppercase hidden sm:inline"
+                style={{ ...type.label, fontSize: '12px' }}
+              >Back to Dashboard</span>
+              <span 
+                className="uppercase sm:hidden"
+                style={{ ...type.label, fontSize: '12px' }}
+              >Back</span>
             </button>
             
             {!isEditing ? (
@@ -93,7 +104,13 @@ export default function Profile() {
         <div className="max-w-4xl mx-auto">
           {/* Page Title */}
           <div className="mb-10 sm:mb-12 md:mb-14">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight mb-3 sm:mb-4">Member Profile</h1>
+            <h1 
+              className="mb-3 sm:mb-4"
+              style={{ 
+                ...type.heroH1,
+                fontSize: '2.5rem'
+              }}
+            >Member Profile</h1>
             <p className="!text-muted-foreground text-sm sm:text-base">Manage your personal information and member details</p>
           </div>
 
