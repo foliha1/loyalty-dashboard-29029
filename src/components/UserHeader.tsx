@@ -1,6 +1,5 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Logo29029 } from "@/components/Logo29029";
-import { ThemeToggle } from "@/components/ThemeToggle";
 import { useNavigate } from "react-router-dom";
 import heroTopoBg from "@/assets/hero-topo-bg.jpg";
 
@@ -9,7 +8,7 @@ export const UserHeader = () => {
   
   return (
     <section 
-      className="relative z-10 w-full overflow-hidden mb-3 bg-black/85 dark:bg-black/85 backdrop-blur-md border-b border-transparent py-10 transition-colors duration-300"
+      className="relative z-10 w-full overflow-hidden mb-3 bg-black/85 backdrop-blur-md border-b border-transparent py-10"
     >
       {/* Subtle background image */}
       <div
@@ -21,7 +20,7 @@ export const UserHeader = () => {
       />
       {/* Gradient overlay to keep text readable */}
       <div
-        className="absolute inset-0 z-0 pointer-events-none transition-opacity duration-300"
+        className="absolute inset-0 z-0 pointer-events-none"
         style={{
           background:
             "linear-gradient(180deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.9) 100%)",
@@ -29,15 +28,10 @@ export const UserHeader = () => {
       />
       
       <div className="container mx-auto px-6 md:px-10 lg:px-12 relative z-10">
-        {/* Theme Toggle - Top Right */}
-        <div className="absolute top-0 right-6 md:right-10 lg:right-12 animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
-          <ThemeToggle />
-        </div>
-
         <div>
           {/* Logo - Centered */}
           <div className="flex justify-center mb-12 md:mb-14">
-            <Logo29029 size={38} className="text-white/70 dark:text-white/70" />
+            <Logo29029 size={38} className="text-white/70" />
           </div>
 
           {/* Hero Content - Centered */}

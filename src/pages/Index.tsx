@@ -42,7 +42,7 @@ const IndexContent = () => {
       <UserHeader />
       
       {/* Main content section */}
-      <div className="bg-[#0a0a0a] dark:bg-[#0a0a0a] transition-colors duration-300">
+      <div className="bg-[#0a0a0a]">
       <div className="container mx-auto px-6 md:px-10 lg:px-12 max-w-7xl">
         {/* Elevation Journey */}
         <div 
