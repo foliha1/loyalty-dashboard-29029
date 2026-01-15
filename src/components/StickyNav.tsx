@@ -4,9 +4,10 @@ import { Logo29029 } from "./Logo29029";
 
 const navLinks = [
   { label: "Journey", href: "#journey" },
-  { label: "Upcoming", href: "#upcoming" },
+  { label: "Continue", href: "#upcoming" },
   { label: "History", href: "#activity-feed" },
   { label: "Events", href: "#upcoming-events" },
+  { label: "Discover", href: "#discover" },
 ];
 
 export const StickyNav = () => {
@@ -19,7 +20,7 @@ export const StickyNav = () => {
       setIsVisible(window.scrollY > 300);
 
       // Determine active section based on scroll position
-      const sections = ["journey", "upcoming", "activity-feed", "upcoming-events"];
+      const sections = ["journey", "upcoming", "activity-feed", "upcoming-events", "discover"];
       for (const section of sections.reverse()) {
         const element = document.getElementById(section);
         if (element) {
