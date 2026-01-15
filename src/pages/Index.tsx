@@ -50,7 +50,6 @@ const IndexContent = () => {
       <UserHeader />
       
       {/* Main content section */}
-      <div className="bg-background overflow-x-hidden">
       <div className="container mx-auto px-4 md:px-10 lg:px-12 max-w-7xl">
         {/* Elevation Journey */}
         <div 
@@ -108,7 +107,6 @@ const IndexContent = () => {
         >
           <DiscoveryCTAs />
         </div>
-      </div>
       </div>
     </div>
   );
