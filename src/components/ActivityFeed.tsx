@@ -129,7 +129,7 @@ export const ActivityFeed = () => {
           {/* Year Dropdown - RIGHT side, compact */}
           <div className="metric-animate-delay-1">
             <Select value={selectedYear} onValueChange={setSelectedYear}>
-              <SelectTrigger className="w-[140px] bg-card/50 border-border/30 text-base">
+              <SelectTrigger className="w-[140px] bg-card/50 border-border/30 text-base text-foreground">
                 <SelectValue placeholder="Select year" />
               </SelectTrigger>
               <SelectContent>
