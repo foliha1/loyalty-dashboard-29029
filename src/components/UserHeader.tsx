@@ -12,7 +12,7 @@ export const UserHeader = () => {
   
   return (
     <section 
-      className="relative z-10 w-full overflow-hidden mb-3 bg-black/85 backdrop-blur-md border-b border-transparent py-6 sm:py-7 md:py-9"
+      className="relative z-10 w-full overflow-hidden mb-3 bg-black/85 backdrop-blur-md border-b border-transparent py-5 sm:py-6 md:py-7"
     >
       {/* Subtle background image */}
       <div
@@ -34,49 +34,48 @@ export const UserHeader = () => {
       <div className="container mx-auto px-5 sm:px-6 md:px-10 lg:px-12 relative z-10">
         <div>
           {/* Logo - Centered */}
-          <div className="flex justify-center mb-6 sm:mb-7 md:mb-10">
+          <div className="flex justify-center mb-4 sm:mb-5 md:mb-6 animate-fade-in">
             <Logo29029 size={38} className="text-white/70" />
           </div>
 
           {/* Hero Content - Centered */}
           <div className="max-w-3xl mx-auto text-center">
-            {/* Premium ID Number */}
-            <div className="mb-3 sm:mb-4 md:mb-5 animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
-              <span className="text-[10px] sm:text-[11px] md:text-xs tracking-[0.25em] sm:tracking-[0.3em] uppercase font-normal text-muted-foreground" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>
-                29029 ID: AR-5847
-              </span>
-            </div>
-            
-            {/* Welcome Statement - Most Prominent */}
-            <h1 
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-tight mb-4 sm:mb-5 px-2 animate-fade-in"
-              style={{ animationDelay: '0.2s', animationFillMode: 'both', textShadow: '0 2px 8px rgba(0,0,0,0.4)', lineHeight: '1.1' }}
-            >
-              Keep climbing, Alex.
-            </h1>
-            
-            {/* Stats Row - Centered layout */}
+            {/* Avatar - Click to navigate to profile */}
             <div 
-              className="flex flex-wrap gap-6 sm:gap-8 md:gap-12 items-center justify-center mb-5 sm:mb-6 md:mb-7 animate-fade-in"
-              style={{ animationDelay: '0.3s', animationFillMode: 'both' }}
+              className="flex justify-center mb-3 sm:mb-4 animate-fade-in"
+              style={{ animationDelay: '0.1s', animationFillMode: 'both' }}
             >
-              {/* Avatar - Click to navigate to profile */}
               <button 
                 onClick={() => navigate("/profile")}
                 className="relative group cursor-pointer min-w-[44px] min-h-[44px]"
               >
-                <Avatar className="w-20 h-20 sm:w-22 sm:h-22 md:w-24 md:h-24 border-2 border-tier-accent/50 flex-shrink-0 transition-all duration-500 hover:scale-105 hover:border-tier-accent hover:shadow-[0_0_20px_hsl(var(--tier-accent)/0.4)]">
+                <Avatar className="w-18 h-18 sm:w-20 sm:h-20 md:w-22 md:h-22 border-2 border-tier-accent/50 flex-shrink-0 transition-all duration-500 hover:scale-105 hover:border-tier-accent hover:shadow-[0_0_20px_hsl(var(--tier-accent)/0.4)]">
                   <AvatarImage src="https://i.pravatar.cc/300?img=12" alt="Alex Rivera" />
                   <AvatarFallback className="bg-secondary text-foreground text-lg font-semibold">AR</AvatarFallback>
                 </Avatar>
               </button>
             </div>
             
-            {/* Subheader with expanded tracking */}
+            {/* Full Name - Primary Heading */}
+            <h1 
+              className="text-2xl sm:text-3xl md:text-4xl font-light tracking-tight mb-1 sm:mb-2 px-2 animate-fade-in"
+              style={{ animationDelay: '0.2s', animationFillMode: 'both', textShadow: '0 2px 8px rgba(0,0,0,0.4)', lineHeight: '1.1' }}
+            >
+              Alex Rivera
+            </h1>
+            
+            {/* ID Number - Secondary Metadata */}
+            <div className="mb-3 sm:mb-4 animate-fade-in" style={{ animationDelay: '0.3s', animationFillMode: 'both' }}>
+              <span className="text-[10px] sm:text-[11px] tracking-[0.25em] uppercase font-normal text-muted-foreground" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>
+                29029 ID: AR-5847
+              </span>
+            </div>
+            
+            {/* Member Since */}
             <div 
-              className="text-xs sm:text-sm md:text-base tracking-[0.2em] sm:tracking-[0.25em] uppercase font-normal animate-fade-in px-4"
+              className="text-xs sm:text-sm tracking-[0.2em] sm:tracking-[0.25em] uppercase font-normal animate-fade-in"
               style={{ 
-                animationDelay: '0.5s', 
+                animationDelay: '0.4s', 
                 animationFillMode: 'both', 
                 textShadow: '0 2px 4px rgba(0,0,0,0.5)',
                 color: currentTier ? `hsl(var(--${currentTier.color}))` : 'hsl(var(--muted-foreground))'
