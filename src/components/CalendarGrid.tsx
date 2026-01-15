@@ -32,8 +32,8 @@ const KPICard = ({ label, value }: { label: string; value: string | number }) =>
   </div>
 );
 
-// Recognition Ladder component - gold for achieved, gray for upcoming
-const RecognitionLadder = ({ current }: { current: number }) => {
+// Recognition Ladder component - color based on tier type
+const RecognitionLadder = ({ current, color = 'ridge' }: { current: number; color?: 'peak' | 'ridge' }) => {
   // Calculate progress percentage based on current recognition
   const getProgressPercent = () => {
     const milestoneIndex = milestones.findIndex(m => 
@@ -48,7 +48,7 @@ const RecognitionLadder = ({ current }: { current: number }) => {
       {/* Progress arrow track */}
       <div className="relative h-2 bg-white/10 rounded-full overflow-hidden">
         <div 
-          className="absolute inset-y-0 left-0 rounded-full transition-all duration-500 bg-peak"
+          className={`absolute inset-y-0 left-0 rounded-full transition-all duration-500 ${color === 'peak' ? 'bg-peak' : 'bg-ridge'}`}
           style={{ width: `${getProgressPercent()}%` }}
         />
         {/* Arrow head */}
@@ -58,7 +58,7 @@ const RecognitionLadder = ({ current }: { current: number }) => {
             left: `${getProgressPercent()}%`,
             borderTop: '6px solid transparent',
             borderBottom: '6px solid transparent',
-            borderLeft: '8px solid hsl(var(--peak))',
+            borderLeft: `8px solid hsl(var(--${color}))`,
             marginLeft: '-2px'
           }}
         />
@@ -78,7 +78,7 @@ const RecognitionLadder = ({ current }: { current: number }) => {
             <div key={idx} className="flex flex-col items-center">
               <span 
                 className={`text-xs md:text-sm font-light ${
-                  isCurrent || isPast ? 'text-peak' : 'text-white/30'
+                  isCurrent || isPast ? (color === 'peak' ? 'text-peak' : 'text-ridge') : 'text-white/30'
                 }`}
               >
                 {milestone}
@@ -139,7 +139,7 @@ export const CalendarGrid = () => {
             </div>
 
             {/* Recognition Ladder */}
-            <RecognitionLadder current={mountainData.currentRecognition} />
+            <RecognitionLadder current={mountainData.currentRecognition} color="peak" />
           </div>
         </TabsContent>
 
@@ -154,7 +154,7 @@ export const CalendarGrid = () => {
             </div>
 
             {/* Recognition Ladder */}
-            <RecognitionLadder current={trailData.currentRecognition} />
+            <RecognitionLadder current={trailData.currentRecognition} color="ridge" />
           </div>
         </TabsContent>
       </Tabs>
