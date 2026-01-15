@@ -91,7 +91,7 @@ export const StickyNav = () => {
                           href={link.href}
                           onClick={(e) => handleLinkClick(e, link.href)}
                           className={cn(
-                            "py-3 px-4 -mx-4 text-sm uppercase tracking-[0.15em] transition-colors duration-300 rounded-lg",
+                            "py-3 px-4 -mx-4 text-xs uppercase tracking-[0.15em] transition-colors duration-300 rounded-lg",
                             activeSection === link.href.slice(1)
                               ? "text-foreground bg-white/5"
                               : "text-muted-foreground hover:text-foreground hover:bg-white/5"
@@ -116,7 +116,7 @@ export const StickyNav = () => {
                   >
                     <span
                       className={cn(
-                        "text-[10px] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] transition-colors duration-300",
+                        "text-xs uppercase tracking-[0.15em] transition-colors duration-300",
                         activeSection === link.href.slice(1)
                           ? "text-foreground"
                           : "text-muted-foreground hover:text-foreground"
