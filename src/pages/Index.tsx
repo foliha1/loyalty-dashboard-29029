@@ -3,6 +3,7 @@ import { TiersContinuum } from "@/components/TiersContinuum";
 import { CalendarGrid } from "@/components/CalendarGrid";
 import { ActivityFeed } from "@/components/ActivityFeed";
 import { UpcomingEventsSection } from "@/components/UpcomingEventsSection";
+import { DiscoveryCTAs } from "@/components/DiscoveryCTAs";
 import { StickyNav } from "@/components/StickyNav";
 import { useParallax } from "@/hooks/useParallax";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -16,6 +17,7 @@ const IndexContent = () => {
   const tiersReveal = useScrollReveal(0.1);
   const calendarReveal = useScrollReveal(0.1);
   const activityReveal = useScrollReveal(0.1);
+  const discoveryCTAsReveal = useScrollReveal(0.1);
   const upcomingEventsReveal = useScrollReveal(0.1);
   const { currentTier } = useTier();
   
@@ -80,6 +82,17 @@ const IndexContent = () => {
           className={`py-10 md:py-14 section-fade-up ${activityReveal.isVisible ? 'visible' : ''}`}
         >
           <ActivityFeed />
+        </div>
+        
+        {/* Section Divider */}
+        <div className="divider-red my-10 md:my-14" />
+        
+        {/* Discovery CTAs */}
+        <div 
+          ref={discoveryCTAsReveal.ref} 
+          className={`py-10 md:py-14 section-fade-up ${discoveryCTAsReveal.isVisible ? 'visible' : ''}`}
+        >
+          <DiscoveryCTAs />
         </div>
         
         {/* Section Divider */}
