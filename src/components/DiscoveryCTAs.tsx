@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 export const DiscoveryCTAs = () => {
   return (
     <section>
-      <h3 className="text-section-title mb-5 sm:mb-5 md:mb-6 px-2">
+      <h3 className="text-section-title mb-4 sm:mb-4 md:mb-5 px-2">
         Discover More
       </h3>
       

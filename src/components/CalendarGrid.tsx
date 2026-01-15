@@ -107,13 +107,13 @@ export const CalendarGrid = () => {
   }, []);
   return (
     <section>
-      <h3 className="text-section-title mb-5 sm:mb-5 md:mb-6 px-2">
+      <h3 className="text-section-title mb-4 sm:mb-4 md:mb-5 px-2">
         Continue the Journey
       </h3>
       
       <Tabs defaultValue="mountain" className="w-full">
         {/* Segmented Toggle */}
-        <TabsList className="mb-4 md:mb-5 bg-muted/20 p-1 rounded-lg">
+        <TabsList className="mb-3 md:mb-4 bg-muted/20 p-1 rounded-lg">
           <TabsTrigger 
             value="mountain" 
             className="px-5 py-1.5 text-xs uppercase tracking-[0.2em] font-light data-[state=active]:bg-card data-[state=active]:text-red-500"

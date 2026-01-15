@@ -111,7 +111,7 @@ export const ActivityFeed = () => {
   
   return (
     <section id="activity-feed">
-      <div className="flex items-center mb-7 md:mb-10 px-2">
+      <div className="flex items-center mb-5 md:mb-8 px-2">
         <h3 className="text-section-title">
           History
         </h3>
