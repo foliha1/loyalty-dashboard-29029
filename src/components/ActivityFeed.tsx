@@ -111,38 +111,37 @@ export const ActivityFeed = () => {
   
   return (
     <section id="activity-feed">
-      <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-7 md:mb-10 gap-4 px-2">
+      <div className="flex items-center mb-7 md:mb-10 px-2">
         <h3 className="text-section-title">
           History
         </h3>
-        
-        <Select value={selectedYear} onValueChange={setSelectedYear}>
-          <SelectTrigger className="w-[180px] bg-card/50 border-border/30">
-            <SelectValue placeholder="Select year" />
-          </SelectTrigger>
-          <SelectContent>
-            {yearlyActivities.map((activity) => (
-              <SelectItem key={activity.year} value={activity.year.toString()}>
-                {activity.year}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
       </div>
 
       <div className="card-29029 p-6 md:p-8 lg:p-9">
-        {/* Year Display - More Dramatic */}
-        <div className="flex flex-col md:flex-row items-center justify-between mb-9 pb-6 border-b border-border/30 gap-6">
+        {/* EPs Earned (dominant) + Year Dropdown */}
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-9 pb-6 border-b border-border/30 gap-6">
+          {/* EPs Earned - LEFT side, dominant */}
           <div className="text-center md:text-left metric-animate">
-            <div className="text-subhead mb-3">Year</div>
-            <h3 className="text-7xl md:text-8xl font-light tracking-tight">
-              {yearData.year}
-            </h3>
+            <div className="text-subhead mb-3">EPs Earned</div>
+            <div className="text-7xl md:text-8xl font-light tracking-tight tabular-nums">
+              {totalYearEP}
+            </div>
           </div>
           
-          <div className="text-center metric-animate-delay-1">
-            <div className="text-subhead mb-3">Total EPs Earned</div>
-            <div className="text-5xl md:text-6xl font-light tracking-tight tabular-nums">{totalYearEP}</div>
+          {/* Year Dropdown - RIGHT side, compact */}
+          <div className="metric-animate-delay-1">
+            <Select value={selectedYear} onValueChange={setSelectedYear}>
+              <SelectTrigger className="w-[140px] bg-card/50 border-border/30 text-base">
+                <SelectValue placeholder="Select year" />
+              </SelectTrigger>
+              <SelectContent>
+                {yearlyActivities.map((activity) => (
+                  <SelectItem key={activity.year} value={activity.year.toString()}>
+                    {activity.year}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
         </div>
 
