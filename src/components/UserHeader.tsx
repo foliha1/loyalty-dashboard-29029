@@ -49,7 +49,7 @@ export const UserHeader = () => {
                 onClick={() => navigate("/profile")}
                 className="relative group cursor-pointer min-w-[44px] min-h-[44px]"
               >
-                <Avatar className="w-18 h-18 sm:w-20 sm:h-20 md:w-22 md:h-22 border-2 border-tier-accent/50 flex-shrink-0 transition-all duration-500 hover:scale-105 hover:border-tier-accent hover:shadow-[0_0_20px_hsl(var(--tier-accent)/0.4)]">
+                <Avatar className="w-14 h-14 sm:w-20 sm:h-20 md:w-22 md:h-22 border-2 border-tier-accent/50 flex-shrink-0 transition-all duration-500 hover:scale-105 hover:border-tier-accent hover:shadow-[0_0_20px_hsl(var(--tier-accent)/0.4)]">
                   <AvatarImage src="https://i.pravatar.cc/300?img=12" alt="Alex Rivera" />
                   <AvatarFallback className="bg-secondary text-foreground text-lg font-semibold">AR</AvatarFallback>
                 </Avatar>
@@ -58,7 +58,7 @@ export const UserHeader = () => {
             
             {/* Full Name - Primary Heading */}
             <h1 
-              className="text-2xl sm:text-3xl md:text-4xl font-light tracking-tight mb-1 sm:mb-2 px-2 animate-fade-in"
+              className="text-3xl sm:text-3xl md:text-4xl font-light tracking-tight mb-1 sm:mb-2 px-2 animate-fade-in"
               style={{ animationDelay: '0.2s', animationFillMode: 'both', textShadow: '0 2px 8px rgba(0,0,0,0.4)', lineHeight: '1.1' }}
             >
               Alex Rivera
