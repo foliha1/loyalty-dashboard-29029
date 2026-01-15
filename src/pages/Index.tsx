@@ -2,6 +2,7 @@ import { UserHeader } from "@/components/UserHeader";
 import { TiersContinuum } from "@/components/TiersContinuum";
 import { CalendarGrid } from "@/components/CalendarGrid";
 import { ActivityFeed } from "@/components/ActivityFeed";
+import { UpcomingEventsSection } from "@/components/UpcomingEventsSection";
 import { StickyNav } from "@/components/StickyNav";
 import { useParallax } from "@/hooks/useParallax";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -15,6 +16,7 @@ const IndexContent = () => {
   const tiersReveal = useScrollReveal(0.1);
   const calendarReveal = useScrollReveal(0.1);
   const activityReveal = useScrollReveal(0.1);
+  const upcomingEventsReveal = useScrollReveal(0.1);
   const { currentTier } = useTier();
   
   return (
@@ -75,9 +77,21 @@ const IndexContent = () => {
         {/* History */}
         <div 
           ref={activityReveal.ref} 
-          className={`py-10 md:py-14 pb-14 md:pb-20 section-fade-up ${activityReveal.isVisible ? 'visible' : ''}`}
+          className={`py-10 md:py-14 section-fade-up ${activityReveal.isVisible ? 'visible' : ''}`}
         >
           <ActivityFeed />
+        </div>
+        
+        {/* Section Divider */}
+        <div className="divider-red my-10 md:my-14" />
+        
+        {/* Upcoming Events */}
+        <div 
+          id="upcoming-events"
+          ref={upcomingEventsReveal.ref} 
+          className={`py-10 md:py-14 pb-14 md:pb-20 section-fade-up ${upcomingEventsReveal.isVisible ? 'visible' : ''}`}
+        >
+          <UpcomingEventsSection />
         </div>
       </div>
       </div>
