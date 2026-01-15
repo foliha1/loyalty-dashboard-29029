@@ -2,6 +2,7 @@ import { UserHeader } from "@/components/UserHeader";
 import { TiersContinuum } from "@/components/TiersContinuum";
 import { CalendarGrid } from "@/components/CalendarGrid";
 import { ActivityFeed } from "@/components/ActivityFeed";
+import { StickyNav } from "@/components/StickyNav";
 import { useParallax } from "@/hooks/useParallax";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useScrollVignette } from "@/hooks/useScrollVignette";
@@ -38,6 +39,9 @@ const IndexContent = () => {
         }} 
       />
 
+      {/* Sticky Navigation */}
+      <StickyNav />
+
       {/* Header */}
       <UserHeader />
       
@@ -46,6 +50,7 @@ const IndexContent = () => {
       <div className="container mx-auto px-6 md:px-10 lg:px-12 max-w-7xl">
         {/* Elevation Journey */}
         <div 
+          id="journey"
           ref={tiersReveal.ref} 
           className={`pt-10 md:pt-14 pb-10 md:pb-14 section-fade-up ${tiersReveal.isVisible ? 'visible' : ''}`}
         >
@@ -57,6 +62,7 @@ const IndexContent = () => {
         
         {/* Continue the Journey */}
         <div 
+          id="upcoming"
           ref={calendarReveal.ref} 
           className={`py-10 md:py-14 section-fade-up section-fade-up-delay-2 ${calendarReveal.isVisible ? 'visible' : ''}`}
         >
