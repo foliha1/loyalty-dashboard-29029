@@ -78,6 +78,7 @@ const IndexContent = () => {
         
         {/* History */}
         <div 
+          id="activity-feed"
           ref={activityReveal.ref} 
           className={`py-10 md:py-14 section-fade-up ${activityReveal.isVisible ? 'visible' : ''}`}
         >
@@ -101,6 +102,7 @@ const IndexContent = () => {
         
         {/* Discovery CTAs */}
         <div 
+          id="discover"
           ref={discoveryCTAsReveal.ref} 
           className={`py-10 md:py-14 pb-14 md:pb-20 section-fade-up ${discoveryCTAsReveal.isVisible ? 'visible' : ''}`}
         >
