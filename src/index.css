@@ -47,6 +47,32 @@ All colors MUST be HSL.
 
     --radius: 0.5rem;
     
+    /* ==========================================
+       TYPOGRAPHY SCALE (6-Role System)
+       ========================================== */
+    
+    /* Page Identity - Username, top-level identity */
+    --type-identity: 1.875rem;        /* 30px - mobile */
+    --type-identity-md: 2.25rem;      /* 36px - desktop */
+    
+    /* Primary Metrics - Hero EP values, current tier, large KPIs */
+    --type-metric-primary: 2.25rem;   /* 36px - mobile */
+    --type-metric-primary-md: 3.75rem; /* 60px - desktop */
+    
+    /* Secondary Metrics - Category EPs, days remaining, next milestone */
+    --type-metric-secondary: 1.5rem;  /* 24px - mobile */
+    --type-metric-secondary-md: 1.875rem; /* 30px - desktop */
+    
+    /* Subsection Titles - Card titles, CTA headings, accordion triggers */
+    --type-subsection: 1rem;          /* 16px - mobile */
+    --type-subsection-md: 1.125rem;   /* 18px - desktop */
+    
+    /* Body/Supporting - List items, descriptions, content */
+    --type-body: 0.875rem;            /* 14px - both */
+    
+    /* Meta/Helper - Labels, badges, navigation, timestamps */
+    --type-meta: 0.75rem;             /* 12px - both */
+    
     /* 29029 Brand Accent */
     --accent-29029: 348 100% 38%;
     --accent-red: 348 100% 38%;
@@ -280,6 +306,84 @@ All colors MUST be HSL.
     font-weight: 300;
     letter-spacing: -0.02em;
     line-height: 1.05;
+  }
+
+  /* ==========================================
+     TYPOGRAPHY UTILITY CLASSES (6-Role System)
+     ========================================== */
+
+  /* Page Identity - Username, top-level identity */
+  .type-identity {
+    font-size: var(--type-identity);
+    font-weight: 300;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+  }
+  
+  @media (min-width: 768px) {
+    .type-identity {
+      font-size: var(--type-identity-md);
+    }
+  }
+
+  /* Primary Metrics - Hero EP values, current tier, large KPIs */
+  .type-metric-primary {
+    font-size: var(--type-metric-primary);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+  
+  @media (min-width: 768px) {
+    .type-metric-primary {
+      font-size: var(--type-metric-primary-md);
+    }
+  }
+
+  /* Secondary Metrics - Category EPs, days remaining */
+  .type-metric-secondary {
+    font-size: var(--type-metric-secondary);
+    font-weight: 300;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+    font-variant-numeric: tabular-nums;
+  }
+  
+  @media (min-width: 768px) {
+    .type-metric-secondary {
+      font-size: var(--type-metric-secondary-md);
+    }
+  }
+
+  /* Subsection Titles - Card titles, CTA headings, accordion triggers */
+  .type-subsection {
+    font-size: var(--type-subsection);
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    line-height: 1.3;
+  }
+  
+  @media (min-width: 768px) {
+    .type-subsection {
+      font-size: var(--type-subsection-md);
+    }
+  }
+
+  /* Body/Supporting - List items, descriptions */
+  .type-body {
+    font-size: var(--type-body);
+    font-weight: 400;
+    line-height: 1.6;
+  }
+
+  /* Meta/Helper - Labels, badges, navigation */
+  .type-meta {
+    font-size: var(--type-meta);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    line-height: 1.4;
   }
 
 h2, h3, .text-section-title {
