@@ -118,7 +118,7 @@ export const TiersContinuum = () => {
 
         {/* Progress Bar */}
         <div className="mb-5 sm:mb-7 md:mb-9">
-          <div className="relative h-2 md:h-3 bg-white/10 rounded-full overflow-hidden ring-1 ring-white/10">
+          <div className="relative h-2 md:h-3 bg-[hsl(var(--border))] rounded-full overflow-hidden ring-1 ring-[hsl(var(--border))]">
             <div 
               className="absolute inset-y-0 left-0 rounded-full transition-all duration-1000 ease-out"
               style={{
@@ -167,11 +167,11 @@ export const TiersContinuum = () => {
                   />
                   <div className={cn(
                     "text-xs uppercase tracking-wider transition-colors duration-500 text-center",
-                    isPassed ? "text-foreground font-semibold" : "text-white/50"
+                    isPassed ? "text-foreground font-semibold" : "text-[hsl(var(--text-muted))]"
                   )}>
                     {tier.name}
                   </div>
-                  <div className="text-xs text-white/40 mt-0.5 sm:mt-1 tabular-nums">
+                  <div className="text-xs text-[hsl(var(--text-disabled))] mt-0.5 sm:mt-1 tabular-nums">
                     {tier.threshold}
                   </div>
                 </div>

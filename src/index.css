@@ -12,44 +12,52 @@ All colors MUST be HSL.
   }
   
   :root {
-    --background: 0 0% 3%;
-    --foreground: 0 0% 95%;
+    /* ===========================================
+       BACKGROUND SURFACES (4 levels)
+       =========================================== */
+    --background: 0 0% 4%;           /* Deepest - page bg */
+    --card: 0 0% 9%;                 /* Cards, elevated surfaces */
+    --muted: 0 0% 14%;               /* Muted backgrounds */
+    --surface-elevated: 0 0% 18%;    /* Highest elevation */
 
-    --card: 30 3% 9%;
-    --card-foreground: 0 0% 95%;
-    
-    --warm-charcoal: 0 0% 10%;
-    --warm-smoke: 30 3% 18%;
+    /* ===========================================
+       TEXT COLORS (4 levels)
+       =========================================== */
+    --foreground: 0 0% 95%;          /* Primary text - high contrast */
+    --text-secondary: 0 0% 65%;      /* Body text */
+    --text-muted: 0 0% 50%;          /* Helper, meta text */
+    --text-disabled: 0 0% 35%;       /* Inactive states */
+    --muted-foreground: 0 0% 50%;    /* Shadcn compatibility */
 
+    /* ===========================================
+       BORDERS (2 levels)
+       =========================================== */
+    --border: 0 0% 18%;              /* Subtle borders */
+    --border-strong: 0 0% 25%;       /* Strong borders */
+
+    /* ===========================================
+       INTERACTIVE / UI
+       =========================================== */
     --popover: 0 0% 8%;
     --popover-foreground: 0 0% 95%;
-
     --primary: 0 0% 98%;
     --primary-foreground: 0 0% 8%;
-
     --secondary: 0 0% 14%;
     --secondary-foreground: 0 0% 95%;
-
-    --muted: 0 0% 18%;
-    --muted-foreground: 0 0% 40%;
-
     --accent: 0 0% 98%;
     --accent-foreground: 0 0% 8%;
-
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-
-    --border: 0 0% 22%;
     --input: 0 0% 14%;
     --ring: 0 0% 98%;
+    --card-foreground: 0 0% 95%;
     
     --shadow-card: 0 8px 16px -4px rgb(0 0 0 / 0.5);
-
     --radius: 0.5rem;
     
-    /* ==========================================
+    /* ===========================================
        TYPOGRAPHY SCALE (6-Role System)
-       ========================================== */
+       =========================================== */
     
     /* Page Identity - Username, top-level identity */
     --type-identity: 1.875rem;        /* 30px - mobile */
@@ -73,23 +81,9 @@ All colors MUST be HSL.
     /* Meta/Helper - Labels, badges, navigation, timestamps */
     --type-meta: 0.75rem;             /* 12px - both */
     
-    /* 29029 Brand Accent */
-    --accent-29029: 348 100% 38%;
-    --accent-red: 348 100% 38%;
-    --accent-red-dim: 348 100% 28%;
-    
-    /* Warm Neutrals */
-    --warm-gray: 30 5% 25%;
-    --warm-gray-light: 30 5% 40%;
-    
-    /* Custom tokens for tier system */
-    --ember: 0 75% 55%;
-    --ember-glow: 0 75% 65%;
-    --obsidian: 0 0% 8%;
-    --charcoal: 0 0% 16%;
-    --silver: 0 0% 85%;
-    
-    /* Tier colors - Seamless continuum gradient */
+    /* ===========================================
+       TIER COLORS (Semantic - unchanged)
+       =========================================== */
     --base: 174 59% 46%;        /* Teal #31BCAF */
     --base-glow: 174 59% 56%;   /* Lighter teal glow */
     --ridge: 40 60% 50%;        /* Gold #CC9933 */
@@ -103,10 +97,10 @@ All colors MUST be HSL.
     --current-tier-accent: var(--ridge);
     --current-tier-accent-glow: var(--ridge-glow);
     
-    /* Premium gradients */
+    /* ===========================================
+       GRADIENTS & SHADOWS
+       =========================================== */
     --gradient-soft: radial-gradient(ellipse at top, hsl(var(--card) / 0.6), hsl(var(--background)));
-    --gradient-ember: radial-gradient(circle at center, hsl(var(--ember) / 0.08), transparent);
-    --gradient-29029: linear-gradient(135deg, hsl(var(--accent-29029)) 0%, hsl(348 100% 28%) 100%);
     --gradient-hero: linear-gradient(180deg, rgba(0,0,0,0.98) 0%, rgba(8,8,8,1) 100%);
     --gradient-section: linear-gradient(135deg, rgba(0,0,0,1) 0%, rgba(15,15,15,1) 100%);
     
@@ -148,23 +142,9 @@ All colors MUST be HSL.
 }
 
 @layer utilities {
-  .ember-glow {
-    box-shadow: 0 0 20px hsl(var(--ember) / 0.3);
-  }
-  
-  .ember-glow-strong {
-    box-shadow: 0 0 30px hsl(var(--ember) / 0.5);
-  }
-  
-  .text-ember {
-    color: hsl(var(--ember));
-  }
-  
-  .bg-ember {
-    background-color: hsl(var(--ember));
-  }
-  
-  /* Tier-specific utilities */
+  /* ===========================================
+     TIER UTILITIES (Semantic colors preserved)
+     =========================================== */
   .text-base {
     color: hsl(var(--base));
   }
@@ -213,7 +193,25 @@ All colors MUST be HSL.
     box-shadow: 0 0 20px hsl(var(--summit) / 0.3);
   }
   
-  /* Premium Hover Effects */
+  .bg-base {
+    background-color: hsl(var(--base));
+  }
+
+  .bg-ridge {
+    background-color: hsl(var(--ridge));
+  }
+
+  .bg-peak {
+    background-color: hsl(var(--peak));
+  }
+
+  .bg-summit {
+    background-color: hsl(var(--summit));
+  }
+  
+  /* ===========================================
+     PREMIUM HOVER EFFECTS
+     =========================================== */
   .hover-lift {
     transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
@@ -236,40 +234,9 @@ All colors MUST be HSL.
     background: radial-gradient(circle at top, hsl(var(--card)), hsl(var(--background)));
   }
 
-  .bg-base {
-    background-color: hsl(var(--base));
-  }
-
-  .bg-ridge {
-    background-color: hsl(var(--ridge));
-  }
-
-  .bg-peak {
-    background-color: hsl(var(--peak));
-  }
-
-  .bg-summit {
-    background-color: hsl(var(--summit));
-  }
-  
-  /* Warm neutral utilities */
-  .text-warm-gray {
-    color: hsl(var(--warm-gray));
-  }
-  
-  .text-warm-gray-light {
-    color: hsl(var(--warm-gray-light));
-  }
-  
-  .bg-warm-gray {
-    background-color: hsl(var(--warm-gray));
-  }
-  
-  .bg-warm-gray-light {
-    background-color: hsl(var(--warm-gray-light));
-  }
-  
-  /* Blend modes for atmospheric effects */
+  /* ===========================================
+     BLEND MODES & FADE UTILITIES
+     =========================================== */
   .blend-overlay {
     mix-blend-mode: overlay;
   }
@@ -278,29 +245,13 @@ All colors MUST be HSL.
     mix-blend-mode: soft-light;
   }
   
-  /* Smooth fade utilities */
   .fade-soft {
     transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
-  
-  /* 29029 Red Utilities */
-  .text-29029 {
-    color: #DD0033;
-  }
-  
-  .border-29029 {
-    border-color: #DD0033;
-  }
-  
-  .glow-29029 {
-    box-shadow: 0 0 24px rgba(221, 0, 51, 0.3);
-  }
-  
-  .glow-29029-strong {
-    box-shadow: 0 0 40px rgba(221, 0, 51, 0.5), 0 0 72px rgba(221, 0, 51, 0.25);
-  }
-  
-  /* Cinematic text treatments */
+
+  /* ===========================================
+     CINEMATIC TEXT TREATMENTS
+     =========================================== */
   .text-hero {
     font-family: 'Inter', sans-serif;
     font-weight: 300;
@@ -308,9 +259,9 @@ All colors MUST be HSL.
     line-height: 1.05;
   }
 
-  /* ==========================================
+  /* ===========================================
      TYPOGRAPHY UTILITY CLASSES (6-Role System)
-     ========================================== */
+     =========================================== */
 
   /* Page Identity - Username, top-level identity */
   .type-identity {
@@ -386,13 +337,16 @@ All colors MUST be HSL.
     line-height: 1.2;
   }
 
-h2, h3, .text-section-title {
+  /* ===========================================
+     SECTION TITLES (Primary text)
+     =========================================== */
+  h2, h3, .text-section-title {
     font-family: 'Inter', sans-serif;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.096em;
     font-size: 0.88rem;
-    color: hsl(0 0% 92%);
+    color: hsl(var(--foreground));
     line-height: 1.15;
   }
   
@@ -403,35 +357,38 @@ h2, h3, .text-section-title {
     }
   }
 
-.text-subhead {
-  font-family: 'Inter', sans-serif;
-  font-weight: 300;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  font-size: 0.65rem;
-  color: hsl(0 0% 48%);
-  line-height: 1.45;
-}
+  /* ===========================================
+     TEXT COLOR CLASSES (Normalized)
+     =========================================== */
+  .text-subhead {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.65rem;
+    color: hsl(var(--text-muted));
+    line-height: 1.45;
+  }
 
   .text-body {
     font-family: 'Inter', sans-serif;
     font-weight: 400;
-    color: hsl(0 0% 55%);
+    color: hsl(var(--text-secondary));
     line-height: 1.6;
     font-size: 0.9375rem;
   }
   
   /* Force neutral text - immune to tier color inheritance */
   .text-neutral-body {
-    color: hsl(0 0% 55%) !important;
+    color: hsl(var(--text-secondary)) !important;
   }
 
   .text-neutral-supporting {
-    color: hsl(0 0% 45%) !important;
+    color: hsl(var(--text-muted)) !important;
   }
 
   .text-neutral-muted {
-    color: hsl(var(--muted-foreground)) !important;
+    color: hsl(var(--text-muted)) !important;
   }
 
   /* Isolate content from tier color cascade */
@@ -443,16 +400,18 @@ h2, h3, .text-section-title {
     color: inherit;
   }
 
-.text-supporting {
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  font-size: 0.8125rem;
-  color: hsl(0 0% 45%) !important;
-  text-align: left;
-  line-height: 1.5;
-}
+  .text-supporting {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 0.8125rem;
+    color: hsl(var(--text-muted)) !important;
+    text-align: left;
+    line-height: 1.5;
+  }
 
-  /* Premium accent dividers */
+  /* ===========================================
+     TIER-ACCENT UTILITIES
+     =========================================== */
   .divider-red {
     height: 1.5px;
     background: linear-gradient(90deg, transparent 0%, hsl(var(--current-tier-accent) / 0.35) 20%, hsl(var(--current-tier-accent) / 0.55) 50%, hsl(var(--current-tier-accent) / 0.35) 80%, transparent 100%);
@@ -465,85 +424,85 @@ h2, h3, .text-section-title {
     }
   }
 
-/* Dynamic Tier Classes */
-[data-current-tier="Base"] {
-  --current-tier-accent: var(--base);
-  --current-tier-accent-glow: var(--base-glow);
-  --button-text-color: #0a0a0a; /* Dark text for teal background */
-}
+  /* Dynamic Tier Classes */
+  [data-current-tier="Base"] {
+    --current-tier-accent: var(--base);
+    --current-tier-accent-glow: var(--base-glow);
+    --button-text-color: hsl(var(--background));
+  }
 
-[data-current-tier="Ridge"] {
-  --current-tier-accent: var(--ridge);
-  --current-tier-accent-glow: var(--ridge-glow);
-  --button-text-color: #0a0a0a; /* Dark text for gold background */
-}
+  [data-current-tier="Ridge"] {
+    --current-tier-accent: var(--ridge);
+    --current-tier-accent-glow: var(--ridge-glow);
+    --button-text-color: hsl(var(--background));
+  }
 
-[data-current-tier="Peak"] {
-  --current-tier-accent: var(--peak);
-  --current-tier-accent-glow: var(--peak-glow);
-  --button-text-color: #ffffff; /* White text for red background */
-}
+  [data-current-tier="Peak"] {
+    --current-tier-accent: var(--peak);
+    --current-tier-accent-glow: var(--peak-glow);
+    --button-text-color: hsl(var(--foreground));
+  }
 
-[data-current-tier="Summit Circle"] {
-  --current-tier-accent: var(--summit);
-  --current-tier-accent-glow: var(--summit-glow);
-  --button-text-color: #0a0a0a; /* Dark text for light background */
-}
+  [data-current-tier="Summit Circle"] {
+    --current-tier-accent: var(--summit);
+    --current-tier-accent-glow: var(--summit-glow);
+    --button-text-color: hsl(var(--background));
+  }
 
-.text-tier-accent {
-  color: hsl(var(--current-tier-accent));
-}
+  .text-tier-accent {
+    color: hsl(var(--current-tier-accent));
+  }
 
-.text-tier-gold {
-  color: hsl(var(--ridge));
-}
+  .text-tier-gold {
+    color: hsl(var(--ridge));
+  }
 
-.text-tier-silver {
-  color: hsl(var(--peak));
-}
+  .text-tier-silver {
+    color: hsl(var(--peak));
+  }
 
-.border-tier-accent {
-  border-color: hsl(var(--current-tier-accent));
-}
+  .border-tier-accent {
+    border-color: hsl(var(--current-tier-accent));
+  }
 
-.bg-tier-accent {
-  background-color: hsl(var(--current-tier-accent));
-}
+  .bg-tier-accent {
+    background-color: hsl(var(--current-tier-accent));
+  }
 
-.glow-tier-accent {
-  box-shadow: 0 0 24px hsl(var(--current-tier-accent) / 0.4);
-}
+  .glow-tier-accent {
+    box-shadow: 0 0 24px hsl(var(--current-tier-accent) / 0.4);
+  }
 
-/* Button tier-aware text color for AA compliance */
-[data-current-tier="Base"] .bg-tier-accent {
-  color: #0a0a0a;
-}
+  /* Button tier-aware text color for AA compliance */
+  [data-current-tier="Base"] .bg-tier-accent {
+    color: hsl(var(--background));
+  }
 
-[data-current-tier="Ridge"] .bg-tier-accent {
-  color: #0a0a0a;
-}
+  [data-current-tier="Ridge"] .bg-tier-accent {
+    color: hsl(var(--background));
+  }
 
-[data-current-tier="Peak"] .bg-tier-accent {
-  color: #ffffff;
-}
+  [data-current-tier="Peak"] .bg-tier-accent {
+    color: hsl(var(--foreground));
+  }
 
-[data-current-tier="Summit Circle"] .bg-tier-accent {
-  color: #0a0a0a;
-}
+  [data-current-tier="Summit Circle"] .bg-tier-accent {
+    color: hsl(var(--background));
+  }
 
-/* Card hover effect with tier accent */
-.card-hover-tier {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
+  /* Card hover effect with tier accent */
+  .card-hover-tier {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
 
-.card-hover-tier:hover {
-  border-color: rgba(242, 242, 242, 0.5);
-  box-shadow: 0 4px 20px rgba(242, 242, 242, 0.2);
-}
+  .card-hover-tier:hover {
+    border-color: hsl(var(--border-strong));
+    box-shadow: 0 4px 20px hsl(var(--border) / 0.2);
+  }
 
   .divider-red-vertical {
     width: 2px;
-    background: linear-gradient(180deg, #DD0033 0%, transparent 100%);
+    background: linear-gradient(180deg, hsl(var(--peak)) 0%, transparent 100%);
     height: 100%;
   }
 
@@ -558,8 +517,8 @@ h2, h3, .text-section-title {
 
   /* Elevated card treatment */
   .card-29029 {
-    background: linear-gradient(135deg, rgba(12,12,12,1) 0%, rgba(18,18,18,1) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: linear-gradient(135deg, hsl(0 0% 5% / 1) 0%, hsl(0 0% 7% / 1) 100%);
+    border: 1px solid hsl(var(--border) / 0.3);
     border-radius: 0.5rem;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
@@ -746,7 +705,7 @@ h2, h3, .text-section-title {
     inset: -2px;
     border-radius: inherit;
     opacity: 0;
-    background: radial-gradient(circle at center, rgba(242, 242, 242, 0.15) 0%, transparent 70%);
+    background: radial-gradient(circle at center, hsl(var(--foreground) / 0.15) 0%, transparent 70%);
     filter: blur(12px);
     transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     pointer-events: none;
@@ -771,7 +730,7 @@ h2, h3, .text-section-title {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%);
+    background: linear-gradient(135deg, hsl(var(--foreground) / 0.1) 0%, transparent 50%);
     opacity: 0;
     transition: opacity 0.3s ease;
   }
@@ -813,7 +772,7 @@ h2, h3, .text-section-title {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle, rgba(255,255,255,0.5) 0%, transparent 70%);
+    background: radial-gradient(circle, hsl(var(--foreground) / 0.5) 0%, transparent 70%);
     transform: scale(0);
     opacity: 0;
     pointer-events: none;
