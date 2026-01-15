@@ -1,6 +1,4 @@
-import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 interface YearlyActivity {
   year: number;
@@ -153,18 +151,9 @@ export const ActivityFeed = () => {
             
             <div>
               <div className="text-2xl md:text-3xl font-light tracking-tight mb-2">{yearData.events.totalEP} EPs</div>
-              
-              <Collapsible>
-                <CollapsibleTrigger className="flex items-center gap-2 text-supporting hover:text-foreground transition-colors group">
-                  <span className="text-subhead">View Events</span>
-                  <ChevronDown className="h-4 w-4 text-muted-foreground" />
-                </CollapsibleTrigger>
-                <CollapsibleContent className="mt-4">
-                  <div className="text-body font-light">
-                    {yearData.events.attended.join(" • ")}
-                  </div>
-                </CollapsibleContent>
-              </Collapsible>
+              <div className="text-body font-light text-muted-foreground">
+                {yearData.events.attended.join(" • ")}
+              </div>
             </div>
           </div>
 
@@ -172,19 +161,7 @@ export const ActivityFeed = () => {
           <div>
             <h4 className="text-subhead mb-4">Apparel</h4>
             <div>
-              <div className="text-2xl md:text-3xl font-light tracking-tight mb-2">{yearData.apparel.totalEP} EPs</div>
-              
-              <Collapsible>
-                <CollapsibleTrigger className="flex items-center gap-2 text-supporting hover:text-foreground transition-colors group">
-                  <span className="text-subhead">View Purchases</span>
-                  <ChevronDown className="h-4 w-4 text-muted-foreground" />
-                </CollapsibleTrigger>
-                <CollapsibleContent className="mt-4">
-                  <div className="text-body font-light">
-                    Purchase history coming soon
-                  </div>
-                </CollapsibleContent>
-              </Collapsible>
+              <div className="text-2xl md:text-3xl font-light tracking-tight">{yearData.apparel.totalEP} EPs</div>
             </div>
           </div>
 
@@ -192,21 +169,7 @@ export const ActivityFeed = () => {
           <div>
             <h4 className="text-subhead mb-4">Coaching</h4>
             <div>
-              <div className="text-2xl md:text-3xl font-light tracking-tight mb-2">{yearData.coaching.totalEP} EPs</div>
-              
-              <Collapsible>
-                <CollapsibleTrigger className="flex items-center gap-2 text-supporting hover:text-foreground transition-colors group">
-                  <span className="text-subhead">View Sessions</span>
-                  <ChevronDown className="h-4 w-4 text-muted-foreground" />
-                </CollapsibleTrigger>
-                <CollapsibleContent className="mt-4">
-                  <div className="space-y-2">
-                    {yearData.coaching.sessions.map((session, idx) => <div key={idx} className="text-body font-light pl-4">
-                        • {session.name}
-                      </div>)}
-                  </div>
-                </CollapsibleContent>
-              </Collapsible>
+              <div className="text-2xl md:text-3xl font-light tracking-tight">{yearData.coaching.totalEP} EPs</div>
             </div>
           </div>
         </div>
