@@ -220,7 +220,7 @@ export const TiersContinuum = () => {
                 <div className="space-y-5 md:space-y-6">
                   {/* Base Tier */}
                   <div>
-                    <h5 className="text-base md:text-lg font-semibold tracking-tight text-[hsl(var(--base))] mb-2">
+                    <h5 className="text-base md:text-lg font-semibold tracking-tight text-foreground mb-2">
                       Base <span className="text-xs font-light text-muted-foreground">(Starting)</span>
                     </h5>
                     <ul className="space-y-1.5 text-sm !text-muted-foreground">
@@ -241,7 +241,7 @@ export const TiersContinuum = () => {
 
                   {/* Ridge Tier */}
                   <div className="pt-4 md:pt-5 border-t border-border/20">
-                    <h5 className="text-base md:text-lg font-semibold tracking-tight text-tier-gold mb-2">
+                    <h5 className="text-base md:text-lg font-semibold tracking-tight text-foreground mb-2">
                       Ridge <span className="text-xs font-light text-muted-foreground">(500+ EPs)</span>
                     </h5>
                     <ul className="space-y-1.5 text-sm !text-muted-foreground">
@@ -266,7 +266,7 @@ export const TiersContinuum = () => {
 
                   {/* Peak Tier */}
                   <div className="pt-4 md:pt-5 border-t border-border/20">
-                    <h5 className="text-base md:text-lg font-semibold tracking-tight text-tier-silver mb-2">
+                    <h5 className="text-base md:text-lg font-semibold tracking-tight text-foreground mb-2">
                       Peak <span className="text-xs font-light text-muted-foreground">(1000+ EPs)</span>
                     </h5>
                     <ul className="space-y-1.5 text-sm !text-muted-foreground">
