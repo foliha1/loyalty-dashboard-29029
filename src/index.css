@@ -11,6 +11,10 @@ All colors MUST be HSL.
     scroll-behavior: smooth;
   }
   
+  body {
+    overflow-x: hidden; /* Prevent horizontal scroll from parallax elements */
+  }
+  
   :root {
     /* ===========================================
        BACKGROUND SURFACES (4 levels)
