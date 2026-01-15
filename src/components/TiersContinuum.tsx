@@ -86,9 +86,39 @@ export const TiersContinuum = () => {
 
   return (
     <section>
-      <h3 className="text-section-title mb-4 sm:mb-5 md:mb-6 text-left px-2">
-        Your Elevation Journey
-      </h3>
+      <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-4 sm:mb-5 md:mb-6 px-2 gap-2 sm:gap-0">
+        <h3 className="text-section-title">
+          Your Elevation Journey
+        </h3>
+        
+        {/* Secondary Navigation Links */}
+        <nav className="flex items-center gap-3 sm:gap-5">
+          <a href="#activity-feed" className="group relative">
+            <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground transition-colors duration-300">
+              History
+            </span>
+            <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-primary group-hover:w-full transition-all duration-500" />
+          </a>
+          
+          <span className="text-muted-foreground/30">·</span>
+          
+          <a href="#tier-benefits" className="group relative">
+            <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground transition-colors duration-300">
+              Tier Benefits
+            </span>
+            <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-primary group-hover:w-full transition-all duration-500" />
+          </a>
+          
+          <span className="text-muted-foreground/30">·</span>
+          
+          <a href="#how-ep-works" className="group relative">
+            <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground transition-colors duration-300">
+              How EP Works
+            </span>
+            <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-primary group-hover:w-full transition-all duration-500" />
+          </a>
+        </nav>
+      </div>
 
       {/* Main Progress Card */}
       <div 
@@ -202,7 +232,7 @@ export const TiersContinuum = () => {
       {/* Two-Column Accordion Layout */}
       <div className="mt-5 sm:mt-6 grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5">
         {/* Tier Benefits Accordion */}
-        <Accordion type="single" collapsible>
+        <Accordion type="single" collapsible id="tier-benefits">
           <AccordionItem value="tier-benefits" className="border border-border/30 rounded-lg overflow-hidden bg-card/30 backdrop-blur-sm">
             <AccordionTrigger className="px-5 md:px-6 py-5 md:py-6 hover:no-underline hover:bg-muted/10 transition-colors duration-300 [&[data-state=open]>div>svg]:rotate-180 [&>svg]:hidden">
               <div className="flex items-center gap-3 text-left w-full">
@@ -279,7 +309,7 @@ export const TiersContinuum = () => {
         </Accordion>
 
         {/* How Elevation Points Work Accordion */}
-        <Accordion type="single" collapsible>
+        <Accordion type="single" collapsible id="how-ep-works">
           <AccordionItem value="how-eps-work" className="border border-border/30 rounded-lg overflow-hidden bg-card/30 backdrop-blur-sm">
             <AccordionTrigger className="px-5 md:px-6 py-5 md:py-6 hover:no-underline hover:bg-muted/10 transition-colors duration-300 [&[data-state=open]>div>svg]:rotate-180 [&>svg]:hidden">
               <div className="flex items-center gap-3 text-left w-full">
