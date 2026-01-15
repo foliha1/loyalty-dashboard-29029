@@ -22,7 +22,7 @@ const IndexContent = () => {
   const { currentTier } = useTier();
   
   return (
-    <div className="min-h-screen bg-background relative overflow-hidden" data-current-tier={currentTier}>
+    <div className="min-h-screen bg-background relative overflow-x-hidden" data-current-tier={currentTier}>
       {/* Parallax Background Layers */}
       <div className="fixed inset-0 -z-10">
         {/* ... keep existing code ... */}
