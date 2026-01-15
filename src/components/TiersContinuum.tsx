@@ -417,7 +417,7 @@ export const TiersContinuum = () => {
                 <div className="space-y-8 md:space-y-10">
                   {/* Earning EPs */}
                   <div>
-                    <h5 className="text-base md:text-lg font-semibold tracking-tight text-foreground/80 mb-4 md:mb-5">
+                    <h5 className="text-base md:text-lg font-semibold tracking-tight text-foreground mb-4 md:mb-5">
                       Earning EPs
                     </h5>
                     <div className="space-y-3 md:space-y-4 text-sm !text-muted-foreground leading-relaxed">
@@ -435,7 +435,7 @@ export const TiersContinuum = () => {
 
                   {/* Tier Thresholds */}
                   <div className="pt-6 md:pt-8 border-t border-border/20">
-                    <h5 className="text-base md:text-lg font-semibold tracking-tight text-foreground/80 mb-4 md:mb-5">
+                    <h5 className="text-base md:text-lg font-semibold tracking-tight text-foreground mb-4 md:mb-5">
                       Tier Thresholds
                     </h5>
                     <div className="space-y-3 md:space-y-4 text-sm !text-muted-foreground leading-relaxed">
@@ -453,7 +453,7 @@ export const TiersContinuum = () => {
 
                   {/* Your Progress */}
                   <div className="pt-6 md:pt-8 border-t border-border/20">
-                    <h5 className="text-base md:text-lg font-semibold tracking-tight text-foreground/80 mb-4 md:mb-5">
+                    <h5 className="text-base md:text-lg font-semibold tracking-tight text-foreground mb-4 md:mb-5">
                       Your Progress
                     </h5>
                     <p className="text-sm !text-muted-foreground leading-relaxed">
