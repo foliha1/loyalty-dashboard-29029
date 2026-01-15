@@ -48,7 +48,7 @@ const RecognitionLadder = ({ current }: { current: number }) => {
       {/* Progress arrow track */}
       <div className="relative h-2 bg-white/10 rounded-full overflow-hidden">
         <div 
-          className="absolute inset-y-0 left-0 rounded-full transition-all duration-500 bg-ridge"
+          className="absolute inset-y-0 left-0 rounded-full transition-all duration-500 bg-peak"
           style={{ width: `${getProgressPercent()}%` }}
         />
         {/* Arrow head */}
@@ -58,7 +58,7 @@ const RecognitionLadder = ({ current }: { current: number }) => {
             left: `${getProgressPercent()}%`,
             borderTop: '6px solid transparent',
             borderBottom: '6px solid transparent',
-            borderLeft: '8px solid hsl(var(--ridge))',
+            borderLeft: '8px solid hsl(var(--peak))',
             marginLeft: '-2px'
           }}
         />
@@ -78,7 +78,7 @@ const RecognitionLadder = ({ current }: { current: number }) => {
             <div key={idx} className="flex flex-col items-center">
               <span 
                 className={`text-xs md:text-sm font-light ${
-                  isCurrent || isPast ? 'text-ridge' : 'text-white/30'
+                  isCurrent || isPast ? 'text-peak' : 'text-white/30'
                 }`}
               >
                 {milestone}
