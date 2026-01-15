@@ -87,24 +87,24 @@ const IndexContent = () => {
         {/* Section Divider */}
         <div className="divider-red my-10 md:my-14" />
         
-        {/* Discovery CTAs */}
+        {/* Upcoming Events */}
         <div 
-          ref={discoveryCTAsReveal.ref} 
-          className={`py-10 md:py-14 section-fade-up ${discoveryCTAsReveal.isVisible ? 'visible' : ''}`}
+          id="upcoming-events"
+          ref={upcomingEventsReveal.ref} 
+          className={`py-10 md:py-14 section-fade-up ${upcomingEventsReveal.isVisible ? 'visible' : ''}`}
         >
-          <DiscoveryCTAs />
+          <UpcomingEventsSection />
         </div>
         
         {/* Section Divider */}
         <div className="divider-red my-10 md:my-14" />
         
-        {/* Upcoming Events */}
+        {/* Discovery CTAs */}
         <div 
-          id="upcoming-events"
-          ref={upcomingEventsReveal.ref} 
-          className={`py-10 md:py-14 pb-14 md:pb-20 section-fade-up ${upcomingEventsReveal.isVisible ? 'visible' : ''}`}
+          ref={discoveryCTAsReveal.ref} 
+          className={`py-10 md:py-14 pb-14 md:pb-20 section-fade-up ${discoveryCTAsReveal.isVisible ? 'visible' : ''}`}
         >
-          <UpcomingEventsSection />
+          <DiscoveryCTAs />
         </div>
       </div>
       </div>
