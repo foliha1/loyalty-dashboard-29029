@@ -283,14 +283,14 @@ h2, h3, .text-section-title {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.096em;
-    font-size: 0.96rem;
+    font-size: 0.88rem;
     color: hsl(0 0% 92%);
     line-height: 1.15;
   }
   
   @media (min-width: 768px) {
     h2, h3, .text-section-title {
-      font-size: 1.32rem;
+      font-size: 1.15rem;
       letter-spacing: 0.115em;
     }
   }
@@ -300,17 +300,17 @@ h2, h3, .text-section-title {
   font-weight: 300;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   color: hsl(0 0% 48%);
-  line-height: 1.6;
+  line-height: 1.45;
 }
 
   .text-body {
     font-family: 'Inter', sans-serif;
     font-weight: 400;
     color: hsl(0 0% 55%);
-    line-height: 1.75;
-    font-size: 1rem;
+    line-height: 1.6;
+    font-size: 0.9375rem;
   }
   
   /* Force neutral text - immune to tier color inheritance */
@@ -338,10 +338,10 @@ h2, h3, .text-section-title {
 .text-supporting {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   color: hsl(0 0% 45%) !important;
   text-align: left;
-  line-height: 1.65;
+  line-height: 1.5;
 }
 
   /* Premium accent dividers */

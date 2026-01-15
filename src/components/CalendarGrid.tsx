@@ -90,18 +90,18 @@ export const CalendarGrid = () => {
 
   return (
     <section>
-      <h3 className="text-section-title mb-6 sm:mb-7 md:mb-8 px-2">
+      <h3 className="text-section-title mb-5 sm:mb-5 md:mb-6 px-2">
         Continue the Journey
       </h3>
       
       {hasEvents ? (
         <>
-          <p className="text-sm md:text-base mb-10 sm:mb-12 md:mb-16 max-w-2xl px-2 font-light !text-muted-foreground">
+          <p className="text-sm md:text-base mb-7 sm:mb-9 md:mb-11 max-w-2xl px-2 font-light !text-muted-foreground">
             Your upcoming events
           </p>
 
           {/* Event Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 md:gap-8 lg:gap-10 mb-12 sm:mb-14 md:mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-5 md:gap-6 lg:gap-7 mb-9 sm:mb-10 md:mb-12">
             {upcomingEvents.map((event, idx) => {
               const daysRemaining = getDaysRemaining(event.eventDates);
               const config = eventTypeConfig[event.eventType];
@@ -110,7 +110,7 @@ export const CalendarGrid = () => {
                 <div
                   key={idx}
                   className={cn(
-                    "relative card-29029 p-6 sm:p-8 md:p-10 group hover:-translate-y-2 transition-all duration-500 cursor-pointer overflow-hidden min-h-[44px]",
+                    "relative card-29029 p-5 sm:p-6 md:p-8 group hover:-translate-y-2 transition-all duration-500 cursor-pointer overflow-hidden min-h-[44px]",
                     "opacity-0 translate-y-4",
                     isRevealed && "animate-fade-in"
                   )}
@@ -216,13 +216,13 @@ export const CalendarGrid = () => {
       )}
 
       {/* CTAs Section */}
-      <div className="pt-10 sm:pt-12 md:pt-14 mt-6 sm:mt-7 md:mt-8 border-t border-border/20">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 md:gap-7 lg:gap-8 max-w-6xl mx-auto">
+      <div className="pt-7 sm:pt-9 md:pt-10 mt-5 sm:mt-5 md:mt-6 border-t border-border/20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6 lg:gap-7 max-w-6xl mx-auto">
           <a
             href="https://29029everesting.com/collections/tickets"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative overflow-hidden px-6 sm:px-8 py-10 sm:py-11 md:py-12 bg-gradient-to-br from-card/40 to-card/20 backdrop-blur-sm border border-border/30 rounded-xl transition-all duration-300 flex flex-col items-start hover:bg-muted/10 min-h-[200px]"
+            className="group relative overflow-hidden px-5 sm:px-6 py-7 sm:py-8 md:py-9 bg-gradient-to-br from-card/40 to-card/20 backdrop-blur-sm border border-border/30 rounded-xl transition-all duration-300 flex flex-col items-start hover:bg-muted/10 min-h-[180px]"
           >
             {/* Subtle gradient overlay on hover */}
             <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -251,7 +251,7 @@ export const CalendarGrid = () => {
             href="https://29029coaching.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative overflow-hidden px-6 sm:px-8 py-10 sm:py-11 md:py-12 bg-gradient-to-br from-card/40 to-card/20 backdrop-blur-sm border border-border/30 rounded-xl transition-all duration-300 flex flex-col items-start hover:bg-muted/10 min-h-[200px]"
+            className="group relative overflow-hidden px-5 sm:px-6 py-7 sm:py-8 md:py-9 bg-gradient-to-br from-card/40 to-card/20 backdrop-blur-sm border border-border/30 rounded-xl transition-all duration-300 flex flex-col items-start hover:bg-muted/10 min-h-[180px]"
           >
             {/* Subtle gradient overlay on hover */}
             <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -280,7 +280,7 @@ export const CalendarGrid = () => {
             href="https://29029everesting.com/collections/frontpage"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative overflow-hidden px-6 sm:px-8 py-10 sm:py-11 md:py-12 bg-gradient-to-br from-card/40 to-card/20 backdrop-blur-sm border border-border/30 rounded-xl transition-all duration-300 flex flex-col items-start hover:bg-muted/10 min-h-[200px]"
+            className="group relative overflow-hidden px-5 sm:px-6 py-7 sm:py-8 md:py-9 bg-gradient-to-br from-card/40 to-card/20 backdrop-blur-sm border border-border/30 rounded-xl transition-all duration-300 flex flex-col items-start hover:bg-muted/10 min-h-[180px]"
           >
             {/* Subtle gradient overlay on hover */}
             <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
