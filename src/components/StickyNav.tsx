@@ -6,6 +6,7 @@ const navLinks = [
   { label: "Journey", href: "#journey" },
   { label: "Upcoming", href: "#upcoming" },
   { label: "History", href: "#activity-feed" },
+  { label: "Events", href: "#upcoming-events" },
 ];
 
 export const StickyNav = () => {
@@ -18,7 +19,7 @@ export const StickyNav = () => {
       setIsVisible(window.scrollY > 300);
 
       // Determine active section based on scroll position
-      const sections = ["journey", "upcoming", "activity-feed"];
+      const sections = ["journey", "upcoming", "activity-feed", "upcoming-events"];
       for (const section of sections.reverse()) {
         const element = document.getElementById(section);
         if (element) {
