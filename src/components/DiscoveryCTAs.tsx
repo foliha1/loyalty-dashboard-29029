@@ -7,7 +7,7 @@ export const DiscoveryCTAs = () => {
         Discover More
       </h3>
       
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6 lg:gap-7 max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6 lg:gap-7">
       <a
         href="https://29029everesting.com/collections/tickets"
         target="_blank"
