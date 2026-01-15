@@ -123,7 +123,7 @@ export const ActivityFeed = () => {
           {/* EPs Earned - LEFT side, dominant */}
           <div className="text-center md:text-left metric-animate">
             <div className="text-subhead mb-2">EPs Earned</div>
-            <div className="text-6xl md:text-8xl font-light tracking-tight tabular-nums">
+            <div className="text-5xl sm:text-6xl md:text-8xl font-light tracking-tight tabular-nums">
               {totalYearEP}
             </div>
           </div>
