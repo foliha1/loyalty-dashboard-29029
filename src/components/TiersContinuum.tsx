@@ -18,35 +18,36 @@ const activity2025 = {
     totalEP: 250
   }
 };
-
 export const TiersContinuum = () => {
-  const { currentTier: globalTier } = useTier();
+  const {
+    currentTier: globalTier
+  } = useTier();
   const [isRevealed, setIsRevealed] = useState(false);
   const [animatedProgress, setAnimatedProgress] = useState(0);
   const [animatedEP, setAnimatedEP] = useState(0);
-  
+
   // User data
   const currentEP = activity2025.events.totalEP + activity2025.apparel.totalEP + activity2025.coaching.totalEP;
   const currentTierName = "Ridge";
-  
+
   // Find current and next tier - exclude Summit Circle
   const visibleTiers = tiers.filter(t => t.name !== "Summit Circle");
   const currentTierIndex = visibleTiers.findIndex(t => t.name === currentTierName);
   const currentTier = visibleTiers[currentTierIndex];
   const nextTier = visibleTiers[currentTierIndex + 1];
-  
+
   // Calculate progress
   const currentThreshold = currentTier?.threshold || 0;
   const nextThreshold = nextTier?.threshold || 1000;
   const tierRange = nextThreshold - currentThreshold;
   const progressInTier = currentEP - currentThreshold;
-  const progressPercent = Math.min(100, (progressInTier / tierRange) * 100);
+  const progressPercent = Math.min(100, progressInTier / tierRange * 100);
   const remainingEP = Math.max(0, nextThreshold - currentEP);
   const nextTierName = nextTier?.name || "Peak";
-  
+
   // Calculate overall progress for the bar (0 to max tier threshold)
   const maxTierThreshold = visibleTiers[visibleTiers.length - 1]?.threshold || 1000;
-  const overallProgressPercent = Math.min(100, (currentEP / maxTierThreshold) * 100);
+  const overallProgressPercent = Math.min(100, currentEP / maxTierThreshold * 100);
 
   // Reveal animation
   useEffect(() => {
@@ -70,7 +71,6 @@ export const TiersContinuum = () => {
       let start = 0;
       const duration = 1500;
       const increment = currentEP / (duration / 16);
-      
       const timer = setInterval(() => {
         start += increment;
         if (start >= currentEP) {
@@ -80,120 +80,116 @@ export const TiersContinuum = () => {
           setAnimatedEP(Math.floor(start));
         }
       }, 16);
-      
       return () => clearInterval(timer);
     }
   }, [isRevealed, currentEP]);
-
-  return (
-    <section>
-      <h3 className="text-section-title mb-3 sm:mb-4 md:mb-5 px-2">
-        Your Elevation Journey
-      </h3>
+  return <section>
+      <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-4 sm:mb-5 md:mb-6 px-2 gap-2 sm:gap-0">
+        <h3 className="text-section-title">
+          Your Elevation Journey
+        </h3>
+        
+        {/* Secondary Navigation Links */}
+        <nav className="flex items-center gap-3 sm:gap-5">
+          <a href="#activity-feed" className="group relative">
+            <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground transition-colors duration-300">
+              History
+            </span>
+            <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-primary group-hover:w-full transition-all duration-500" />
+          </a>
+          
+          <span className="text-muted-foreground/30">·</span>
+          
+          <a href="#tier-benefits" className="group relative">
+            <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground transition-colors duration-300">
+              Tier Benefits
+            </span>
+            <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-primary group-hover:w-full transition-all duration-500" />
+          </a>
+          
+          <span className="text-muted-foreground/30">·</span>
+          
+          <a href="#how-ep-works" className="group relative">
+            <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground transition-colors duration-300">
+              How EP Works
+            </span>
+            <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-primary group-hover:w-full transition-all duration-500" />
+          </a>
+        </nav>
+      </div>
 
       {/* Main Progress Card */}
-      <div 
-        className={cn(
-          "card-29029 p-4 sm:p-6 md:p-8 lg:p-10 transition-all duration-700",
-          isRevealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-        )}
-      >
+      <div className={cn("card-29029 p-5 sm:p-6 md:p-8 lg:p-10 transition-all duration-700", isRevealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8")}>
         {/* Current Tier Badge */}
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-6 sm:mb-9 md:mb-12 gap-4 sm:gap-5">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-8 sm:mb-9 md:mb-12 gap-5">
           <div>
-            <div className="text-xs uppercase tracking-[0.25em] mb-2 sm:mb-3 text-muted-foreground font-normal">Current Tier</div>
-            <h4 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight" style={{
-              color: currentTier ? `hsl(var(--${currentTier.color}))` : 'hsl(var(--tier-gold))'
-            }}>
+            <div className="text-supporting uppercase tracking-[0.25em] mb-2 sm:mb-3 text-xs font-normal">Current Tier</div>
+            <h4 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-tight" style={{
+            color: currentTier ? `hsl(var(--${currentTier.color}))` : 'hsl(var(--tier-gold))'
+          }}>
               {currentTierName}
             </h4>
           </div>
           <div className="text-left md:text-right">
-            <div className="text-xs uppercase tracking-[0.25em] mb-2 sm:mb-3 text-muted-foreground font-normal">Total EPs</div>
-            <div className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight tabular-nums">
+            <div className="text-supporting uppercase tracking-[0.25em] mb-2 sm:mb-3 text-xs font-normal">Total EPs</div>
+            <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-tight tabular-nums">
               {animatedEP}
             </div>
           </div>
         </div>
 
         {/* Progress Bar */}
-        <div className="mb-5 sm:mb-7 md:mb-9">
+        <div className="mb-6 sm:mb-7 md:mb-9">
           <div className="relative h-2 md:h-3 bg-white/10 rounded-full overflow-hidden ring-1 ring-white/10">
-            <div 
-              className="absolute inset-y-0 left-0 rounded-full transition-all duration-1000 ease-out"
-              style={{
-                width: `${animatedProgress}%`,
-                background: `linear-gradient(to right, 
+            <div className="absolute inset-y-0 left-0 rounded-full transition-all duration-1000 ease-out" style={{
+            width: `${animatedProgress}%`,
+            background: `linear-gradient(to right, 
                   hsl(var(--base)) 0%, 
-                  hsl(var(--base)) 15%, 
-                  hsl(var(--ridge)) 40%, 
-                  hsl(var(--ridge)) 60%, 
+                  hsl(var(--base)) 20%, 
+                  hsl(var(--ridge)) 45%, 
+                  hsl(var(--ridge)) 55%, 
                   hsl(var(--peak)) 85%, 
                   hsl(var(--peak)) 100%)`,
-                boxShadow: `0 0 16px hsl(var(--ridge) / 0.4), 0 0 32px hsl(var(--peak) / 0.2)`
-              }}
-            />
+            boxShadow: `0 0 16px hsl(var(--ridge) / 0.4), 0 0 32px hsl(var(--peak) / 0.2)`
+          }} />
           </div>
           
           {/* Tier Markers - Enhanced visibility */}
-          <div className="relative mt-3 sm:mt-5 md:mt-6 flex justify-between items-center px-1">
+          <div className="relative mt-4 sm:mt-5 md:mt-6 flex justify-between items-center px-1">
             {visibleTiers.map((tier, idx) => {
-              const isCurrentTier = tier.name === currentTierName;
-              const isPassed = currentEP >= tier.threshold;
-              const isPeak = tier.name === "Peak";
-              
-              return (
-                <div key={tier.name} className="flex flex-col items-center">
-                  <div 
-                    className={cn(
-                      "w-2 h-2 md:w-2.5 md:h-2.5 rounded-full mb-2 md:mb-3 transition-all duration-500",
-                      isPassed ? "scale-125" : "scale-100",
-                      !isPassed && isPeak 
-                        ? "ring-1 ring-[hsl(var(--peak)/0.6)]"
-                        : !isPassed && "ring-1 ring-white/20"
-                    )}
-                    style={{
-                      backgroundColor: isPassed 
-                        ? `hsl(var(--${tier.color}))` 
-                        : isPeak 
-                          ? 'hsl(var(--peak) / 0.5)'
-                          : 'hsl(0 0% 30%)',
-                      boxShadow: isCurrentTier 
-                        ? `0 0 12px hsl(var(--${tier.color}) / 0.6)` 
-                        : isPeak && !isPassed
-                          ? `0 0 14px hsl(var(--peak) / 0.4), inset 0 0 0 1px hsl(var(--peak) / 0.5)`
-                          : 'none'
-                    }}
-                  />
-                  <div className={cn(
-                    "text-xs uppercase tracking-wider transition-colors duration-500 text-center",
-                    isPassed ? "text-foreground font-medium" : "text-muted-foreground"
-                  )}>
+            const isCurrentTier = tier.name === currentTierName;
+            const isPassed = currentEP >= tier.threshold;
+            const isPeak = tier.name === "Peak";
+            return <div key={tier.name} className="flex flex-col items-center">
+                  <div className={cn("w-2 h-2 md:w-2.5 md:h-2.5 rounded-full mb-2 md:mb-3 transition-all duration-500", isPassed ? "scale-125" : "scale-100", !isPassed && "ring-1 ring-white/20")} style={{
+                backgroundColor: isPassed ? `hsl(var(--${tier.color}))` : isPeak ? 'hsl(var(--peak) / 0.3)' : 'hsl(0 0% 30%)',
+                boxShadow: isCurrentTier ? `0 0 12px hsl(var(--${tier.color}) / 0.6)` : isPeak && !isPassed ? `0 0 10px hsl(var(--peak) / 0.25), inset 0 0 0 1px hsl(var(--peak) / 0.4)` : 'none'
+              }} />
+                  <div className={cn("text-[9px] sm:text-[10px] md:text-xs uppercase tracking-wider transition-colors duration-500 text-center", isPassed ? "text-foreground font-semibold" : "text-white/50")}>
                     {tier.name}
                   </div>
-                  <div className="text-xs text-muted-foreground/60 mt-0.5 sm:mt-1 tabular-nums">
+                  <div className="text-[9px] sm:text-[10px] md:text-xs text-white/40 mt-0.5 sm:mt-1 tabular-nums">
                     {tier.threshold}
                   </div>
-                </div>
-              );
-            })}
+                </div>;
+          })}
           </div>
         </div>
 
         {/* Next Tier Info */}
-        <div className="pt-4 sm:pt-6 md:pt-7 border-t border-border/30">
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-5 sm:gap-6">
+        <div className="pt-5 sm:pt-6 md:pt-7 border-t border-border/30">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-5 sm:gap-6 text-primary">
             <div>
-              <div className="text-xs uppercase tracking-[0.25em] mb-2 text-muted-foreground font-normal">Next Milestone</div>
+              <div className="text-supporting uppercase tracking-[0.25em] mb-2 text-xs font-normal">Next Milestone</div>
               <div className="text-xl sm:text-2xl md:text-3xl font-light tracking-tight">
                 {nextTierName}
               </div>
             </div>
             <div className="text-left md:text-right">
-              <div className="text-xs uppercase tracking-[0.25em] mb-2 text-muted-foreground font-normal">EPs Needed</div>
-              <div className="text-xl sm:text-2xl md:text-3xl font-light tracking-tight tabular-nums" style={{
-                color: currentTier ? `hsl(var(--${currentTier.color}))` : 'hsl(var(--tier-gold))'
-              }}>
+              <div className="text-supporting uppercase tracking-[0.25em] mb-2 text-xs font-normal">EPs Needed</div>
+              <div className="text-2xl sm:text-3xl md:text-4xl font-light tracking-tight tabular-nums" style={{
+              color: currentTier ? `hsl(var(--${currentTier.color}))` : 'hsl(var(--tier-gold))'
+            }}>
                 {remainingEP}
               </div>
             </div>
@@ -203,14 +199,14 @@ export const TiersContinuum = () => {
       </div>
 
       {/* Two-Column Accordion Layout */}
-      <div className="mt-4 sm:mt-6 grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-5">
+      <div className="mt-5 sm:mt-6 grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5">
         {/* Tier Benefits Accordion */}
         <Accordion type="single" collapsible id="tier-benefits">
           <AccordionItem value="tier-benefits" className="border border-border/30 rounded-lg overflow-hidden bg-card/30 backdrop-blur-sm">
             <AccordionTrigger className="px-5 md:px-6 py-5 md:py-6 hover:no-underline hover:bg-muted/10 transition-colors duration-300 [&[data-state=open]>div>svg]:rotate-180 [&>svg]:hidden">
               <div className="flex items-center gap-3 text-left w-full">
-                <ChevronDown className="h-4 w-4 md:h-5 md:w-5 text-muted-foreground transition-transform duration-300 ease-out shrink-0" />
-                <span className="text-sm md:text-base font-medium tracking-[0.12em] uppercase text-foreground">
+                <ChevronDown className="h-4 w-4 md:h-5 md:w-5 !text-muted-foreground transition-transform duration-300 ease-out shrink-0" />
+                <span className="text-base md:text-lg lg:text-xl font-normal tracking-[0.12em] uppercase !text-foreground">
                   Tier Benefits
                 </span>
               </div>
@@ -220,10 +216,10 @@ export const TiersContinuum = () => {
                 <div className="space-y-5 md:space-y-6">
                   {/* Base Tier */}
                   <div>
-                    <h5 className="text-sm font-semibold tracking-tight text-[hsl(var(--base))] mb-2">
-                      Base <span className="text-xs font-normal text-muted-foreground">(Starting)</span>
+                    <h5 className="text-lg md:text-xl font-semibold tracking-tight text-[hsl(var(--base))] mb-2">
+                      Base <span className="text-xs font-light text-muted-foreground">(Starting)</span>
                     </h5>
-                    <ul className="space-y-1.5 text-sm text-muted-foreground">
+                    <ul className="space-y-1.5 text-sm !text-muted-foreground">
                       <li className="flex items-start gap-2">
                         <span className="text-foreground/50 mt-0.5">•</span>
                         <span>Access to all 29029 events</span>
@@ -241,10 +237,10 @@ export const TiersContinuum = () => {
 
                   {/* Ridge Tier */}
                   <div className="pt-4 md:pt-5 border-t border-border/20">
-                    <h5 className="text-sm font-semibold tracking-tight text-tier-gold mb-2">
-                      Ridge <span className="text-xs font-normal text-muted-foreground">(500+ EPs)</span>
+                    <h5 className="text-lg md:text-xl font-semibold tracking-tight text-tier-gold mb-2">
+                      Ridge <span className="text-xs font-light text-muted-foreground">(500+ EPs)</span>
                     </h5>
-                    <ul className="space-y-1.5 text-sm text-muted-foreground">
+                    <ul className="space-y-1.5 text-sm !text-muted-foreground">
                       <li className="flex items-start gap-2">
                         <span className="text-foreground/50 mt-0.5">•</span>
                         <span>Priority event registration</span>
@@ -266,10 +262,10 @@ export const TiersContinuum = () => {
 
                   {/* Peak Tier */}
                   <div className="pt-4 md:pt-5 border-t border-border/20">
-                    <h5 className="text-sm font-semibold tracking-tight text-tier-silver mb-2">
-                      Peak <span className="text-xs font-normal text-muted-foreground">(1000+ EPs)</span>
+                    <h5 className="text-lg md:text-xl font-semibold tracking-tight text-tier-silver mb-2">
+                      Peak <span className="text-xs font-light text-muted-foreground">(1000+ EPs)</span>
                     </h5>
-                    <ul className="space-y-1.5 text-sm text-muted-foreground">
+                    <ul className="space-y-1.5 text-sm !text-muted-foreground">
                       <li className="flex items-start gap-2">
                         <span className="text-foreground/50 mt-0.5">•</span>
                         <span>All Ridge benefits</span>
@@ -298,7 +294,7 @@ export const TiersContinuum = () => {
                 <div className="mt-5 pt-4 border-t border-border/20">
                   <Dialog>
                     <DialogTrigger asChild>
-                      <button className="group relative inline-flex items-center text-xs uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground transition-colors duration-300">
+                      <button className="group relative inline-flex items-center text-[10px] sm:text-xs uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground transition-colors duration-300">
                         <span>View All Your Benefits</span>
                         <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-primary group-hover:w-full transition-all duration-500" />
                       </button>
@@ -406,8 +402,8 @@ export const TiersContinuum = () => {
           <AccordionItem value="how-eps-work" className="border border-border/30 rounded-lg overflow-hidden bg-card/30 backdrop-blur-sm">
             <AccordionTrigger className="px-5 md:px-6 py-5 md:py-6 hover:no-underline hover:bg-muted/10 transition-colors duration-300 [&[data-state=open]>div>svg]:rotate-180 [&>svg]:hidden">
               <div className="flex items-center gap-3 text-left w-full">
-                <ChevronDown className="h-4 w-4 md:h-5 md:w-5 text-muted-foreground transition-transform duration-300 ease-out shrink-0" />
-                <span className="text-sm md:text-base font-medium tracking-[0.12em] uppercase text-foreground">
+                <ChevronDown className="h-4 w-4 md:h-5 md:w-5 !text-muted-foreground transition-transform duration-300 ease-out shrink-0" />
+                <span className="text-base md:text-lg lg:text-xl font-normal tracking-[0.12em] uppercase !text-foreground">
                   How Elevation Points (EPs) Work
                 </span>
               </div>
@@ -417,46 +413,46 @@ export const TiersContinuum = () => {
                 <div className="space-y-8 md:space-y-10">
                   {/* Earning EPs */}
                   <div>
-                    <h5 className="text-sm font-semibold tracking-tight text-foreground mb-3">
+                    <h5 className="text-lg md:text-xl lg:text-2xl font-semibold tracking-tight text-foreground/80 mb-4 md:mb-5">
                       Earning EPs
                     </h5>
-                    <div className="space-y-2 text-sm text-muted-foreground leading-relaxed">
+                    <div className="space-y-3 md:space-y-4 text-sm md:text-base !text-muted-foreground leading-relaxed">
                       <p>
-                        <span className="font-medium text-foreground">Events:</span> 150 EPs per event attended
+                        <span className="font-semibold text-foreground">Events:</span> 150 EPs per event attended
                       </p>
                       <p>
-                        <span className="font-medium text-foreground">Coaching:</span> Variable EPs based on session type
+                        <span className="font-semibold text-foreground">Coaching:</span> Variable EPs based on session type
                       </p>
                       <p>
-                        <span className="font-medium text-foreground">Apparel:</span> 1 EP per dollar spent
+                        <span className="font-semibold text-foreground">Apparel:</span> 1 EP per dollar spent
                       </p>
                     </div>
                   </div>
 
                   {/* Tier Thresholds */}
-                  <div className="pt-5 border-t border-border/20">
-                    <h5 className="text-sm font-semibold tracking-tight text-foreground mb-3">
+                  <div className="pt-6 md:pt-8 border-t border-border/20">
+                    <h5 className="text-lg md:text-xl lg:text-2xl font-semibold tracking-tight text-foreground/80 mb-4 md:mb-5">
                       Tier Thresholds
                     </h5>
-                    <div className="space-y-2 text-sm text-muted-foreground leading-relaxed">
+                    <div className="space-y-3 md:space-y-4 text-sm md:text-base !text-muted-foreground leading-relaxed">
                       <p>
-                        <span className="font-medium text-foreground">Base:</span> 0 EPs (Starting tier)
+                        <span className="font-semibold text-foreground">Base:</span> 0 EPs (Starting tier)
                       </p>
                       <p>
-                        <span className="font-medium text-foreground">Ridge:</span> 500 EPs
+                        <span className="font-semibold text-foreground">Ridge:</span> 500 EPs
                       </p>
                       <p>
-                        <span className="font-medium text-foreground">Peak:</span> 1,000 EPs
+                        <span className="font-semibold text-foreground">Peak:</span> 1,000 EPs
                       </p>
                     </div>
                   </div>
 
                   {/* Your Progress */}
-                  <div className="pt-5 border-t border-border/20">
-                    <h5 className="text-sm font-semibold tracking-tight text-foreground mb-3">
+                  <div className="pt-6 md:pt-8 border-t border-border/20">
+                    <h5 className="text-lg md:text-xl lg:text-2xl font-semibold tracking-tight text-foreground/80 mb-4 md:mb-5">
                       Your Progress
                     </h5>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
+                    <p className="text-sm md:text-base !text-muted-foreground leading-relaxed">
                       Your EPs accumulate over your entire member journey. Each tier unlocks new benefits 
                       and experiences as you progress through Base, Ridge, and Peak tiers.
                     </p>
@@ -467,6 +463,5 @@ export const TiersContinuum = () => {
           </AccordionItem>
         </Accordion>
       </div>
-    </section>
-  );
+    </section>;
 };
