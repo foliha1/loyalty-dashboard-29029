@@ -2,7 +2,12 @@ import { ArrowRight } from "lucide-react";
 
 export const DiscoveryCTAs = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6 lg:gap-7 max-w-6xl mx-auto">
+    <section>
+      <h3 className="text-section-title mb-5 sm:mb-5 md:mb-6 px-2">
+        Discover More
+      </h3>
+      
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6 lg:gap-7 max-w-6xl mx-auto">
       <a
         href="https://29029everesting.com/collections/tickets"
         target="_blank"
@@ -89,6 +94,7 @@ export const DiscoveryCTAs = () => {
         
         <ArrowRight className="relative z-10 w-5 h-5 text-primary mt-6 group-hover:translate-x-2 transition-transform duration-500" />
       </a>
-    </div>
+      </div>
+    </section>
   );
 };
