@@ -20,40 +20,20 @@ const trailData = {
 // Recognition ladder milestones
 const milestones = [1, 2, 3, 4, "5x", "10x"];
 
-// KPI Card component
-const KPICard = ({ 
-  label, 
-  value, 
-  accentColor 
-}: { 
-  label: string; 
-  value: string | number; 
-  accentColor: string;
-}) => (
-  <div 
-    className="p-4 md:p-6 border rounded-lg text-center"
-    style={{ borderColor: `hsl(${accentColor} / 0.4)` }}
-  >
-    <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground mb-2 font-light">
+// KPI Card component - simplified, premium styling
+const KPICard = ({ label, value }: { label: string; value: string | number }) => (
+  <div className="p-3 md:p-4 border border-white/10 rounded-lg text-center">
+    <div className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] text-white/40 mb-1.5 font-light">
       {label}
     </div>
-    <div 
-      className="text-3xl md:text-4xl font-light tabular-nums"
-      style={{ color: `hsl(${accentColor})` }}
-    >
+    <div className="text-4xl md:text-5xl font-light tabular-nums text-white">
       {value}
     </div>
   </div>
 );
 
-// Recognition Ladder component
-const RecognitionLadder = ({ 
-  current, 
-  accentColor 
-}: { 
-  current: number; 
-  accentColor: string;
-}) => {
+// Recognition Ladder component - gold for achieved, gray for upcoming
+const RecognitionLadder = ({ current }: { current: number }) => {
   // Calculate progress percentage based on current recognition
   const getProgressPercent = () => {
     const milestoneIndex = milestones.findIndex(m => 
@@ -64,31 +44,28 @@ const RecognitionLadder = ({
   };
 
   return (
-    <div className="mt-8 md:mt-10">
+    <div className="mt-5 md:mt-6">
       {/* Progress arrow track */}
-      <div className="relative h-3 bg-muted/30 rounded-full overflow-hidden">
+      <div className="relative h-2 bg-white/10 rounded-full overflow-hidden">
         <div 
-          className="absolute inset-y-0 left-0 rounded-full transition-all duration-500"
-          style={{ 
-            width: `${getProgressPercent()}%`,
-            backgroundColor: `hsl(${accentColor})`
-          }}
+          className="absolute inset-y-0 left-0 rounded-full transition-all duration-500 bg-ridge"
+          style={{ width: `${getProgressPercent()}%` }}
         />
         {/* Arrow head */}
         <div 
           className="absolute top-1/2 -translate-y-1/2 w-0 h-0 transition-all duration-500"
           style={{
             left: `${getProgressPercent()}%`,
-            borderTop: '8px solid transparent',
-            borderBottom: '8px solid transparent',
-            borderLeft: `10px solid hsl(${accentColor})`,
+            borderTop: '6px solid transparent',
+            borderBottom: '6px solid transparent',
+            borderLeft: '8px solid hsl(var(--ridge))',
             marginLeft: '-2px'
           }}
         />
       </div>
 
       {/* Milestone markers */}
-      <div className="flex justify-between mt-4 px-1">
+      <div className="flex justify-between mt-3 px-1">
         {milestones.map((milestone, idx) => {
           const isCurrent = typeof milestone === 'number' 
             ? milestone === current 
@@ -100,18 +77,15 @@ const RecognitionLadder = ({
           return (
             <div key={idx} className="flex flex-col items-center">
               <span 
-                className="text-sm md:text-base font-light"
-                style={{ 
-                  color: isCurrent || isPast 
-                    ? `hsl(${accentColor})` 
-                    : 'hsl(var(--muted-foreground))' 
-                }}
+                className={`text-xs md:text-sm font-light ${
+                  isCurrent || isPast ? 'text-ridge' : 'text-white/30'
+                }`}
               >
                 {milestone}
               </span>
               {/* BLACK BIB label under milestone 3 */}
               {milestone === 3 && (
-                <span className="text-[9px] uppercase tracking-[0.15em] text-muted-foreground mt-1">
+                <span className="text-[10px] md:text-[11px] uppercase tracking-[0.15em] text-white/60 mt-2 font-medium">
                   Black Bib
                 </span>
               )}
@@ -131,11 +105,6 @@ export const CalendarGrid = () => {
     const timer = setTimeout(() => setIsRevealed(true), 100);
     return () => clearTimeout(timer);
   }, []);
-
-  // Color configs
-  const mountainAccent = "5 85% 50%"; // Red
-  const trailAccent = "38 92% 50%"; // Gold/Yellow
-
   return (
     <section>
       <h3 className="text-section-title mb-5 sm:mb-5 md:mb-6 px-2">
@@ -144,16 +113,16 @@ export const CalendarGrid = () => {
       
       <Tabs defaultValue="mountain" className="w-full">
         {/* Segmented Toggle */}
-        <TabsList className="mb-6 md:mb-8 bg-muted/20 p-1 rounded-lg">
+        <TabsList className="mb-4 md:mb-5 bg-muted/20 p-1 rounded-lg">
           <TabsTrigger 
             value="mountain" 
-            className="px-6 py-2 text-xs uppercase tracking-[0.2em] font-light data-[state=active]:bg-card data-[state=active]:text-red-500"
+            className="px-5 py-1.5 text-xs uppercase tracking-[0.2em] font-light data-[state=active]:bg-card data-[state=active]:text-red-500"
           >
             Mountain
           </TabsTrigger>
           <TabsTrigger 
             value="trail" 
-            className="px-6 py-2 text-xs uppercase tracking-[0.2em] font-light data-[state=active]:bg-card data-[state=active]:text-amber-500"
+            className="px-5 py-1.5 text-xs uppercase tracking-[0.2em] font-light data-[state=active]:bg-card data-[state=active]:text-amber-500"
           >
             Trail
           </TabsTrigger>
@@ -161,61 +130,31 @@ export const CalendarGrid = () => {
 
         {/* Mountain Content */}
         <TabsContent value="mountain" className="mt-0">
-          <div className="card-29029 p-6 md:p-8">
+          <div className="card-29029 p-4 md:p-6">
             {/* KPIs Row */}
-            <div className="grid grid-cols-3 gap-3 md:gap-4">
-              <KPICard 
-                label="Total Mtn Events" 
-                value={mountainData.totalEvents} 
-                accentColor={mountainAccent}
-              />
-              <KPICard 
-                label="# Summits" 
-                value={mountainData.summits} 
-                accentColor={mountainAccent}
-              />
-              <KPICard 
-                label="Total Vertical Feet" 
-                value={mountainData.verticalFeet.toLocaleString()} 
-                accentColor={mountainAccent}
-              />
+            <div className="grid grid-cols-3 gap-2 md:gap-3">
+              <KPICard label="Total Mtn Events" value={mountainData.totalEvents} />
+              <KPICard label="# Summits" value={mountainData.summits} />
+              <KPICard label="Total Vertical Feet" value={mountainData.verticalFeet.toLocaleString()} />
             </div>
 
             {/* Recognition Ladder */}
-            <RecognitionLadder 
-              current={mountainData.currentRecognition} 
-              accentColor={mountainAccent}
-            />
+            <RecognitionLadder current={mountainData.currentRecognition} />
           </div>
         </TabsContent>
 
         {/* Trail Content */}
         <TabsContent value="trail" className="mt-0">
-          <div className="card-29029 p-6 md:p-8">
+          <div className="card-29029 p-4 md:p-6">
             {/* KPIs Row */}
-            <div className="grid grid-cols-3 gap-3 md:gap-4">
-              <KPICard 
-                label="Total Trail Events" 
-                value={trailData.totalEvents} 
-                accentColor={trailAccent}
-              />
-              <KPICard 
-                label="# Marathons" 
-                value={trailData.marathons} 
-                accentColor={trailAccent}
-              />
-              <KPICard 
-                label="Total Miles" 
-                value={trailData.totalMiles} 
-                accentColor={trailAccent}
-              />
+            <div className="grid grid-cols-3 gap-2 md:gap-3">
+              <KPICard label="Total Trail Events" value={trailData.totalEvents} />
+              <KPICard label="# Marathons" value={trailData.marathons} />
+              <KPICard label="Total Miles" value={trailData.totalMiles} />
             </div>
 
             {/* Recognition Ladder */}
-            <RecognitionLadder 
-              current={trailData.currentRecognition} 
-              accentColor={trailAccent}
-            />
+            <RecognitionLadder current={trailData.currentRecognition} />
           </div>
         </TabsContent>
       </Tabs>
