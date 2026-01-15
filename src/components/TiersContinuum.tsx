@@ -94,12 +94,12 @@ export const TiersContinuum = () => {
       {/* Main Progress Card */}
       <div 
         className={cn(
-          "card-29029 p-5 sm:p-6 md:p-8 lg:p-10 transition-all duration-700",
+          "card-29029 p-4 sm:p-6 md:p-8 lg:p-10 transition-all duration-700",
           isRevealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         )}
       >
         {/* Current Tier Badge */}
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-8 sm:mb-9 md:mb-12 gap-5">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-6 sm:mb-9 md:mb-12 gap-4 sm:gap-5">
           <div>
             <div className="text-supporting uppercase tracking-[0.25em] mb-2 sm:mb-3 text-xs font-normal">Current Tier</div>
             <h4 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-tight" style={{
@@ -117,7 +117,7 @@ export const TiersContinuum = () => {
         </div>
 
         {/* Progress Bar */}
-        <div className="mb-6 sm:mb-7 md:mb-9">
+        <div className="mb-5 sm:mb-7 md:mb-9">
           <div className="relative h-2 md:h-3 bg-white/10 rounded-full overflow-hidden ring-1 ring-white/10">
             <div 
               className="absolute inset-y-0 left-0 rounded-full transition-all duration-1000 ease-out"
@@ -136,7 +136,7 @@ export const TiersContinuum = () => {
           </div>
           
           {/* Tier Markers - Enhanced visibility */}
-          <div className="relative mt-4 sm:mt-5 md:mt-6 flex justify-between items-center px-1">
+          <div className="relative mt-3 sm:mt-5 md:mt-6 flex justify-between items-center px-1">
             {visibleTiers.map((tier, idx) => {
               const isCurrentTier = tier.name === currentTierName;
               const isPassed = currentEP >= tier.threshold;
@@ -181,7 +181,7 @@ export const TiersContinuum = () => {
         </div>
 
         {/* Next Tier Info */}
-        <div className="pt-5 sm:pt-6 md:pt-7 border-t border-border/30">
+        <div className="pt-4 sm:pt-6 md:pt-7 border-t border-border/30">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-5 sm:gap-6">
             <div>
               <div className="text-supporting uppercase tracking-[0.25em] mb-2 text-xs font-normal">Next Milestone</div>
@@ -203,7 +203,7 @@ export const TiersContinuum = () => {
       </div>
 
       {/* Two-Column Accordion Layout */}
-      <div className="mt-5 sm:mt-6 grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5">
+      <div className="mt-4 sm:mt-6 grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-5">
         {/* Tier Benefits Accordion */}
         <Accordion type="single" collapsible id="tier-benefits">
           <AccordionItem value="tier-benefits" className="border border-border/30 rounded-lg overflow-hidden bg-card/30 backdrop-blur-sm">

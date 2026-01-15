@@ -93,7 +93,7 @@ export const UpcomingEventsSection = () => {
       </h3>
       
       {hasEvents ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-5 md:gap-6 lg:gap-7">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 lg:gap-7">
           {upcomingEvents.map((event, idx) => {
             const daysRemaining = getDaysRemaining(event.eventDates);
             const config = eventTypeConfig[event.eventType];
@@ -102,7 +102,7 @@ export const UpcomingEventsSection = () => {
               <div
                 key={idx}
                 className={cn(
-                  "relative card-29029 p-4 sm:p-5 md:p-6 group hover:-translate-y-2 transition-all duration-500 cursor-pointer overflow-hidden",
+                  "relative card-29029 p-3 sm:p-5 md:p-6 group hover:-translate-y-2 transition-all duration-500 cursor-pointer overflow-hidden",
                   "opacity-0 translate-y-4",
                   isRevealed && "animate-fade-in"
                 )}
@@ -131,7 +131,7 @@ export const UpcomingEventsSection = () => {
 
                 <div className="relative z-10">
                   {/* Event Type Badge */}
-                  <div className="mb-4 md:mb-5">
+                  <div className="mb-3 md:mb-5">
                     <span 
                       className="text-[10px] px-3.5 py-2 rounded-full uppercase tracking-[0.2em] font-light border backdrop-blur-sm"
                       style={{
@@ -146,7 +146,7 @@ export const UpcomingEventsSection = () => {
 
                   {/* Location - Hero (no divider line) */}
                   <h4 
-                    className="text-2xl md:text-3xl font-light tracking-[-0.01em] mb-4 leading-tight transition-colors duration-500"
+                    className="text-xl md:text-3xl font-light tracking-[-0.01em] mb-3 leading-tight transition-colors duration-500"
                     style={{
                       color: isRevealed ? 'hsl(var(--foreground))' : 'hsl(var(--muted-foreground))'
                     }}
@@ -155,9 +155,9 @@ export const UpcomingEventsSection = () => {
                   </h4>
 
                   {/* Days Remaining - Reduced emphasis */}
-                  <div className="mb-3">
+                  <div className="mb-2">
                     <div 
-                      className="text-3xl md:text-4xl font-light tabular-nums tracking-tight mb-1"
+                      className="text-2xl md:text-4xl font-light tabular-nums tracking-tight mb-1"
                       style={{
                         color: `hsl(${config.glowColor})`
                       }}
@@ -170,7 +170,7 @@ export const UpcomingEventsSection = () => {
                   </div>
 
                   {/* Date */}
-                  <p className="text-supporting text-xs uppercase tracking-[0.2em] mt-4 pt-4 border-t border-border/20 font-light">
+                  <p className="text-supporting text-xs uppercase tracking-[0.2em] mt-3 pt-3 border-t border-border/20 font-light">
                     {event.eventDates}
                   </p>
                 </div>
