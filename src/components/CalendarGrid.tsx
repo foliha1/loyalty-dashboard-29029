@@ -23,10 +23,10 @@ const milestones = [1, 2, 3, 4, "5x", "10x"];
 // KPI Card component - simplified, premium styling
 const KPICard = ({ label, value }: { label: string; value: string | number }) => (
   <div className="p-2.5 md:p-4 border border-white/10 rounded-lg text-center">
-    <div className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] text-white/40 mb-1 font-light">
+    <div className="text-xs uppercase tracking-[0.2em] text-white/40 mb-1 font-light">
       {label}
     </div>
-    <div className="text-2xl sm:text-3xl md:text-5xl font-light tabular-nums text-white">
+    <div className="text-2xl md:text-4xl font-light tabular-nums text-white">
       {value}
     </div>
   </div>
@@ -77,7 +77,7 @@ const RecognitionLadder = ({ current, color = 'ridge' }: { current: number; colo
           return (
             <div key={idx} className="flex flex-col items-center">
               <span 
-                className={`text-xs md:text-sm font-light ${
+                className={`text-xs font-light ${
                   isCurrent || isPast ? (color === 'peak' ? 'text-peak' : 'text-ridge') : 'text-white/30'
                 }`}
               >
@@ -85,7 +85,7 @@ const RecognitionLadder = ({ current, color = 'ridge' }: { current: number; colo
               </span>
               {/* BLACK BIB label under milestone 3 */}
               {milestone === 3 && (
-                <span className="text-[10px] md:text-[11px] uppercase tracking-[0.15em] text-white/60 mt-2 font-medium">
+                <span className="text-xs uppercase tracking-[0.15em] text-white/60 mt-2 font-medium">
                   Black Bib
                 </span>
               )}

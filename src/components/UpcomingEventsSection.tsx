@@ -133,7 +133,7 @@ export const UpcomingEventsSection = () => {
                   {/* Event Type Badge */}
                   <div className="mb-3 md:mb-5">
                     <span 
-                      className="text-[10px] px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-full uppercase tracking-[0.2em] font-light border backdrop-blur-sm"
+                      className="text-xs px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-full uppercase tracking-[0.2em] font-light border backdrop-blur-sm"
                       style={{
                         borderColor: `hsl(${config.accentColor} / 0.4)`,
                         backgroundColor: `hsl(${config.accentColor} / 0.1)`,
@@ -146,7 +146,7 @@ export const UpcomingEventsSection = () => {
 
                   {/* Location - Hero (no divider line) */}
                   <h4 
-                    className="text-xl md:text-3xl font-light tracking-[-0.01em] mb-3 leading-tight transition-colors duration-500"
+                    className="text-lg md:text-xl font-light tracking-[-0.01em] mb-3 leading-tight transition-colors duration-500"
                     style={{
                       color: isRevealed ? 'hsl(var(--foreground))' : 'hsl(var(--muted-foreground))'
                     }}
@@ -157,14 +157,14 @@ export const UpcomingEventsSection = () => {
                   {/* Days Remaining - Reduced emphasis */}
                   <div className="mb-2">
                     <div 
-                      className="text-2xl md:text-4xl font-light tabular-nums tracking-tight mb-1"
+                      className="text-2xl md:text-3xl font-light tabular-nums tracking-tight mb-1"
                       style={{
                         color: `hsl(${config.glowColor})`
                       }}
                     >
                       {daysRemaining}
                     </div>
-                    <div className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground font-light">
+                    <div className="text-xs uppercase tracking-[0.3em] text-muted-foreground font-light">
                       Days Until Event
                     </div>
                   </div>
@@ -182,11 +182,11 @@ export const UpcomingEventsSection = () => {
         <div className="card-29029 p-10 md:p-16 text-center max-w-3xl mx-auto">
           <div className="h-px w-20 md:w-24 bg-border/40 mx-auto mb-6 md:mb-8" />
           
-          <h4 className="text-xl md:text-2xl font-bold mb-4 tracking-wide px-4">
+          <h4 className="text-lg md:text-xl font-bold mb-4 tracking-wide px-4">
             Your Next Challenge Awaits
           </h4>
           
-          <p className="text-supporting text-sm md:text-base max-w-xl mx-auto leading-relaxed px-4">
+          <p className="text-supporting text-sm max-w-xl mx-auto leading-relaxed px-4">
             You're not currently registered for any events. Explore our upcoming experiences 
             and find your next summit.
           </p>

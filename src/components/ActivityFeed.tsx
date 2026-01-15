@@ -123,7 +123,7 @@ export const ActivityFeed = () => {
           {/* EPs Earned - LEFT side, dominant */}
           <div className="text-center md:text-left metric-animate">
             <div className="text-subhead mb-2">EPs Earned</div>
-            <div className="text-5xl sm:text-6xl md:text-8xl font-light tracking-tight tabular-nums">
+            <div className="text-4xl md:text-6xl font-light tracking-tight tabular-nums">
               {totalYearEP}
             </div>
           </div>
@@ -152,7 +152,7 @@ export const ActivityFeed = () => {
             <h4 className="text-subhead mb-4">Events</h4>
             
             <div>
-              <div className="text-2xl md:text-4xl font-light tracking-tight mb-2">{yearData.events.totalEP} EPs</div>
+              <div className="text-2xl md:text-3xl font-light tracking-tight mb-2">{yearData.events.totalEP} EPs</div>
               
               <Collapsible>
                 <CollapsibleTrigger className="flex items-center gap-2 text-supporting hover:text-foreground transition-colors group">
@@ -172,7 +172,7 @@ export const ActivityFeed = () => {
           <div>
             <h4 className="text-subhead mb-4">Apparel</h4>
             <div>
-              <div className="text-2xl md:text-4xl font-light tracking-tight mb-2">{yearData.apparel.totalEP} EPs</div>
+              <div className="text-2xl md:text-3xl font-light tracking-tight mb-2">{yearData.apparel.totalEP} EPs</div>
               
               <Collapsible>
                 <CollapsibleTrigger className="flex items-center gap-2 text-supporting hover:text-foreground transition-colors group">
@@ -192,7 +192,7 @@ export const ActivityFeed = () => {
           <div>
             <h4 className="text-subhead mb-4">Coaching</h4>
             <div>
-              <div className="text-2xl md:text-4xl font-light tracking-tight mb-2">{yearData.coaching.totalEP} EPs</div>
+              <div className="text-2xl md:text-3xl font-light tracking-tight mb-2">{yearData.coaching.totalEP} EPs</div>
               
               <Collapsible>
                 <CollapsibleTrigger className="flex items-center gap-2 text-supporting hover:text-foreground transition-colors group">

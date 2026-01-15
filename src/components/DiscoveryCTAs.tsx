@@ -18,10 +18,10 @@ export const DiscoveryCTAs = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         
         <div className="relative z-10 flex-1">
-          <h5 className="text-base sm:text-lg md:text-xl font-light mb-2 tracking-tight leading-tight !text-foreground">
+          <h5 className="text-base md:text-lg font-light mb-2 tracking-tight leading-tight !text-foreground">
             Discover 29029 Events
           </h5>
-          <p className="text-foreground/60 text-[11px] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] font-light mb-4 sm:mb-8">
+          <p className="text-foreground/60 text-xs uppercase tracking-[0.15em] font-light mb-4 sm:mb-8">
             Browse All Experiences
           </p>
           
@@ -47,10 +47,10 @@ export const DiscoveryCTAs = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         
         <div className="relative z-10 flex-1">
-          <h5 className="text-base sm:text-lg md:text-xl font-light mb-2 tracking-tight leading-tight !text-foreground">
+          <h5 className="text-base md:text-lg font-light mb-2 tracking-tight leading-tight !text-foreground">
             Discover 29029 Experience Coaching
           </h5>
-          <p className="text-foreground/60 text-[11px] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] font-light mb-4 sm:mb-8">
+          <p className="text-foreground/60 text-xs uppercase tracking-[0.15em] font-light mb-4 sm:mb-8">
             Personal Experience
           </p>
           
@@ -76,10 +76,10 @@ export const DiscoveryCTAs = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         
         <div className="relative z-10 flex-1">
-          <h5 className="text-base sm:text-lg md:text-xl font-light mb-2 tracking-tight leading-tight !text-foreground">
+          <h5 className="text-base md:text-lg font-light mb-2 tracking-tight leading-tight !text-foreground">
             Discover 29029 Apparel
           </h5>
-          <p className="text-foreground/60 text-[11px] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] font-light mb-4 sm:mb-8">
+          <p className="text-foreground/60 text-xs uppercase tracking-[0.15em] font-light mb-4 sm:mb-8">
             Shop Collection
           </p>
           
