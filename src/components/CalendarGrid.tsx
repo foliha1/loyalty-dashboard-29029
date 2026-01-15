@@ -229,7 +229,7 @@ export const CalendarGrid = () => {
             
             <div className="relative z-10 flex-1">
               <h5 className="text-base sm:text-lg md:text-xl font-light mb-2 tracking-tight leading-tight !text-foreground">
-                {hasEvents ? "Discover Events" : "Discover Challenges"}
+                Discover 29029 Events
               </h5>
               <p className="text-foreground/60 text-[11px] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] font-light mb-6 sm:mb-8">
                 Browse All Experiences
@@ -258,7 +258,7 @@ export const CalendarGrid = () => {
             
             <div className="relative z-10 flex-1">
               <h5 className="text-base sm:text-lg md:text-xl font-light mb-2 tracking-tight leading-tight !text-foreground">
-                1:1 Coaching
+                Discover 29029 Experience Coaching
               </h5>
               <p className="text-foreground/60 text-[11px] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] font-light mb-6 sm:mb-8">
                 Personal Experience
@@ -267,7 +267,7 @@ export const CalendarGrid = () => {
               {/* Underline sweep effect */}
               <div className="relative inline-block">
                 <span className="text-foreground text-xs uppercase tracking-[0.25em] font-light">
-                  Build
+                  Learn More
                 </span>
                 <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-primary group-hover:w-full transition-all duration-500" />
               </div>
@@ -287,7 +287,7 @@ export const CalendarGrid = () => {
             
             <div className="relative z-10 flex-1">
               <h5 className="text-base sm:text-lg md:text-xl font-light mb-2 tracking-tight leading-tight !text-foreground">
-                Apparel
+                Discover 29029 Apparel
               </h5>
               <p className="text-foreground/60 text-[11px] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] font-light mb-6 sm:mb-8">
                 Shop Collection
