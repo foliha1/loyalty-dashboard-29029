@@ -133,8 +133,8 @@ export const ActivityFeed = () => {
                 <SelectValue placeholder="Select year" />
               </SelectTrigger>
               <SelectContent>
-                {yearlyActivities.map((activity) => (
-                  <SelectItem key={activity.year} value={activity.year.toString()}>
+              {yearlyActivities.map((activity) => (
+                  <SelectItem key={activity.year} value={activity.year.toString()} className="text-foreground">
                     {activity.year}
                   </SelectItem>
                 ))}
