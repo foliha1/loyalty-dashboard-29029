@@ -86,19 +86,19 @@ export const TiersContinuum = () => {
 
   return (
     <section>
-      <h3 className="text-section-title mb-8 sm:mb-10 md:mb-14 text-left px-2">
+      <h3 className="text-section-title mb-6 sm:mb-7 md:mb-10 text-left px-2">
         Your Elevation Journey
       </h3>
 
       {/* Main Progress Card */}
       <div 
         className={cn(
-          "card-29029 p-6 sm:p-8 md:p-10 lg:p-12 transition-all duration-700",
+          "card-29029 p-5 sm:p-6 md:p-8 lg:p-10 transition-all duration-700",
           isRevealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         )}
       >
         {/* Current Tier Badge */}
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-10 sm:mb-12 md:mb-16 gap-6">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-8 sm:mb-9 md:mb-12 gap-5">
           <div>
             <div className="text-supporting uppercase tracking-[0.25em] mb-2 sm:mb-3 text-xs font-normal">Current Tier</div>
             <h4 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-tight" style={{
@@ -116,7 +116,7 @@ export const TiersContinuum = () => {
         </div>
 
         {/* Progress Bar */}
-        <div className="mb-8 sm:mb-10 md:mb-12">
+        <div className="mb-6 sm:mb-7 md:mb-9">
           <div className="relative h-2 md:h-3 bg-muted/20 rounded-full overflow-hidden">
             <div 
               className="absolute inset-y-0 left-0 rounded-full transition-all duration-1000 ease-out"
@@ -133,7 +133,7 @@ export const TiersContinuum = () => {
           </div>
           
           {/* Tier Markers - Minimal */}
-          <div className="relative mt-5 sm:mt-6 md:mt-8 flex justify-between items-center px-1">
+          <div className="relative mt-4 sm:mt-5 md:mt-6 flex justify-between items-center px-1">
             {visibleTiers.map((tier, idx) => {
               const isCurrentTier = tier.name === currentTierName;
               const isPassed = currentEP >= tier.threshold;
@@ -170,7 +170,7 @@ export const TiersContinuum = () => {
         </div>
 
         {/* Next Tier Info */}
-        <div className="pt-6 sm:pt-8 md:pt-10 border-t border-border/30">
+        <div className="pt-5 sm:pt-6 md:pt-7 border-t border-border/30">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-5 sm:gap-6">
             <div>
               <div className="text-supporting uppercase tracking-[0.25em] mb-2 text-xs font-normal">Next Milestone</div>
@@ -192,11 +192,11 @@ export const TiersContinuum = () => {
       </div>
 
       {/* Two-Column Accordion Layout */}
-      <div className="mt-6 sm:mt-8 grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6">
+      <div className="mt-5 sm:mt-6 grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5">
         {/* Tier Benefits Accordion */}
         <Accordion type="single" collapsible>
           <AccordionItem value="tier-benefits" className="border border-border/30 rounded-lg overflow-hidden bg-card/30 backdrop-blur-sm">
-            <AccordionTrigger className="px-6 md:px-8 py-6 md:py-7 hover:no-underline hover:bg-muted/10 transition-colors duration-300 [&[data-state=open]>div>svg]:rotate-180 [&>svg]:hidden">
+            <AccordionTrigger className="px-5 md:px-6 py-5 md:py-6 hover:no-underline hover:bg-muted/10 transition-colors duration-300 [&[data-state=open]>div>svg]:rotate-180 [&>svg]:hidden">
               <div className="flex items-center gap-3 text-left w-full">
                 <ChevronDown className="h-4 w-4 md:h-5 md:w-5 !text-muted-foreground transition-transform duration-300 ease-out shrink-0" />
                 <span className="text-base md:text-lg lg:text-xl font-normal tracking-[0.12em] uppercase !text-foreground">
@@ -204,7 +204,7 @@ export const TiersContinuum = () => {
                 </span>
               </div>
             </AccordionTrigger>
-            <AccordionContent className="px-6 md:px-8 pb-6 md:pb-8 pt-2 !text-foreground">
+            <AccordionContent className="px-5 md:px-6 pb-5 md:pb-6 pt-2 !text-foreground">
               <div className="border-l-2 border-foreground/10 pl-6 md:pl-8 pr-4 py-6 bg-gradient-to-br from-muted/5 to-transparent rounded-r-lg">
                 <div className="space-y-8 md:space-y-10">
                   {/* Ridge Tier */}
@@ -273,7 +273,7 @@ export const TiersContinuum = () => {
         {/* How Elevation Points Work Accordion */}
         <Accordion type="single" collapsible>
           <AccordionItem value="how-eps-work" className="border border-border/30 rounded-lg overflow-hidden bg-card/30 backdrop-blur-sm">
-            <AccordionTrigger className="px-6 md:px-8 py-6 md:py-7 hover:no-underline hover:bg-muted/10 transition-colors duration-300 [&[data-state=open]>div>svg]:rotate-180 [&>svg]:hidden">
+            <AccordionTrigger className="px-5 md:px-6 py-5 md:py-6 hover:no-underline hover:bg-muted/10 transition-colors duration-300 [&[data-state=open]>div>svg]:rotate-180 [&>svg]:hidden">
               <div className="flex items-center gap-3 text-left w-full">
                 <ChevronDown className="h-4 w-4 md:h-5 md:w-5 !text-muted-foreground transition-transform duration-300 ease-out shrink-0" />
                 <span className="text-base md:text-lg lg:text-xl font-normal tracking-[0.12em] uppercase !text-foreground">
@@ -281,7 +281,7 @@ export const TiersContinuum = () => {
                 </span>
               </div>
             </AccordionTrigger>
-            <AccordionContent className="px-6 md:px-8 pb-6 md:pb-8 pt-2 !text-foreground">
+            <AccordionContent className="px-5 md:px-6 pb-5 md:pb-6 pt-2 !text-foreground">
               <div className="border-l-2 border-foreground/10 pl-6 md:pl-8 pr-4 py-6 bg-gradient-to-br from-muted/5 to-transparent rounded-r-lg">
                 <div className="space-y-8 md:space-y-10">
                   {/* Earning EPs */}

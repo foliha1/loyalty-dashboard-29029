@@ -12,7 +12,7 @@ export const UserHeader = () => {
   
   return (
     <section 
-      className="relative z-10 w-full overflow-hidden mb-3 bg-black/85 backdrop-blur-md border-b border-transparent py-8 sm:py-10 md:py-12"
+      className="relative z-10 w-full overflow-hidden mb-3 bg-black/85 backdrop-blur-md border-b border-transparent py-6 sm:py-7 md:py-9"
     >
       {/* Subtle background image */}
       <div
@@ -34,14 +34,14 @@ export const UserHeader = () => {
       <div className="container mx-auto px-5 sm:px-6 md:px-10 lg:px-12 relative z-10">
         <div>
           {/* Logo - Centered */}
-          <div className="flex justify-center mb-8 sm:mb-10 md:mb-14">
+          <div className="flex justify-center mb-6 sm:mb-7 md:mb-10">
             <Logo29029 size={38} className="text-white/70" />
           </div>
 
           {/* Hero Content - Centered */}
           <div className="max-w-3xl mx-auto text-center">
             {/* Premium ID Number */}
-            <div className="mb-4 sm:mb-5 md:mb-6 animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
+            <div className="mb-3 sm:mb-4 md:mb-5 animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
               <span className="text-[10px] sm:text-[11px] md:text-xs tracking-[0.25em] sm:tracking-[0.3em] uppercase font-normal text-muted-foreground" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>
                 29029 ID: AR-5847
               </span>
@@ -49,7 +49,7 @@ export const UserHeader = () => {
             
             {/* Welcome Statement - Most Prominent */}
             <h1 
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light tracking-tight mb-5 sm:mb-6 px-2 animate-fade-in"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-tight mb-4 sm:mb-5 px-2 animate-fade-in"
               style={{ animationDelay: '0.2s', animationFillMode: 'both', textShadow: '0 2px 8px rgba(0,0,0,0.4)', lineHeight: '1.1' }}
             >
               Keep climbing, Alex.
@@ -57,7 +57,7 @@ export const UserHeader = () => {
             
             {/* Stats Row - Centered layout */}
             <div 
-              className="flex flex-wrap gap-6 sm:gap-8 md:gap-12 items-center justify-center mb-6 sm:mb-8 md:mb-10 animate-fade-in"
+              className="flex flex-wrap gap-6 sm:gap-8 md:gap-12 items-center justify-center mb-5 sm:mb-6 md:mb-7 animate-fade-in"
               style={{ animationDelay: '0.3s', animationFillMode: 'both' }}
             >
               {/* Avatar - Click to navigate to profile */}

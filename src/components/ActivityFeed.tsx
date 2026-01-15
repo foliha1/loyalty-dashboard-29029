@@ -111,7 +111,7 @@ export const ActivityFeed = () => {
   
   return (
     <section id="activity-feed">
-      <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-10 md:mb-14 gap-4 px-2">
+      <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-7 md:mb-10 gap-4 px-2">
         <h3 className="text-section-title">
           History
         </h3>
@@ -130,9 +130,9 @@ export const ActivityFeed = () => {
         </Select>
       </div>
 
-      <div className="card-29029 p-8 md:p-10 lg:p-12">
+      <div className="card-29029 p-6 md:p-8 lg:p-9">
         {/* Year Display - More Dramatic */}
-        <div className="flex flex-col md:flex-row items-center justify-between mb-12 pb-8 border-b border-border/30 gap-8">
+        <div className="flex flex-col md:flex-row items-center justify-between mb-9 pb-6 border-b border-border/30 gap-6">
           <div className="text-center md:text-left metric-animate">
             <div className="text-subhead mb-3">Year</div>
             <h3 className="text-7xl md:text-8xl font-light tracking-tight">
@@ -147,10 +147,10 @@ export const ActivityFeed = () => {
         </div>
 
         {/* Categories - Inline Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-14">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-7 md:gap-10">
           {/* Events Section */}
           <div className="metric-animate-delay-2">
-            <h4 className="text-subhead mb-6">Events</h4>
+            <h4 className="text-subhead mb-4">Events</h4>
             
             <div>
               <div className="text-3xl md:text-4xl font-light tracking-tight mb-3">{yearData.events.totalEP} EPs</div>
@@ -171,7 +171,7 @@ export const ActivityFeed = () => {
 
           {/* APPAREL */}
           <div>
-            <h4 className="text-subhead mb-6">Apparel</h4>
+            <h4 className="text-subhead mb-4">Apparel</h4>
             <div>
               <div className="text-3xl md:text-4xl font-light tracking-tight mb-3">{yearData.apparel.totalEP} EPs</div>
               
@@ -191,7 +191,7 @@ export const ActivityFeed = () => {
 
           {/* COACHING */}
           <div>
-            <h4 className="text-subhead mb-6">Coaching</h4>
+            <h4 className="text-subhead mb-4">Coaching</h4>
             <div>
               <div className="text-3xl md:text-4xl font-light tracking-tight mb-3">{yearData.coaching.totalEP} EPs</div>
               
