@@ -133,7 +133,7 @@ export const UpcomingEventsSection = () => {
                   {/* Event Type Badge */}
                   <div className="mb-3 md:mb-5">
                     <span 
-                      className="text-[10px] px-3.5 py-2 rounded-full uppercase tracking-[0.2em] font-light border backdrop-blur-sm"
+                      className="text-[10px] px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-full uppercase tracking-[0.2em] font-light border backdrop-blur-sm"
                       style={{
                         borderColor: `hsl(${config.accentColor} / 0.4)`,
                         backgroundColor: `hsl(${config.accentColor} / 0.1)`,

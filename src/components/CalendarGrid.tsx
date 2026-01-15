@@ -23,10 +23,10 @@ const milestones = [1, 2, 3, 4, "5x", "10x"];
 // KPI Card component - simplified, premium styling
 const KPICard = ({ label, value }: { label: string; value: string | number }) => (
   <div className="p-2.5 md:p-4 border border-white/10 rounded-lg text-center">
-    <div className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] text-white/40 mb-1.5 font-light">
+    <div className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] text-white/40 mb-1 font-light">
       {label}
     </div>
-    <div className="text-3xl md:text-5xl font-light tabular-nums text-white">
+    <div className="text-2xl sm:text-3xl md:text-5xl font-light tabular-nums text-white">
       {value}
     </div>
   </div>

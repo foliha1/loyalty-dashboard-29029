@@ -55,7 +55,7 @@ export const StickyNav = () => {
             </a>
 
             {/* Navigation Links */}
-            <div className="flex items-center gap-4 sm:gap-8">
+            <div className="flex items-center gap-3 sm:gap-8">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
@@ -64,7 +64,7 @@ export const StickyNav = () => {
                 >
                   <span
                     className={cn(
-                      "text-[10px] sm:text-xs uppercase tracking-[0.2em] transition-colors duration-300",
+                      "text-[10px] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] transition-colors duration-300",
                       activeSection === link.href.slice(1)
                         ? "text-foreground"
                         : "text-muted-foreground hover:text-foreground"

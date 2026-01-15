@@ -407,7 +407,7 @@ export const TiersContinuum = () => {
             <AccordionTrigger className="px-5 md:px-6 py-5 md:py-6 hover:no-underline hover:bg-muted/10 transition-colors duration-300 [&[data-state=open]>div>svg]:rotate-180 [&>svg]:hidden">
               <div className="flex items-center gap-3 text-left w-full">
                 <ChevronDown className="h-4 w-4 md:h-5 md:w-5 !text-muted-foreground transition-transform duration-300 ease-out shrink-0" />
-                <span className="text-base md:text-lg lg:text-xl font-normal tracking-[0.12em] uppercase !text-foreground">
+                <span className="text-base md:text-lg lg:text-xl font-normal tracking-[0.08em] md:tracking-[0.12em] uppercase !text-foreground">
                   How Elevation Points (EPs) Work
                 </span>
               </div>
