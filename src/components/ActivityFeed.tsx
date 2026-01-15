@@ -150,10 +150,7 @@ export const ActivityFeed = () => {
             <h4 className="text-subhead mb-4">Events</h4>
             
             <div>
-              <div className="text-2xl md:text-3xl font-light tracking-tight mb-2">{yearData.events.totalEP} EPs</div>
-              <div className="text-body font-light text-muted-foreground">
-                {yearData.events.attended.join(" • ")}
-              </div>
+              <div className="text-2xl md:text-3xl font-light tracking-tight">{yearData.events.totalEP} EPs</div>
             </div>
           </div>
 
