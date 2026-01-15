@@ -87,39 +87,9 @@ export const TiersContinuum = () => {
 
   return (
     <section>
-      <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-4 sm:mb-5 md:mb-6 px-2 gap-2 sm:gap-0">
-        <h3 className="text-section-title">
-          Your Elevation Journey
-        </h3>
-        
-        {/* Secondary Navigation Links */}
-        <nav className="flex items-center gap-3 sm:gap-5">
-          <a href="#activity-feed" className="group relative">
-            <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground transition-colors duration-300">
-              History
-            </span>
-            <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-primary group-hover:w-full transition-all duration-500" />
-          </a>
-          
-          <span className="text-muted-foreground/30">·</span>
-          
-          <a href="#tier-benefits" className="group relative">
-            <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground transition-colors duration-300">
-              Tier Benefits
-            </span>
-            <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-primary group-hover:w-full transition-all duration-500" />
-          </a>
-          
-          <span className="text-muted-foreground/30">·</span>
-          
-          <a href="#how-ep-works" className="group relative">
-            <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground transition-colors duration-300">
-              How EP Works
-            </span>
-            <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-primary group-hover:w-full transition-all duration-500" />
-          </a>
-        </nav>
-      </div>
+      <h3 className="text-section-title mb-4 sm:mb-5 md:mb-6 px-2">
+        Your Elevation Journey
+      </h3>
 
       {/* Main Progress Card */}
       <div 
