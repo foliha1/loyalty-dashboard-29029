@@ -22,11 +22,11 @@ const milestones = [1, 2, 3, 4, "5x", "10x"];
 
 // KPI Card component - simplified, premium styling
 const KPICard = ({ label, value }: { label: string; value: string | number }) => (
-  <div className="p-3 md:p-4 border border-white/10 rounded-lg text-center">
+  <div className="p-2.5 md:p-4 border border-white/10 rounded-lg text-center">
     <div className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] text-white/40 mb-1.5 font-light">
       {label}
     </div>
-    <div className="text-4xl md:text-5xl font-light tabular-nums text-white">
+    <div className="text-3xl md:text-5xl font-light tabular-nums text-white">
       {value}
     </div>
   </div>
@@ -44,7 +44,7 @@ const RecognitionLadder = ({ current, color = 'ridge' }: { current: number; colo
   };
 
   return (
-    <div className="mt-5 md:mt-6">
+    <div className="mt-4 md:mt-6">
       {/* Progress arrow track */}
       <div className="relative h-2 bg-white/10 rounded-full overflow-hidden">
         <div 
@@ -130,9 +130,9 @@ export const CalendarGrid = () => {
 
         {/* Mountain Content */}
         <TabsContent value="mountain" className="mt-0">
-          <div className="card-29029 p-4 md:p-6">
+          <div className="card-29029 p-3 md:p-6">
             {/* KPIs Row */}
-            <div className="grid grid-cols-3 gap-2 md:gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 md:gap-3">
               <KPICard label="Total Mtn Events" value={mountainData.totalEvents} />
               <KPICard label="# Summits" value={mountainData.summits} />
               <KPICard label="Total Vertical Feet" value={mountainData.verticalFeet.toLocaleString()} />
@@ -145,9 +145,9 @@ export const CalendarGrid = () => {
 
         {/* Trail Content */}
         <TabsContent value="trail" className="mt-0">
-          <div className="card-29029 p-4 md:p-6">
+          <div className="card-29029 p-3 md:p-6">
             {/* KPIs Row */}
-            <div className="grid grid-cols-3 gap-2 md:gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 md:gap-3">
               <KPICard label="Total Trail Events" value={trailData.totalEvents} />
               <KPICard label="# Marathons" value={trailData.marathons} />
               <KPICard label="Total Miles" value={trailData.totalMiles} />

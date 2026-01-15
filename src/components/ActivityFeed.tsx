@@ -117,13 +117,13 @@ export const ActivityFeed = () => {
         </h3>
       </div>
 
-      <div className="card-29029 p-6 md:p-8 lg:p-9">
+      <div className="card-29029 p-4 md:p-8 lg:p-9">
         {/* EPs Earned (dominant) + Year Dropdown */}
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-9 pb-6 border-b border-border/30 gap-6">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-6 pb-5 border-b border-border/30 gap-4 md:gap-6">
           {/* EPs Earned - LEFT side, dominant */}
           <div className="text-center md:text-left metric-animate">
-            <div className="text-subhead mb-3">EPs Earned</div>
-            <div className="text-7xl md:text-8xl font-light tracking-tight tabular-nums">
+            <div className="text-subhead mb-2">EPs Earned</div>
+            <div className="text-6xl md:text-8xl font-light tracking-tight tabular-nums">
               {totalYearEP}
             </div>
           </div>
@@ -146,13 +146,13 @@ export const ActivityFeed = () => {
         </div>
 
         {/* Categories - Inline Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-7 md:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-10">
           {/* Events Section */}
           <div className="metric-animate-delay-2">
             <h4 className="text-subhead mb-4">Events</h4>
             
             <div>
-              <div className="text-3xl md:text-4xl font-light tracking-tight mb-3">{yearData.events.totalEP} EPs</div>
+              <div className="text-2xl md:text-4xl font-light tracking-tight mb-2">{yearData.events.totalEP} EPs</div>
               
               <Collapsible>
                 <CollapsibleTrigger className="flex items-center gap-2 text-supporting hover:text-foreground transition-colors group">
@@ -172,7 +172,7 @@ export const ActivityFeed = () => {
           <div>
             <h4 className="text-subhead mb-4">Apparel</h4>
             <div>
-              <div className="text-3xl md:text-4xl font-light tracking-tight mb-3">{yearData.apparel.totalEP} EPs</div>
+              <div className="text-2xl md:text-4xl font-light tracking-tight mb-2">{yearData.apparel.totalEP} EPs</div>
               
               <Collapsible>
                 <CollapsibleTrigger className="flex items-center gap-2 text-supporting hover:text-foreground transition-colors group">
@@ -192,7 +192,7 @@ export const ActivityFeed = () => {
           <div>
             <h4 className="text-subhead mb-4">Coaching</h4>
             <div>
-              <div className="text-3xl md:text-4xl font-light tracking-tight mb-3">{yearData.coaching.totalEP} EPs</div>
+              <div className="text-2xl md:text-4xl font-light tracking-tight mb-2">{yearData.coaching.totalEP} EPs</div>
               
               <Collapsible>
                 <CollapsibleTrigger className="flex items-center gap-2 text-supporting hover:text-foreground transition-colors group">
