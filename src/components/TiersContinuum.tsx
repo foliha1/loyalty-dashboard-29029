@@ -86,7 +86,7 @@ export const TiersContinuum = () => {
 
   return (
     <section>
-      <h3 className="text-section-title mb-6 sm:mb-7 md:mb-10 text-left px-2">
+      <h3 className="text-section-title mb-4 sm:mb-5 md:mb-6 text-left px-2">
         Your Elevation Journey
       </h3>
 
@@ -117,50 +117,58 @@ export const TiersContinuum = () => {
 
         {/* Progress Bar */}
         <div className="mb-6 sm:mb-7 md:mb-9">
-          <div className="relative h-2 md:h-3 bg-muted/20 rounded-full overflow-hidden">
+          <div className="relative h-2 md:h-3 bg-white/10 rounded-full overflow-hidden ring-1 ring-white/10">
             <div 
               className="absolute inset-y-0 left-0 rounded-full transition-all duration-1000 ease-out"
               style={{
                 width: `${animatedProgress}%`,
-                background: currentTier && nextTier
-                  ? `linear-gradient(to right, hsl(var(--${currentTier.color})) 0%, hsl(var(--${currentTier.color})) 70%, hsl(var(--${nextTier.color})) 100%)`
-                  : 'linear-gradient(to right, hsl(var(--tier-gold)) 0%, hsl(var(--tier-gold)) 100%)',
-                boxShadow: currentTier 
-                  ? `0 0 20px hsl(var(--${currentTier.color}) / 0.35)`
-                  : '0 0 20px hsl(var(--tier-gold) / 0.35)'
+                background: `linear-gradient(to right, 
+                  hsl(var(--base)) 0%, 
+                  hsl(var(--base)) 20%, 
+                  hsl(var(--ridge)) 45%, 
+                  hsl(var(--ridge)) 55%, 
+                  hsl(var(--peak)) 85%, 
+                  hsl(var(--peak)) 100%)`,
+                boxShadow: `0 0 16px hsl(var(--ridge) / 0.4), 0 0 32px hsl(var(--peak) / 0.2)`
               }}
             />
           </div>
           
-          {/* Tier Markers - Minimal */}
+          {/* Tier Markers - Enhanced visibility */}
           <div className="relative mt-4 sm:mt-5 md:mt-6 flex justify-between items-center px-1">
             {visibleTiers.map((tier, idx) => {
               const isCurrentTier = tier.name === currentTierName;
               const isPassed = currentEP >= tier.threshold;
+              const isPeak = tier.name === "Peak";
               
               return (
                 <div key={tier.name} className="flex flex-col items-center">
                   <div 
                     className={cn(
-                      "w-1.5 h-1.5 md:w-2 md:h-2 rounded-full mb-2 md:mb-3 transition-all duration-500",
-                      isPassed ? "scale-125" : "scale-100"
+                      "w-2 h-2 md:w-2.5 md:h-2.5 rounded-full mb-2 md:mb-3 transition-all duration-500",
+                      isPassed ? "scale-125" : "scale-100",
+                      !isPassed && "ring-1 ring-white/20"
                     )}
                     style={{
                       backgroundColor: isPassed 
                         ? `hsl(var(--${tier.color}))` 
-                        : 'hsl(var(--muted))',
+                        : isPeak 
+                          ? 'hsl(var(--peak) / 0.3)'
+                          : 'hsl(0 0% 30%)',
                       boxShadow: isCurrentTier 
                         ? `0 0 12px hsl(var(--${tier.color}) / 0.6)` 
-                        : 'none'
+                        : isPeak && !isPassed
+                          ? `0 0 10px hsl(var(--peak) / 0.25), inset 0 0 0 1px hsl(var(--peak) / 0.4)`
+                          : 'none'
                     }}
                   />
                   <div className={cn(
                     "text-[9px] sm:text-[10px] md:text-xs uppercase tracking-wider transition-colors duration-500 text-center",
-                    isPassed ? "text-foreground font-semibold" : "text-muted-foreground"
+                    isPassed ? "text-foreground font-semibold" : "text-white/50"
                   )}>
                     {tier.name}
                   </div>
-                  <div className="text-[9px] sm:text-[10px] md:text-xs text-muted-foreground mt-0.5 sm:mt-1 tabular-nums">
+                  <div className="text-[9px] sm:text-[10px] md:text-xs text-white/40 mt-0.5 sm:mt-1 tabular-nums">
                     {tier.threshold}
                   </div>
                 </div>
