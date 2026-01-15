@@ -56,55 +56,55 @@ const IndexContent = () => {
         <div 
           id="journey"
           ref={tiersReveal.ref} 
-          className={`pt-10 md:pt-14 pb-10 md:pb-14 section-fade-up ${tiersReveal.isVisible ? 'visible' : ''}`}
+          className={`pt-8 md:pt-12 pb-8 md:pb-12 section-fade-up ${tiersReveal.isVisible ? 'visible' : ''}`}
         >
           <TiersContinuum />
         </div>
         
         {/* Section Divider */}
-        <div className="divider-red my-10 md:my-14" />
+        <div className="divider-red my-8 md:my-12" />
         
         {/* Continue the Journey */}
         <div 
           id="upcoming"
           ref={calendarReveal.ref} 
-          className={`py-10 md:py-14 section-fade-up section-fade-up-delay-2 ${calendarReveal.isVisible ? 'visible' : ''}`}
+          className={`py-8 md:py-12 section-fade-up section-fade-up-delay-2 ${calendarReveal.isVisible ? 'visible' : ''}`}
         >
           <CalendarGrid />
         </div>
         
         {/* Section Divider */}
-        <div className="divider-red my-10 md:my-14" />
+        <div className="divider-red my-8 md:my-12" />
         
         {/* History */}
         <div 
           id="activity-feed"
           ref={activityReveal.ref} 
-          className={`py-10 md:py-14 section-fade-up ${activityReveal.isVisible ? 'visible' : ''}`}
+          className={`py-8 md:py-12 section-fade-up ${activityReveal.isVisible ? 'visible' : ''}`}
         >
           <ActivityFeed />
         </div>
         
         {/* Section Divider */}
-        <div className="divider-red my-10 md:my-14" />
+        <div className="divider-red my-8 md:my-12" />
         
         {/* Upcoming Events */}
         <div 
           id="upcoming-events"
           ref={upcomingEventsReveal.ref} 
-          className={`py-10 md:py-14 section-fade-up ${upcomingEventsReveal.isVisible ? 'visible' : ''}`}
+          className={`py-8 md:py-12 section-fade-up ${upcomingEventsReveal.isVisible ? 'visible' : ''}`}
         >
           <UpcomingEventsSection />
         </div>
         
         {/* Section Divider */}
-        <div className="divider-red my-10 md:my-14" />
+        <div className="divider-red my-8 md:my-12" />
         
         {/* Discovery CTAs */}
         <div 
           id="discover"
           ref={discoveryCTAsReveal.ref} 
-          className={`py-10 md:py-14 pb-14 md:pb-20 section-fade-up ${discoveryCTAsReveal.isVisible ? 'visible' : ''}`}
+          className={`py-8 md:py-12 pb-12 md:pb-16 section-fade-up ${discoveryCTAsReveal.isVisible ? 'visible' : ''}`}
         >
           <DiscoveryCTAs />
         </div>
