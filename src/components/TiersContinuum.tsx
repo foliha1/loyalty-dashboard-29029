@@ -155,9 +155,9 @@ export const TiersContinuum = () => {
                 width: `${animatedProgress}%`,
                 background: `linear-gradient(to right, 
                   hsl(var(--base)) 0%, 
-                  hsl(var(--base)) 20%, 
-                  hsl(var(--ridge)) 45%, 
-                  hsl(var(--ridge)) 55%, 
+                  hsl(var(--base)) 15%, 
+                  hsl(var(--ridge)) 40%, 
+                  hsl(var(--ridge)) 60%, 
                   hsl(var(--peak)) 85%, 
                   hsl(var(--peak)) 100%)`,
                 boxShadow: `0 0 16px hsl(var(--ridge) / 0.4), 0 0 32px hsl(var(--peak) / 0.2)`
@@ -178,18 +178,20 @@ export const TiersContinuum = () => {
                     className={cn(
                       "w-2 h-2 md:w-2.5 md:h-2.5 rounded-full mb-2 md:mb-3 transition-all duration-500",
                       isPassed ? "scale-125" : "scale-100",
-                      !isPassed && "ring-1 ring-white/20"
+                      !isPassed && isPeak 
+                        ? "ring-1 ring-[hsl(var(--peak)/0.6)]"
+                        : !isPassed && "ring-1 ring-white/20"
                     )}
                     style={{
                       backgroundColor: isPassed 
                         ? `hsl(var(--${tier.color}))` 
                         : isPeak 
-                          ? 'hsl(var(--peak) / 0.3)'
+                          ? 'hsl(var(--peak) / 0.5)'
                           : 'hsl(0 0% 30%)',
                       boxShadow: isCurrentTier 
                         ? `0 0 12px hsl(var(--${tier.color}) / 0.6)` 
                         : isPeak && !isPassed
-                          ? `0 0 10px hsl(var(--peak) / 0.25), inset 0 0 0 1px hsl(var(--peak) / 0.4)`
+                          ? `0 0 14px hsl(var(--peak) / 0.4), inset 0 0 0 1px hsl(var(--peak) / 0.5)`
                           : 'none'
                     }}
                   />
