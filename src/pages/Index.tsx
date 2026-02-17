@@ -1,7 +1,6 @@
 import { UserHeader } from "@/components/UserHeader";
 import { TiersContinuum } from "@/components/TiersContinuum";
-import { CalendarGrid } from "@/components/CalendarGrid";
-import { ActivityFeed } from "@/components/ActivityFeed";
+import { AnnualPerformance } from "@/components/AnnualPerformance";
 import { UpcomingEventsSection } from "@/components/UpcomingEventsSection";
 import { DiscoveryCTAs } from "@/components/DiscoveryCTAs";
 import { StickyNav } from "@/components/StickyNav";
@@ -16,7 +15,7 @@ const IndexContent = () => {
   const vignetteIntensity = 0.3 + scrollProgress * 0.4;
   const tiersReveal = useScrollReveal(0.1);
   const calendarReveal = useScrollReveal(0.1);
-  const activityReveal = useScrollReveal(0.1);
+  const _activityReveal = useScrollReveal(0.1); // kept for potential future use
   const discoveryCTAsReveal = useScrollReveal(0.1);
   const upcomingEventsReveal = useScrollReveal(0.1);
   const { currentTier } = useTier();
@@ -63,25 +62,13 @@ const IndexContent = () => {
         {/* Section Divider */}
         <div className="divider-red my-6 md:my-12" />
         
-        {/* Continue the Journey */}
+        {/* Continue the Journey (unified annual performance) */}
         <div 
           id="upcoming"
           ref={calendarReveal.ref} 
           className={`py-6 md:py-12 section-fade-up section-fade-up-delay-2 ${calendarReveal.isVisible ? 'visible' : ''}`}
         >
-          <CalendarGrid />
-        </div>
-        
-        {/* Section Divider */}
-        <div className="divider-red my-6 md:my-12" />
-        
-        {/* History */}
-        <div 
-          id="activity-feed"
-          ref={activityReveal.ref} 
-          className={`py-6 md:py-12 section-fade-up ${activityReveal.isVisible ? 'visible' : ''}`}
-        >
-          <ActivityFeed />
+          <AnnualPerformance />
         </div>
         
         {/* Section Divider */}

@@ -1,0 +1,234 @@
+import { useState } from "react";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { EPsLabel } from "@/components/EPsLabel";
+
+// ── Data ──────────────────────────────────────────────
+interface YearData {
+  year: number;
+  tierAchieved: string;
+  mountain: {
+    totalEvents: number;
+    summits: number;
+    verticalFeet: number;
+    recognition: number;
+  };
+  trail: {
+    totalEvents: number;
+    marathons: number;
+    totalMiles: number;
+    recognition: number;
+  };
+  eps: {
+    events: number;
+    apparel: number;
+    coaching: number;
+  };
+}
+
+const yearlyData: YearData[] = [
+  {
+    year: 2025,
+    tierAchieved: "Ridge",
+    mountain: { totalEvents: 5, summits: 3, verticalFeet: 109069, recognition: 3 },
+    trail: { totalEvents: 2, marathons: 6, totalMiles: 156.6, recognition: 2 },
+    eps: { events: 290, apparel: 180, coaching: 250 },
+  },
+  {
+    year: 2024,
+    tierAchieved: "Ridge",
+    mountain: { totalEvents: 4, summits: 2, verticalFeet: 87200, recognition: 2 },
+    trail: { totalEvents: 3, marathons: 4, totalMiles: 104.8, recognition: 1 },
+    eps: { events: 600, apparel: 340, coaching: 500 },
+  },
+  {
+    year: 2023,
+    tierAchieved: "Base",
+    mountain: { totalEvents: 2, summits: 1, verticalFeet: 42000, recognition: 1 },
+    trail: { totalEvents: 1, marathons: 2, totalMiles: 52.4, recognition: 1 },
+    eps: { events: 300, apparel: 180, coaching: 300 },
+  },
+];
+
+// Recognition ladder milestones
+const milestones = [1, 2, 3, 4, "5x", "10x"];
+
+// ── Sub-components ───────────────────────────────────
+
+const KPICard = ({ label, value }: { label: string; value: string | number }) => (
+  <div className="p-2.5 md:p-4 border border-border/30 rounded-lg text-center">
+    <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-1 font-light">
+      {label}
+    </div>
+    <div className="text-2xl md:text-4xl font-light tabular-nums text-foreground">
+      {typeof value === "number" ? value.toLocaleString() : value}
+    </div>
+  </div>
+);
+
+const RecognitionLadder = ({ current, color = "ridge" }: { current: number; color?: "peak" | "ridge" }) => {
+  const getProgressPercent = () => {
+    const idx = milestones.findIndex((m) =>
+      typeof m === "number" ? m === current : m === `${current}x`
+    );
+    if (idx === -1) return 0;
+    return ((idx + 1) / milestones.length) * 100;
+  };
+
+  return (
+    <div className="mt-4 md:mt-6">
+      <div className="relative h-2 bg-muted/30 rounded-full overflow-hidden">
+        <div
+          className={`absolute inset-y-0 left-0 rounded-full transition-all duration-500 ${color === "peak" ? "bg-peak" : "bg-ridge"}`}
+          style={{ width: `${getProgressPercent()}%` }}
+        />
+        <div
+          className="absolute top-1/2 -translate-y-1/2 w-0 h-0 transition-all duration-500"
+          style={{
+            left: `${getProgressPercent()}%`,
+            borderTop: "6px solid transparent",
+            borderBottom: "6px solid transparent",
+            borderLeft: `8px solid hsl(var(--${color}))`,
+            marginLeft: "-2px",
+          }}
+        />
+      </div>
+      <div className="flex justify-between mt-3 px-1">
+        {milestones.map((milestone, idx) => {
+          const isCurrent = typeof milestone === "number" ? milestone === current : milestone === `${current}x`;
+          const isPast = typeof milestone === "number" ? milestone < current : parseInt(String(milestone)) < current;
+          return (
+            <div key={idx} className="flex flex-col items-center">
+              <span className={`text-xs font-light ${isCurrent || isPast ? (color === "peak" ? "text-peak" : "text-ridge") : "text-muted-foreground/50"}`}>
+                {milestone}
+              </span>
+              {milestone === 3 && (
+                <span className="text-xs uppercase tracking-[0.15em] text-muted-foreground mt-2 font-medium">
+                  Black Bib
+                </span>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+
+// ── Tier color map ───────────────────────────────────
+const tierColorVar: Record<string, string> = {
+  Base: "base",
+  Ridge: "ridge",
+  Peak: "peak",
+  "Summit Circle": "summit",
+};
+
+// ── Main Component ───────────────────────────────────
+
+export const AnnualPerformance = () => {
+  const [selectedYear, setSelectedYear] = useState("2025");
+  const data = yearlyData.find((y) => y.year.toString() === selectedYear);
+  if (!data) return null;
+
+  const totalEP = data.eps.events + data.eps.apparel + data.eps.coaching;
+  const tierColor = tierColorVar[data.tierAchieved] || "ridge";
+
+  return (
+    <section>
+      {/* Section title + year selector */}
+      <div className="flex items-center justify-between mb-4 sm:mb-5 px-2">
+        <h3 className="text-section-title">Continue the Journey</h3>
+        <Select value={selectedYear} onValueChange={setSelectedYear}>
+          <SelectTrigger className="w-[120px] bg-card/50 border-border/30 text-sm text-foreground">
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent className="bg-popover border-border/30 z-50">
+            {yearlyData.map((y) => (
+              <SelectItem key={y.year} value={y.year.toString()} className="text-foreground">
+                {y.year}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      </div>
+
+      {/* Main card */}
+      <div className="card-29029 p-4 sm:p-6 md:p-8">
+        {/* Total EPs + Tier Badge row */}
+        <div className="flex flex-row items-start justify-between mb-5 sm:mb-6 pb-5 border-b border-border/30">
+          <div>
+            <div className="text-supporting uppercase tracking-[0.25em] mb-1 text-xs font-normal">
+              Total <EPsLabel showInfo /> Earned
+            </div>
+            <div className="text-3xl md:text-5xl font-light tracking-tight tabular-nums">
+              {totalEP}
+            </div>
+          </div>
+          <div className="text-right">
+            <div className="text-supporting uppercase tracking-[0.25em] mb-1 text-xs font-normal">
+              Tier Achieved
+            </div>
+            <div
+              className="text-lg md:text-xl font-light tracking-tight"
+              style={{ color: `hsl(var(--${tierColor}))` }}
+            >
+              {data.tierAchieved}
+            </div>
+          </div>
+        </div>
+
+        {/* EP Breakdown */}
+        <div className="grid grid-cols-3 gap-3 md:gap-6 mb-6 sm:mb-8">
+          {([
+            ["Events", data.eps.events],
+            ["Apparel", data.eps.apparel],
+            ["Coaching", data.eps.coaching],
+          ] as const).map(([label, val]) => (
+            <div key={label}>
+              <div className="text-subhead mb-2">{label}</div>
+              <div className="text-xl md:text-2xl font-light tracking-tight tabular-nums">
+                {val} <span className="text-xs text-muted-foreground">EPs</span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Mountain / Trail tabs */}
+        <Tabs defaultValue="mountain" className="w-full">
+          <TabsList className="mb-3 md:mb-4 bg-muted/20 p-1 rounded-lg">
+            <TabsTrigger
+              value="mountain"
+              className="px-5 py-1.5 text-xs uppercase tracking-[0.2em] font-light data-[state=active]:bg-card data-[state=active]:text-peak"
+            >
+              Mountain
+            </TabsTrigger>
+            <TabsTrigger
+              value="trail"
+              className="px-5 py-1.5 text-xs uppercase tracking-[0.2em] font-light data-[state=active]:bg-card data-[state=active]:text-ridge"
+            >
+              Trail
+            </TabsTrigger>
+          </TabsList>
+
+          <TabsContent value="mountain" className="mt-0">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 md:gap-3">
+              <KPICard label="Total Mtn Events" value={data.mountain.totalEvents} />
+              <KPICard label="# Summits" value={data.mountain.summits} />
+              <KPICard label="Total Vertical Feet" value={data.mountain.verticalFeet} />
+            </div>
+            <RecognitionLadder current={data.mountain.recognition} color="peak" />
+          </TabsContent>
+
+          <TabsContent value="trail" className="mt-0">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 md:gap-3">
+              <KPICard label="Total Trail Events" value={data.trail.totalEvents} />
+              <KPICard label="# Marathons" value={data.trail.marathons} />
+              <KPICard label="Total Miles" value={data.trail.totalMiles} />
+            </div>
+            <RecognitionLadder current={data.trail.recognition} color="ridge" />
+          </TabsContent>
+        </Tabs>
+      </div>
+    </section>
+  );
+};
