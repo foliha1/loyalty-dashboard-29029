@@ -19,7 +19,7 @@ All colors MUST be HSL.
     /* ===========================================
        BACKGROUND SURFACES (4 levels)
        =========================================== */
-    --background: 0 0% 4%;           /* Deepest - page bg */
+    --background: 0 0% 0%;            /* Deepest - page bg (#000) */
     --card: 0 0% 9%;                 /* Cards, elevated surfaces */
     --muted: 0 0% 14%;               /* Muted backgrounds */
     --surface-elevated: 0 0% 18%;    /* Highest elevation */
