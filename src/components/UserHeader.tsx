@@ -12,7 +12,7 @@ export const UserHeader = () => {
   
   return (
     <section 
-      className="relative z-10 w-full overflow-hidden mb-3 bg-background/90 backdrop-blur-md border-b border-transparent pt-14 pb-5 sm:pb-6 md:pb-7"
+      className="relative z-10 w-full overflow-hidden mb-3 bg-background/90 backdrop-blur-md border-b border-transparent pt-[72px] sm:pt-20 pb-5 sm:pb-6 md:pb-7"
     >
       {/* Subtle background image */}
       <div
@@ -33,10 +33,6 @@ export const UserHeader = () => {
       
       <div className="container mx-auto px-5 sm:px-6 md:px-10 lg:px-12 relative z-10">
         <div>
-          {/* Logo - Centered */}
-          <div className="flex justify-center mb-4 sm:mb-5 md:mb-6 animate-fade-in">
-            <Logo29029 size={38} className="text-white/70" />
-          </div>
 
           {/* Hero Content - Centered */}
           <div className="max-w-3xl mx-auto text-center">
