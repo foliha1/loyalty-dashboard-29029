@@ -173,28 +173,15 @@ export const AnnualPerformance = () => {
           </div>
           
           {/* Tier Badge - visually distinct */}
-          <div className="flex flex-col items-end gap-1.5">
-            <div className="text-subhead">
+          <div className="flex flex-col items-end">
+            <div className="text-subhead mb-2">
               Tier Achieved
             </div>
             <div
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border"
-              style={{
-                borderColor: `hsl(var(--${tierColor}) / 0.4)`,
-                background: `linear-gradient(135deg, hsl(var(--${tierColor}) / 0.12) 0%, hsl(var(--${tierColor}) / 0.04) 100%)`,
-                boxShadow: `0 0 20px hsl(var(--${tierColor}) / 0.1)`,
-              }}
+              className="type-metric-primary"
+              style={{ color: `hsl(var(--${tierColor}))` }}
             >
-              <span
-                className="w-2 h-2 rounded-full"
-                style={{ backgroundColor: `hsl(var(--${tierColor}))` }}
-              />
-              <span
-                className="text-sm font-medium tracking-wide"
-                style={{ color: `hsl(var(--${tierColor}))` }}
-              >
-                {data.tierAchieved}
-              </span>
+              {data.tierAchieved}
             </div>
           </div>
         </div>
