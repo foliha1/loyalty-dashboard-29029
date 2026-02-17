@@ -6,16 +6,16 @@ import { Check } from "lucide-react";
 import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { EPsLabel } from "@/components/EPsLabel";
 
-// 2025 Activity Data
-const activity2025 = {
+// 2026 Activity Data (current year)
+const activity2026 = {
   events: {
-    totalEP: 290
-  },
-  apparel: {
     totalEP: 180
   },
+  apparel: {
+    totalEP: 95
+  },
   coaching: {
-    totalEP: 250
+    totalEP: 150
   }
 };
 
@@ -26,8 +26,8 @@ export const TiersContinuum = () => {
   const [animatedEP, setAnimatedEP] = useState(0);
   
   // User data
-  const currentEP = activity2025.events.totalEP + activity2025.apparel.totalEP + activity2025.coaching.totalEP;
-  const currentTierName = "Ridge";
+  const currentEP = activity2026.events.totalEP + activity2026.apparel.totalEP + activity2026.coaching.totalEP;
+  const currentTierName = "Base";
   
   // Find current and next tier - exclude Summit Circle
   const visibleTiers = tiers.filter(t => t.name !== "Summit Circle");

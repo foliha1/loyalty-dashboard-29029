@@ -28,6 +28,13 @@ interface YearData {
 
 const yearlyData: YearData[] = [
   {
+    year: 2026,
+    tierAchieved: "Base",
+    mountain: { totalEvents: 2, summits: 1, verticalFeet: 43500, recognition: 1 },
+    trail: { totalEvents: 1, marathons: 2, totalMiles: 52.4, recognition: 1 },
+    eps: { events: 180, apparel: 95, coaching: 150 },
+  },
+  {
     year: 2025,
     tierAchieved: "Ridge",
     mountain: { totalEvents: 5, summits: 3, verticalFeet: 109069, recognition: 3 },
@@ -126,7 +133,7 @@ const tierColorVar: Record<string, string> = {
 // ── Main Component ───────────────────────────────────
 
 export const AnnualPerformance = () => {
-  const [selectedYear, setSelectedYear] = useState("2025");
+  const [selectedYear, setSelectedYear] = useState("2026");
   const data = yearlyData.find((y) => y.year.toString() === selectedYear);
   if (!data) return null;
 
