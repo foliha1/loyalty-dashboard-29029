@@ -146,11 +146,6 @@ export const AnnualPerformance = () => {
       <div className="flex items-center justify-between mb-5 sm:mb-6 px-0 md:px-2">
         <h3 className="text-section-title">Your Journey</h3>
         <div className="flex items-center gap-2.5">
-          {selectedYear === new Date().getFullYear().toString() && (
-            <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground/60 font-medium">
-              Current Year
-            </span>
-          )}
           <Select value={selectedYear} onValueChange={setSelectedYear}>
             <SelectTrigger className="w-[110px] bg-card/40 border-border/20 text-sm text-foreground backdrop-blur-sm">
               <SelectValue />
@@ -168,6 +163,15 @@ export const AnnualPerformance = () => {
 
       {/* Main card */}
       <div className="card-29029 !overflow-visible p-4 sm:p-7 md:p-10">
+        {/* Current Year indicator inside card */}
+        {selectedYear === new Date().getFullYear().toString() && (
+          <div className="flex items-center gap-2 mb-4 sm:mb-5">
+            <span className="w-1.5 h-1.5 rounded-full bg-[hsl(var(--ridge))] shadow-[0_0_6px_hsl(var(--ridge)/0.5)]" />
+            <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground/70 font-medium">
+              Current Year
+            </span>
+          </div>
+        )}
         {/* Total EPs + Tier Badge row */}
         <div className="flex flex-row items-start justify-between mb-7 sm:mb-8 pb-6 sm:pb-7 border-b border-border/20">
           <div>
