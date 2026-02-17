@@ -808,6 +808,7 @@ All colors MUST be HSL.
     content: '';
     position: absolute;
     inset: 0;
+    pointer-events: none;
     background: linear-gradient(
       135deg,
       hsl(var(--current-tier-accent) / 0.08) 0%,
