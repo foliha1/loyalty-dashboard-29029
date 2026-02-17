@@ -62,13 +62,21 @@ const milestones = [1, 2, 3, 4, "5x", "10x"];
 
 // ── Sub-components ───────────────────────────────────
 
-const KPICard = ({ label, value }: { label: string; value: string | number }) => (
+const formatCompact = (value: number): string => {
+  if (value >= 1000) {
+    const k = value / 1000;
+    return k % 1 === 0 ? `${k}K` : `${parseFloat(k.toFixed(1))}K`;
+  }
+  return value.toLocaleString();
+};
+
+const KPICard = ({ label, value, compact }: { label: string; value: string | number; compact?: boolean }) => (
   <div className="p-3 md:p-5 border border-border/20 rounded-lg text-center bg-background/30">
     <div className="text-subhead mb-2">
       {label}
     </div>
     <div className="type-metric-secondary text-foreground">
-      {typeof value === "number" ? value.toLocaleString() : value}
+      {typeof value === "number" ? (compact ? formatCompact(value) : value.toLocaleString()) : value}
     </div>
   </div>
 );
@@ -246,7 +254,7 @@ export const AnnualPerformance = () => {
             <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4">
               <KPICard label="Total Events" value={data.mountain.totalEvents} />
               <KPICard label="# of Summits" value={data.mountain.summits} />
-              <KPICard label="Total Vert Ft" value={data.mountain.verticalFeet} />
+              <KPICard label="Total Vert Ft" value={data.mountain.verticalFeet} compact />
             </div>
             <RecognitionLadder current={data.mountain.recognition} color="peak" />
           </TabsContent>
