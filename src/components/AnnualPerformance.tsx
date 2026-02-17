@@ -206,7 +206,7 @@ export const AnnualPerformance = () => {
         </div>
 
         {/* EP Breakdown */}
-        <h4 className="text-subhead mb-4">EPs Breakdown</h4>
+        <h4 className="text-xs uppercase tracking-[0.2em] font-medium text-foreground/90 mb-5">EPs Breakdown</h4>
         <div className="grid grid-cols-3 gap-4 md:gap-8 mb-8 sm:mb-10">
           {([
             ["Events", data.eps.events],
@@ -223,7 +223,9 @@ export const AnnualPerformance = () => {
         </div>
 
         {/* Mountain / Trail tabs */}
-        <h4 className="text-subhead mb-4">Your Event Stats</h4>
+        <div className="border-t border-border/20 pt-6 sm:pt-8 mt-2">
+          <h4 className="text-xs uppercase tracking-[0.2em] font-medium text-foreground/90 mb-5">Your Event Stats</h4>
+        </div>
         <Tabs defaultValue="mountain" className="w-full">
           <TabsList className="w-full mb-5 md:mb-6 bg-muted/15 p-1 rounded-lg border border-border/10 flex">
             <TabsTrigger
