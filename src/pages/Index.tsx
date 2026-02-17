@@ -81,7 +81,7 @@ const IndexContent = () => {
         <div 
           id="discover"
           ref={discoveryCTAsReveal.ref} 
-          className={`pb-16 md:pb-32 scroll-mt-[100px] section-fade-up ${discoveryCTAsReveal.isVisible ? 'visible' : ''}`}
+          className={`pt-4 md:pt-8 pb-16 md:pb-32 scroll-mt-[100px] section-fade-up ${discoveryCTAsReveal.isVisible ? 'visible' : ''}`}
         >
           <DiscoveryCTAs />
         </div>

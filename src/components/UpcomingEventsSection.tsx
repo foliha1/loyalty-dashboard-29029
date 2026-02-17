@@ -88,7 +88,7 @@ export const UpcomingEventsSection = () => {
 
   return (
     <section>
-      <h3 className="text-section-title mb-4 sm:mb-4 md:mb-5 px-2">
+      <h3 className="text-section-title mb-6 sm:mb-7 md:mb-8 px-2">
         Your Upcoming Events
       </h3>
       
@@ -113,7 +113,7 @@ export const UpcomingEventsSection = () => {
               >
                 {/* Atmospheric gradient background */}
                 <div 
-                  className="absolute inset-0 opacity-60 group-hover:opacity-80 transition-opacity duration-500"
+                  className="absolute inset-0 opacity-40 group-hover:opacity-60 transition-opacity duration-500"
                   style={{
                     background: config.gradient
                   }}
@@ -157,7 +157,7 @@ export const UpcomingEventsSection = () => {
                   {/* Days Remaining - Reduced emphasis */}
                   <div className="mb-2">
                     <div 
-                      className="text-2xl md:text-3xl font-light tabular-nums tracking-tight mb-1"
+                      className="text-xl md:text-2xl font-light tabular-nums tracking-tight mb-1 opacity-80"
                       style={{
                         color: `hsl(${config.glowColor})`
                       }}
