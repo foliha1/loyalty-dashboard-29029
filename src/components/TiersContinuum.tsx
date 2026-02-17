@@ -88,7 +88,7 @@ export const TiersContinuum = () => {
 
   return (
     <section>
-      <h3 className="text-section-title mb-3 sm:mb-4 md:mb-5 px-2">
+      <h3 className="text-section-title mb-4 sm:mb-4 md:mb-5 px-2">
         Your Elevation Journey
       </h3>
 
@@ -100,7 +100,7 @@ export const TiersContinuum = () => {
         )}
       >
         {/* Current Tier Badge */}
-        <div className="flex flex-row items-start justify-between mb-4 sm:mb-9 md:mb-12">
+        <div className="flex flex-row items-start justify-between mb-4 sm:mb-8 md:mb-12">
           <div>
             <div className="text-supporting uppercase tracking-[0.25em] mb-2 sm:mb-3 text-xs font-normal">Current Loyalty Tier</div>
             <h4 className="text-3xl md:text-6xl font-light tracking-tight" style={{
@@ -118,7 +118,7 @@ export const TiersContinuum = () => {
         </div>
 
         {/* Progress Bar */}
-        <div className="mb-5 sm:mb-7 md:mb-9">
+        <div className="mb-4 sm:mb-8 md:mb-8">
           <div className="relative h-2 md:h-3 bg-[hsl(var(--border))] rounded-full overflow-hidden ring-1 ring-[hsl(var(--border))]">
             <div 
               className="absolute inset-y-0 left-0 rounded-full transition-all duration-1000 ease-out"
