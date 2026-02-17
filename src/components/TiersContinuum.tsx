@@ -182,7 +182,7 @@ export const TiersContinuum = () => {
         </div>
 
         {/* Next Tier Info */}
-        <div className="pt-4 sm:pt-6 md:pt-7 border-t border-border/30">
+        <div className="pt-4 sm:pt-6 md:pt-7 border-t border-border/20">
           <div className="flex flex-row items-start justify-between">
             <div>
               <div className="text-supporting uppercase tracking-[0.25em] mb-2 text-xs font-normal">Next Milestone</div>
@@ -199,6 +199,76 @@ export const TiersContinuum = () => {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Detailed Year Breakdown - Collapsible */}
+        <div className="mt-5 sm:mt-7 md:mt-8 pt-5 sm:pt-6 border-t border-border/10">
+          <Accordion type="single" collapsible>
+            <AccordionItem value="year-breakdown" className="border-0">
+              <AccordionTrigger className="py-0 hover:no-underline [&[data-state=open]>div>svg]:rotate-180 [&>svg]:hidden">
+                <div className="flex items-center gap-2.5 text-left w-full">
+                  <ChevronDown className="h-3.5 w-3.5 text-muted-foreground/60 transition-transform duration-200 ease-out shrink-0" />
+                  <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground/70 font-normal hover:text-muted-foreground transition-colors duration-200">
+                    View Detailed Year Breakdown
+                  </span>
+                </div>
+              </AccordionTrigger>
+              <AccordionContent className="pt-5 pb-0">
+                <div className="rounded-lg bg-background/40 border border-border/15 p-4 sm:p-5 md:p-6">
+                  {/* Mountain Stats */}
+                  <div className="mb-5 sm:mb-6">
+                    <div className="text-xs uppercase tracking-[0.2em] text-peak font-medium mb-3 sm:mb-4">
+                      Mountain
+                    </div>
+                    <div className="grid grid-cols-3 gap-3 md:gap-4">
+                      <div>
+                        <div className="text-subhead mb-1.5">Mtn Events</div>
+                        <div className="text-lg md:text-xl font-light tabular-nums text-foreground">5</div>
+                      </div>
+                      <div>
+                        <div className="text-subhead mb-1.5">Summits</div>
+                        <div className="text-lg md:text-xl font-light tabular-nums text-foreground">3</div>
+                      </div>
+                      <div>
+                        <div className="text-subhead mb-1.5">Vertical Feet</div>
+                        <div className="text-lg md:text-xl font-light tabular-nums text-foreground">109,069</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Divider */}
+                  <div className="h-px bg-border/15 mb-5 sm:mb-6" />
+
+                  {/* EP Breakdown */}
+                  <div>
+                    <div className="text-xs uppercase tracking-[0.2em] text-ridge font-medium mb-3 sm:mb-4">
+                      EP Breakdown
+                    </div>
+                    <div className="grid grid-cols-3 gap-3 md:gap-4">
+                      <div>
+                        <div className="text-subhead mb-1.5">Events</div>
+                        <div className="text-lg md:text-xl font-light tabular-nums text-foreground">
+                          {activity2025.events.totalEP} <span className="text-xs text-muted-foreground/50">EPs</span>
+                        </div>
+                      </div>
+                      <div>
+                        <div className="text-subhead mb-1.5">Apparel</div>
+                        <div className="text-lg md:text-xl font-light tabular-nums text-foreground">
+                          {activity2025.apparel.totalEP} <span className="text-xs text-muted-foreground/50">EPs</span>
+                        </div>
+                      </div>
+                      <div>
+                        <div className="text-subhead mb-1.5">Coaching</div>
+                        <div className="text-lg md:text-xl font-light tabular-nums text-foreground">
+                          {activity2025.coaching.totalEP} <span className="text-xs text-muted-foreground/50">EPs</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
         </div>
 
       </div>
