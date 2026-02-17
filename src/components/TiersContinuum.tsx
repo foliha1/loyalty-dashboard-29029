@@ -33,6 +33,7 @@ export const TiersContinuum = () => {
   const visibleTiers = tiers.filter(t => t.name !== "Summit Circle");
   const currentTierIndex = visibleTiers.findIndex(t => t.name === currentTierName);
   const currentTier = visibleTiers[currentTierIndex];
+  const previousTier = currentTierIndex > 0 ? visibleTiers[currentTierIndex - 1] : null;
   const nextTier = visibleTiers[currentTierIndex + 1];
   
   // Calculate progress
@@ -223,7 +224,8 @@ export const TiersContinuum = () => {
               style={{
                 width: `${animatedProgress}%`,
                 background: `linear-gradient(to right, 
-                  hsl(var(--${currentTier?.color || 'base'})) 0%, 
+                  hsl(var(--${previousTier?.color || currentTier?.color || 'base'})) 0%, 
+                  hsl(var(--${currentTier?.color || 'base'})) 20%, 
                   hsl(var(--${currentTier?.color || 'base'})) 82%, 
                   hsl(var(--${nextTier?.color || currentTier?.color || 'base'})) 100%)`,
                 boxShadow: `0 0 12px hsl(var(--${currentTier?.color || 'base'}) / 0.25)`
