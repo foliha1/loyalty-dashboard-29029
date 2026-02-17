@@ -1,5 +1,6 @@
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useState } from "react";
+import { EPsLabel } from "@/components/EPsLabel";
 interface YearlyActivity {
   year: number;
   events: {
@@ -120,7 +121,7 @@ export const ActivityFeed = () => {
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-6 pb-5 border-b border-border/30 gap-4 md:gap-6">
           {/* EPs Earned - LEFT side, dominant */}
           <div className="text-center md:text-left metric-animate">
-            <div className="text-subhead mb-2">EPs Earned</div>
+            <div className="text-subhead mb-2"><EPsLabel showInfo /> Earned</div>
             <div className="text-4xl md:text-6xl font-light tracking-tight tabular-nums">
               {totalYearEP}
             </div>

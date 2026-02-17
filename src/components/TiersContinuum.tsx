@@ -5,6 +5,7 @@ import { useTier } from "@/contexts/TierContext";
 import { ChevronDown, Check } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { EPsLabel } from "@/components/EPsLabel";
 
 // 2025 Activity Data
 const activity2025 = {
@@ -109,7 +110,7 @@ export const TiersContinuum = () => {
             </h4>
           </div>
           <div className="text-left md:text-right">
-            <div className="text-supporting uppercase tracking-[0.25em] mb-2 sm:mb-3 text-xs font-normal">Total EPs</div>
+            <div className="text-supporting uppercase tracking-[0.25em] mb-2 sm:mb-3 text-xs font-normal">Total <EPsLabel showInfo /></div>
             <div className="text-4xl md:text-6xl font-light tracking-tight tabular-nums">
               {animatedEP}
             </div>

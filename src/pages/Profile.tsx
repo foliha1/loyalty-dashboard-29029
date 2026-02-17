@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
 import { ArrowLeft, Save } from "lucide-react";
 import { toast } from "sonner";
+import { EPsLabel } from "@/components/EPsLabel";
 
 export default function Profile() {
   const navigate = useNavigate();
@@ -342,7 +343,7 @@ export default function Profile() {
               </div>
               
               <div className="bg-card/30 border border-border/20 rounded-lg p-4 sm:p-5 md:p-6">
-                <div className="text-[10px] sm:text-xs text-foreground/65 mb-1.5 sm:mb-2 uppercase tracking-wider">Total EPs</div>
+                <div className="text-[10px] sm:text-xs text-foreground/65 mb-1.5 sm:mb-2 uppercase tracking-wider">Total <EPsLabel showInfo /></div>
                 <div className="text-2xl sm:text-3xl font-light tracking-tight">1,440</div>
               </div>
               
