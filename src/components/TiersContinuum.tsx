@@ -223,13 +223,10 @@ export const TiersContinuum = () => {
               style={{
                 width: `${animatedProgress}%`,
                 background: `linear-gradient(to right, 
-                  hsl(var(--base)) 0%, 
-                  hsl(var(--base)) 15%, 
-                  hsl(var(--ridge)) 40%, 
-                  hsl(var(--ridge)) 60%, 
-                  hsl(var(--peak)) 85%, 
-                  hsl(var(--peak)) 100%)`,
-                boxShadow: `0 0 16px hsl(var(--ridge) / 0.4), 0 0 32px hsl(var(--peak) / 0.2)`
+                  hsl(var(--${currentTier?.color || 'base'})) 0%, 
+                  hsl(var(--${currentTier?.color || 'base'})) 75%, 
+                  hsl(var(--${nextTier?.color || currentTier?.color || 'base'})) 100%)`,
+                boxShadow: `0 0 16px hsl(var(--${currentTier?.color || 'base'}) / 0.3)`
               }}
             />
           </div>
