@@ -165,7 +165,7 @@ export const AnnualPerformance = () => {
         {/* Current Year indicator inside card */}
         {isCurrentYear && (
           <div className="flex items-center gap-2 mb-4 sm:mb-5">
-            <span className="w-1.5 h-1.5 rounded-full bg-[hsl(var(--ridge))] shadow-[0_0_6px_hsl(var(--ridge)/0.5)]" />
+            <span className="w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_6px_hsl(0_0%_100%/0.5)]" />
             <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground/70 font-medium">
               Current Year
             </span>
@@ -206,6 +206,7 @@ export const AnnualPerformance = () => {
         </div>
 
         {/* EP Breakdown */}
+        <h4 className="text-subhead mb-4">EPs Breakdown</h4>
         <div className="grid grid-cols-3 gap-4 md:gap-8 mb-8 sm:mb-10">
           {([
             ["Events", data.eps.events],
@@ -222,6 +223,7 @@ export const AnnualPerformance = () => {
         </div>
 
         {/* Mountain / Trail tabs */}
+        <h4 className="text-subhead mb-4">Your Event Stats</h4>
         <Tabs defaultValue="mountain" className="w-full">
           <TabsList className="w-full mb-5 md:mb-6 bg-muted/15 p-1 rounded-lg border border-border/10 flex">
             <TabsTrigger
