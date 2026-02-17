@@ -1,5 +1,5 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Logo29029 } from "@/components/Logo29029";
+
 import { useNavigate } from "react-router-dom";
 import { useTier } from "@/contexts/TierContext";
 import { getCurrentTier } from "@/lib/tierConfig";
