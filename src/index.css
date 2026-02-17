@@ -521,7 +521,7 @@ All colors MUST be HSL.
 
   /* Elevated card treatment */
   .card-29029 {
-    background: linear-gradient(135deg, hsl(0 0% 5% / 1) 0%, hsl(0 0% 7% / 1) 100%);
+    background: hsl(0 0% 6%);
     border: 1px solid hsl(var(--border) / 0.3);
     border-radius: 0.5rem;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -792,34 +792,11 @@ All colors MUST be HSL.
   .card-29029 {
     border-radius: 0.75rem;
     border: 1px solid hsl(var(--border) / 0.3);
-    background: linear-gradient(
-      135deg, 
-      hsl(var(--card) / 0.4) 0%, 
-      hsl(var(--card) / 0.2) 100%
-    );
-    backdrop-filter: blur(20px);
+    background: hsl(0 0% 6%);
     transition: var(--transition-smooth);
     position: relative;
     overflow: hidden;
     box-shadow: var(--shadow-lg);
-  }
-
-  .card-29029::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background: linear-gradient(
-      135deg,
-      hsl(var(--current-tier-accent) / 0.08) 0%,
-      transparent 60%
-    );
-    opacity: 0;
-    transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .card-29029:hover::before {
-    opacity: 0;
   }
 
   .card-29029:hover {
