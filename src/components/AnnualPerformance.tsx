@@ -158,7 +158,7 @@ export const AnnualPerformance = () => {
         <div className="flex flex-row items-start justify-between mb-7 sm:mb-8 pb-6 sm:pb-7 border-b border-border/20">
           <div>
             <div className="text-subhead mb-2">
-              Total <EPsLabel showInfo /> Earned
+              Total <EPsLabel /> Earned
             </div>
             <div className="type-metric-primary text-foreground">
               {totalEP.toLocaleString()}
