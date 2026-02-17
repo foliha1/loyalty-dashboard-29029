@@ -153,7 +153,7 @@ export const TiersContinuum = () => {
       {/* Main Progress Card */}
       <div 
         className={cn(
-          "card-29029 !overflow-visible p-4 sm:p-6 md:p-8 lg:p-10 transition-all duration-700",
+          "card-29029 !overflow-visible p-4 sm:p-6 md:p-8 lg:p-10 transition-all duration-700 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.7)]",
           isRevealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         )}
       >
@@ -189,7 +189,7 @@ export const TiersContinuum = () => {
           </div>
           <div className="text-right">
             <div className="text-subhead mb-2 sm:mb-3">Total <EPsLabel showInfo /></div>
-            <div className="text-3xl md:text-6xl font-light tracking-tight tabular-nums">
+            <div className="text-3xl md:text-7xl font-light tracking-tight tabular-nums">
               {animatedEP}
             </div>
             <Dialog>
@@ -235,7 +235,7 @@ export const TiersContinuum = () => {
           </div>
           
           {/* Tier Markers - Enhanced visibility */}
-          <div className="relative mt-3 sm:mt-5 md:mt-6 flex justify-between items-center px-1">
+          <div className="relative mt-5 sm:mt-7 md:mt-8 flex justify-between items-center px-1">
             {visibleTiers.map((tier, idx) => {
               const isCurrentTier = tier.name === currentTierName;
               const isPassed = currentEP >= tier.threshold;
