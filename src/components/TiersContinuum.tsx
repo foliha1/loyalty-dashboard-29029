@@ -160,7 +160,7 @@ export const TiersContinuum = () => {
       >
         {/* Current Tier Badge */}
         <div className="flex flex-row items-start justify-between mb-4 sm:mb-8 md:mb-12">
-          <div>
+          <div className="flex flex-col">
             <div className="text-subhead mb-2 sm:mb-3">Current Loyalty Tier</div>
             <h4 className="text-3xl md:text-6xl font-light tracking-tight" style={{
               color: currentTier ? `hsl(var(--${currentTier.color}))` : 'hsl(var(--tier-gold))'
@@ -169,7 +169,7 @@ export const TiersContinuum = () => {
             </h4>
             <Dialog>
               <DialogTrigger asChild>
-                <button className="mt-2 text-xs text-muted-foreground/60 hover:text-muted-foreground transition-colors duration-200 cursor-pointer tracking-wide inline-flex items-center gap-1">
+                <button className="mt-3 text-xs text-muted-foreground/60 hover:text-muted-foreground transition-colors duration-200 cursor-pointer tracking-wide inline-flex items-center gap-1">
                   View Tier Benefits
                   <Info size={11} />
                 </button>
@@ -189,14 +189,14 @@ export const TiersContinuum = () => {
               </DialogContent>
             </Dialog>
           </div>
-          <div className="text-right">
+          <div className="flex flex-col text-right">
             <div className="text-subhead mb-2 sm:mb-3">Total EPs</div>
             <div className="text-3xl md:text-6xl font-light tracking-tight tabular-nums">
               {animatedEP}
             </div>
             <Dialog>
               <DialogTrigger asChild>
-                <button className="mt-2 text-xs text-muted-foreground/60 hover:text-muted-foreground transition-colors duration-200 cursor-pointer tracking-wide inline-flex items-center gap-1">
+                <button className="mt-3 text-xs text-muted-foreground/60 hover:text-muted-foreground transition-colors duration-200 cursor-pointer tracking-wide inline-flex items-center gap-1 ml-auto">
                   How EPs Work
                   <Info size={11} />
                 </button>
