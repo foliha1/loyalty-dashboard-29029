@@ -54,43 +54,34 @@ const IndexContent = () => {
         <div 
           id="journey"
           ref={tiersReveal.ref} 
-          className={`pt-6 md:pt-12 pb-6 md:pb-12 section-fade-up ${tiersReveal.isVisible ? 'visible' : ''}`}
+          className={`pt-6 md:pt-12 pb-10 md:pb-20 section-fade-up ${tiersReveal.isVisible ? 'visible' : ''}`}
         >
           <TiersContinuum />
         </div>
-        
-        {/* Section Divider */}
-        <div className="divider-red my-6 md:my-12" />
         
         {/* Continue the Journey (unified annual performance) */}
         <div 
           id="upcoming"
           ref={calendarReveal.ref} 
-          className={`py-6 md:py-12 section-fade-up section-fade-up-delay-2 ${calendarReveal.isVisible ? 'visible' : ''}`}
+          className={`pb-10 md:pb-20 section-fade-up section-fade-up-delay-2 ${calendarReveal.isVisible ? 'visible' : ''}`}
         >
           <AnnualPerformance />
         </div>
-        
-        {/* Section Divider */}
-        <div className="divider-red my-6 md:my-12" />
         
         {/* Upcoming Events */}
         <div 
           id="upcoming-events"
           ref={upcomingEventsReveal.ref} 
-          className={`py-6 md:py-12 section-fade-up ${upcomingEventsReveal.isVisible ? 'visible' : ''}`}
+          className={`pb-10 md:pb-20 section-fade-up ${upcomingEventsReveal.isVisible ? 'visible' : ''}`}
         >
           <UpcomingEventsSection />
         </div>
-        
-        {/* Section Divider */}
-        <div className="divider-red my-6 md:my-12" />
         
         {/* Discovery CTAs */}
         <div 
           id="discover"
           ref={discoveryCTAsReveal.ref} 
-          className={`py-6 md:py-12 pb-10 md:pb-16 section-fade-up ${discoveryCTAsReveal.isVisible ? 'visible' : ''}`}
+          className={`pb-12 md:pb-24 section-fade-up ${discoveryCTAsReveal.isVisible ? 'visible' : ''}`}
         >
           <DiscoveryCTAs />
         </div>
