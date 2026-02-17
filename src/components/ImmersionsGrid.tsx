@@ -1,5 +1,6 @@
 import { Calendar, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { EPsLabel } from "@/components/EPsLabel";
 
 const immersions = [
   {
@@ -75,7 +76,7 @@ export const ImmersionsGrid = () => {
 
             {/* EP Display */}
             <div className="mb-6 text-center">
-              <div className="text-subhead mb-2">Elevation Points</div>
+              <div className="text-subhead mb-2">{index === 0 ? <>Elevation Points (<EPsLabel showInfo />)</> : "Elevation Points (EPs)"}</div>
               <div className="metric-medium text-foreground">+{immersion.ep}</div>
             </div>
 
