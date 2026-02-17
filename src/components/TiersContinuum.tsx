@@ -271,270 +271,189 @@ export const TiersContinuum = () => {
 
       </div>
 
-      {/* Two-Column Accordion Layout */}
+      {/* Two-Column Modal Triggers */}
       <div className="mt-4 sm:mt-6 grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-5">
-        {/* Tier Benefits Accordion */}
-        <Accordion type="single" collapsible id="tier-benefits">
-          <AccordionItem value="tier-benefits" className="border border-border/30 rounded-lg overflow-hidden bg-card/30 backdrop-blur-sm">
-            <AccordionTrigger className="px-5 md:px-6 py-5 md:py-6 hover:no-underline hover:bg-muted/10 transition-colors duration-300 [&[data-state=open]>div>svg]:rotate-180 [&>svg]:hidden">
-              <div className="flex items-center gap-3 text-left w-full">
-                <ChevronDown className="h-4 w-4 md:h-5 md:w-5 !text-muted-foreground transition-transform duration-300 ease-out shrink-0" />
-                <span className="text-base md:text-lg font-normal tracking-[0.12em] uppercase !text-foreground">
-                  Tier Benefits
-                </span>
+        {/* Tier Benefits Modal */}
+        <Dialog>
+          <DialogTrigger asChild>
+            <button
+              id="tier-benefits"
+              className="w-full border border-border/30 rounded-lg bg-card/30 backdrop-blur-sm px-5 md:px-6 py-5 md:py-6 hover:bg-muted/10 transition-colors duration-300 text-left flex items-center gap-3 cursor-pointer"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-5 md:w-5 text-muted-foreground shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+              <span className="text-base md:text-lg font-normal tracking-[0.12em] uppercase text-foreground">
+                Tier Benefits
+              </span>
+            </button>
+          </DialogTrigger>
+          <DialogContent className="max-w-md bg-background/95 backdrop-blur-xl border-border/30 p-0 overflow-hidden">
+            <DialogHeader className="px-6 pt-6 pb-4 border-b border-border/20">
+              <DialogTitle className="text-lg font-normal tracking-[0.12em] uppercase">
+                Tier Benefits
+              </DialogTitle>
+              <DialogDescription className="text-sm text-muted-foreground">
+                Complete overview of all tier benefits
+              </DialogDescription>
+            </DialogHeader>
+            
+            <div className="px-6 py-5 max-h-[60vh] overflow-y-auto">
+              {/* Base Tier */}
+              <div className="mb-5">
+                <h4 className="text-sm font-medium text-[hsl(var(--base))] uppercase tracking-wider mb-2">
+                  Base
+                </h4>
+                <ul className="space-y-1.5 text-sm text-muted-foreground">
+                  <li className="flex items-center gap-2">
+                    <Check className="h-3.5 w-3.5 text-[hsl(var(--base))]" />
+                    <span>Access to all 29029 events</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="h-3.5 w-3.5 text-[hsl(var(--base))]" />
+                    <span>Member-only community access</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="h-3.5 w-3.5 text-[hsl(var(--base))]" />
+                    <span>Personal progress tracking</span>
+                  </li>
+                </ul>
               </div>
-            </AccordionTrigger>
-            <AccordionContent className="px-5 md:px-6 pb-5 md:pb-6 pt-2 !text-foreground">
-              <div className="border-l-2 border-foreground/10 pl-6 md:pl-8 pr-4 py-5 bg-gradient-to-br from-muted/5 to-transparent rounded-r-lg">
-                <div className="space-y-5 md:space-y-6">
-                  {/* Base Tier */}
-                  <div>
-                    <h5 className="text-base md:text-lg font-semibold tracking-tight text-[hsl(var(--base))] mb-2">
-                      Base <span className="text-xs font-light text-muted-foreground">(Starting)</span>
-                    </h5>
-                    <ul className="space-y-1.5 text-sm !text-muted-foreground">
-                      <li className="flex items-start gap-2">
-                        <span className="text-foreground/50 mt-0.5">•</span>
-                        <span>Access to all 29029 events</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-foreground/50 mt-0.5">•</span>
-                        <span>Member-only community access</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-foreground/50 mt-0.5">•</span>
-                        <span>Personal progress tracking</span>
-                      </li>
-                    </ul>
-                  </div>
-
-                  {/* Ridge Tier */}
-                  <div className="pt-4 md:pt-5 border-t border-border/20">
-                    <h5 className="text-base md:text-lg font-semibold tracking-tight text-tier-gold mb-2">
-                      Ridge <span className="text-xs font-light text-muted-foreground">(500+ EPs)</span>
-                    </h5>
-                    <ul className="space-y-1.5 text-sm !text-muted-foreground">
-                      <li className="flex items-start gap-2">
-                        <span className="text-foreground/50 mt-0.5">•</span>
-                        <span>Priority event registration</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-foreground/50 mt-0.5">•</span>
-                        <span>Exclusive Ridge merchandise</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-foreground/50 mt-0.5">•</span>
-                        <span>10% discount on apparel</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-foreground/50 mt-0.5">•</span>
-                        <span>Access to member-only content</span>
-                      </li>
-                    </ul>
-                  </div>
-
-                  {/* Peak Tier */}
-                  <div className="pt-4 md:pt-5 border-t border-border/20">
-                    <h5 className="text-base md:text-lg font-semibold tracking-tight text-tier-silver mb-2">
-                      Peak <span className="text-xs font-light text-muted-foreground">(1000+ EPs)</span>
-                    </h5>
-                    <ul className="space-y-1.5 text-sm !text-muted-foreground">
-                      <li className="flex items-start gap-2">
-                        <span className="text-foreground/50 mt-0.5">•</span>
-                        <span>All Ridge benefits</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-foreground/50 mt-0.5">•</span>
-                        <span>VIP event experiences</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-foreground/50 mt-0.5">•</span>
-                        <span>Exclusive Peak merchandise</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-foreground/50 mt-0.5">•</span>
-                        <span>15% discount on apparel</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-foreground/50 mt-0.5">•</span>
-                        <span>Free coaching session annually</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-
-                {/* View All Benefits CTA */}
-                <div className="mt-5 pt-4 border-t border-border/20">
-                  <Dialog>
-                    <DialogTrigger asChild>
-                      <button className="group relative inline-flex items-center text-xs uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground transition-colors duration-300">
-                        <span>View All Your Benefits</span>
-                        <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-primary group-hover:w-full transition-all duration-500" />
-                      </button>
-                    </DialogTrigger>
-                    <DialogContent className="max-w-md bg-background/95 backdrop-blur-xl border-border/30 p-0 overflow-hidden">
-                      <DialogHeader className="px-6 pt-6 pb-4 border-b border-border/20">
-                        <DialogTitle className="text-lg font-normal tracking-[0.12em] uppercase">
-                          Your Benefits
-                        </DialogTitle>
-                        <DialogDescription className="text-sm text-muted-foreground">
-                          Complete overview of all tier benefits
-                        </DialogDescription>
-                      </DialogHeader>
-                      
-                      <div className="px-6 py-5 max-h-[60vh] overflow-y-auto">
-                        {/* Base Tier */}
-                        <div className="mb-5">
-                          <h4 className="text-sm font-medium text-[hsl(var(--base))] uppercase tracking-wider mb-2">
-                            Base
-                          </h4>
-                          <ul className="space-y-1.5 text-sm text-muted-foreground">
-                            <li className="flex items-center gap-2">
-                              <Check className="h-3.5 w-3.5 text-[hsl(var(--base))]" />
-                              <span>Access to all 29029 events</span>
-                            </li>
-                            <li className="flex items-center gap-2">
-                              <Check className="h-3.5 w-3.5 text-[hsl(var(--base))]" />
-                              <span>Member-only community access</span>
-                            </li>
-                            <li className="flex items-center gap-2">
-                              <Check className="h-3.5 w-3.5 text-[hsl(var(--base))]" />
-                              <span>Personal progress tracking</span>
-                            </li>
-                          </ul>
-                        </div>
-                        
-                        {/* Ridge Tier */}
-                        <div className="mb-5 pt-4 border-t border-border/20">
-                          <h4 className="text-sm font-medium text-[hsl(var(--ridge))] uppercase tracking-wider mb-2">
-                            Ridge <span className="text-muted-foreground font-light">(500+ EPs)</span>
-                          </h4>
-                          <ul className="space-y-1.5 text-sm text-muted-foreground">
-                            <li className="flex items-center gap-2">
-                              <Check className="h-3.5 w-3.5 text-[hsl(var(--ridge))]" />
-                              <span>Priority event registration</span>
-                            </li>
-                            <li className="flex items-center gap-2">
-                              <Check className="h-3.5 w-3.5 text-[hsl(var(--ridge))]" />
-                              <span>Exclusive Ridge merchandise</span>
-                            </li>
-                            <li className="flex items-center gap-2">
-                              <Check className="h-3.5 w-3.5 text-[hsl(var(--ridge))]" />
-                              <span>10% discount on apparel</span>
-                            </li>
-                            <li className="flex items-center gap-2">
-                              <Check className="h-3.5 w-3.5 text-[hsl(var(--ridge))]" />
-                              <span>Access to member-only content</span>
-                            </li>
-                          </ul>
-                        </div>
-                        
-                        {/* Peak Tier */}
-                        <div className="pt-4 border-t border-border/20">
-                          <h4 className="text-sm font-medium text-[hsl(var(--peak))] uppercase tracking-wider mb-2">
-                            Peak <span className="text-muted-foreground font-light">(1000+ EPs)</span>
-                          </h4>
-                          <ul className="space-y-1.5 text-sm text-muted-foreground">
-                            <li className="flex items-center gap-2">
-                              <Check className="h-3.5 w-3.5 text-[hsl(var(--peak))]" />
-                              <span>All Ridge benefits</span>
-                            </li>
-                            <li className="flex items-center gap-2">
-                              <Check className="h-3.5 w-3.5 text-[hsl(var(--peak))]" />
-                              <span>VIP event experiences</span>
-                            </li>
-                            <li className="flex items-center gap-2">
-                              <Check className="h-3.5 w-3.5 text-[hsl(var(--peak))]" />
-                              <span>Exclusive Peak merchandise</span>
-                            </li>
-                            <li className="flex items-center gap-2">
-                              <Check className="h-3.5 w-3.5 text-[hsl(var(--peak))]" />
-                              <span>15% discount on apparel</span>
-                            </li>
-                            <li className="flex items-center gap-2">
-                              <Check className="h-3.5 w-3.5 text-[hsl(var(--peak))]" />
-                              <span>Free coaching session annually</span>
-                            </li>
-                            <li className="flex items-center gap-2">
-                              <Check className="h-3.5 w-3.5 text-[hsl(var(--peak))]" />
-                              <span>Early access to new events</span>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </DialogContent>
-                  </Dialog>
-                </div>
+              
+              {/* Ridge Tier */}
+              <div className="mb-5 pt-4 border-t border-border/20">
+                <h4 className="text-sm font-medium text-[hsl(var(--ridge))] uppercase tracking-wider mb-2">
+                  Ridge <span className="text-muted-foreground font-light">(500+ EPs)</span>
+                </h4>
+                <ul className="space-y-1.5 text-sm text-muted-foreground">
+                  <li className="flex items-center gap-2">
+                    <Check className="h-3.5 w-3.5 text-[hsl(var(--ridge))]" />
+                    <span>Priority event registration</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="h-3.5 w-3.5 text-[hsl(var(--ridge))]" />
+                    <span>Exclusive Ridge merchandise</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="h-3.5 w-3.5 text-[hsl(var(--ridge))]" />
+                    <span>10% discount on apparel</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="h-3.5 w-3.5 text-[hsl(var(--ridge))]" />
+                    <span>Access to member-only content</span>
+                  </li>
+                </ul>
               </div>
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
-
-        {/* How Elevation Points Work Accordion */}
-        <Accordion type="single" collapsible id="how-ep-works">
-          <AccordionItem value="how-eps-work" className="border border-border/30 rounded-lg overflow-hidden bg-card/30 backdrop-blur-sm">
-            <AccordionTrigger className="px-5 md:px-6 py-5 md:py-6 hover:no-underline hover:bg-muted/10 transition-colors duration-300 [&[data-state=open]>div>svg]:rotate-180 [&>svg]:hidden">
-              <div className="flex items-center gap-3 text-left w-full">
-                <ChevronDown className="h-4 w-4 md:h-5 md:w-5 !text-muted-foreground transition-transform duration-300 ease-out shrink-0" />
-                <span className="text-base md:text-lg font-normal tracking-[0.12em] uppercase !text-foreground">
-                  How Elevation Points (EPs) Work
-                </span>
+              
+              {/* Peak Tier */}
+              <div className="pt-4 border-t border-border/20">
+                <h4 className="text-sm font-medium text-[hsl(var(--peak))] uppercase tracking-wider mb-2">
+                  Peak <span className="text-muted-foreground font-light">(1000+ EPs)</span>
+                </h4>
+                <ul className="space-y-1.5 text-sm text-muted-foreground">
+                  <li className="flex items-center gap-2">
+                    <Check className="h-3.5 w-3.5 text-[hsl(var(--peak))]" />
+                    <span>All Ridge benefits</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="h-3.5 w-3.5 text-[hsl(var(--peak))]" />
+                    <span>VIP event experiences</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="h-3.5 w-3.5 text-[hsl(var(--peak))]" />
+                    <span>Exclusive Peak merchandise</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="h-3.5 w-3.5 text-[hsl(var(--peak))]" />
+                    <span>15% discount on apparel</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="h-3.5 w-3.5 text-[hsl(var(--peak))]" />
+                    <span>Free coaching session annually</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="h-3.5 w-3.5 text-[hsl(var(--peak))]" />
+                    <span>Early access to new events</span>
+                  </li>
+                </ul>
               </div>
-            </AccordionTrigger>
-            <AccordionContent className="px-5 md:px-6 pb-5 md:pb-6 pt-2 !text-foreground">
-              <div className="border-l-2 border-foreground/10 pl-6 md:pl-8 pr-4 py-6 bg-gradient-to-br from-muted/5 to-transparent rounded-r-lg">
-                <div className="space-y-8 md:space-y-10">
-                  {/* Earning EPs */}
-                  <div>
-                    <h5 className="text-base md:text-lg font-semibold tracking-tight text-foreground mb-4 md:mb-5">
-                      Earning EPs
-                    </h5>
-                    <div className="space-y-3 md:space-y-4 text-sm !text-muted-foreground leading-relaxed">
-                      <p>
-                        <span className="font-semibold text-foreground">Events:</span> 150 EPs per event attended
-                      </p>
-                      <p>
-                        <span className="font-semibold text-foreground">Coaching:</span> Variable EPs based on session type
-                      </p>
-                      <p>
-                        <span className="font-semibold text-foreground">Apparel:</span> 1 EP per dollar spent
-                      </p>
-                    </div>
-                  </div>
+            </div>
+          </DialogContent>
+        </Dialog>
 
-                  {/* Tier Thresholds */}
-                  <div className="pt-6 md:pt-8 border-t border-border/20">
-                    <h5 className="text-base md:text-lg font-semibold tracking-tight text-foreground mb-4 md:mb-5">
-                      Tier Thresholds
-                    </h5>
-                    <div className="space-y-3 md:space-y-4 text-sm !text-muted-foreground leading-relaxed">
-                      <p>
-                        <span className="font-semibold text-foreground">Base:</span> 0 EPs (Starting tier)
-                      </p>
-                      <p>
-                        <span className="font-semibold text-foreground">Ridge:</span> 500 EPs
-                      </p>
-                      <p>
-                        <span className="font-semibold text-foreground">Peak:</span> 1,000 EPs
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Your Progress */}
-                  <div className="pt-6 md:pt-8 border-t border-border/20">
-                    <h5 className="text-base md:text-lg font-semibold tracking-tight text-foreground mb-4 md:mb-5">
-                      Your Progress
-                    </h5>
-                    <p className="text-sm !text-muted-foreground leading-relaxed">
-                      Your EPs accumulate over your entire member journey. Each tier unlocks new benefits 
-                      and experiences as you progress through Base, Ridge, and Peak tiers.
+        {/* How Elevation Points Work Modal */}
+        <Dialog>
+          <DialogTrigger asChild>
+            <button
+              id="how-ep-works"
+              className="w-full border border-border/30 rounded-lg bg-card/30 backdrop-blur-sm px-5 md:px-6 py-5 md:py-6 hover:bg-muted/10 transition-colors duration-300 text-left flex items-center gap-3 cursor-pointer"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-5 md:w-5 text-muted-foreground shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+              <span className="text-base md:text-lg font-normal tracking-[0.12em] uppercase text-foreground">
+                How Elevation Points (EPs) Work
+              </span>
+            </button>
+          </DialogTrigger>
+          <DialogContent className="max-w-md bg-background/95 backdrop-blur-xl border-border/30 p-0 overflow-hidden">
+            <DialogHeader className="px-6 pt-6 pb-4 border-b border-border/20">
+              <DialogTitle className="text-lg font-normal tracking-[0.12em] uppercase">
+                How Elevation Points (EPs) Work
+              </DialogTitle>
+              <DialogDescription className="text-sm text-muted-foreground">
+                Learn how to earn and progress through tiers
+              </DialogDescription>
+            </DialogHeader>
+            
+            <div className="px-6 py-5 max-h-[60vh] overflow-y-auto">
+              <div className="space-y-6">
+                {/* Earning EPs */}
+                <div>
+                  <h5 className="text-base font-semibold tracking-tight text-foreground mb-3">
+                    Earning EPs
+                  </h5>
+                  <div className="space-y-2.5 text-sm text-muted-foreground leading-relaxed">
+                    <p>
+                      <span className="font-semibold text-foreground">Events:</span> 150 EPs per event attended
+                    </p>
+                    <p>
+                      <span className="font-semibold text-foreground">Coaching:</span> Variable EPs based on session type
+                    </p>
+                    <p>
+                      <span className="font-semibold text-foreground">Apparel:</span> 1 EP per dollar spent
                     </p>
                   </div>
                 </div>
+
+                {/* Tier Thresholds */}
+                <div className="pt-4 border-t border-border/20">
+                  <h5 className="text-base font-semibold tracking-tight text-foreground mb-3">
+                    Tier Thresholds
+                  </h5>
+                  <div className="space-y-2.5 text-sm text-muted-foreground leading-relaxed">
+                    <p>
+                      <span className="font-semibold text-foreground">Base:</span> 0 EPs (Starting tier)
+                    </p>
+                    <p>
+                      <span className="font-semibold text-foreground">Ridge:</span> 500 EPs
+                    </p>
+                    <p>
+                      <span className="font-semibold text-foreground">Peak:</span> 1,000 EPs
+                    </p>
+                  </div>
+                </div>
+
+                {/* Your Progress */}
+                <div className="pt-4 border-t border-border/20">
+                  <h5 className="text-base font-semibold tracking-tight text-foreground mb-3">
+                    Your Progress
+                  </h5>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Your EPs accumulate over your entire member journey. Each tier unlocks new benefits 
+                    and experiences as you progress through Base, Ridge, and Peak tiers.
+                  </p>
+                </div>
               </div>
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
+            </div>
+          </DialogContent>
+        </Dialog>
       </div>
     </section>
   );
