@@ -145,18 +145,25 @@ export const AnnualPerformance = () => {
       {/* Section title + year selector */}
       <div className="flex items-center justify-between mb-5 sm:mb-6 px-0 md:px-2">
         <h3 className="text-section-title">Your Journey</h3>
-        <Select value={selectedYear} onValueChange={setSelectedYear}>
-          <SelectTrigger className="w-[110px] bg-card/40 border-border/20 text-sm text-foreground backdrop-blur-sm">
-            <SelectValue />
-          </SelectTrigger>
-          <SelectContent className="bg-popover border-border/30 z-50">
-            {yearlyData.map((y) => (
-              <SelectItem key={y.year} value={y.year.toString()} className="text-foreground">
-                {y.year}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
+        <div className="flex items-center gap-2.5">
+          {selectedYear === new Date().getFullYear().toString() && (
+            <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground/60 font-medium">
+              Current Year
+            </span>
+          )}
+          <Select value={selectedYear} onValueChange={setSelectedYear}>
+            <SelectTrigger className="w-[110px] bg-card/40 border-border/20 text-sm text-foreground backdrop-blur-sm">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent className="bg-popover border-border/30 z-50">
+              {yearlyData.map((y) => (
+                <SelectItem key={y.year} value={y.year.toString()} className="text-foreground">
+                  {y.year}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
       </div>
 
       {/* Main card */}
