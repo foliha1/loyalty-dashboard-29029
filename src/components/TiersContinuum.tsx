@@ -88,9 +88,7 @@ export const TiersContinuum = () => {
 
   return (
     <section>
-      <h3 className="text-section-title mb-4 sm:mb-4 md:mb-5 px-2">
-        Your Elevation Journey
-      </h3>
+      {/* No section title — card stands alone */}
 
       {/* Main Progress Card */}
       <div 

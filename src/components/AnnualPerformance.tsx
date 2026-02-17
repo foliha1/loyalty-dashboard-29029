@@ -137,7 +137,7 @@ export const AnnualPerformance = () => {
     <section>
       {/* Section title + year selector */}
       <div className="flex items-center justify-between mb-5 sm:mb-6 px-2">
-        <h3 className="text-section-title">Continue the Journey</h3>
+        <h3 className="text-section-title">Your Journey</h3>
         <Select value={selectedYear} onValueChange={setSelectedYear}>
           <SelectTrigger className="w-[110px] bg-card/40 border-border/20 text-sm text-foreground backdrop-blur-sm">
             <SelectValue />
