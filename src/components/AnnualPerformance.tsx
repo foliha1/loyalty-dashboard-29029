@@ -171,28 +171,35 @@ export const AnnualPerformance = () => {
             </span>
           </div>
         )}
-        {/* Total EPs + Tier row */}
-        <div className="flex flex-row items-start justify-between mb-6 sm:mb-8 pb-6 sm:pb-7 border-b border-border/20">
-          <div>
-            <div className="text-subhead mb-2">
-              {isCurrentYear ? <>Current <EPsLabel /></> : <>Total <EPsLabel /> Earned</>}
-            </div>
-            <div className="type-metric-primary text-foreground">
-              {totalEP.toLocaleString()}
-            </div>
-          </div>
-          
-          {/* Tier Achieved - only for prior years */}
-          {!isCurrentYear && (
-            <div className="flex flex-col items-end">
-              <div className="text-subhead mb-2">
-                Tier Achieved
+        {/* EPs summary + Tier row */}
+        <div className="mb-6 sm:mb-8 pb-6 sm:pb-7 border-b border-border/20">
+          {isCurrentYear ? (
+            <p className="text-sm sm:text-base font-light text-muted-foreground">
+              Your current <EPsLabel className="text-muted-foreground" /> total is{" "}
+              <span className="text-lg sm:text-xl font-medium text-foreground">
+                {totalEP.toLocaleString()}
+              </span>
+            </p>
+          ) : (
+            <div className="flex flex-row items-start justify-between">
+              <div>
+                <div className="text-subhead mb-2">
+                  Total <EPsLabel /> Earned
+                </div>
+                <div className="type-metric-primary text-foreground">
+                  {totalEP.toLocaleString()}
+                </div>
               </div>
-              <div
-                className="type-metric-primary"
-                style={{ color: `hsl(var(--${tierColor}))` }}
-              >
-                {data.tierAchieved}
+              <div className="flex flex-col items-end">
+                <div className="text-subhead mb-2">
+                  Tier Achieved
+                </div>
+                <div
+                  className="type-metric-primary"
+                  style={{ color: `hsl(var(--${tierColor}))` }}
+                >
+                  {data.tierAchieved}
+                </div>
               </div>
             </div>
           )}
