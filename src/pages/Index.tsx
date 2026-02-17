@@ -54,7 +54,7 @@ const IndexContent = () => {
         <div 
           id="journey"
           ref={tiersReveal.ref} 
-          className={`pt-6 md:pt-12 pb-10 md:pb-20 section-fade-up ${tiersReveal.isVisible ? 'visible' : ''}`}
+          className={`pt-6 md:pt-12 pb-12 md:pb-24 section-fade-up ${tiersReveal.isVisible ? 'visible' : ''}`}
         >
           <TiersContinuum />
         </div>
@@ -63,7 +63,7 @@ const IndexContent = () => {
         <div 
           id="upcoming"
           ref={calendarReveal.ref} 
-          className={`pb-10 md:pb-20 section-fade-up section-fade-up-delay-2 ${calendarReveal.isVisible ? 'visible' : ''}`}
+          className={`pb-12 md:pb-24 section-fade-up section-fade-up-delay-2 ${calendarReveal.isVisible ? 'visible' : ''}`}
         >
           <AnnualPerformance />
         </div>
@@ -72,7 +72,7 @@ const IndexContent = () => {
         <div 
           id="upcoming-events"
           ref={upcomingEventsReveal.ref} 
-          className={`pb-10 md:pb-20 section-fade-up ${upcomingEventsReveal.isVisible ? 'visible' : ''}`}
+          className={`pb-12 md:pb-24 section-fade-up ${upcomingEventsReveal.isVisible ? 'visible' : ''}`}
         >
           <UpcomingEventsSection />
         </div>
@@ -81,7 +81,7 @@ const IndexContent = () => {
         <div 
           id="discover"
           ref={discoveryCTAsReveal.ref} 
-          className={`pb-12 md:pb-24 section-fade-up ${discoveryCTAsReveal.isVisible ? 'visible' : ''}`}
+          className={`pb-16 md:pb-32 section-fade-up ${discoveryCTAsReveal.isVisible ? 'visible' : ''}`}
         >
           <DiscoveryCTAs />
         </div>
