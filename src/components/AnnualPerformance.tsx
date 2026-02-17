@@ -153,7 +153,7 @@ export const AnnualPerformance = () => {
       </div>
 
       {/* Main card */}
-      <div className="card-29029 p-5 sm:p-7 md:p-10">
+      <div className="card-29029 !overflow-visible p-5 sm:p-7 md:p-10">
         {/* Total EPs + Tier Badge row */}
         <div className="flex flex-row items-start justify-between mb-7 sm:mb-8 pb-6 sm:pb-7 border-b border-border/20">
           <div>

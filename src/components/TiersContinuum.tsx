@@ -95,7 +95,7 @@ export const TiersContinuum = () => {
       {/* Main Progress Card */}
       <div 
         className={cn(
-          "card-29029 p-4 sm:p-6 md:p-8 lg:p-10 transition-all duration-700",
+          "card-29029 !overflow-visible p-4 sm:p-6 md:p-8 lg:p-10 transition-all duration-700",
           isRevealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         )}
       >
