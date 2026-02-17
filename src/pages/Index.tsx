@@ -48,7 +48,7 @@ const IndexContent = () => {
       {/* Header */}
       <UserHeader />
       
-      {/* Main content section */}
+      {/* Main content section — Overview environment */}
       <div className="container mx-auto px-4 md:px-10 lg:px-12 max-w-7xl">
         {/* Elevation Journey */}
         <div 
@@ -58,11 +58,38 @@ const IndexContent = () => {
         >
           <TiersContinuum />
         </div>
-        
       </div>
 
-      {/* Your Journey + remaining sections with slightly elevated bg */}
-      <div className="bg-background/90">
+      {/* Horizon divider — soft chapter break */}
+      <div className="relative w-full h-16 md:h-24 -mt-4 md:-mt-6 pointer-events-none" aria-hidden="true">
+        <div 
+          className="absolute inset-0"
+          style={{
+            background: `linear-gradient(180deg, 
+              transparent 0%, 
+              hsl(0 0% 0% / 0.6) 30%, 
+              hsl(0 0% 5% / 0.9) 60%, 
+              hsl(0 0% 6%) 100%
+            )`
+          }}
+        />
+        {/* Subtle glow line */}
+        <div 
+          className="absolute left-0 right-0 top-1/2 h-px"
+          style={{
+            background: `linear-gradient(90deg, 
+              transparent 0%, 
+              hsl(0 0% 20% / 0.3) 20%, 
+              hsl(0 0% 25% / 0.4) 50%, 
+              hsl(0 0% 20% / 0.3) 80%, 
+              transparent 100%
+            )`
+          }}
+        />
+      </div>
+
+      {/* Your Journey + remaining sections — new chapter, flatter bg */}
+      <div style={{ background: 'hsl(0 0% 5%)' }}>
         <div className="container mx-auto px-4 md:px-10 lg:px-12 max-w-7xl">
           {/* Continue the Journey (unified annual performance) */}
           <div 
