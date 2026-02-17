@@ -54,21 +54,16 @@ const IndexContent = () => {
         <div 
           id="journey"
           ref={tiersReveal.ref} 
-          className={`pt-6 md:pt-12 pb-12 md:pb-16 scroll-mt-[100px] section-fade-up ${tiersReveal.isVisible ? 'visible' : ''}`}
+          className={`pt-6 md:pt-12 pb-12 md:pb-24 scroll-mt-[100px] section-fade-up ${tiersReveal.isVisible ? 'visible' : ''}`}
         >
           <TiersContinuum />
         </div>
-      </div>
-
-      {/* ── Horizon divider band ── */}
-      <div className="section-horizon-band" />
-
-      <div className="container mx-auto px-4 md:px-10 lg:px-12 max-w-7xl">
+        
         {/* Continue the Journey (unified annual performance) */}
         <div 
           id="upcoming"
           ref={calendarReveal.ref} 
-          className={`pt-8 md:pt-16 pb-12 md:pb-24 scroll-mt-[100px] section-fade-up section-fade-up-delay-2 ${calendarReveal.isVisible ? 'visible' : ''}`}
+          className={`pb-12 md:pb-24 scroll-mt-[100px] section-fade-up section-fade-up-delay-2 ${calendarReveal.isVisible ? 'visible' : ''}`}
         >
           <AnnualPerformance />
         </div>
