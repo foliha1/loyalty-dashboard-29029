@@ -59,31 +59,37 @@ const IndexContent = () => {
           <TiersContinuum />
         </div>
         
-        {/* Continue the Journey (unified annual performance) */}
-        <div 
-          id="upcoming"
-          ref={calendarReveal.ref} 
-          className={`pb-12 md:pb-24 scroll-mt-[100px] section-fade-up section-fade-up-delay-2 ${calendarReveal.isVisible ? 'visible' : ''}`}
-        >
-          <AnnualPerformance />
-        </div>
-        
-        {/* Upcoming Events */}
-        <div 
-          id="upcoming-events"
-          ref={upcomingEventsReveal.ref} 
-          className={`pb-12 md:pb-24 scroll-mt-[100px] section-fade-up ${upcomingEventsReveal.isVisible ? 'visible' : ''}`}
-        >
-          <UpcomingEventsSection />
-        </div>
-        
-        {/* Discovery CTAs */}
-        <div 
-          id="discover"
-          ref={discoveryCTAsReveal.ref} 
-          className={`pt-4 md:pt-8 pb-16 md:pb-32 scroll-mt-[100px] section-fade-up ${discoveryCTAsReveal.isVisible ? 'visible' : ''}`}
-        >
-          <DiscoveryCTAs />
+      </div>
+
+      {/* Your Journey + remaining sections with slightly elevated bg */}
+      <div className="bg-background/90">
+        <div className="container mx-auto px-4 md:px-10 lg:px-12 max-w-7xl">
+          {/* Continue the Journey (unified annual performance) */}
+          <div 
+            id="upcoming"
+            ref={calendarReveal.ref} 
+            className={`pb-12 md:pb-24 scroll-mt-[100px] section-fade-up section-fade-up-delay-2 ${calendarReveal.isVisible ? 'visible' : ''}`}
+          >
+            <AnnualPerformance />
+          </div>
+          
+          {/* Upcoming Events */}
+          <div 
+            id="upcoming-events"
+            ref={upcomingEventsReveal.ref} 
+            className={`pb-12 md:pb-24 scroll-mt-[100px] section-fade-up ${upcomingEventsReveal.isVisible ? 'visible' : ''}`}
+          >
+            <UpcomingEventsSection />
+          </div>
+          
+          {/* Discovery CTAs */}
+          <div 
+            id="discover"
+            ref={discoveryCTAsReveal.ref} 
+            className={`pt-4 md:pt-8 pb-16 md:pb-32 scroll-mt-[100px] section-fade-up ${discoveryCTAsReveal.isVisible ? 'visible' : ''}`}
+          >
+            <DiscoveryCTAs />
+          </div>
         </div>
       </div>
     </div>
