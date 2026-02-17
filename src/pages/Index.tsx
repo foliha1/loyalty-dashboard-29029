@@ -48,22 +48,29 @@ const IndexContent = () => {
       {/* Header */}
       <UserHeader />
       
-      {/* Main content section */}
+      {/* Overview Panel — distinct elevated container */}
       <div className="container mx-auto px-4 md:px-10 lg:px-12 max-w-7xl">
-        {/* Elevation Journey */}
         <div 
           id="journey"
           ref={tiersReveal.ref} 
-          className={`pt-6 md:pt-12 pb-12 md:pb-24 scroll-mt-[100px] section-fade-up ${tiersReveal.isVisible ? 'visible' : ''}`}
+          className={`pt-6 md:pt-12 pb-8 md:pb-12 scroll-mt-[100px] section-fade-up ${tiersReveal.isVisible ? 'visible' : ''}`}
         >
-          <TiersContinuum />
+          <div className="overview-panel">
+            <TiersContinuum />
+          </div>
         </div>
-        
+      </div>
+
+      {/* Visual break — horizontal transition */}
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-[hsl(var(--border)/0.4)] to-transparent my-4 md:my-8" />
+
+      {/* Lower content — flatter treatment */}
+      <div className="container mx-auto px-4 md:px-10 lg:px-12 max-w-7xl">
         {/* Continue the Journey (unified annual performance) */}
         <div 
           id="upcoming"
           ref={calendarReveal.ref} 
-          className={`pb-12 md:pb-24 scroll-mt-[100px] section-fade-up section-fade-up-delay-2 ${calendarReveal.isVisible ? 'visible' : ''}`}
+          className={`pt-8 md:pt-16 pb-12 md:pb-24 scroll-mt-[100px] section-fade-up section-fade-up-delay-2 ${calendarReveal.isVisible ? 'visible' : ''}`}
         >
           <AnnualPerformance />
         </div>
