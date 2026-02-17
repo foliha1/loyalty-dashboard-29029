@@ -183,18 +183,20 @@ export const AnnualPerformance = () => {
             </div>
           </div>
           
-          {/* Tier Badge - visually distinct */}
-          <div className="flex flex-col items-end">
-            <div className="text-subhead mb-2">
-              Tier Achieved
+          {/* Tier Achieved - only for prior years */}
+          {selectedYear !== new Date().getFullYear().toString() && (
+            <div className="flex flex-col items-end">
+              <div className="text-subhead mb-2">
+                Tier Achieved
+              </div>
+              <div
+                className="type-metric-primary"
+                style={{ color: `hsl(var(--${tierColor}))` }}
+              >
+                {data.tierAchieved}
+              </div>
             </div>
-            <div
-              className="type-metric-primary"
-              style={{ color: `hsl(var(--${tierColor}))` }}
-            >
-              {data.tierAchieved}
-            </div>
-          </div>
+          )}
         </div>
 
         {/* EP Breakdown */}
