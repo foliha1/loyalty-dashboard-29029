@@ -9,13 +9,13 @@ import { EPsLabel } from "@/components/EPsLabel";
 // 2026 Activity Data (current year)
 const activity2026 = {
   events: {
-    totalEP: 180
+    totalEP: 280
   },
   apparel: {
-    totalEP: 95
+    totalEP: 120
   },
   coaching: {
-    totalEP: 150
+    totalEP: 180
   }
 };
 
@@ -27,7 +27,7 @@ export const TiersContinuum = () => {
   
   // User data
   const currentEP = activity2026.events.totalEP + activity2026.apparel.totalEP + activity2026.coaching.totalEP;
-  const currentTierName = "Base";
+  const currentTierName = "Ridge";
   
   // Find current and next tier - exclude Summit Circle
   const visibleTiers = tiers.filter(t => t.name !== "Summit Circle");
