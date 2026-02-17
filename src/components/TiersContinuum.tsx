@@ -100,7 +100,7 @@ export const TiersContinuum = () => {
         {/* Current Tier Badge */}
         <div className="flex flex-row items-start justify-between mb-4 sm:mb-8 md:mb-12">
           <div>
-            <div className="text-supporting uppercase tracking-[0.25em] mb-2 sm:mb-3 text-xs font-normal">Current Loyalty Tier</div>
+            <div className="text-subhead mb-2 sm:mb-3">Current Loyalty Tier</div>
             <h4 className="text-3xl md:text-6xl font-light tracking-tight" style={{
               color: currentTier ? `hsl(var(--${currentTier.color}))` : 'hsl(var(--tier-gold))'
             }}>
@@ -108,7 +108,7 @@ export const TiersContinuum = () => {
             </h4>
           </div>
           <div className="text-right">
-            <div className="text-supporting uppercase tracking-[0.25em] mb-2 sm:mb-3 text-xs font-normal">Total <EPsLabel showInfo /></div>
+            <div className="text-subhead mb-2 sm:mb-3">Total <EPsLabel showInfo /></div>
             <div className="text-3xl md:text-6xl font-light tracking-tight tabular-nums">
               {animatedEP}
             </div>
@@ -183,13 +183,13 @@ export const TiersContinuum = () => {
         <div className="pt-4 sm:pt-6 md:pt-7 border-t border-border/20">
           <div className="flex flex-row items-start justify-between">
             <div>
-              <div className="text-supporting uppercase tracking-[0.25em] mb-2 text-xs font-normal">Next Milestone</div>
+              <div className="text-subhead mb-2">Next Milestone</div>
               <div className="text-xl md:text-3xl font-light tracking-tight">
                 {nextTierName}
               </div>
             </div>
             <div className="text-right">
-              <div className="text-supporting uppercase tracking-[0.25em] mb-2 text-xs font-normal">EPs Needed</div>
+              <div className="text-subhead mb-2">EPs Needed</div>
               <div className="text-xl md:text-3xl font-light tracking-tight tabular-nums" style={{
                 color: currentTier ? `hsl(var(--${currentTier.color}))` : 'hsl(var(--tier-gold))'
               }}>
