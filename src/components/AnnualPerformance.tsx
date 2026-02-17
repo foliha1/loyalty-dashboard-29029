@@ -143,7 +143,7 @@ export const AnnualPerformance = () => {
   return (
     <section>
       {/* Section title + year selector */}
-      <div className="flex items-center justify-between mb-5 sm:mb-6 px-2">
+      <div className="flex items-center justify-between mb-5 sm:mb-6 px-0 md:px-2">
         <h3 className="text-section-title">Your Journey</h3>
         <Select value={selectedYear} onValueChange={setSelectedYear}>
           <SelectTrigger className="w-[110px] bg-card/40 border-border/20 text-sm text-foreground backdrop-blur-sm">
@@ -160,7 +160,7 @@ export const AnnualPerformance = () => {
       </div>
 
       {/* Main card */}
-      <div className="card-29029 !overflow-visible p-5 sm:p-7 md:p-10">
+      <div className="card-29029 !overflow-visible p-4 sm:p-7 md:p-10">
         {/* Total EPs + Tier Badge row */}
         <div className="flex flex-row items-start justify-between mb-7 sm:mb-8 pb-6 sm:pb-7 border-b border-border/20">
           <div>
@@ -217,23 +217,23 @@ export const AnnualPerformance = () => {
 
         {/* Mountain / Trail tabs */}
         <Tabs defaultValue="mountain" className="w-full">
-          <TabsList className="mb-5 md:mb-6 bg-muted/15 p-1 rounded-lg border border-border/10">
+          <TabsList className="w-full mb-5 md:mb-6 bg-muted/15 p-1 rounded-lg border border-border/10 flex">
             <TabsTrigger
               value="mountain"
-              className="px-6 py-2 text-xs uppercase tracking-[0.2em] font-light data-[state=active]:bg-card/80 data-[state=active]:text-peak data-[state=active]:shadow-sm"
+              className="flex-1 py-2.5 min-h-[44px] text-xs uppercase tracking-[0.2em] font-light data-[state=active]:bg-card/80 data-[state=active]:text-peak data-[state=active]:shadow-sm"
             >
               Mountain
             </TabsTrigger>
             <TabsTrigger
               value="trail"
-              className="px-6 py-2 text-xs uppercase tracking-[0.2em] font-light data-[state=active]:bg-card/80 data-[state=active]:text-ridge data-[state=active]:shadow-sm"
+              className="flex-1 py-2.5 min-h-[44px] text-xs uppercase tracking-[0.2em] font-light data-[state=active]:bg-card/80 data-[state=active]:text-ridge data-[state=active]:shadow-sm"
             >
               Trail
             </TabsTrigger>
           </TabsList>
 
           <TabsContent value="mountain" className="mt-0">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4">
+            <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4">
               <KPICard label="Total Mtn Events" value={data.mountain.totalEvents} />
               <KPICard label="# Summits" value={data.mountain.summits} />
               <KPICard label="Total Vertical Feet" value={data.mountain.verticalFeet} />
@@ -242,7 +242,7 @@ export const AnnualPerformance = () => {
           </TabsContent>
 
           <TabsContent value="trail" className="mt-0">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4">
+            <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4">
               <KPICard label="Total Trail Events" value={data.trail.totalEvents} />
               <KPICard label="# Marathons" value={data.trail.marathons} />
               <KPICard label="Total Miles" value={data.trail.totalMiles} />
