@@ -133,9 +133,9 @@ export const CalendarGrid = () => {
           <div className="card-29029 p-3 md:p-6">
             {/* KPIs Row */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 md:gap-3">
-              <KPICard label="Total Mtn Events" value={mountainData.totalEvents} />
-              <KPICard label="# Summits" value={mountainData.summits} />
-              <KPICard label="Total Vertical Feet" value={mountainData.verticalFeet.toLocaleString()} />
+              <KPICard label="Total Events" value={mountainData.totalEvents} />
+              <KPICard label="# of Summits" value={mountainData.summits} />
+              <KPICard label="Total Vert Ft" value={mountainData.verticalFeet.toLocaleString()} />
             </div>
 
             {/* Recognition Ladder */}
@@ -148,8 +148,8 @@ export const CalendarGrid = () => {
           <div className="card-29029 p-3 md:p-6">
             {/* KPIs Row */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 md:gap-3">
-              <KPICard label="Total Trail Events" value={trailData.totalEvents} />
-              <KPICard label="# Marathons" value={trailData.marathons} />
+              <KPICard label="Total Events" value={trailData.totalEvents} />
+              <KPICard label="# of Marathons" value={trailData.marathons} />
               <KPICard label="Total Miles" value={trailData.totalMiles} />
             </div>
 
