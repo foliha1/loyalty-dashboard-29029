@@ -174,9 +174,9 @@ export const AnnualPerformance = () => {
         {/* EPs summary + Tier row */}
         <div className="mb-6 sm:mb-8 pb-6 sm:pb-7 border-b border-border/20">
           {isCurrentYear ? (
-            <p className="text-subhead text-muted-foreground/60">
-              Your current <EPsLabel className="text-muted-foreground/60" /> total is{" "}
-              <span className="type-metric-secondary text-foreground">
+            <p className="type-metric-secondary text-foreground">
+              Your current <EPsLabel /> total is{" "}
+              <span className="underline decoration-1 underline-offset-4">
                 {totalEP.toLocaleString()}
               </span>
             </p>
