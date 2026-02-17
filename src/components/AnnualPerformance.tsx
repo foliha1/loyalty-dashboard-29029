@@ -139,32 +139,31 @@ export const AnnualPerformance = () => {
 
   const totalEP = data.eps.events + data.eps.apparel + data.eps.coaching;
   const tierColor = tierColorVar[data.tierAchieved] || "ridge";
+  const isCurrentYear = selectedYear === new Date().getFullYear().toString();
 
   return (
     <section>
       {/* Section title + year selector */}
-      <div className="flex items-center justify-between mb-5 sm:mb-6 px-0 md:px-2">
+      <div className="flex flex-wrap items-baseline justify-between gap-y-2 mb-5 sm:mb-6 px-0 md:px-2">
         <h3 className="text-section-title">Your Journey</h3>
-        <div className="flex items-center gap-2.5">
-          <Select value={selectedYear} onValueChange={setSelectedYear}>
-            <SelectTrigger className="w-[110px] bg-card/40 border-border/20 text-sm text-foreground backdrop-blur-sm">
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent className="bg-popover border-border/30 z-50">
-              {yearlyData.map((y) => (
-                <SelectItem key={y.year} value={y.year.toString()} className="text-foreground">
-                  {y.year}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
+        <Select value={selectedYear} onValueChange={setSelectedYear}>
+          <SelectTrigger className="w-[110px] bg-card/40 border-border/20 text-sm text-foreground backdrop-blur-sm">
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent className="bg-popover border-border/30 z-50">
+            {yearlyData.map((y) => (
+              <SelectItem key={y.year} value={y.year.toString()} className="text-foreground">
+                {y.year}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
       </div>
 
       {/* Main card */}
       <div className="card-29029 !overflow-visible p-4 sm:p-7 md:p-10">
         {/* Current Year indicator inside card */}
-        {selectedYear === new Date().getFullYear().toString() && (
+        {isCurrentYear && (
           <div className="flex items-center gap-2 mb-4 sm:mb-5">
             <span className="w-1.5 h-1.5 rounded-full bg-[hsl(var(--ridge))] shadow-[0_0_6px_hsl(var(--ridge)/0.5)]" />
             <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground/70 font-medium">
@@ -172,11 +171,11 @@ export const AnnualPerformance = () => {
             </span>
           </div>
         )}
-        {/* Total EPs + Tier Badge row */}
-        <div className="flex flex-row items-start justify-between mb-7 sm:mb-8 pb-6 sm:pb-7 border-b border-border/20">
+        {/* Total EPs + Tier row */}
+        <div className="flex flex-row items-start justify-between mb-6 sm:mb-8 pb-6 sm:pb-7 border-b border-border/20">
           <div>
             <div className="text-subhead mb-2">
-              {selectedYear === new Date().getFullYear().toString() ? <>Current <EPsLabel /></> : <>Total <EPsLabel /> Earned</>}
+              {isCurrentYear ? <>Current <EPsLabel /></> : <>Total <EPsLabel /> Earned</>}
             </div>
             <div className="type-metric-primary text-foreground">
               {totalEP.toLocaleString()}
@@ -184,7 +183,7 @@ export const AnnualPerformance = () => {
           </div>
           
           {/* Tier Achieved - only for prior years */}
-          {selectedYear !== new Date().getFullYear().toString() && (
+          {!isCurrentYear && (
             <div className="flex flex-col items-end">
               <div className="text-subhead mb-2">
                 Tier Achieved
