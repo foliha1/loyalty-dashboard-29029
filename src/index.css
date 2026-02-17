@@ -27,11 +27,11 @@ All colors MUST be HSL.
     /* ===========================================
        TEXT COLORS (4 levels)
        =========================================== */
-    --foreground: 0 0% 95%;          /* Primary text - high contrast */
-    --text-secondary: 0 0% 65%;      /* Body text */
-    --text-muted: 0 0% 50%;          /* Helper, meta text */
+    --foreground: 0 0% 96%;          /* Primary text - high contrast */
+    --text-secondary: 0 0% 62%;      /* Body text */
+    --text-muted: 0 0% 45%;          /* Helper, meta text */
     --text-disabled: 0 0% 35%;       /* Inactive states */
-    --muted-foreground: 0 0% 50%;    /* Shadcn compatibility */
+    --muted-foreground: 0 0% 45%;    /* Shadcn compatibility */
 
     /* ===========================================
        BORDERS (2 levels)
@@ -337,7 +337,7 @@ All colors MUST be HSL.
     font-size: var(--type-meta);
     font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.2em;
     line-height: 1.2;
   }
 
@@ -348,16 +348,16 @@ All colors MUST be HSL.
     font-family: 'Inter', sans-serif;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.096em;
+    letter-spacing: 0.1em;
     font-size: 0.88rem;
-    color: hsl(var(--foreground));
+    color: hsl(0 0% 98%);
     line-height: 1.15;
   }
   
   @media (min-width: 768px) {
     h2, h3, .text-section-title {
       font-size: 1.15rem;
-      letter-spacing: 0.115em;
+      letter-spacing: 0.12em;
     }
   }
 
@@ -408,7 +408,7 @@ All colors MUST be HSL.
     font-family: 'Inter', sans-serif;
     font-weight: 400;
     font-size: 0.8125rem;
-    color: hsl(var(--text-muted)) !important;
+    color: hsl(0 0% 40%) !important;
     text-align: left;
     line-height: 1.5;
   }
