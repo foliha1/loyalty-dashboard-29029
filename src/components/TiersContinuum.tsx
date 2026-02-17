@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { tiers } from "@/lib/tierConfig";
 import { cn } from "@/lib/utils";
 import { useTier } from "@/contexts/TierContext";
-import { Check } from "lucide-react";
+import { Check, Info } from "lucide-react";
 import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { EPsLabel } from "@/components/EPsLabel";
 
@@ -169,8 +169,9 @@ export const TiersContinuum = () => {
             </h4>
             <Dialog>
               <DialogTrigger asChild>
-                <button className="mt-2 text-xs text-muted-foreground/60 hover:text-muted-foreground transition-colors duration-200 cursor-pointer tracking-wide">
+                <button className="mt-2 text-xs text-muted-foreground/60 hover:text-muted-foreground transition-colors duration-200 cursor-pointer tracking-wide inline-flex items-center gap-1">
                   View Tier Benefits
+                  <Info size={11} />
                 </button>
               </DialogTrigger>
               <DialogContent className="max-w-md bg-background/95 backdrop-blur-xl border-border/30 p-0 overflow-hidden">
@@ -189,14 +190,15 @@ export const TiersContinuum = () => {
             </Dialog>
           </div>
           <div className="text-right">
-            <div className="text-subhead mb-2 sm:mb-3">Total <EPsLabel showInfo /></div>
+            <div className="text-subhead mb-2 sm:mb-3">Total EPs</div>
             <div className="text-3xl md:text-7xl font-light tracking-tight tabular-nums">
               {animatedEP}
             </div>
             <Dialog>
               <DialogTrigger asChild>
-                <button className="mt-2 text-xs text-muted-foreground/60 hover:text-muted-foreground transition-colors duration-200 cursor-pointer tracking-wide">
+                <button className="mt-2 text-xs text-muted-foreground/60 hover:text-muted-foreground transition-colors duration-200 cursor-pointer tracking-wide inline-flex items-center gap-1">
                   How EPs Work
+                  <Info size={11} />
                 </button>
               </DialogTrigger>
               <DialogContent className="max-w-md bg-background/95 backdrop-blur-xl border-border/30 p-0 overflow-hidden">
