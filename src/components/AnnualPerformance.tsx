@@ -56,11 +56,11 @@ const milestones = [1, 2, 3, 4, "5x", "10x"];
 // ── Sub-components ───────────────────────────────────
 
 const KPICard = ({ label, value }: { label: string; value: string | number }) => (
-  <div className="p-2.5 md:p-4 border border-border/30 rounded-lg text-center">
-    <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-1 font-light">
+  <div className="p-3 md:p-5 border border-border/20 rounded-lg text-center bg-background/30">
+    <div className="text-subhead mb-2">
       {label}
     </div>
-    <div className="text-2xl md:text-4xl font-light tabular-nums text-foreground">
+    <div className="type-metric-secondary text-foreground">
       {typeof value === "number" ? value.toLocaleString() : value}
     </div>
   </div>
@@ -76,19 +76,19 @@ const RecognitionLadder = ({ current, color = "ridge" }: { current: number; colo
   };
 
   return (
-    <div className="mt-4 md:mt-6">
-      <div className="relative h-2 bg-muted/30 rounded-full overflow-hidden">
+    <div className="mt-6 md:mt-8">
+      <div className="relative h-1.5 bg-muted/20 rounded-full overflow-hidden">
         <div
-          className={`absolute inset-y-0 left-0 rounded-full transition-all duration-500 ${color === "peak" ? "bg-peak" : "bg-ridge"}`}
+          className={`absolute inset-y-0 left-0 rounded-full transition-all duration-700 ease-out ${color === "peak" ? "bg-peak" : "bg-ridge"}`}
           style={{ width: `${getProgressPercent()}%` }}
         />
         <div
-          className="absolute top-1/2 -translate-y-1/2 w-0 h-0 transition-all duration-500"
+          className="absolute top-1/2 -translate-y-1/2 w-0 h-0 transition-all duration-700 ease-out"
           style={{
             left: `${getProgressPercent()}%`,
-            borderTop: "6px solid transparent",
-            borderBottom: "6px solid transparent",
-            borderLeft: `8px solid hsl(var(--${color}))`,
+            borderTop: "5px solid transparent",
+            borderBottom: "5px solid transparent",
+            borderLeft: `7px solid hsl(var(--${color}))`,
             marginLeft: "-2px",
           }}
         />
@@ -99,11 +99,11 @@ const RecognitionLadder = ({ current, color = "ridge" }: { current: number; colo
           const isPast = typeof milestone === "number" ? milestone < current : parseInt(String(milestone)) < current;
           return (
             <div key={idx} className="flex flex-col items-center">
-              <span className={`text-xs font-light ${isCurrent || isPast ? (color === "peak" ? "text-peak" : "text-ridge") : "text-muted-foreground/50"}`}>
+              <span className={`text-xs font-light ${isCurrent || isPast ? (color === "peak" ? "text-peak" : "text-ridge") : "text-muted-foreground/40"}`}>
                 {milestone}
               </span>
               {milestone === 3 && (
-                <span className="text-xs uppercase tracking-[0.15em] text-muted-foreground mt-2 font-medium">
+                <span className="text-[10px] uppercase tracking-[0.15em] text-muted-foreground/60 mt-2 font-medium">
                   Black Bib
                 </span>
               )}
@@ -136,10 +136,10 @@ export const AnnualPerformance = () => {
   return (
     <section>
       {/* Section title + year selector */}
-      <div className="flex items-center justify-between mb-4 sm:mb-5 px-2">
+      <div className="flex items-center justify-between mb-5 sm:mb-6 px-2">
         <h3 className="text-section-title">Continue the Journey</h3>
         <Select value={selectedYear} onValueChange={setSelectedYear}>
-          <SelectTrigger className="w-[120px] bg-card/50 border-border/30 text-sm text-foreground">
+          <SelectTrigger className="w-[110px] bg-card/40 border-border/20 text-sm text-foreground backdrop-blur-sm">
             <SelectValue />
           </SelectTrigger>
           <SelectContent className="bg-popover border-border/30 z-50">
@@ -153,41 +153,56 @@ export const AnnualPerformance = () => {
       </div>
 
       {/* Main card */}
-      <div className="card-29029 p-4 sm:p-6 md:p-8">
+      <div className="card-29029 p-5 sm:p-7 md:p-10">
         {/* Total EPs + Tier Badge row */}
-        <div className="flex flex-row items-start justify-between mb-5 sm:mb-6 pb-5 border-b border-border/30">
+        <div className="flex flex-row items-start justify-between mb-7 sm:mb-8 pb-6 sm:pb-7 border-b border-border/20">
           <div>
-            <div className="text-supporting uppercase tracking-[0.25em] mb-1 text-xs font-normal">
+            <div className="text-subhead mb-2">
               Total <EPsLabel showInfo /> Earned
             </div>
-            <div className="text-3xl md:text-5xl font-light tracking-tight tabular-nums">
-              {totalEP}
+            <div className="type-metric-primary text-foreground">
+              {totalEP.toLocaleString()}
             </div>
           </div>
-          <div className="text-right">
-            <div className="text-supporting uppercase tracking-[0.25em] mb-1 text-xs font-normal">
+          
+          {/* Tier Badge - visually distinct */}
+          <div className="flex flex-col items-end gap-1.5">
+            <div className="text-subhead">
               Tier Achieved
             </div>
             <div
-              className="text-lg md:text-xl font-light tracking-tight"
-              style={{ color: `hsl(var(--${tierColor}))` }}
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border"
+              style={{
+                borderColor: `hsl(var(--${tierColor}) / 0.4)`,
+                background: `linear-gradient(135deg, hsl(var(--${tierColor}) / 0.12) 0%, hsl(var(--${tierColor}) / 0.04) 100%)`,
+                boxShadow: `0 0 20px hsl(var(--${tierColor}) / 0.1)`,
+              }}
             >
-              {data.tierAchieved}
+              <span
+                className="w-2 h-2 rounded-full"
+                style={{ backgroundColor: `hsl(var(--${tierColor}))` }}
+              />
+              <span
+                className="text-sm font-medium tracking-wide"
+                style={{ color: `hsl(var(--${tierColor}))` }}
+              >
+                {data.tierAchieved}
+              </span>
             </div>
           </div>
         </div>
 
         {/* EP Breakdown */}
-        <div className="grid grid-cols-3 gap-3 md:gap-6 mb-6 sm:mb-8">
+        <div className="grid grid-cols-3 gap-4 md:gap-8 mb-8 sm:mb-10">
           {([
             ["Events", data.eps.events],
             ["Apparel", data.eps.apparel],
             ["Coaching", data.eps.coaching],
           ] as const).map(([label, val]) => (
             <div key={label}>
-              <div className="text-subhead mb-2">{label}</div>
-              <div className="text-xl md:text-2xl font-light tracking-tight tabular-nums">
-                {val} <span className="text-xs text-muted-foreground">EPs</span>
+              <div className="text-subhead mb-2.5">{label}</div>
+              <div className="type-metric-secondary text-foreground">
+                {val} <span className="text-xs text-muted-foreground/60 font-light">EPs</span>
               </div>
             </div>
           ))}
@@ -195,23 +210,23 @@ export const AnnualPerformance = () => {
 
         {/* Mountain / Trail tabs */}
         <Tabs defaultValue="mountain" className="w-full">
-          <TabsList className="mb-3 md:mb-4 bg-muted/20 p-1 rounded-lg">
+          <TabsList className="mb-5 md:mb-6 bg-muted/15 p-1 rounded-lg border border-border/10">
             <TabsTrigger
               value="mountain"
-              className="px-5 py-1.5 text-xs uppercase tracking-[0.2em] font-light data-[state=active]:bg-card data-[state=active]:text-peak"
+              className="px-6 py-2 text-xs uppercase tracking-[0.2em] font-light data-[state=active]:bg-card/80 data-[state=active]:text-peak data-[state=active]:shadow-sm"
             >
               Mountain
             </TabsTrigger>
             <TabsTrigger
               value="trail"
-              className="px-5 py-1.5 text-xs uppercase tracking-[0.2em] font-light data-[state=active]:bg-card data-[state=active]:text-ridge"
+              className="px-6 py-2 text-xs uppercase tracking-[0.2em] font-light data-[state=active]:bg-card/80 data-[state=active]:text-ridge data-[state=active]:shadow-sm"
             >
               Trail
             </TabsTrigger>
           </TabsList>
 
           <TabsContent value="mountain" className="mt-0">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 md:gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4">
               <KPICard label="Total Mtn Events" value={data.mountain.totalEvents} />
               <KPICard label="# Summits" value={data.mountain.summits} />
               <KPICard label="Total Vertical Feet" value={data.mountain.verticalFeet} />
@@ -220,7 +235,7 @@ export const AnnualPerformance = () => {
           </TabsContent>
 
           <TabsContent value="trail" className="mt-0">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 md:gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4">
               <KPICard label="Total Trail Events" value={data.trail.totalEvents} />
               <KPICard label="# Marathons" value={data.trail.marathons} />
               <KPICard label="Total Miles" value={data.trail.totalMiles} />
