@@ -1,8 +1,7 @@
-import { ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
+import { Lock, Check } from "lucide-react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 
-// Mock data from client mockup
 const mountainData = {
   totalEvents: 5,
   summits: 3,
@@ -15,14 +14,6 @@ const trailData = {
   totalMiles: 156.6,
 };
 
-// Fixed milestone markers for awards
-const fixedMilestones = [
-  { value: 3, label: "Black Bib", mobileLabel: "Black Bib" },
-  { value: 5, label: "5x Award", mobileLabel: "5x" },
-  { value: 10, label: "10x Award", mobileLabel: "10x" },
-];
-
-// KPI Card component - simplified, premium styling
 const KPICard = ({ label, value }: { label: string; value: string | number }) => (
   <div className="p-2.5 md:p-4 border border-white/10 rounded-lg text-center">
     <div className="text-sm uppercase tracking-[0.15em] text-muted-foreground mb-1 font-light">
@@ -34,112 +25,56 @@ const KPICard = ({ label, value }: { label: string; value: string | number }) =>
   </div>
 );
 
-// Recognition Ladder component - color based on tier type
-const RecognitionLadder = ({ current, color = 'ridge' }: { current: number; color?: 'peak' | 'ridge' }) => {
-  const axisMax = Math.max(10, Math.ceil((current + 1) / 5) * 5);
-  const ticks = Array.from({ length: axisMax + 1 }, (_, i) => i);
-  const progressPercent = Math.min(100, (current / axisMax) * 100);
+const milestones = [
+  { name: "Black Bib", threshold: 3 },
+  { name: "5x Award", threshold: 5 },
+  { name: "10x Award", threshold: 10 },
+];
 
-  const milestoneValues = new Set([0, ...fixedMilestones.map((m) => m.value)]);
-
-  return (
-    <div className="mt-4 md:mt-6">
-      {/* Label */}
-      <div className="text-sm uppercase tracking-[0.15em] text-muted-foreground mb-3 font-light">
-        Finish Milestones
-      </div>
-
-      {/* Progress arrow track */}
-      <div className="relative h-2 bg-white/10 rounded-full overflow-hidden">
-        <div 
-          className={`absolute inset-y-0 left-0 rounded-full transition-all duration-500 ${color === 'peak' ? 'bg-peak' : 'bg-ridge'}`}
-          style={{ width: `${progressPercent}%` }}
-        />
-        {current > 0 && (
-          <div 
-            className="absolute top-1/2 -translate-y-1/2 w-0 h-0 transition-all duration-500"
-            style={{
-              left: `${progressPercent}%`,
-              borderTop: '6px solid transparent',
-              borderBottom: '6px solid transparent',
-              borderLeft: `8px solid hsl(var(--${color}))`,
-              marginLeft: '-2px'
-            }}
-          />
-        )}
-      </div>
-
-      {/* Mobile ticks: absolute positioned, only milestones + current */}
-      <div className="relative mt-3 h-14 sm:hidden">
-        {[{ value: 0 }, ...fixedMilestones.map(m => ({ value: m.value, label: m.mobileLabel })), ...(current > 0 && !milestoneValues.has(current) ? [{ value: current }] : [])].map((item) => {
-          const isPast = item.value <= current;
-          const isCurrent = item.value === current;
-          const pct = (item.value / axisMax) * 100;
-          const milestone = fixedMilestones.find(m => m.value === item.value);
-          return (
-            <div
-              key={item.value}
-              className="absolute flex flex-col items-center -translate-x-1/2"
-              style={{ left: `${pct}%` }}
-            >
-              {isCurrent && current > 0 && !milestone && (
-                <div className="w-1.5 h-1.5 rounded-full mb-1" style={{ backgroundColor: `hsl(var(--${color}))` }} />
-              )}
-              <span className={`text-sm font-light ${isPast ? (color === 'peak' ? 'text-peak' : 'text-ridge') : 'text-muted-foreground'}`}>
-                {item.value}
-              </span>
-              {milestone && (
-                <span className="text-sm uppercase tracking-[0.06em] text-muted-foreground mt-1 font-medium whitespace-nowrap">
-                  {milestone.mobileLabel}
-                </span>
-              )}
-            </div>
-          );
-        })}
-      </div>
-
-      {/* Desktop ticks: flex-based, all ticks visible */}
-      <div className="hidden sm:flex justify-between mt-3 px-1">
-        {ticks.map((tick) => {
-          const isPast = tick <= current;
-          const isCurrent = tick === current;
-          const milestone = fixedMilestones.find((m) => m.value === tick);
-          return (
-            <div key={tick} className="flex flex-col items-center" style={{ minWidth: 0, flex: '1 1 0' }}>
-              {isCurrent && current > 0 && !milestone && (
-                <div className="w-1.5 h-1.5 rounded-full mb-1" style={{ backgroundColor: `hsl(var(--${color}))` }} />
-              )}
-              <span className={`text-sm font-light ${isPast ? (color === 'peak' ? 'text-peak' : 'text-ridge') : 'text-muted-foreground'}`}>
-                {tick}
-              </span>
-              {milestone && (
-                <span className="text-sm uppercase tracking-[0.12em] text-muted-foreground mt-2 font-medium whitespace-nowrap">
-                  {milestone.label}
-                </span>
-              )}
-            </div>
-          );
-        })}
-      </div>
-
-      {/* Zero state message */}
-      {current === 0 && (
-        <p className="text-sm text-muted-foreground mt-3 font-light">
-          Complete your first finish to start tracking milestones
-        </p>
-      )}
+const MilestoneBadges = ({ current, color = "ridge" }: { current: number; color?: "peak" | "ridge" }) => (
+  <div className="mt-4 md:mt-6">
+    <div className="text-sm uppercase tracking-[0.15em] text-muted-foreground mb-3 font-light">
+      Finish Milestones
     </div>
-  );
-};
+    <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4">
+      {milestones.map((m) => {
+        const unlocked = current >= m.threshold;
+        const remaining = m.threshold - current;
+        return (
+          <div
+            key={m.name}
+            className={`rounded-lg border text-center flex flex-col items-center justify-center p-2.5 md:p-4 transition-all ${
+              unlocked
+                ? `border-white/20 bg-white/5 shadow-[0_0_12px_-4px_hsl(var(--${color})/0.3)]`
+                : "border-white/5 bg-white/[0.02] opacity-60"
+            }`}
+          >
+            <div className={`text-[10px] sm:text-xs uppercase tracking-wider font-medium mb-2 ${unlocked ? "text-white" : "text-muted-foreground"}`}>
+              {m.name}
+            </div>
+            {unlocked ? (
+              <Check className={`w-5 h-5 mb-1.5 ${color === "peak" ? "text-peak" : "text-ridge"}`} strokeWidth={2.5} />
+            ) : (
+              <Lock className="w-4 h-4 mb-1.5 text-muted-foreground/60" strokeWidth={1.5} />
+            )}
+            <div className={`text-[10px] sm:text-xs font-light ${unlocked ? (color === "peak" ? "text-peak" : "text-ridge") : "text-muted-foreground"}`}>
+              {unlocked ? "Earned" : `${remaining} more needed`}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+);
 
 export const CalendarGrid = () => {
   const [isRevealed, setIsRevealed] = useState(false);
 
-  // Reveal animation
   useEffect(() => {
     const timer = setTimeout(() => setIsRevealed(true), 100);
     return () => clearTimeout(timer);
   }, []);
+
   return (
     <section>
       <h3 className="text-section-title mb-4 sm:mb-4 md:mb-5 px-2">
@@ -147,7 +82,6 @@ export const CalendarGrid = () => {
       </h3>
       
       <Tabs defaultValue="mountain" className="w-full">
-        {/* Segmented Toggle */}
         <TabsList className="mb-3 md:mb-4 bg-muted/20 p-1 rounded-lg">
           <TabsTrigger 
             value="mountain" 
@@ -163,33 +97,25 @@ export const CalendarGrid = () => {
           </TabsTrigger>
         </TabsList>
 
-        {/* Mountain Content */}
         <TabsContent value="mountain" className="mt-0">
           <div className="card-29029 p-3 md:p-6">
-            {/* KPIs Row */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 md:gap-3">
               <KPICard label="Total Events" value={mountainData.totalEvents} />
               <KPICard label="# of Finishes" value={mountainData.summits} />
               <KPICard label="Total Vert Ft" value={mountainData.verticalFeet.toLocaleString()} />
             </div>
-
-            {/* Recognition Ladder */}
-            <RecognitionLadder current={mountainData.summits} color="peak" />
+            <MilestoneBadges current={mountainData.summits} color="peak" />
           </div>
         </TabsContent>
 
-        {/* Trail Content */}
         <TabsContent value="trail" className="mt-0">
           <div className="card-29029 p-3 md:p-6">
-            {/* KPIs Row */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 md:gap-3">
               <KPICard label="Total Events" value={trailData.totalEvents} />
               <KPICard label="# of Marathons" value={trailData.marathons} />
               <KPICard label="Total Miles" value={trailData.totalMiles} />
             </div>
-
-            {/* Recognition Ladder */}
-            <RecognitionLadder current={trailData.marathons} color="ridge" />
+            <MilestoneBadges current={trailData.marathons} color="ridge" />
           </div>
         </TabsContent>
       </Tabs>

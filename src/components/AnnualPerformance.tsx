@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Lock, Check } from "lucide-react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { EPsLabel } from "@/components/EPsLabel";
@@ -65,18 +66,10 @@ const yearlyData: YearData[] = [
   },
 ];
 
-// Generate available years from memberSince through currentYear
 const availableYears = Array.from(
   { length: currentYear - memberSince + 1 },
   (_, i) => currentYear - i
 );
-
-// Fixed milestone markers for awards
-const fixedMilestones = [
-  { value: 3, label: "Black Bib", mobileLabel: "Black Bib" },
-  { value: 5, label: "5x Award", mobileLabel: "5x" },
-  { value: 10, label: "10x Award", mobileLabel: "10x" },
-];
 
 // ── Sub-components ───────────────────────────────────
 
@@ -89,7 +82,7 @@ const formatCompact = (value: number): string => {
 };
 
 const KPICard = ({ label, value, compact }: { label: string; value: string | number; compact?: boolean }) => (
-  <div className="p-3 md:p-5 border border-border/20 rounded-lg text-center bg-background/30">
+  <div className="p-2 sm:p-3 md:p-5 border border-border/20 rounded-lg text-center bg-background/30">
     <div className="text-subhead mb-2">
       {label}
     </div>
@@ -99,102 +92,46 @@ const KPICard = ({ label, value, compact }: { label: string; value: string | num
   </div>
 );
 
-const RecognitionLadder = ({ current, color = "ridge" }: { current: number; color?: "peak" | "ridge" }) => {
-  // Dynamic max: at least 10, or round up past the user's count
-  const axisMax = Math.max(10, Math.ceil((current + 1) / 5) * 5);
-  // Axis ticks: 0 through axisMax
-  const ticks = Array.from({ length: axisMax + 1 }, (_, i) => i);
-  const progressPercent = Math.min(100, (current / axisMax) * 100);
+// ── Milestone badges ─────────────────────────────────
+const milestones = [
+  { name: "Black Bib", threshold: 3 },
+  { name: "5x Award", threshold: 5 },
+  { name: "10x Award", threshold: 10 },
+];
 
-  const milestoneValues = new Set([0, ...fixedMilestones.map((m) => m.value)]);
-
-  return (
-    <div className="mt-6 md:mt-8">
-      {/* Label */}
-      <div className="text-subhead mb-3">Finish Milestones</div>
-
-      {/* Progress bar */}
-      <div className="relative h-1.5 bg-muted/20 rounded-full overflow-hidden">
-        <div
-          className={`absolute inset-y-0 left-0 rounded-full transition-all duration-700 ease-out ${color === "peak" ? "bg-peak" : "bg-ridge"}`}
-          style={{ width: `${progressPercent}%` }}
-        />
-        {current > 0 && (
+const MilestoneBadges = ({ current, color = "ridge" }: { current: number; color?: "peak" | "ridge" }) => (
+  <div className="mt-4 sm:mt-6">
+    <div className="text-subhead mb-3">Finish Milestones</div>
+    <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4">
+      {milestones.map((m) => {
+        const unlocked = current >= m.threshold;
+        const remaining = m.threshold - current;
+        return (
           <div
-            className="absolute top-1/2 -translate-y-1/2 w-0 h-0 transition-all duration-700 ease-out"
-            style={{
-              left: `${progressPercent}%`,
-              borderTop: "5px solid transparent",
-              borderBottom: "5px solid transparent",
-              borderLeft: `7px solid hsl(var(--${color}))`,
-              marginLeft: "-2px",
-            }}
-          />
-        )}
-      </div>
-
-      {/* Mobile ticks: absolute positioned, only milestones + current */}
-      <div className="relative mt-3 h-14 sm:hidden">
-        {[{ value: 0 }, ...fixedMilestones.map(m => ({ value: m.value, label: m.mobileLabel })), ...(current > 0 && !milestoneValues.has(current) ? [{ value: current }] : [])].map((item) => {
-          const isPast = item.value <= current;
-          const isCurrent = item.value === current;
-          const pct = (item.value / axisMax) * 100;
-          const milestone = fixedMilestones.find(m => m.value === item.value);
-          return (
-            <div
-              key={item.value}
-              className="absolute flex flex-col items-center -translate-x-1/2"
-              style={{ left: `${pct}%` }}
-            >
-              {isCurrent && current > 0 && !milestone && (
-                <div className="w-1.5 h-1.5 rounded-full mb-1" style={{ backgroundColor: `hsl(var(--${color}))` }} />
-              )}
-              <span className={`text-sm font-light ${isPast ? (color === "peak" ? "text-peak" : "text-ridge") : "text-muted-foreground"}`}>
-                {item.value}
-              </span>
-              {milestone && (
-                <span className="text-sm uppercase tracking-[0.06em] text-muted-foreground mt-1 font-medium whitespace-nowrap">
-                  {milestone.mobileLabel}
-                </span>
-              )}
+            key={m.name}
+            className={`rounded-lg border text-center flex flex-col items-center justify-center p-2 sm:p-3 md:p-5 transition-all ${
+              unlocked
+                ? `border-border/30 bg-background/40 shadow-[0_0_12px_-4px_hsl(var(--${color})/0.3)]`
+                : "border-border/10 bg-card/20 opacity-60"
+            }`}
+          >
+            <div className={`text-[10px] sm:text-xs uppercase tracking-wider font-medium mb-2 ${unlocked ? "text-foreground" : "text-muted-foreground"}`}>
+              {m.name}
             </div>
-          );
-        })}
-      </div>
-
-      {/* Desktop ticks: flex-based, all ticks visible */}
-      <div className="hidden sm:flex justify-between mt-3 px-1">
-        {ticks.map((tick) => {
-          const isPast = tick <= current;
-          const isCurrent = tick === current;
-          const milestone = fixedMilestones.find((m) => m.value === tick);
-          return (
-            <div key={tick} className="flex flex-col items-center" style={{ minWidth: 0, flex: '1 1 0' }}>
-              {isCurrent && current > 0 && !milestone && (
-                <div className="w-1.5 h-1.5 rounded-full mb-1" style={{ backgroundColor: `hsl(var(--${color}))` }} />
-              )}
-              <span className={`text-sm font-light ${isPast ? (color === "peak" ? "text-peak" : "text-ridge") : "text-muted-foreground"}`}>
-                {tick}
-              </span>
-              {milestone && (
-                <span className="text-sm uppercase tracking-[0.12em] text-muted-foreground mt-2 font-medium whitespace-nowrap">
-                  {milestone.label}
-                </span>
-              )}
+            {unlocked ? (
+              <Check className={`w-5 h-5 mb-1.5 ${color === "peak" ? "text-peak" : "text-ridge"}`} strokeWidth={2.5} />
+            ) : (
+              <Lock className="w-4 h-4 mb-1.5 text-muted-foreground/60" strokeWidth={1.5} />
+            )}
+            <div className={`text-[10px] sm:text-xs font-light ${unlocked ? (color === "peak" ? "text-peak" : "text-ridge") : "text-muted-foreground"}`}>
+              {unlocked ? "Earned" : `${remaining} more needed`}
             </div>
-          );
-        })}
-      </div>
-
-      {/* Zero state message */}
-      {current === 0 && (
-        <p className="text-sm text-muted-foreground mt-3 font-light">
-          Complete your first finish to start tracking milestones
-        </p>
-      )}
+          </div>
+        );
+      })}
     </div>
-  );
-};
+  </div>
+);
 
 // ── Tier color map ───────────────────────────────────
 const tierColorVar: Record<string, string> = {
@@ -210,7 +147,6 @@ export const AnnualPerformance = () => {
   const [selectedYear, setSelectedYear] = useState(currentYear.toString());
   const data = yearlyData.find((y) => y.year.toString() === selectedYear);
 
-  // For years without detailed data, show a minimal placeholder
   const fallbackData: YearData = {
     year: parseInt(selectedYear),
     tierAchieved: "Base",
@@ -245,7 +181,6 @@ export const AnnualPerformance = () => {
 
       {/* Main card */}
       <div className="card-29029 !overflow-visible p-4 sm:p-7 md:p-10">
-        {/* Current Year indicator inside card */}
         {isCurrentYear && (
           <div className="flex items-center gap-2 mb-4 sm:mb-5">
             <span className="w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_6px_hsl(0_0%_100%/0.5)]" />
@@ -274,13 +209,8 @@ export const AnnualPerformance = () => {
                 </div>
               </div>
               <div className="flex flex-col items-end">
-                <div className="text-subhead mb-2">
-                  Tier Achieved
-                </div>
-                <div
-                  className="type-metric-primary"
-                  style={{ color: `hsl(var(--${tierColor}))` }}
-                >
+                <div className="text-subhead mb-2">Tier Achieved</div>
+                <div className="type-metric-primary" style={{ color: `hsl(var(--${tierColor}))` }}>
                   {activeData.tierAchieved}
                 </div>
               </div>
@@ -290,7 +220,7 @@ export const AnnualPerformance = () => {
 
         {/* EP Breakdown */}
         <h4 className="text-sm uppercase tracking-[0.2em] font-medium text-foreground/90 mb-5">EPs Breakdown</h4>
-        <div className="grid grid-cols-3 gap-4 md:gap-8 mb-8 sm:mb-10">
+        <div className="grid grid-cols-3 gap-2 sm:gap-4 md:gap-8 mb-8 sm:mb-10">
           {([
             ["Events", activeData.eps.events],
             ["Apparel", activeData.eps.apparel],
@@ -331,7 +261,7 @@ export const AnnualPerformance = () => {
               <KPICard label="# of Finishes" value={activeData.mountain.summits} />
               <KPICard label="Total Vert Ft" value={activeData.mountain.verticalFeet} compact />
             </div>
-            <RecognitionLadder current={activeData.mountain.summits} color="peak" />
+            <MilestoneBadges current={activeData.mountain.summits} color="peak" />
           </TabsContent>
 
           <TabsContent value="trail" className="mt-0">
@@ -340,7 +270,7 @@ export const AnnualPerformance = () => {
               <KPICard label="# of Marathons" value={activeData.trail.marathons} />
               <KPICard label="Total Miles" value={activeData.trail.totalMiles} compact />
             </div>
-            <RecognitionLadder current={activeData.trail.marathons} color="ridge" />
+            <MilestoneBadges current={activeData.trail.marathons} color="ridge" />
           </TabsContent>
         </Tabs>
       </div>
