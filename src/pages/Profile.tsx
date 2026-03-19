@@ -185,7 +185,7 @@ export default function Profile() {
               <h3 className="text-xl sm:text-2xl font-light tracking-tight mb-1">Personal Information</h3>
               <p className="text-sm text-muted-foreground uppercase tracking-wider">Basic details and contact information</p>
             </div>
-            <div className="h-px bg-gradient-to-r from-tier-accent/20 via-tier-accent/40 to-tier-accent/20 mb-5 sm:mb-6" />
+            <div className="h-px bg-gradient-to-r from-tier-accent/20 via-tier-accent/40 to-tier-accent/20 mb-4 sm:mb-5" />
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
               <div className="space-y-1.5">
@@ -267,7 +267,7 @@ export default function Profile() {
               <h3 className="text-xl sm:text-2xl font-light tracking-tight mb-1">Address</h3>
               <p className="text-sm text-muted-foreground uppercase tracking-wider">Shipping address</p>
             </div>
-            <div className="h-px bg-gradient-to-r from-tier-accent/20 via-tier-accent/40 to-tier-accent/20 mb-5 sm:mb-6" />
+            <div className="h-px bg-gradient-to-r from-tier-accent/20 via-tier-accent/40 to-tier-accent/20 mb-4 sm:mb-5" />
             
             <div className="space-y-4 sm:space-y-5">
               <div className="space-y-1.5">
@@ -332,7 +332,7 @@ export default function Profile() {
               <h3 className="text-xl sm:text-2xl font-light tracking-tight mb-1">Emergency Contact</h3>
               <p className="text-sm text-muted-foreground uppercase tracking-wider">Primary emergency contact information</p>
             </div>
-            <div className="h-px bg-gradient-to-r from-tier-accent/20 via-tier-accent/40 to-tier-accent/20 mb-5 sm:mb-6" />
+            <div className="h-px bg-gradient-to-r from-tier-accent/20 via-tier-accent/40 to-tier-accent/20 mb-4 sm:mb-5" />
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
               <div className="space-y-1.5">
@@ -386,7 +386,7 @@ export default function Profile() {
               <h3 className="text-xl sm:text-2xl font-light tracking-tight mb-1">Lifetime Statistics</h3>
               <p className="text-sm text-muted-foreground uppercase tracking-wider">Your complete journey at a glance</p>
             </div>
-            <div className="h-px bg-gradient-to-r from-tier-accent/20 via-tier-accent/40 to-tier-accent/20 mb-5 sm:mb-6" />
+            <div className="h-px bg-gradient-to-r from-tier-accent/20 via-tier-accent/40 to-tier-accent/20 mb-4 sm:mb-5" />
             
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
               <div className="bg-card/30 border border-border/20 rounded-lg p-3 sm:p-4">
@@ -427,7 +427,7 @@ export default function Profile() {
               <h3 className="text-xl sm:text-2xl font-light tracking-tight mb-1">Events You've Attended</h3>
               <p className="text-sm text-muted-foreground uppercase tracking-wider">Your complete event history and results</p>
             </div>
-            <div className="h-px bg-gradient-to-r from-tier-accent/20 via-tier-accent/40 to-tier-accent/20 mb-5 sm:mb-6" />
+            <div className="h-px bg-gradient-to-r from-tier-accent/20 via-tier-accent/40 to-tier-accent/20 mb-4 sm:mb-5" />
 
             {pastEvents.length > 0 ? (
               <div className="space-y-3">
