@@ -443,7 +443,7 @@ export default function Profile() {
                           {event.name}
                         </span>
                         <span
-                          className="text-xs px-2 py-0.5 rounded-full uppercase tracking-[0.1em] font-light border shrink-0"
+                          className="text-sm px-2 py-0.5 rounded-full uppercase tracking-[0.1em] font-light border shrink-0"
                           style={{
                             borderColor: event.type === "Mountain" ? "hsl(var(--peak) / 0.4)" : "hsl(var(--ridge) / 0.4)",
                             backgroundColor: event.type === "Mountain" ? "hsl(var(--peak) / 0.1)" : "hsl(var(--ridge) / 0.1)",
