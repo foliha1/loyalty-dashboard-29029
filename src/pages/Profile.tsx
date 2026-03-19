@@ -109,7 +109,7 @@ export default function Profile() {
             {!isEditing ? (
               <Button
                 onClick={() => setIsEditing(true)}
-                className="bg-tier-accent hover:bg-tier-accent/90 text-black font-medium uppercase tracking-wider text-xs sm:text-sm min-h-[44px] px-4 sm:px-6 shadow-lg hover:shadow-xl transition-all"
+                className="bg-white hover:bg-white/90 text-black font-medium uppercase tracking-wider text-xs sm:text-sm min-h-[44px] px-4 sm:px-6 shadow-lg hover:shadow-xl transition-all"
               >
                 Edit Profile
               </Button>
@@ -118,13 +118,13 @@ export default function Profile() {
                 <Button
                   onClick={handleCancel}
                   variant="outline"
-                  className="uppercase tracking-wider text-xs sm:text-sm min-h-[44px] px-3 sm:px-4"
+                  className="uppercase tracking-wider text-xs sm:text-sm min-h-[44px] px-3 sm:px-4 border-white/30 text-white hover:bg-white/10"
                 >
                   Cancel
                 </Button>
                 <Button
                   onClick={handleSave}
-                  className="bg-tier-accent hover:bg-tier-accent/90 text-black font-semibold uppercase tracking-wider text-xs sm:text-sm min-h-[44px] px-4 sm:px-6 shadow-lg hover:shadow-xl transition-all"
+                  className="bg-white hover:bg-white/90 text-black font-semibold uppercase tracking-wider text-xs sm:text-sm min-h-[44px] px-4 sm:px-6 shadow-lg hover:shadow-xl transition-all"
                 >
                   <Save className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
                   Save Changes
@@ -439,7 +439,7 @@ export default function Profile() {
                     {/* Left: Name + Date + Type */}
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 flex-wrap">
-                        <span className="text-sm sm:text-base font-medium text-foreground truncate">
+                        <span className="text-sm sm:text-base font-medium text-white truncate">
                           {event.name}
                         </span>
                         <span
