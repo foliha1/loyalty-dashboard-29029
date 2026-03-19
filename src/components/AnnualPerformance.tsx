@@ -187,41 +187,24 @@ export const AnnualPerformance = () => {
       <div className="space-y-4">
         {/* Card 1 — EPs Summary + Breakdown */}
         <div className="card-29029 !overflow-visible p-4 sm:p-7 md:p-10">
-          {isCurrentYear && (
-            <div className="flex items-center gap-2 mb-4 sm:mb-5">
-              <span className="w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_6px_hsl(0_0%_100%/0.5)]" />
-              <span className="text-sm uppercase tracking-[0.2em] text-muted-foreground font-medium">
-                Current Year
-              </span>
-            </div>
-          )}
           {/* EPs summary */}
           <div className="mb-6 sm:mb-8">
-            {isCurrentYear ? (
-              <p className="type-metric-secondary text-foreground">
-                Your current <EPsLabel /> total is{" "}
-                <span className="underline decoration-1 underline-offset-4">
-                  {totalEP.toLocaleString()}
-                </span>
-              </p>
-            ) : (
-              <div className="flex flex-row items-start justify-between">
-                <div>
-                  <div className="text-subhead mb-2">
-                    Total <EPsLabel /> Earned
-                  </div>
-                  <div className="type-metric-secondary text-foreground">
-                    {totalEP.toLocaleString()}
-                  </div>
+            <div className="flex flex-row items-start justify-between">
+              <div>
+                <div className="text-subhead mb-2">
+                  {isCurrentYear ? "Total EPs" : <>Total <EPsLabel /> Earned</>}
                 </div>
-                <div className="flex flex-col items-end">
-                  <div className="text-subhead mb-2">Tier Achieved</div>
-                  <div className="type-metric-secondary" style={{ color: `hsl(var(--${tierColor}))` }}>
-                    {activeData.tierAchieved}
-                  </div>
+                <div className="type-metric-secondary text-foreground">
+                  {totalEP.toLocaleString()}
                 </div>
               </div>
-            )}
+              <div className="flex flex-col items-end">
+                <div className="text-subhead mb-2">{isCurrentYear ? "Current Tier" : "Tier Achieved"}</div>
+                <div className="type-metric-secondary" style={{ color: `hsl(var(--${tierColor}))` }}>
+                  {activeData.tierAchieved}
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* EP Breakdown */}
