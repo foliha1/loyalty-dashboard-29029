@@ -407,8 +407,8 @@ All colors MUST be HSL.
   .text-supporting {
     font-family: 'Inter', sans-serif;
     font-weight: 400;
-    font-size: 0.8125rem;
-    color: hsl(0 0% 40%) !important;
+    font-size: 0.875rem;
+    color: hsl(0 0% 58%) !important;
     text-align: left;
     line-height: 1.5;
   }

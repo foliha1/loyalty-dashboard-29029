@@ -139,7 +139,7 @@ export const TiersContinuum = () => {
       </div>
       <div className="pt-4 border-t border-border/20">
         <h5 className="text-base font-semibold tracking-tight text-foreground mb-3">Your Progress</h5>
-        <p className="text-sm text-muted-foreground leading-relaxed">
+        <p className="text-sm text-foreground/80 leading-relaxed">
           Your EPs accumulate over your entire member journey. Each tier unlocks new benefits 
           and experiences as you progress through Base, Ridge, and Peak tiers.
         </p>
