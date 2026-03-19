@@ -5,11 +5,56 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
-import { ArrowLeft, Save, Lock } from "lucide-react";
+import { ArrowLeft, Save, Lock, Check } from "lucide-react";
 import { toast } from "sonner";
 import { EPsLabel } from "@/components/EPsLabel";
 
 const RequiredAsterisk = () => <span className="text-[hsl(var(--peak))] ml-0.5">*</span>;
+
+interface PastEvent {
+  name: string;
+  date: string;
+  type: "Mountain" | "TRAIL";
+  finished: boolean;
+  progress?: string;
+  award?: string;
+}
+
+const pastEvents: PastEvent[] = [
+  {
+    name: "Snowbasin 2025",
+    date: "June 2025",
+    type: "Mountain",
+    finished: true,
+    award: "Black Bib",
+  },
+  {
+    name: "Whistler TRAIL 2025",
+    date: "August 2025",
+    type: "TRAIL",
+    finished: true,
+  },
+  {
+    name: "Stratton 2024",
+    date: "September 2024",
+    type: "Mountain",
+    finished: false,
+    progress: "Summit 12 of 17",
+  },
+  {
+    name: "Sun Valley 2024",
+    date: "June 2024",
+    type: "Mountain",
+    finished: true,
+  },
+  {
+    name: "Tahoe TRAIL 2023",
+    date: "May 2023",
+    type: "TRAIL",
+    finished: true,
+    award: "5x Award",
+  },
+];
 
 export default function Profile() {
   const navigate = useNavigate();
@@ -336,7 +381,7 @@ export default function Profile() {
           </Card>
 
           {/* Lifetime Stats (Read-only) */}
-          <Card className="card-29029 p-5 sm:p-6 md:p-8">
+          <Card className="card-29029 p-5 sm:p-6 md:p-8 mb-5 sm:mb-6">
             <div className="mb-4 sm:mb-5">
               <h3 className="text-xl sm:text-2xl font-light tracking-tight mb-1">Lifetime Statistics</h3>
               <p className="text-sm text-muted-foreground uppercase tracking-wider">Your complete journey at a glance</p>
@@ -374,6 +419,69 @@ export default function Profile() {
                 <div className="text-2xl sm:text-3xl font-light tracking-tight">1,044</div>
               </div>
             </div>
+          </Card>
+
+          {/* Events You've Attended */}
+          <Card className="card-29029 p-5 sm:p-6 md:p-8">
+            <div className="mb-4 sm:mb-5">
+              <h3 className="text-xl sm:text-2xl font-light tracking-tight mb-1">Events You've Attended</h3>
+              <p className="text-sm text-muted-foreground uppercase tracking-wider">Your complete event history and results</p>
+            </div>
+            <div className="h-px bg-gradient-to-r from-tier-accent/20 via-tier-accent/40 to-tier-accent/20 mb-5 sm:mb-6" />
+
+            {pastEvents.length > 0 ? (
+              <div className="space-y-3">
+                {pastEvents.map((event, idx) => (
+                  <div
+                    key={idx}
+                    className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4 p-3 sm:p-4 rounded-lg border border-border/20 bg-card/30"
+                  >
+                    {/* Left: Name + Date + Type */}
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <span className="text-sm sm:text-base font-medium text-foreground truncate">
+                          {event.name}
+                        </span>
+                        <span
+                          className="text-xs px-2 py-0.5 rounded-full uppercase tracking-[0.1em] font-light border shrink-0"
+                          style={{
+                            borderColor: event.type === "Mountain" ? "hsl(var(--peak) / 0.4)" : "hsl(var(--ridge) / 0.4)",
+                            backgroundColor: event.type === "Mountain" ? "hsl(var(--peak) / 0.1)" : "hsl(var(--ridge) / 0.1)",
+                            color: event.type === "Mountain" ? "hsl(var(--peak))" : "hsl(var(--ridge))",
+                          }}
+                        >
+                          {event.type === "Mountain" ? "Mountain" : "TRAIL"}
+                        </span>
+                      </div>
+                      <div className="text-sm text-muted-foreground mt-0.5">{event.date}</div>
+                    </div>
+
+                    {/* Right: Result + Award */}
+                    <div className="flex items-center gap-3 shrink-0">
+                      {event.finished ? (
+                        <span className="inline-flex items-center gap-1 text-sm text-emerald-400">
+                          <Check className="w-4 h-4" />
+                          Finished
+                        </span>
+                      ) : (
+                        <span className="text-sm text-muted-foreground">{event.progress}</span>
+                      )}
+                      {event.award && (
+                        <span className="text-xs px-2.5 py-1 rounded-full bg-foreground/10 border border-foreground/20 text-foreground uppercase tracking-[0.1em] font-medium">
+                          {event.award}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-8">
+                <p className="text-sm text-muted-foreground">
+                  No past events yet — your journey starts with your first event.
+                </p>
+              </div>
+            )}
           </Card>
         </div>
       </main>
