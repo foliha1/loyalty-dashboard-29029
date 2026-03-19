@@ -50,7 +50,7 @@ const IndexContent = () => {
       />
 
       {/* Your Journey + remaining sections — new chapter, flatter bg */}
-      <div style={{ background: 'hsl(0 0% 5%)' }}>
+      <div style={{ background: 'hsl(var(--surface-chapter))' }}>
         <div className="container mx-auto px-4 md:px-10 lg:px-12 max-w-7xl">
           {/* Continue the Journey (unified annual performance) */}
           <div 
