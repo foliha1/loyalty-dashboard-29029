@@ -43,13 +43,13 @@ const MilestoneBadges = ({ current, color = "ridge" }: { current: number; color?
         return (
           <div
             key={m.name}
-            className={`rounded-lg border text-center flex flex-col items-center justify-center p-2.5 md:p-4 transition-all ${
+            className={`rounded-lg border text-center flex flex-col items-center justify-center p-2 sm:p-3 md:p-4 transition-all ${
               unlocked
                 ? `border-white/20 bg-white/5 shadow-[0_0_12px_-4px_hsl(var(--${color})/0.3)]`
                 : "border-white/5 bg-white/[0.02] opacity-60"
             }`}
           >
-            <div className={`text-[10px] sm:text-xs uppercase tracking-wider font-medium mb-2 ${unlocked ? "text-white" : "text-muted-foreground"}`}>
+            <div className={`text-[10px] sm:text-xs uppercase tracking-wide sm:tracking-wider font-medium mb-2 ${unlocked ? "text-white" : "text-muted-foreground"}`}>
               {m.name}
             </div>
             {unlocked ? (

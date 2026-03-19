@@ -115,7 +115,7 @@ const MilestoneBadges = ({ current, color = "ridge" }: { current: number; color?
                 : "border-border/10 bg-card/20 opacity-60"
             }`}
           >
-            <div className={`text-[10px] sm:text-xs uppercase tracking-wider font-medium mb-2 ${unlocked ? "text-foreground" : "text-muted-foreground"}`}>
+            <div className={`text-[10px] sm:text-xs uppercase tracking-wide sm:tracking-wider font-medium mb-2 ${unlocked ? "text-foreground" : "text-muted-foreground"}`}>
               {m.name}
             </div>
             {unlocked ? (

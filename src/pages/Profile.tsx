@@ -127,7 +127,8 @@ export default function Profile() {
                   className="bg-white hover:bg-white/90 text-black font-semibold uppercase tracking-wider text-sm min-h-[44px] px-4 sm:px-6 shadow-lg hover:shadow-xl transition-all"
                 >
                   <Save className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
-                  Save Changes
+                  <span className="hidden sm:inline">Save Changes</span>
+                  <span className="sm:hidden">Save</span>
                 </Button>
               </div>
             )}
