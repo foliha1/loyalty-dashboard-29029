@@ -73,8 +73,12 @@ const availableYears = Array.from(
   (_, i) => currentYear - i
 );
 
-// Recognition ladder milestones
-const milestones = [1, 2, 3, 4, "5x", "10x"];
+// Fixed milestone markers for awards
+const fixedMilestones = [
+  { value: 3, label: "Black Bib" },
+  { value: 5, label: "5x Award" },
+  { value: 10, label: "10x Award" },
+];
 
 // ── Sub-components ───────────────────────────────────
 
@@ -98,25 +102,23 @@ const KPICard = ({ label, value, compact }: { label: string; value: string | num
 );
 
 const RecognitionLadder = ({ current, color = "ridge" }: { current: number; color?: "peak" | "ridge" }) => {
-  const getProgressPercent = () => {
-    const idx = milestones.findIndex((m) =>
-      typeof m === "number" ? m === current : m === `${current}x`
-    );
-    if (idx === -1) return 0;
-    return ((idx + 1) / milestones.length) * 100;
-  };
+  // Dynamic max: at least 10, or round up past the user's count
+  const axisMax = Math.max(10, Math.ceil((current + 1) / 5) * 5);
+  // Axis ticks: 0 through axisMax
+  const ticks = Array.from({ length: axisMax + 1 }, (_, i) => i);
+  const progressPercent = Math.min(100, (current / axisMax) * 100);
 
   return (
     <div className="mt-6 md:mt-8">
       <div className="relative h-1.5 bg-muted/20 rounded-full overflow-hidden">
         <div
           className={`absolute inset-y-0 left-0 rounded-full transition-all duration-700 ease-out ${color === "peak" ? "bg-peak" : "bg-ridge"}`}
-          style={{ width: `${getProgressPercent()}%` }}
+          style={{ width: `${progressPercent}%` }}
         />
         <div
           className="absolute top-1/2 -translate-y-1/2 w-0 h-0 transition-all duration-700 ease-out"
           style={{
-            left: `${getProgressPercent()}%`,
+            left: `${progressPercent}%`,
             borderTop: "5px solid transparent",
             borderBottom: "5px solid transparent",
             borderLeft: `7px solid hsl(var(--${color}))`,
@@ -125,17 +127,17 @@ const RecognitionLadder = ({ current, color = "ridge" }: { current: number; colo
         />
       </div>
       <div className="flex justify-between mt-3 px-1">
-        {milestones.map((milestone, idx) => {
-          const isCurrent = typeof milestone === "number" ? milestone === current : milestone === `${current}x`;
-          const isPast = typeof milestone === "number" ? milestone < current : parseInt(String(milestone)) < current;
+        {ticks.map((tick) => {
+          const isPast = tick <= current;
+          const milestone = fixedMilestones.find((m) => m.value === tick);
           return (
-            <div key={idx} className="flex flex-col items-center">
-              <span className={`text-sm font-light ${isCurrent || isPast ? (color === "peak" ? "text-peak" : "text-ridge") : "text-muted-foreground"}`}>
-                {milestone}
+            <div key={tick} className="flex flex-col items-center" style={{ minWidth: 0, flex: '1 1 0' }}>
+              <span className={`text-sm font-light ${isPast ? (color === "peak" ? "text-peak" : "text-ridge") : "text-muted-foreground"}`}>
+                {tick}
               </span>
-              {milestone === 3 && (
-                <span className="text-xs uppercase tracking-[0.15em] text-muted-foreground mt-2 font-medium">
-                  Black Bib
+              {milestone && (
+                <span className="text-xs uppercase tracking-[0.12em] text-muted-foreground mt-2 font-medium whitespace-nowrap">
+                  {milestone.label}
                 </span>
               )}
             </div>
@@ -278,7 +280,7 @@ export const AnnualPerformance = () => {
           <TabsContent value="mountain" className="mt-0">
             <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4">
               <KPICard label="Total Events" value={activeData.mountain.totalEvents} />
-              <KPICard label="# of Summits" value={activeData.mountain.summits} />
+              <KPICard label="# of Finishes" value={activeData.mountain.summits} />
               <KPICard label="Total Vert Ft" value={activeData.mountain.verticalFeet} compact />
             </div>
             <RecognitionLadder current={activeData.mountain.recognition} color="peak" />

@@ -17,8 +17,12 @@ const trailData = {
   currentRecognition: 2
 };
 
-// Recognition ladder milestones
-const milestones = [1, 2, 3, 4, "5x", "10x"];
+// Fixed milestone markers for awards
+const fixedMilestones = [
+  { value: 3, label: "Black Bib" },
+  { value: 5, label: "5x Award" },
+  { value: 10, label: "10x Award" },
+];
 
 // KPI Card component - simplified, premium styling
 const KPICard = ({ label, value }: { label: string; value: string | number }) => (
@@ -34,14 +38,9 @@ const KPICard = ({ label, value }: { label: string; value: string | number }) =>
 
 // Recognition Ladder component - color based on tier type
 const RecognitionLadder = ({ current, color = 'ridge' }: { current: number; color?: 'peak' | 'ridge' }) => {
-  // Calculate progress percentage based on current recognition
-  const getProgressPercent = () => {
-    const milestoneIndex = milestones.findIndex(m => 
-      typeof m === 'number' ? m === current : m === `${current}x`
-    );
-    if (milestoneIndex === -1) return 0;
-    return ((milestoneIndex + 1) / milestones.length) * 100;
-  };
+  const axisMax = Math.max(10, Math.ceil((current + 1) / 5) * 5);
+  const ticks = Array.from({ length: axisMax + 1 }, (_, i) => i);
+  const progressPercent = Math.min(100, (current / axisMax) * 100);
 
   return (
     <div className="mt-4 md:mt-6">
@@ -49,13 +48,13 @@ const RecognitionLadder = ({ current, color = 'ridge' }: { current: number; colo
       <div className="relative h-2 bg-white/10 rounded-full overflow-hidden">
         <div 
           className={`absolute inset-y-0 left-0 rounded-full transition-all duration-500 ${color === 'peak' ? 'bg-peak' : 'bg-ridge'}`}
-          style={{ width: `${getProgressPercent()}%` }}
+          style={{ width: `${progressPercent}%` }}
         />
         {/* Arrow head */}
         <div 
           className="absolute top-1/2 -translate-y-1/2 w-0 h-0 transition-all duration-500"
           style={{
-            left: `${getProgressPercent()}%`,
+            left: `${progressPercent}%`,
             borderTop: '6px solid transparent',
             borderBottom: '6px solid transparent',
             borderLeft: `8px solid hsl(var(--${color}))`,
@@ -66,27 +65,22 @@ const RecognitionLadder = ({ current, color = 'ridge' }: { current: number; colo
 
       {/* Milestone markers */}
       <div className="flex justify-between mt-3 px-1">
-        {milestones.map((milestone, idx) => {
-          const isCurrent = typeof milestone === 'number' 
-            ? milestone === current 
-            : milestone === `${current}x`;
-          const isPast = typeof milestone === 'number' 
-            ? milestone < current 
-            : parseInt(String(milestone)) < current;
+        {ticks.map((tick) => {
+          const isPast = tick <= current;
+          const milestone = fixedMilestones.find((m) => m.value === tick);
 
           return (
-            <div key={idx} className="flex flex-col items-center">
-                <span 
+            <div key={tick} className="flex flex-col items-center" style={{ minWidth: 0, flex: '1 1 0' }}>
+              <span 
                 className={`text-sm font-light ${
-                  isCurrent || isPast ? (color === 'peak' ? 'text-peak' : 'text-ridge') : 'text-muted-foreground'
+                  isPast ? (color === 'peak' ? 'text-peak' : 'text-ridge') : 'text-muted-foreground'
                 }`}
               >
-                {milestone}
+                {tick}
               </span>
-              {/* BLACK BIB label under milestone 3 */}
-              {milestone === 3 && (
-                <span className="text-xs uppercase tracking-[0.15em] text-muted-foreground mt-2 font-medium">
-                  Black Bib
+              {milestone && (
+                <span className="text-xs uppercase tracking-[0.12em] text-muted-foreground mt-2 font-medium whitespace-nowrap">
+                  {milestone.label}
                 </span>
               )}
             </div>
@@ -134,7 +128,7 @@ export const CalendarGrid = () => {
             {/* KPIs Row */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 md:gap-3">
               <KPICard label="Total Events" value={mountainData.totalEvents} />
-              <KPICard label="# of Summits" value={mountainData.summits} />
+              <KPICard label="# of Finishes" value={mountainData.summits} />
               <KPICard label="Total Vert Ft" value={mountainData.verticalFeet.toLocaleString()} />
             </div>
 
