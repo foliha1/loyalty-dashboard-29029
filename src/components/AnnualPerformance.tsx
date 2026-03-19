@@ -105,8 +105,8 @@ const milestones = [
 ];
 
 const MilestoneBadges = ({ current, color = "ridge" }: { current: number; color?: "peak" | "ridge" }) => (
-  <div className="mt-4 sm:mt-6">
-    <div className="text-subhead mb-3">Finish Milestones</div>
+  <div className="mt-3 sm:mt-6">
+    <div className="text-xs sm:text-sm uppercase tracking-[0.1em] sm:tracking-[0.2em] font-medium text-foreground/90 mb-2">Finish Milestones</div>
     <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4">
       {milestones.map((m) => {
         const unlocked = current >= m.threshold;
