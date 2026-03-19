@@ -214,7 +214,7 @@ export const AnnualPerformance = () => {
         </div>
 
         {/* EP Breakdown */}
-        <h4 className="text-xs uppercase tracking-[0.2em] font-medium text-foreground/90 mb-5">EPs Breakdown</h4>
+        <h4 className="text-sm uppercase tracking-[0.2em] font-medium text-foreground/90 mb-5">EPs Breakdown</h4>
         <div className="grid grid-cols-3 gap-4 md:gap-8 mb-8 sm:mb-10">
           {([
             ["Events", data.eps.events],
