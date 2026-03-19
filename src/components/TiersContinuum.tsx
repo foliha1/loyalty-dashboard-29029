@@ -162,7 +162,7 @@ export const TiersContinuum = () => {
         <div className="flex flex-col items-center sm:flex-row sm:items-start sm:justify-between mb-4 sm:mb-8 md:mb-12">
           <div className="flex flex-col text-center sm:text-left">
             <div className="text-subhead mb-2 sm:mb-3">Current Loyalty Tier</div>
-            <h4 className="text-3xl md:text-6xl font-light tracking-tight" style={{
+            <h4 className="type-metric-primary" style={{
               color: currentTier ? `hsl(var(--${currentTier.color}))` : 'hsl(var(--tier-gold))'
             }}>
               {currentTierName}
@@ -192,7 +192,7 @@ export const TiersContinuum = () => {
           </div>
           <div className="flex flex-col text-center sm:text-right mt-4 sm:mt-0">
             <div className="text-subhead mb-2 sm:mb-3">Total EPs</div>
-            <div className="text-3xl md:text-6xl font-light tracking-tight tabular-nums">
+            <div className="type-metric-primary tabular-nums">
               {animatedEP}
             </div>
             {/* Desktop-only link */}
@@ -333,13 +333,13 @@ export const TiersContinuum = () => {
           <div className="flex flex-row items-start justify-between">
             <div>
               <div className="text-subhead mb-2">Next Milestone</div>
-              <div className="text-xl md:text-3xl font-light tracking-tight">
+              <div className="type-metric-secondary">
                 {nextTierName}
               </div>
             </div>
             <div className="text-right">
               <div className="text-subhead mb-2">EPs Needed</div>
-              <div className="text-xl md:text-3xl font-light tracking-tight tabular-nums" style={{
+              <div className="type-metric-secondary tabular-nums" style={{
                 color: currentTier ? `hsl(var(--${currentTier.color}))` : 'hsl(var(--tier-gold))'
               }}>
                 {remainingEP}

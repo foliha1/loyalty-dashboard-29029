@@ -141,7 +141,7 @@ export default function Profile() {
         <div className="max-w-4xl mx-auto">
           {/* Page Title */}
           <div className="mb-6 sm:mb-8">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight mb-2">Member Profile</h1>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-light tracking-tight mb-2">Member Profile</h1>
             <p className="text-muted-foreground text-sm sm:text-base">Manage your personal information and member details</p>
           </div>
 
@@ -169,7 +169,7 @@ export default function Profile() {
               </div>
               
               <div className="flex-1 text-center md:text-left">
-                <h2 className="text-2xl sm:text-3xl font-light tracking-tight mb-2">
+                <h2 className="type-metric-secondary mb-2">
                   {profileData.firstName} {profileData.lastName}
                 </h2>
                 <div className="space-y-1 text-foreground/70">
@@ -392,32 +392,32 @@ export default function Profile() {
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
               <div className="bg-card/30 border border-border/20 rounded-lg p-3 sm:p-4">
                 <div className="text-sm text-muted-foreground mb-1 sm:mb-1.5 uppercase tracking-wider">Total Elevation</div>
-                <div className="text-2xl sm:text-3xl font-light tracking-tight">145,800 ft</div>
+                <div className="type-metric-secondary">145,800 ft</div>
               </div>
               
               <div className="bg-card/30 border border-border/20 rounded-lg p-3 sm:p-4">
                 <div className="text-sm text-muted-foreground mb-1 sm:mb-1.5 uppercase tracking-wider">Miles Climbed</div>
-                <div className="text-2xl sm:text-3xl font-light tracking-tight">87.4 mi</div>
+                <div className="type-metric-secondary">87.4 mi</div>
               </div>
               
               <div className="bg-card/30 border border-border/20 rounded-lg p-3 sm:p-4">
                 <div className="text-sm text-muted-foreground mb-1 sm:mb-1.5 uppercase tracking-wider">Events</div>
-                <div className="text-2xl sm:text-3xl font-light tracking-tight">9</div>
+                <div className="type-metric-secondary">9</div>
               </div>
               
               <div className="bg-card/30 border border-border/20 rounded-lg p-3 sm:p-4">
                 <div className="text-sm text-muted-foreground mb-1 sm:mb-1.5 uppercase tracking-wider">Total <EPsLabel showInfo /></div>
-                <div className="text-2xl sm:text-3xl font-light tracking-tight">1,440</div>
+                <div className="type-metric-secondary">1,440</div>
               </div>
               
               <div className="bg-card/30 border border-border/20 rounded-lg p-3 sm:p-4">
                 <div className="text-sm text-muted-foreground mb-1 sm:mb-1.5 uppercase tracking-wider">Coaching</div>
-                <div className="text-2xl sm:text-3xl font-light tracking-tight">12</div>
+                <div className="type-metric-secondary">12</div>
               </div>
               
               <div className="bg-card/30 border border-border/20 rounded-lg p-3 sm:p-4">
                 <div className="text-sm text-muted-foreground mb-1 sm:mb-1.5 uppercase tracking-wider">Days Active</div>
-                <div className="text-2xl sm:text-3xl font-light tracking-tight">1,044</div>
+                <div className="type-metric-secondary">1,044</div>
               </div>
             </div>
           </Card>

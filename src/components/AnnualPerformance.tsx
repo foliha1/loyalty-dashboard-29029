@@ -234,7 +234,7 @@ export const AnnualPerformance = () => {
             ] as const).map(([label, val]) => (
               <div key={label}>
                 <div className="text-subhead mb-2.5">{label}</div>
-                <div className="text-xl sm:text-2xl md:text-3xl font-light tracking-tight tabular-nums text-foreground">
+                <div className="type-metric-secondary tabular-nums text-foreground">
                   {val}
                 </div>
                 <div className="text-xs text-muted-foreground font-light mt-0.5">EPs</div>
