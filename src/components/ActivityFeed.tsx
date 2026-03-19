@@ -24,7 +24,7 @@ const yearlyActivities: YearlyActivity[] = [{
   year: 2025,
   events: {
     total: 3,
-    attended: ["Snowbasin", "Whistler", "Trail Tahoe"],
+    attended: ["Snowbasin", "Whistler", "TRAIL Tahoe"],
     totalEP: 290
   },
   apparel: {
