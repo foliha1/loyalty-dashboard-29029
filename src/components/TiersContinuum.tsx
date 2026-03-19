@@ -191,7 +191,7 @@ export const TiersContinuum = () => {
           </div>
           <div className="flex flex-col text-right">
             <div className="text-subhead mb-2 sm:mb-3">Total EPs</div>
-            <div className="text-3xl md:text-6xl font-light tracking-tight tabular-nums">
+            <div className="text-2xl md:text-6xl font-light tracking-tight tabular-nums">
               {animatedEP}
             </div>
             <Dialog>
