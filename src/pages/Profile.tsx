@@ -5,15 +5,16 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
-import { ArrowLeft, Save } from "lucide-react";
+import { ArrowLeft, Save, Lock } from "lucide-react";
 import { toast } from "sonner";
 import { EPsLabel } from "@/components/EPsLabel";
+
+const RequiredAsterisk = () => <span className="text-[hsl(var(--peak))] ml-0.5">*</span>;
 
 export default function Profile() {
   const navigate = useNavigate();
   const [isEditing, setIsEditing] = useState(false);
   
-  // Member profile data
   const [profileData, setProfileData] = useState({
     firstName: "Alex",
     lastName: "Rivera",
@@ -26,6 +27,7 @@ export default function Profile() {
     zipCode: "80202",
     emergencyContact: "Maria Rivera",
     emergencyPhone: "+1 (555) 987-6543",
+    emergencyRelationship: "Spouse",
     memberId: "AR-5847",
     joinDate: "January 2023"
   });
@@ -35,7 +37,6 @@ export default function Profile() {
   };
 
   const handleSave = () => {
-    // Here you would typically save to a database
     setIsEditing(false);
     toast.success("Profile updated successfully!");
   };
@@ -49,7 +50,7 @@ export default function Profile() {
     <div className="min-h-screen bg-background">
       {/* Header with Back Button */}
       <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container mx-auto px-5 sm:px-6 md:px-10 lg:px-12 py-5 sm:py-6">
+        <div className="container mx-auto px-5 sm:px-6 md:px-10 lg:px-12 py-4 sm:py-5">
           <div className="flex items-center justify-between gap-3 sm:gap-4">
             <button
               onClick={() => navigate("/")}
@@ -90,19 +91,19 @@ export default function Profile() {
       </header>
 
       {/* Main Content */}
-      <main className="container mx-auto px-5 sm:px-6 md:px-10 lg:px-12 py-8 sm:py-10 md:py-12 pb-20">
+      <main className="container mx-auto px-5 sm:px-6 md:px-10 lg:px-12 py-6 sm:py-8 pb-16">
         <div className="max-w-4xl mx-auto">
           {/* Page Title */}
-          <div className="mb-10 sm:mb-12 md:mb-14">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight mb-3 sm:mb-4">Member Profile</h1>
+          <div className="mb-6 sm:mb-8">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight mb-2">Member Profile</h1>
             <p className="!text-muted-foreground text-sm sm:text-base">Manage your personal information and member details</p>
           </div>
 
           {/* Profile Avatar Section */}
-          <Card className="card-29029 p-6 sm:p-8 md:p-10 mb-8 sm:mb-10">
-            <div className="flex flex-col md:flex-row items-center md:items-start gap-6 sm:gap-8">
+          <Card className="card-29029 p-5 sm:p-6 md:p-8 mb-5 sm:mb-6">
+            <div className="flex flex-col md:flex-row items-center md:items-start gap-5 sm:gap-6">
               <div className="relative">
-                <Avatar className="w-28 h-28 sm:w-32 sm:h-32 border-2 border-tier-accent/50">
+                <Avatar className="w-24 h-24 sm:w-28 sm:h-28 border-2 border-tier-accent/50">
                   <AvatarImage src="https://i.pravatar.cc/300?img=12" alt="Profile" />
                   <AvatarFallback className="bg-secondary text-foreground text-3xl">
                     {profileData.firstName[0]}{profileData.lastName[0]}
@@ -122,10 +123,10 @@ export default function Profile() {
               </div>
               
               <div className="flex-1 text-center md:text-left">
-                <h2 className="text-2xl sm:text-3xl font-light tracking-tight mb-3 sm:mb-4">
+                <h2 className="text-2xl sm:text-3xl font-light tracking-tight mb-2">
                   {profileData.firstName} {profileData.lastName}
                 </h2>
-                <div className="space-y-1.5 text-foreground/70">
+                <div className="space-y-1 text-foreground/70">
                   <p className="font-mono text-xs sm:text-sm uppercase tracking-wider">Member ID: {profileData.memberId}</p>
                   <p className="text-xs sm:text-sm uppercase tracking-wider">Member Since: {profileData.joinDate}</p>
                 </div>
@@ -134,17 +135,17 @@ export default function Profile() {
           </Card>
 
           {/* Personal Information */}
-          <Card className="card-29029 p-6 sm:p-8 md:p-10 mb-8 sm:mb-10">
-            <div className="mb-8 sm:mb-10">
-              <h3 className="text-xl sm:text-2xl font-light tracking-tight mb-1.5">Personal Information</h3>
+          <Card className="card-29029 p-5 sm:p-6 md:p-8 mb-5 sm:mb-6">
+            <div className="mb-4 sm:mb-5">
+              <h3 className="text-xl sm:text-2xl font-light tracking-tight mb-1">Personal Information</h3>
               <p className="text-sm text-muted-foreground uppercase tracking-wider">Basic details and contact information</p>
             </div>
-            <div className="h-px bg-gradient-to-r from-tier-accent/20 via-tier-accent/40 to-tier-accent/20 mb-8 sm:mb-10" />
+            <div className="h-px bg-gradient-to-r from-tier-accent/20 via-tier-accent/40 to-tier-accent/20 mb-5 sm:mb-6" />
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-7 md:gap-8">
-              <div className="space-y-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+              <div className="space-y-1.5">
                 <Label htmlFor="firstName" className="text-sm uppercase tracking-wider text-muted-foreground font-medium block">
-                  First Name *
+                  First Name<RequiredAsterisk />
                 </Label>
                 <Input
                   id="firstName"
@@ -156,9 +157,9 @@ export default function Profile() {
                 />
               </div>
 
-              <div className="space-y-2">
+              <div className="space-y-1.5">
                 <Label htmlFor="lastName" className="text-sm uppercase tracking-wider text-muted-foreground font-medium block">
-                  Last Name *
+                  Last Name<RequiredAsterisk />
                 </Label>
                 <Input
                   id="lastName"
@@ -170,24 +171,23 @@ export default function Profile() {
                 />
               </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="email" className="text-sm uppercase tracking-wider text-muted-foreground font-medium block">
-                  Email Address *
+              <div className="space-y-1.5">
+                <Label htmlFor="email" className="text-sm uppercase tracking-wider text-muted-foreground font-medium block inline-flex items-center gap-1.5">
+                  Email Address
+                  <Lock className="w-3 h-3 text-muted-foreground" />
                 </Label>
                 <Input
                   id="email"
                   type="email"
                   value={profileData.email}
-                  onChange={(e) => handleInputChange("email", e.target.value)}
-                  disabled={!isEditing}
-                  placeholder="your.email@example.com"
-                  required
+                  disabled
+                  className="opacity-60 cursor-not-allowed"
                 />
               </div>
 
-              <div className="space-y-2">
+              <div className="space-y-1.5">
                 <Label htmlFor="phone" className="text-sm uppercase tracking-wider text-muted-foreground font-medium block">
-                  Phone Number
+                  Phone Number<RequiredAsterisk />
                 </Label>
                 <Input
                   id="phone"
@@ -196,12 +196,13 @@ export default function Profile() {
                   onChange={(e) => handleInputChange("phone", e.target.value)}
                   disabled={!isEditing}
                   placeholder="+1 (555) 000-0000"
+                  required
                 />
               </div>
 
-              <div className="space-y-2">
+              <div className="space-y-1.5">
                 <Label htmlFor="birthday" className="text-sm uppercase tracking-wider text-muted-foreground font-medium block">
-                  Date of Birth
+                  Date of Birth<RequiredAsterisk />
                 </Label>
                 <Input
                   id="birthday"
@@ -209,21 +210,22 @@ export default function Profile() {
                   value={profileData.birthday}
                   onChange={(e) => handleInputChange("birthday", e.target.value)}
                   disabled={!isEditing}
+                  required
                 />
               </div>
             </div>
           </Card>
 
           {/* Address Information */}
-          <Card className="card-29029 p-6 sm:p-8 md:p-10 mb-8 sm:mb-10">
-            <div className="mb-8 sm:mb-10">
-              <h3 className="text-xl sm:text-2xl font-light tracking-tight mb-1.5">Address</h3>
-              <p className="text-sm text-muted-foreground uppercase tracking-wider">Mailing and billing address</p>
+          <Card className="card-29029 p-5 sm:p-6 md:p-8 mb-5 sm:mb-6">
+            <div className="mb-4 sm:mb-5">
+              <h3 className="text-xl sm:text-2xl font-light tracking-tight mb-1">Address</h3>
+              <p className="text-sm text-muted-foreground uppercase tracking-wider">Shipping address</p>
             </div>
-            <div className="h-px bg-gradient-to-r from-tier-accent/20 via-tier-accent/40 to-tier-accent/20 mb-8 sm:mb-10" />
+            <div className="h-px bg-gradient-to-r from-tier-accent/20 via-tier-accent/40 to-tier-accent/20 mb-5 sm:mb-6" />
             
-            <div className="space-y-6 sm:space-y-7 md:space-y-8">
-              <div className="space-y-2">
+            <div className="space-y-4 sm:space-y-5">
+              <div className="space-y-1.5">
                 <Label htmlFor="address" className="text-sm uppercase tracking-wider text-muted-foreground font-medium block">
                   Street Address
                 </Label>
@@ -236,8 +238,8 @@ export default function Profile() {
                 />
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-7 md:gap-8">
-                <div className="space-y-2">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
+                <div className="space-y-1.5">
                   <Label htmlFor="city" className="text-sm uppercase tracking-wider text-muted-foreground font-medium block">
                     City
                   </Label>
@@ -250,7 +252,7 @@ export default function Profile() {
                   />
                 </div>
 
-                <div className="space-y-2">
+                <div className="space-y-1.5">
                   <Label htmlFor="state" className="text-sm uppercase tracking-wider text-muted-foreground font-medium block">
                     State
                   </Label>
@@ -263,7 +265,7 @@ export default function Profile() {
                   />
                 </div>
 
-                <div className="space-y-2">
+                <div className="space-y-1.5">
                   <Label htmlFor="zipCode" className="text-sm uppercase tracking-wider text-muted-foreground font-medium block">
                     Zip Code
                   </Label>
@@ -280,17 +282,17 @@ export default function Profile() {
           </Card>
 
           {/* Emergency Contact */}
-          <Card className="card-29029 p-6 sm:p-8 md:p-10 mb-8 sm:mb-10">
-            <div className="mb-8 sm:mb-10">
-              <h3 className="text-xl sm:text-2xl font-light tracking-tight mb-1.5">Emergency Contact</h3>
+          <Card className="card-29029 p-5 sm:p-6 md:p-8 mb-5 sm:mb-6">
+            <div className="mb-4 sm:mb-5">
+              <h3 className="text-xl sm:text-2xl font-light tracking-tight mb-1">Emergency Contact</h3>
               <p className="text-sm text-muted-foreground uppercase tracking-wider">Primary emergency contact information</p>
             </div>
-            <div className="h-px bg-gradient-to-r from-tier-accent/20 via-tier-accent/40 to-tier-accent/20 mb-8 sm:mb-10" />
+            <div className="h-px bg-gradient-to-r from-tier-accent/20 via-tier-accent/40 to-tier-accent/20 mb-5 sm:mb-6" />
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-7 md:gap-8">
-              <div className="space-y-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+              <div className="space-y-1.5">
                 <Label htmlFor="emergencyContact" className="text-sm uppercase tracking-wider text-muted-foreground font-medium block">
-                  Contact Name *
+                  Contact Name<RequiredAsterisk />
                 </Label>
                 <Input
                   id="emergencyContact"
@@ -302,9 +304,9 @@ export default function Profile() {
                 />
               </div>
 
-              <div className="space-y-2">
+              <div className="space-y-1.5">
                 <Label htmlFor="emergencyPhone" className="text-sm uppercase tracking-wider text-muted-foreground font-medium block">
-                  Contact Phone *
+                  Contact Phone<RequiredAsterisk />
                 </Label>
                 <Input
                   id="emergencyPhone"
@@ -316,44 +318,59 @@ export default function Profile() {
                   required
                 />
               </div>
+
+              <div className="space-y-1.5">
+                <Label htmlFor="emergencyRelationship" className="text-sm uppercase tracking-wider text-muted-foreground font-medium block">
+                  Relationship<RequiredAsterisk />
+                </Label>
+                <Input
+                  id="emergencyRelationship"
+                  value={profileData.emergencyRelationship}
+                  onChange={(e) => handleInputChange("emergencyRelationship", e.target.value)}
+                  disabled={!isEditing}
+                  placeholder="e.g. Spouse, Parent, Friend"
+                  required
+                />
+              </div>
             </div>
           </Card>
+
           {/* Lifetime Stats (Read-only) */}
-          <Card className="card-29029 p-6 sm:p-8 md:p-10">
-            <div className="mb-8 sm:mb-10">
-              <h3 className="text-xl sm:text-2xl font-light tracking-tight mb-1.5">Lifetime Statistics</h3>
+          <Card className="card-29029 p-5 sm:p-6 md:p-8">
+            <div className="mb-4 sm:mb-5">
+              <h3 className="text-xl sm:text-2xl font-light tracking-tight mb-1">Lifetime Statistics</h3>
               <p className="text-sm text-muted-foreground uppercase tracking-wider">Your complete journey at a glance</p>
             </div>
-            <div className="h-px bg-gradient-to-r from-tier-accent/20 via-tier-accent/40 to-tier-accent/20 mb-8 sm:mb-10" />
+            <div className="h-px bg-gradient-to-r from-tier-accent/20 via-tier-accent/40 to-tier-accent/20 mb-5 sm:mb-6" />
             
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
-              <div className="bg-card/30 border border-border/20 rounded-lg p-4 sm:p-5 md:p-6">
-                <div className="text-xs sm:text-sm text-muted-foreground mb-1.5 sm:mb-2 uppercase tracking-wider">Total Elevation</div>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
+              <div className="bg-card/30 border border-border/20 rounded-lg p-3 sm:p-4">
+                <div className="text-xs sm:text-sm text-muted-foreground mb-1 sm:mb-1.5 uppercase tracking-wider">Total Elevation</div>
                 <div className="text-2xl sm:text-3xl font-light tracking-tight">145,800 ft</div>
               </div>
               
-              <div className="bg-card/30 border border-border/20 rounded-lg p-4 sm:p-5 md:p-6">
-                <div className="text-xs sm:text-sm text-muted-foreground mb-1.5 sm:mb-2 uppercase tracking-wider">Miles Climbed</div>
+              <div className="bg-card/30 border border-border/20 rounded-lg p-3 sm:p-4">
+                <div className="text-xs sm:text-sm text-muted-foreground mb-1 sm:mb-1.5 uppercase tracking-wider">Miles Climbed</div>
                 <div className="text-2xl sm:text-3xl font-light tracking-tight">87.4 mi</div>
               </div>
               
-              <div className="bg-card/30 border border-border/20 rounded-lg p-4 sm:p-5 md:p-6">
-                <div className="text-xs sm:text-sm text-muted-foreground mb-1.5 sm:mb-2 uppercase tracking-wider">Events</div>
+              <div className="bg-card/30 border border-border/20 rounded-lg p-3 sm:p-4">
+                <div className="text-xs sm:text-sm text-muted-foreground mb-1 sm:mb-1.5 uppercase tracking-wider">Events</div>
                 <div className="text-2xl sm:text-3xl font-light tracking-tight">9</div>
               </div>
               
-              <div className="bg-card/30 border border-border/20 rounded-lg p-4 sm:p-5 md:p-6">
-                <div className="text-xs sm:text-sm text-muted-foreground mb-1.5 sm:mb-2 uppercase tracking-wider">Total <EPsLabel showInfo /></div>
+              <div className="bg-card/30 border border-border/20 rounded-lg p-3 sm:p-4">
+                <div className="text-xs sm:text-sm text-muted-foreground mb-1 sm:mb-1.5 uppercase tracking-wider">Total <EPsLabel showInfo /></div>
                 <div className="text-2xl sm:text-3xl font-light tracking-tight">1,440</div>
               </div>
               
-              <div className="bg-card/30 border border-border/20 rounded-lg p-4 sm:p-5 md:p-6">
-                <div className="text-xs sm:text-sm text-muted-foreground mb-1.5 sm:mb-2 uppercase tracking-wider">Coaching</div>
+              <div className="bg-card/30 border border-border/20 rounded-lg p-3 sm:p-4">
+                <div className="text-xs sm:text-sm text-muted-foreground mb-1 sm:mb-1.5 uppercase tracking-wider">Coaching</div>
                 <div className="text-2xl sm:text-3xl font-light tracking-tight">12</div>
               </div>
               
-              <div className="bg-card/30 border border-border/20 rounded-lg p-4 sm:p-5 md:p-6">
-                <div className="text-xs sm:text-sm text-muted-foreground mb-1.5 sm:mb-2 uppercase tracking-wider">Days Active</div>
+              <div className="bg-card/30 border border-border/20 rounded-lg p-3 sm:p-4">
+                <div className="text-xs sm:text-sm text-muted-foreground mb-1 sm:mb-1.5 uppercase tracking-wider">Days Active</div>
                 <div className="text-2xl sm:text-3xl font-light tracking-tight">1,044</div>
               </div>
             </div>
