@@ -280,7 +280,7 @@ export const AnnualPerformance = () => {
           <TabsContent value="mountain" className="mt-0">
             <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4">
               <KPICard label="Total Events" value={activeData.mountain.totalEvents} />
-              <KPICard label="# of Summits" value={activeData.mountain.summits} />
+              <KPICard label="# of Finishes" value={activeData.mountain.summits} />
               <KPICard label="Total Vert Ft" value={activeData.mountain.verticalFeet} compact />
             </div>
             <RecognitionLadder current={activeData.mountain.recognition} color="peak" />
