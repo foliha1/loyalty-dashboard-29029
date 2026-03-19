@@ -201,7 +201,7 @@ export const AnnualPerformance = () => {
         {isCurrentYear && (
           <div className="flex items-center gap-2 mb-4 sm:mb-5">
             <span className="w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_6px_hsl(0_0%_100%/0.5)]" />
-            <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-medium">
+            <span className="text-sm uppercase tracking-[0.2em] text-muted-foreground font-medium">
               Current Year
             </span>
           </div>

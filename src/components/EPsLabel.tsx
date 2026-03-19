@@ -27,7 +27,7 @@ export const EPsLabel = ({ showInfo = false, className }: EPsLabelProps) => {
         </TooltipTrigger>
         <TooltipContent
           side="top"
-          className="bg-black/70 backdrop-blur-xl border border-white/10 rounded-[18px] px-4 py-3 text-xs text-white/90 max-w-[240px] shadow-lg"
+          className="bg-black/70 backdrop-blur-xl border border-white/10 rounded-[18px] px-4 py-3 text-sm text-white/90 max-w-[240px] shadow-lg"
         >
           EPs (Elevation Points) are earned through events, coaching, and apparel purchases.
         </TooltipContent>

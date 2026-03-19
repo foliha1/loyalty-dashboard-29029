@@ -467,7 +467,7 @@ export default function Profile() {
                         <span className="text-sm text-muted-foreground">{event.progress}</span>
                       )}
                       {event.award && (
-                        <span className="text-xs px-2.5 py-1 rounded-full bg-foreground/10 border border-foreground/20 text-foreground uppercase tracking-[0.1em] font-medium">
+                        <span className="text-sm px-2.5 py-1 rounded-full bg-foreground/10 border border-foreground/20 text-foreground uppercase tracking-[0.1em] font-medium">
                           {event.award}
                         </span>
                       )}
