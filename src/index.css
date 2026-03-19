@@ -369,7 +369,7 @@ All colors MUST be HSL.
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.18em;
-    font-size: 0.8125rem;
+    font-size: 0.875rem;
     color: hsl(var(--text-muted));
     line-height: 1.45;
   }

@@ -102,14 +102,14 @@ export default function Profile() {
               className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors group min-h-[44px] min-w-[44px]"
             >
               <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5 group-hover:-translate-x-1 transition-transform" />
-              <span className="text-xs sm:text-sm uppercase tracking-wider hidden sm:inline">Back to Dashboard</span>
-              <span className="text-xs uppercase tracking-wider sm:hidden">Back</span>
+              <span className="text-sm uppercase tracking-wider hidden sm:inline">Back to Dashboard</span>
+              <span className="text-sm uppercase tracking-wider sm:hidden">Back</span>
             </button>
             
             {!isEditing ? (
               <Button
                 onClick={() => setIsEditing(true)}
-                className="bg-white hover:bg-white/90 text-black font-medium uppercase tracking-wider text-xs sm:text-sm min-h-[44px] px-4 sm:px-6 shadow-lg hover:shadow-xl transition-all"
+                className="bg-white hover:bg-white/90 text-black font-medium uppercase tracking-wider text-sm min-h-[44px] px-4 sm:px-6 shadow-lg hover:shadow-xl transition-all"
               >
                 Edit Profile
               </Button>
@@ -118,13 +118,13 @@ export default function Profile() {
                 <Button
                   onClick={handleCancel}
                   variant="outline"
-                  className="uppercase tracking-wider text-xs sm:text-sm min-h-[44px] px-3 sm:px-4 border-white/30 text-white hover:bg-white/10"
+                  className="uppercase tracking-wider text-sm min-h-[44px] px-3 sm:px-4 border-white/30 text-white hover:bg-white/10"
                 >
                   Cancel
                 </Button>
                 <Button
                   onClick={handleSave}
-                  className="bg-white hover:bg-white/90 text-black font-semibold uppercase tracking-wider text-xs sm:text-sm min-h-[44px] px-4 sm:px-6 shadow-lg hover:shadow-xl transition-all"
+                  className="bg-white hover:bg-white/90 text-black font-semibold uppercase tracking-wider text-sm min-h-[44px] px-4 sm:px-6 shadow-lg hover:shadow-xl transition-all"
                 >
                   <Save className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
                   Save Changes
@@ -172,8 +172,8 @@ export default function Profile() {
                   {profileData.firstName} {profileData.lastName}
                 </h2>
                 <div className="space-y-1 text-foreground/70">
-                  <p className="font-mono text-xs sm:text-sm uppercase tracking-wider">Member ID: {profileData.memberId}</p>
-                  <p className="text-xs sm:text-sm uppercase tracking-wider">Member Since: {profileData.joinDate}</p>
+                  <p className="font-mono text-sm uppercase tracking-wider">Member ID: {profileData.memberId}</p>
+                  <p className="text-sm uppercase tracking-wider">Member Since: {profileData.joinDate}</p>
                 </div>
               </div>
             </div>
@@ -390,32 +390,32 @@ export default function Profile() {
             
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
               <div className="bg-card/30 border border-border/20 rounded-lg p-3 sm:p-4">
-                <div className="text-xs sm:text-sm text-muted-foreground mb-1 sm:mb-1.5 uppercase tracking-wider">Total Elevation</div>
+                <div className="text-sm text-muted-foreground mb-1 sm:mb-1.5 uppercase tracking-wider">Total Elevation</div>
                 <div className="text-2xl sm:text-3xl font-light tracking-tight">145,800 ft</div>
               </div>
               
               <div className="bg-card/30 border border-border/20 rounded-lg p-3 sm:p-4">
-                <div className="text-xs sm:text-sm text-muted-foreground mb-1 sm:mb-1.5 uppercase tracking-wider">Miles Climbed</div>
+                <div className="text-sm text-muted-foreground mb-1 sm:mb-1.5 uppercase tracking-wider">Miles Climbed</div>
                 <div className="text-2xl sm:text-3xl font-light tracking-tight">87.4 mi</div>
               </div>
               
               <div className="bg-card/30 border border-border/20 rounded-lg p-3 sm:p-4">
-                <div className="text-xs sm:text-sm text-muted-foreground mb-1 sm:mb-1.5 uppercase tracking-wider">Events</div>
+                <div className="text-sm text-muted-foreground mb-1 sm:mb-1.5 uppercase tracking-wider">Events</div>
                 <div className="text-2xl sm:text-3xl font-light tracking-tight">9</div>
               </div>
               
               <div className="bg-card/30 border border-border/20 rounded-lg p-3 sm:p-4">
-                <div className="text-xs sm:text-sm text-muted-foreground mb-1 sm:mb-1.5 uppercase tracking-wider">Total <EPsLabel showInfo /></div>
+                <div className="text-sm text-muted-foreground mb-1 sm:mb-1.5 uppercase tracking-wider">Total <EPsLabel showInfo /></div>
                 <div className="text-2xl sm:text-3xl font-light tracking-tight">1,440</div>
               </div>
               
               <div className="bg-card/30 border border-border/20 rounded-lg p-3 sm:p-4">
-                <div className="text-xs sm:text-sm text-muted-foreground mb-1 sm:mb-1.5 uppercase tracking-wider">Coaching</div>
+                <div className="text-sm text-muted-foreground mb-1 sm:mb-1.5 uppercase tracking-wider">Coaching</div>
                 <div className="text-2xl sm:text-3xl font-light tracking-tight">12</div>
               </div>
               
               <div className="bg-card/30 border border-border/20 rounded-lg p-3 sm:p-4">
-                <div className="text-xs sm:text-sm text-muted-foreground mb-1 sm:mb-1.5 uppercase tracking-wider">Days Active</div>
+                <div className="text-sm text-muted-foreground mb-1 sm:mb-1.5 uppercase tracking-wider">Days Active</div>
                 <div className="text-2xl sm:text-3xl font-light tracking-tight">1,044</div>
               </div>
             </div>
@@ -443,7 +443,7 @@ export default function Profile() {
                           {event.name}
                         </span>
                         <span
-                          className="text-xs px-2 py-0.5 rounded-full uppercase tracking-[0.1em] font-light border shrink-0"
+                          className="text-sm px-2 py-0.5 rounded-full uppercase tracking-[0.1em] font-light border shrink-0"
                           style={{
                             borderColor: event.type === "Mountain" ? "hsl(var(--peak) / 0.4)" : "hsl(var(--ridge) / 0.4)",
                             backgroundColor: event.type === "Mountain" ? "hsl(var(--peak) / 0.1)" : "hsl(var(--ridge) / 0.1)",
@@ -467,7 +467,7 @@ export default function Profile() {
                         <span className="text-sm text-muted-foreground">{event.progress}</span>
                       )}
                       {event.award && (
-                        <span className="text-xs px-2.5 py-1 rounded-full bg-foreground/10 border border-foreground/20 text-foreground uppercase tracking-[0.1em] font-medium">
+                        <span className="text-sm px-2.5 py-1 rounded-full bg-foreground/10 border border-foreground/20 text-foreground uppercase tracking-[0.1em] font-medium">
                           {event.award}
                         </span>
                       )}
