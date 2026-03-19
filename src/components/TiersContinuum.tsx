@@ -159,17 +159,18 @@ export const TiersContinuum = () => {
         )}
       >
         {/* Current Tier Badge */}
-        <div className="flex flex-row items-start justify-between mb-4 sm:mb-8 md:mb-12">
-          <div className="flex flex-col">
+        <div className="flex flex-col items-center sm:flex-row sm:items-start sm:justify-between mb-4 sm:mb-8 md:mb-12">
+          <div className="flex flex-col text-center sm:text-left">
             <div className="text-subhead mb-2 sm:mb-3">Current Loyalty Tier</div>
-            <h4 className="text-2xl md:text-6xl font-light tracking-tight" style={{
+            <h4 className="text-3xl md:text-6xl font-light tracking-tight" style={{
               color: currentTier ? `hsl(var(--${currentTier.color}))` : 'hsl(var(--tier-gold))'
             }}>
               {currentTierName}
             </h4>
+            {/* Desktop-only link */}
             <Dialog>
               <DialogTrigger asChild>
-                 <button className="mt-3 text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors duration-200 cursor-pointer tracking-normal sm:tracking-wide inline-flex items-center gap-1.5 underline underline-offset-4 decoration-muted-foreground/40">
+                 <button className="hidden sm:inline-flex mt-3 text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors duration-200 cursor-pointer tracking-normal sm:tracking-wide items-center gap-1.5 underline underline-offset-4 decoration-muted-foreground/40">
                    View Tier Benefits
                    <Info size={14} />
                  </button>
@@ -189,14 +190,61 @@ export const TiersContinuum = () => {
               </DialogContent>
             </Dialog>
           </div>
-          <div className="flex flex-col text-right">
+          <div className="flex flex-col text-center sm:text-right mt-4 sm:mt-0">
             <div className="text-subhead mb-2 sm:mb-3">Total EPs</div>
-            <div className="text-2xl md:text-6xl font-light tracking-tight tabular-nums">
+            <div className="text-3xl md:text-6xl font-light tracking-tight tabular-nums">
               {animatedEP}
             </div>
+            {/* Desktop-only link */}
             <Dialog>
               <DialogTrigger asChild>
-                <button className="mt-3 text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors duration-200 cursor-pointer tracking-normal sm:tracking-wide inline-flex items-center gap-1.5 ml-auto underline underline-offset-4 decoration-muted-foreground/40">
+                <button className="hidden sm:inline-flex mt-3 text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors duration-200 cursor-pointer tracking-normal sm:tracking-wide items-center gap-1.5 sm:ml-auto underline underline-offset-4 decoration-muted-foreground/40">
+                  How EPs Work
+                  <Info size={14} />
+                </button>
+              </DialogTrigger>
+              <DialogContent className="max-w-md bg-background/95 backdrop-blur-xl border-border/30 p-0 overflow-hidden">
+                <DialogHeader className="px-6 pt-6 pb-4 border-b border-border/20">
+                  <DialogTitle className="text-lg font-normal tracking-[0.12em] uppercase">
+                    How Elevation Points (EPs) Work
+                  </DialogTitle>
+                  <DialogDescription className="text-sm text-muted-foreground">
+                    Learn how to earn and progress through tiers
+                  </DialogDescription>
+                </DialogHeader>
+                <div className="px-6 py-5 max-h-[60vh] overflow-y-auto">
+                  {howEPsWorkContent}
+                </div>
+              </DialogContent>
+            </Dialog>
+          </div>
+          {/* Mobile-only combined link row */}
+          <div className="flex sm:hidden items-center justify-center gap-3 mt-4 w-full">
+            <Dialog>
+              <DialogTrigger asChild>
+                <button className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 cursor-pointer inline-flex items-center gap-1.5 underline underline-offset-4 decoration-muted-foreground/40">
+                  View Tier Benefits
+                  <Info size={14} />
+                </button>
+              </DialogTrigger>
+              <DialogContent className="max-w-md bg-background/95 backdrop-blur-xl border-border/30 p-0 overflow-hidden">
+                <DialogHeader className="px-6 pt-6 pb-4 border-b border-border/20">
+                  <DialogTitle className="text-lg font-normal tracking-[0.12em] uppercase">
+                    Tier Benefits
+                  </DialogTitle>
+                  <DialogDescription className="text-sm text-muted-foreground">
+                    Complete overview of all tier benefits
+                  </DialogDescription>
+                </DialogHeader>
+                <div className="px-6 py-5 max-h-[60vh] overflow-y-auto">
+                  {tierBenefitsContent}
+                </div>
+              </DialogContent>
+            </Dialog>
+            <span className="text-muted-foreground/40">·</span>
+            <Dialog>
+              <DialogTrigger asChild>
+                <button className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 cursor-pointer inline-flex items-center gap-1.5 underline underline-offset-4 decoration-muted-foreground/40">
                   How EPs Work
                   <Info size={14} />
                 </button>
