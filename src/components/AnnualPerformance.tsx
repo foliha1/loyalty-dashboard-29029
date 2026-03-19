@@ -32,7 +32,7 @@ const yearlyData: YearData[] = [
   {
     year: 2026,
     tierAchieved: "Ridge",
-    mountain: { totalEvents: 2, summits: 1, verticalFeet: 43500 },
+    mountain: { totalEvents: 2, summits: 3, verticalFeet: 43500 },
     trail: { totalEvents: 1, marathons: 1, totalMiles: 26.2 },
     eps: { events: 280, apparel: 120, coaching: 180 },
   },
