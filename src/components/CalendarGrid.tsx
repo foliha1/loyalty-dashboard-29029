@@ -49,7 +49,7 @@ const MilestoneBadges = ({ current, color = "ridge" }: { current: number; color?
                 : "border-white/5 bg-white/[0.02] opacity-60"
             }`}
           >
-            <div className={`text-[10px] sm:text-xs uppercase tracking-wide sm:tracking-wider font-medium mb-2 ${unlocked ? "text-white" : "text-muted-foreground"}`}>
+            <div className={`text-xs uppercase tracking-wide sm:tracking-wider font-medium mb-2 ${unlocked ? "text-white" : "text-muted-foreground"}`}>
               {m.name}
             </div>
             {unlocked ? (
@@ -57,7 +57,7 @@ const MilestoneBadges = ({ current, color = "ridge" }: { current: number; color?
             ) : (
               <Lock className="w-4 h-4 mb-1.5 text-muted-foreground/60" strokeWidth={1.5} />
             )}
-            <div className={`text-[10px] sm:text-xs font-light ${unlocked ? (color === "peak" ? "text-peak" : "text-ridge") : "text-muted-foreground"}`}>
+            <div className={`text-xs font-light ${unlocked ? (color === "peak" ? "text-peak" : "text-ridge") : "text-muted-foreground"}`}>
               {unlocked ? "Earned" : `${remaining} more needed`}
             </div>
           </div>
