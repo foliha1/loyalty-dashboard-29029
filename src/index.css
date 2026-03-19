@@ -291,7 +291,12 @@ All colors MUST be HSL.
     }
   }
 
-
+  /* Body/Supporting - List items, descriptions */
+  .type-body {
+    font-size: var(--type-body);
+    font-weight: 400;
+    line-height: 1.6;
+  }
 
 
   /* ===========================================
