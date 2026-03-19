@@ -30,7 +30,7 @@ All colors MUST be HSL.
     --foreground: 0 0% 96%;          /* Primary text - high contrast */
     --text-secondary: 0 0% 68%;      /* Body text — AA compliant */
     --text-muted: 0 0% 60%;          /* Helper, meta text — AA compliant */
-    --text-disabled: 0 0% 50%;       /* Inactive states — improved */
+    --text-disabled: 0 0% 58%;       /* Inactive states — AA compliant */
     --muted-foreground: 0 0% 60%;    /* Shadcn compatibility — AA compliant */
 
     /* ===========================================
