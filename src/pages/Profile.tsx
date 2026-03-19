@@ -172,8 +172,8 @@ export default function Profile() {
                   {profileData.firstName} {profileData.lastName}
                 </h2>
                 <div className="space-y-1 text-foreground/70">
-                  <p className="font-mono text-xs sm:text-sm uppercase tracking-wider">Member ID: {profileData.memberId}</p>
-                  <p className="text-xs sm:text-sm uppercase tracking-wider">Member Since: {profileData.joinDate}</p>
+                  <p className="font-mono text-sm uppercase tracking-wider">Member ID: {profileData.memberId}</p>
+                  <p className="text-sm uppercase tracking-wider">Member Since: {profileData.joinDate}</p>
                 </div>
               </div>
             </div>
