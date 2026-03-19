@@ -405,7 +405,7 @@ export default function Profile() {
               </div>
               
               <div className="bg-card/30 border border-border/20 rounded-lg p-3 sm:p-4">
-                <div className="text-xs sm:text-sm text-muted-foreground mb-1 sm:mb-1.5 uppercase tracking-wider">Total <EPsLabel showInfo /></div>
+                <div className="text-sm text-muted-foreground mb-1 sm:mb-1.5 uppercase tracking-wider">Total <EPsLabel showInfo /></div>
                 <div className="text-2xl sm:text-3xl font-light tracking-tight">1,440</div>
               </div>
               
