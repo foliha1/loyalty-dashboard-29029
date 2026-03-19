@@ -141,7 +141,7 @@ export default function Profile() {
         <div className="max-w-4xl mx-auto">
           {/* Page Title */}
           <div className="mb-6 sm:mb-8">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight mb-2">Member Profile</h1>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-light tracking-tight mb-2">Member Profile</h1>
             <p className="text-muted-foreground text-sm sm:text-base">Manage your personal information and member details</p>
           </div>
 
