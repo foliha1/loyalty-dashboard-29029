@@ -210,13 +210,13 @@ export const AnnualPerformance = () => {
                   <div className="text-subhead mb-2">
                     Total <EPsLabel /> Earned
                   </div>
-                  <div className="type-metric-primary text-foreground">
+                  <div className="type-metric-secondary text-foreground">
                     {totalEP.toLocaleString()}
                   </div>
                 </div>
                 <div className="flex flex-col items-end">
                   <div className="text-subhead mb-2">Tier Achieved</div>
-                  <div className="type-metric-primary" style={{ color: `hsl(var(--${tierColor}))` }}>
+                  <div className="type-metric-secondary" style={{ color: `hsl(var(--${tierColor}))` }}>
                     {activeData.tierAchieved}
                   </div>
                 </div>
@@ -234,7 +234,7 @@ export const AnnualPerformance = () => {
             ] as const).map(([label, val]) => (
               <div key={label}>
                 <div className="text-subhead mb-2.5">{label}</div>
-                <div className="type-metric-secondary text-foreground">
+                <div className="text-xl sm:text-2xl md:text-3xl font-light tracking-tight tabular-nums text-foreground">
                   {val}
                 </div>
                 <div className="text-xs text-muted-foreground font-light mt-0.5">EPs</div>
