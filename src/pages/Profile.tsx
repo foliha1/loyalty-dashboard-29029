@@ -439,7 +439,7 @@ export default function Profile() {
                     {/* Left: Name + Date + Type */}
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 flex-wrap">
-                        <span className="text-sm sm:text-base font-medium text-foreground truncate">
+                        <span className="text-sm sm:text-base font-medium text-white truncate">
                           {event.name}
                         </span>
                         <span
