@@ -85,7 +85,7 @@ const RecognitionLadder = ({ current, color = 'ridge' }: { current: number; colo
               </span>
               {/* BLACK BIB label under milestone 3 */}
               {milestone === 3 && (
-                <span className="text-xs uppercase tracking-[0.15em] text-white/60 mt-2 font-medium">
+                <span className="text-xs uppercase tracking-[0.15em] text-muted-foreground mt-2 font-medium">
                   Black Bib
                 </span>
               )}
