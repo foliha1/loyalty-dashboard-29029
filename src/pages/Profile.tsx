@@ -124,7 +124,7 @@ export default function Profile() {
                 </Button>
                 <Button
                   onClick={handleSave}
-                  className="bg-tier-accent hover:bg-tier-accent/90 text-black font-semibold uppercase tracking-wider text-xs sm:text-sm min-h-[44px] px-4 sm:px-6 shadow-lg hover:shadow-xl transition-all"
+                  className="bg-white hover:bg-white/90 text-black font-semibold uppercase tracking-wider text-xs sm:text-sm min-h-[44px] px-4 sm:px-6 shadow-lg hover:shadow-xl transition-all"
                 >
                   <Save className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
                   Save Changes
