@@ -181,7 +181,7 @@ All colors MUST be HSL.
     border-color: hsl(var(--summit));
   }
   
-  .base-glow {
+  .tier-base-glow {
     box-shadow: 0 0 20px hsl(var(--base) / 0.3);
   }
   
