@@ -242,9 +242,9 @@ export const AnnualPerformance = () => {
         <h4 className="text-sm uppercase tracking-[0.2em] font-medium text-foreground/90 mb-5">EPs Breakdown</h4>
         <div className="grid grid-cols-3 gap-4 md:gap-8 mb-8 sm:mb-10">
           {([
-            ["Events", data.eps.events],
-            ["Apparel", data.eps.apparel],
-            ["Coaching", data.eps.coaching],
+            ["Events", activeData.eps.events],
+            ["Apparel", activeData.eps.apparel],
+            ["Coaching", activeData.eps.coaching],
           ] as const).map(([label, val]) => (
             <div key={label}>
               <div className="text-subhead mb-2.5">{label}</div>
