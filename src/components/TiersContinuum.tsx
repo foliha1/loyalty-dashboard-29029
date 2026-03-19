@@ -333,7 +333,7 @@ export const TiersContinuum = () => {
           <div className="flex flex-row items-start justify-between">
             <div>
               <div className="text-subhead mb-2">Next Milestone</div>
-              <div className="text-xl md:text-3xl font-light tracking-tight">
+              <div className="type-metric-secondary">
                 {nextTierName}
               </div>
             </div>
