@@ -19,9 +19,9 @@ const trailData = {
 
 // Fixed milestone markers for awards
 const fixedMilestones = [
-  { value: 3, label: "Black Bib" },
-  { value: 5, label: "5x Award" },
-  { value: 10, label: "10x Award" },
+  { value: 3, label: "Black Bib", mobileLabel: "Black Bib" },
+  { value: 5, label: "5x Award", mobileLabel: "5x" },
+  { value: 10, label: "10x Award", mobileLabel: "10x" },
 ];
 
 // KPI Card component - simplified, premium styling
