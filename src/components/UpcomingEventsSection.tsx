@@ -166,7 +166,7 @@ export const UpcomingEventsSection = () => {
                     >
                       {daysRemaining}
                     </div>
-                    <div className="text-sm uppercase tracking-[0.25em] text-muted-foreground font-light">
+                    <div className="text-sm uppercase tracking-[0.2em] text-muted-foreground font-light">
                       Days Until Event
                     </div>
                   </div>
@@ -200,7 +200,7 @@ export const UpcomingEventsSection = () => {
           
           <Link
             to="/events"
-            className="inline-flex items-center gap-2 px-6 py-3 min-h-[44px] rounded-lg bg-foreground text-background text-sm font-medium uppercase tracking-[0.12em] hover:bg-foreground/90 transition-colors duration-300"
+            className="inline-flex items-center gap-2 px-6 py-3 min-h-[44px] rounded-lg bg-foreground text-background text-sm font-medium uppercase tracking-[0.1em] hover:bg-foreground/90 transition-colors duration-300"
           >
             Browse Events
             <ArrowRight className="w-4 h-4" />

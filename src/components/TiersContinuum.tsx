@@ -177,7 +177,7 @@ export const TiersContinuum = () => {
               </DialogTrigger>
               <DialogContent className="max-w-md bg-background/95 backdrop-blur-xl border-border/30 p-0 overflow-hidden">
                 <DialogHeader className="px-6 pt-6 pb-4 border-b border-border/20">
-                  <DialogTitle className="text-lg font-normal tracking-[0.12em] uppercase">
+                  <DialogTitle className="text-lg font-normal tracking-[0.1em] uppercase">
                     Tier Benefits
                   </DialogTitle>
                   <DialogDescription className="text-sm text-muted-foreground">
@@ -205,7 +205,7 @@ export const TiersContinuum = () => {
               </DialogTrigger>
               <DialogContent className="max-w-md bg-background/95 backdrop-blur-xl border-border/30 p-0 overflow-hidden">
                 <DialogHeader className="px-6 pt-6 pb-4 border-b border-border/20">
-                  <DialogTitle className="text-lg font-normal tracking-[0.12em] uppercase">
+                  <DialogTitle className="text-lg font-normal tracking-[0.1em] uppercase">
                     How Elevation Points (EPs) Work
                   </DialogTitle>
                   <DialogDescription className="text-sm text-muted-foreground">
@@ -229,7 +229,7 @@ export const TiersContinuum = () => {
               </DialogTrigger>
               <DialogContent className="max-w-md bg-background/95 backdrop-blur-xl border-border/30 p-0 overflow-hidden">
                 <DialogHeader className="px-6 pt-6 pb-4 border-b border-border/20">
-                  <DialogTitle className="text-lg font-normal tracking-[0.12em] uppercase">
+                  <DialogTitle className="text-lg font-normal tracking-[0.1em] uppercase">
                     Tier Benefits
                   </DialogTitle>
                   <DialogDescription className="text-sm text-muted-foreground">
@@ -251,7 +251,7 @@ export const TiersContinuum = () => {
               </DialogTrigger>
               <DialogContent className="max-w-md bg-background/95 backdrop-blur-xl border-border/30 p-0 overflow-hidden">
                 <DialogHeader className="px-6 pt-6 pb-4 border-b border-border/20">
-                  <DialogTitle className="text-lg font-normal tracking-[0.12em] uppercase">
+                  <DialogTitle className="text-lg font-normal tracking-[0.1em] uppercase">
                     How Elevation Points (EPs) Work
                   </DialogTitle>
                   <DialogDescription className="text-sm text-muted-foreground">

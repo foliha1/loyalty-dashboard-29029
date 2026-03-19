@@ -250,13 +250,13 @@ export const AnnualPerformance = () => {
             <TabsList className="w-full mb-5 md:mb-6 bg-muted/15 p-1 rounded-lg border border-border/10 flex">
               <TabsTrigger
                 value="mountain"
-                className="flex-1 py-2.5 min-h-[44px] text-sm uppercase tracking-[0.15em] font-light data-[state=active]:bg-card/80 data-[state=active]:text-peak data-[state=active]:shadow-sm"
+                className="flex-1 py-2.5 min-h-[44px] text-sm uppercase tracking-[0.1em] font-light data-[state=active]:bg-card/80 data-[state=active]:text-peak data-[state=active]:shadow-sm"
               >
                 Mountain
               </TabsTrigger>
               <TabsTrigger
                 value="trail"
-                className="flex-1 py-2.5 min-h-[44px] text-sm uppercase tracking-[0.15em] font-light data-[state=active]:bg-card/80 data-[state=active]:text-ridge data-[state=active]:shadow-sm"
+                className="flex-1 py-2.5 min-h-[44px] text-sm uppercase tracking-[0.1em] font-light data-[state=active]:bg-card/80 data-[state=active]:text-ridge data-[state=active]:shadow-sm"
               >
                 Trail
               </TabsTrigger>
