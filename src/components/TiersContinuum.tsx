@@ -162,7 +162,7 @@ export const TiersContinuum = () => {
         <div className="flex flex-row items-start justify-between mb-4 sm:mb-8 md:mb-12">
           <div className="flex flex-col">
             <div className="text-subhead mb-2 sm:mb-3">Current Loyalty Tier</div>
-            <h4 className="text-3xl md:text-6xl font-light tracking-tight" style={{
+            <h4 className="text-2xl md:text-6xl font-light tracking-tight" style={{
               color: currentTier ? `hsl(var(--${currentTier.color}))` : 'hsl(var(--tier-gold))'
             }}>
               {currentTierName}
