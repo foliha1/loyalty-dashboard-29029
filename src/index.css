@@ -28,10 +28,10 @@ All colors MUST be HSL.
        TEXT COLORS (4 levels)
        =========================================== */
     --foreground: 0 0% 96%;          /* Primary text - high contrast */
-    --text-secondary: 0 0% 62%;      /* Body text */
-    --text-muted: 0 0% 45%;          /* Helper, meta text */
-    --text-disabled: 0 0% 35%;       /* Inactive states */
-    --muted-foreground: 0 0% 45%;    /* Shadcn compatibility */
+    --text-secondary: 0 0% 68%;      /* Body text — AA compliant */
+    --text-muted: 0 0% 60%;          /* Helper, meta text — AA compliant */
+    --text-disabled: 0 0% 50%;       /* Inactive states — improved */
+    --muted-foreground: 0 0% 60%;    /* Shadcn compatibility — AA compliant */
 
     /* ===========================================
        BORDERS (2 levels)
