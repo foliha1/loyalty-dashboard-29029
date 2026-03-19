@@ -366,10 +366,10 @@ All colors MUST be HSL.
      =========================================== */
   .text-subhead {
     font-family: 'Inter', sans-serif;
-    font-weight: 300;
+    font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: 0.2em;
-    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    font-size: 0.8125rem;
     color: hsl(var(--text-muted));
     line-height: 1.45;
   }
