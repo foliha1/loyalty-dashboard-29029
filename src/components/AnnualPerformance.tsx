@@ -106,9 +106,7 @@ const RecognitionLadder = ({ current, color = "ridge" }: { current: number; colo
   const ticks = Array.from({ length: axisMax + 1 }, (_, i) => i);
   const progressPercent = Math.min(100, (current / axisMax) * 100);
 
-  // On mobile, only show milestone ticks (0, 3, 5, 10) + current position
   const milestoneValues = new Set([0, ...fixedMilestones.map((m) => m.value)]);
-  const mobileVisibleTicks = new Set([...milestoneValues, current]);
 
   return (
     <div className="mt-6 md:mt-8">
