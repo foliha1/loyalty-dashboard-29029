@@ -314,7 +314,7 @@ export const AnnualPerformance = () => {
               <KPICard label="# of Finishes" value={activeData.mountain.summits} />
               <KPICard label="Total Vert Ft" value={activeData.mountain.verticalFeet} compact />
             </div>
-            <RecognitionLadder current={activeData.mountain.recognition} color="peak" />
+            <RecognitionLadder current={activeData.mountain.summits} color="peak" />
           </TabsContent>
 
           <TabsContent value="trail" className="mt-0">
