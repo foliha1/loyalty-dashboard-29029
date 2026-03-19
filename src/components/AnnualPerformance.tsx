@@ -157,9 +157,18 @@ const tierColorVar: Record<string, string> = {
 // ── Main Component ───────────────────────────────────
 
 export const AnnualPerformance = () => {
-  const [selectedYear, setSelectedYear] = useState("2026");
+  const [selectedYear, setSelectedYear] = useState(currentYear.toString());
   const data = yearlyData.find((y) => y.year.toString() === selectedYear);
-  if (!data) return null;
+
+  // For years without detailed data, show a minimal placeholder
+  const fallbackData: YearData = {
+    year: parseInt(selectedYear),
+    tierAchieved: "Base",
+    mountain: { totalEvents: 0, summits: 0, verticalFeet: 0, recognition: 0 },
+    trail: { totalEvents: 0, marathons: 0, totalMiles: 0, recognition: 0 },
+    eps: { events: 0, apparel: 0, coaching: 0 },
+  };
+  const activeData = data || fallbackData;
 
   const totalEP = data.eps.events + data.eps.apparel + data.eps.coaching;
   const tierColor = tierColorVar[data.tierAchieved] || "ridge";
