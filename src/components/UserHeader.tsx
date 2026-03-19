@@ -62,7 +62,7 @@ export const UserHeader = () => {
             
             {/* ID Number - Secondary Metadata */}
             <div className="mb-3 sm:mb-4 animate-fade-in" style={{ animationDelay: '0.3s', animationFillMode: 'both' }}>
-              <span className="text-xs tracking-[0.25em] uppercase font-normal text-muted-foreground" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>
+              <span className="text-sm tracking-[0.2em] uppercase font-normal text-muted-foreground" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>
                 29029 ID: AR-5847
               </span>
             </div>
