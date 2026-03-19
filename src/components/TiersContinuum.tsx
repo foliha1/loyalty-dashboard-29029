@@ -123,7 +123,7 @@ export const TiersContinuum = () => {
     <div className="space-y-6">
       <div>
         <h5 className="text-base font-semibold tracking-tight text-foreground mb-3">Earning EPs</h5>
-        <div className="space-y-2.5 text-sm text-muted-foreground leading-relaxed">
+        <div className="space-y-2.5 text-sm text-foreground/80 leading-relaxed">
           <p><span className="font-semibold text-foreground">Events:</span> 150 EPs per event attended</p>
           <p><span className="font-semibold text-foreground">Coaching:</span> Variable EPs based on session type</p>
           <p><span className="font-semibold text-foreground">Apparel:</span> 1 EP per dollar spent</p>
