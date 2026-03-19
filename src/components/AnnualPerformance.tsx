@@ -81,10 +81,15 @@ const formatCompact = (value: number): string => {
   return value.toLocaleString();
 };
 
-const KPICard = ({ label, value, compact }: { label: string; value: string | number; compact?: boolean }) => (
+const KPICard = ({ label, shortLabel, value, compact }: { label: string; shortLabel?: string; value: string | number; compact?: boolean }) => (
   <div className="p-2 sm:p-3 md:p-5 border border-border/20 rounded-lg text-center bg-background/30">
     <div className="text-subhead mb-2">
-      {label}
+      {shortLabel ? (
+        <>
+          <span className="sm:hidden">{shortLabel}</span>
+          <span className="hidden sm:inline">{label}</span>
+        </>
+      ) : label}
     </div>
     <div className="type-metric-secondary text-foreground">
       {typeof value === "number" ? (compact ? formatCompact(value) : value.toLocaleString()) : value}
@@ -115,7 +120,7 @@ const MilestoneBadges = ({ current, color = "ridge" }: { current: number; color?
                 : "border-border/10 bg-card/20 opacity-60"
             }`}
           >
-            <div className={`text-[10px] sm:text-xs uppercase tracking-wide sm:tracking-wider font-medium mb-2 ${unlocked ? "text-foreground" : "text-muted-foreground"}`}>
+            <div className={`text-xs uppercase tracking-wide sm:tracking-wider font-medium mb-2 ${unlocked ? "text-foreground" : "text-muted-foreground"}`}>
               {m.name}
             </div>
             {unlocked ? (
@@ -123,7 +128,7 @@ const MilestoneBadges = ({ current, color = "ridge" }: { current: number; color?
             ) : (
               <Lock className="w-4 h-4 mb-1.5 text-muted-foreground/60" strokeWidth={1.5} />
             )}
-            <div className={`text-[10px] sm:text-xs font-light ${unlocked ? (color === "peak" ? "text-peak" : "text-ridge") : "text-muted-foreground"}`}>
+            <div className={`text-xs font-light ${unlocked ? (color === "peak" ? "text-peak" : "text-ridge") : "text-muted-foreground"}`}>
               {unlocked ? "Earned" : `${remaining} more needed`}
             </div>
           </div>
@@ -179,100 +184,103 @@ export const AnnualPerformance = () => {
         </Select>
       </div>
 
-      {/* Main card */}
-      <div className="card-29029 !overflow-visible p-4 sm:p-7 md:p-10">
-        {isCurrentYear && (
-          <div className="flex items-center gap-2 mb-4 sm:mb-5">
-            <span className="w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_6px_hsl(0_0%_100%/0.5)]" />
-            <span className="text-sm uppercase tracking-[0.2em] text-muted-foreground font-medium">
-              Current Year
-            </span>
-          </div>
-        )}
-        {/* EPs summary + Tier row */}
-        <div className="mb-6 sm:mb-8 pb-6 sm:pb-7 border-b border-border/20">
-          {isCurrentYear ? (
-            <p className="type-metric-secondary text-foreground">
-              Your current <EPsLabel /> total is{" "}
-              <span className="underline decoration-1 underline-offset-4">
-                {totalEP.toLocaleString()}
+      <div className="space-y-4">
+        {/* Card 1 — EPs Summary + Breakdown */}
+        <div className="card-29029 !overflow-visible p-4 sm:p-7 md:p-10">
+          {isCurrentYear && (
+            <div className="flex items-center gap-2 mb-4 sm:mb-5">
+              <span className="w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_6px_hsl(0_0%_100%/0.5)]" />
+              <span className="text-sm uppercase tracking-[0.2em] text-muted-foreground font-medium">
+                Current Year
               </span>
-            </p>
-          ) : (
-            <div className="flex flex-row items-start justify-between">
-              <div>
-                <div className="text-subhead mb-2">
-                  Total <EPsLabel /> Earned
-                </div>
-                <div className="type-metric-primary text-foreground">
-                  {totalEP.toLocaleString()}
-                </div>
-              </div>
-              <div className="flex flex-col items-end">
-                <div className="text-subhead mb-2">Tier Achieved</div>
-                <div className="type-metric-primary" style={{ color: `hsl(var(--${tierColor}))` }}>
-                  {activeData.tierAchieved}
-                </div>
-              </div>
             </div>
           )}
-        </div>
-
-        {/* EP Breakdown */}
-        <h4 className="text-sm uppercase tracking-[0.2em] font-medium text-foreground/90 mb-5">EPs Breakdown</h4>
-        <div className="grid grid-cols-3 gap-2 sm:gap-4 md:gap-8 mb-8 sm:mb-10">
-          {([
-            ["Events", activeData.eps.events],
-            ["Apparel", activeData.eps.apparel],
-            ["Coaching", activeData.eps.coaching],
-          ] as const).map(([label, val]) => (
-            <div key={label}>
-              <div className="text-subhead mb-2.5">{label}</div>
-              <div className="type-metric-secondary text-foreground">
-                {val} <span className="text-sm text-muted-foreground font-light">EPs</span>
+          {/* EPs summary */}
+          <div className="mb-6 sm:mb-8">
+            {isCurrentYear ? (
+              <p className="type-metric-secondary text-foreground">
+                Your current <EPsLabel /> total is{" "}
+                <span className="underline decoration-1 underline-offset-4">
+                  {totalEP.toLocaleString()}
+                </span>
+              </p>
+            ) : (
+              <div className="flex flex-row items-start justify-between">
+                <div>
+                  <div className="text-subhead mb-2">
+                    Total <EPsLabel /> Earned
+                  </div>
+                  <div className="type-metric-primary text-foreground">
+                    {totalEP.toLocaleString()}
+                  </div>
+                </div>
+                <div className="flex flex-col items-end">
+                  <div className="text-subhead mb-2">Tier Achieved</div>
+                  <div className="type-metric-primary" style={{ color: `hsl(var(--${tierColor}))` }}>
+                    {activeData.tierAchieved}
+                  </div>
+                </div>
               </div>
-            </div>
-          ))}
+            )}
+          </div>
+
+          {/* EP Breakdown */}
+          <h4 className="text-sm uppercase tracking-[0.2em] font-medium text-foreground/90 mb-5">EPs Breakdown</h4>
+          <div className="grid grid-cols-3 gap-2 sm:gap-4 md:gap-8">
+            {([
+              ["Events", activeData.eps.events],
+              ["Apparel", activeData.eps.apparel],
+              ["Coaching", activeData.eps.coaching],
+            ] as const).map(([label, val]) => (
+              <div key={label}>
+                <div className="text-subhead mb-2.5">{label}</div>
+                <div className="type-metric-secondary text-foreground">
+                  {val}
+                </div>
+                <div className="text-xs text-muted-foreground font-light mt-0.5">EPs</div>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Mountain / Trail tabs */}
-        <div className="border-t border-border/20 pt-6 sm:pt-8 mt-2">
+        {/* Card 2 — Event Stats + Milestones */}
+        <div className="card-29029 !overflow-visible p-4 sm:p-7 md:p-10">
           <h4 className="text-sm uppercase tracking-[0.2em] font-medium text-foreground/90 mb-5">Your Event Stats</h4>
+          <Tabs defaultValue="mountain" className="w-full">
+            <TabsList className="w-full mb-5 md:mb-6 bg-muted/15 p-1 rounded-lg border border-border/10 flex">
+              <TabsTrigger
+                value="mountain"
+                className="flex-1 py-2.5 min-h-[44px] text-sm uppercase tracking-[0.15em] font-light data-[state=active]:bg-card/80 data-[state=active]:text-peak data-[state=active]:shadow-sm"
+              >
+                Mountain
+              </TabsTrigger>
+              <TabsTrigger
+                value="trail"
+                className="flex-1 py-2.5 min-h-[44px] text-sm uppercase tracking-[0.15em] font-light data-[state=active]:bg-card/80 data-[state=active]:text-ridge data-[state=active]:shadow-sm"
+              >
+                Trail
+              </TabsTrigger>
+            </TabsList>
+
+            <TabsContent value="mountain" className="mt-0">
+              <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4">
+                <KPICard label="Total Events" shortLabel="Events" value={activeData.mountain.totalEvents} />
+                <KPICard label="# of Finishes" shortLabel="Finishes" value={activeData.mountain.summits} />
+                <KPICard label="Total Vert Ft" shortLabel="Vert Ft" value={activeData.mountain.verticalFeet} compact />
+              </div>
+              <MilestoneBadges current={activeData.mountain.summits} color="peak" />
+            </TabsContent>
+
+            <TabsContent value="trail" className="mt-0">
+              <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4">
+                <KPICard label="Total Events" shortLabel="Events" value={activeData.trail.totalEvents} />
+                <KPICard label="# of Marathons" shortLabel="Marathons" value={activeData.trail.marathons} />
+                <KPICard label="Total Miles" shortLabel="Miles" value={activeData.trail.totalMiles} compact />
+              </div>
+              <MilestoneBadges current={activeData.trail.marathons} color="ridge" />
+            </TabsContent>
+          </Tabs>
         </div>
-        <Tabs defaultValue="mountain" className="w-full">
-          <TabsList className="w-full mb-5 md:mb-6 bg-muted/15 p-1 rounded-lg border border-border/10 flex">
-            <TabsTrigger
-              value="mountain"
-              className="flex-1 py-2.5 min-h-[44px] text-sm uppercase tracking-[0.15em] font-light data-[state=active]:bg-card/80 data-[state=active]:text-peak data-[state=active]:shadow-sm"
-            >
-              Mountain
-            </TabsTrigger>
-            <TabsTrigger
-              value="trail"
-              className="flex-1 py-2.5 min-h-[44px] text-sm uppercase tracking-[0.15em] font-light data-[state=active]:bg-card/80 data-[state=active]:text-ridge data-[state=active]:shadow-sm"
-            >
-              Trail
-            </TabsTrigger>
-          </TabsList>
-
-          <TabsContent value="mountain" className="mt-0">
-            <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4">
-              <KPICard label="Total Events" value={activeData.mountain.totalEvents} />
-              <KPICard label="# of Finishes" value={activeData.mountain.summits} />
-              <KPICard label="Total Vert Ft" value={activeData.mountain.verticalFeet} compact />
-            </div>
-            <MilestoneBadges current={activeData.mountain.summits} color="peak" />
-          </TabsContent>
-
-          <TabsContent value="trail" className="mt-0">
-            <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4">
-              <KPICard label="Total Events" value={activeData.trail.totalEvents} />
-              <KPICard label="# of Marathons" value={activeData.trail.marathons} />
-              <KPICard label="Total Miles" value={activeData.trail.totalMiles} compact />
-            </div>
-            <MilestoneBadges current={activeData.trail.marathons} color="ridge" />
-          </TabsContent>
-        </Tabs>
       </div>
     </section>
   );
