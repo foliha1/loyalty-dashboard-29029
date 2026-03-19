@@ -114,7 +114,7 @@ const RecognitionLadder = ({ current, color = "ridge" }: { current: number; colo
           const isPast = typeof milestone === "number" ? milestone < current : parseInt(String(milestone)) < current;
           return (
             <div key={idx} className="flex flex-col items-center">
-              <span className={`text-xs font-light ${isCurrent || isPast ? (color === "peak" ? "text-peak" : "text-ridge") : "text-muted-foreground/40"}`}>
+              <span className={`text-sm font-light ${isCurrent || isPast ? (color === "peak" ? "text-peak" : "text-ridge") : "text-muted-foreground"}`}>
                 {milestone}
               </span>
               {milestone === 3 && (
