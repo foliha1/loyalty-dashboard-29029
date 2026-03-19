@@ -232,7 +232,7 @@ export const AnnualPerformance = () => {
 
         {/* Mountain / Trail tabs */}
         <div className="border-t border-border/20 pt-6 sm:pt-8 mt-2">
-          <h4 className="text-xs uppercase tracking-[0.2em] font-medium text-foreground/90 mb-5">Your Event Stats</h4>
+          <h4 className="text-sm uppercase tracking-[0.2em] font-medium text-foreground/90 mb-5">Your Event Stats</h4>
         </div>
         <Tabs defaultValue="mountain" className="w-full">
           <TabsList className="w-full mb-5 md:mb-6 bg-muted/15 p-1 rounded-lg border border-border/10 flex">
