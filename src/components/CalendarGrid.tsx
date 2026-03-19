@@ -177,7 +177,7 @@ export const CalendarGrid = () => {
             </div>
 
             {/* Recognition Ladder */}
-            <RecognitionLadder current={trailData.currentRecognition} color="ridge" />
+            <RecognitionLadder current={trailData.marathons} color="ridge" />
           </div>
         </TabsContent>
       </Tabs>

@@ -323,7 +323,7 @@ export const AnnualPerformance = () => {
               <KPICard label="# of Marathons" value={activeData.trail.marathons} />
               <KPICard label="Total Miles" value={activeData.trail.totalMiles} compact />
             </div>
-            <RecognitionLadder current={activeData.trail.recognition} color="ridge" />
+            <RecognitionLadder current={activeData.trail.marathons} color="ridge" />
           </TabsContent>
         </Tabs>
       </div>
