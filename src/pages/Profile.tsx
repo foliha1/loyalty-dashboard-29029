@@ -200,7 +200,7 @@ export default function Profile() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="birthday" className="text-xs uppercase tracking-wider text-foreground/80 font-medium block">
+                <Label htmlFor="birthday" className="text-sm uppercase tracking-wider text-muted-foreground font-medium block">
                   Date of Birth
                 </Label>
                 <Input
