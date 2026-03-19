@@ -105,8 +105,8 @@ const milestones = [
 ];
 
 const MilestoneBadges = ({ current, color = "ridge" }: { current: number; color?: "peak" | "ridge" }) => (
-  <div className="mt-4 sm:mt-6">
-    <div className="text-subhead mb-3">Finish Milestones</div>
+  <div className="mt-3 sm:mt-6">
+    <div className="text-xs sm:text-sm uppercase tracking-[0.1em] sm:tracking-[0.2em] font-medium text-foreground/90 mb-2">Finish Milestones</div>
     <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4">
       {milestones.map((m) => {
         const unlocked = current >= m.threshold;
@@ -187,45 +187,28 @@ export const AnnualPerformance = () => {
       <div className="space-y-4">
         {/* Card 1 — EPs Summary + Breakdown */}
         <div className="card-29029 !overflow-visible p-4 sm:p-7 md:p-10">
-          {isCurrentYear && (
-            <div className="flex items-center gap-2 mb-4 sm:mb-5">
-              <span className="w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_6px_hsl(0_0%_100%/0.5)]" />
-              <span className="text-sm uppercase tracking-[0.2em] text-muted-foreground font-medium">
-                Current Year
-              </span>
-            </div>
-          )}
           {/* EPs summary */}
           <div className="mb-6 sm:mb-8">
-            {isCurrentYear ? (
-              <p className="type-metric-secondary text-foreground">
-                Your current <EPsLabel /> total is{" "}
-                <span className="underline decoration-1 underline-offset-4">
-                  {totalEP.toLocaleString()}
-                </span>
-              </p>
-            ) : (
-              <div className="flex flex-row items-start justify-between">
-                <div>
-                  <div className="text-subhead mb-2">
-                    Total <EPsLabel /> Earned
-                  </div>
-                  <div className="type-metric-secondary text-foreground">
-                    {totalEP.toLocaleString()}
-                  </div>
+            <div className="flex flex-row items-start justify-between">
+              <div>
+                <div className="text-subhead mb-2">
+                  {isCurrentYear ? "Total EPs" : <>Total <EPsLabel /> Earned</>}
                 </div>
-                <div className="flex flex-col items-end">
-                  <div className="text-subhead mb-2">Tier Achieved</div>
-                  <div className="type-metric-secondary" style={{ color: `hsl(var(--${tierColor}))` }}>
-                    {activeData.tierAchieved}
-                  </div>
+                <div className="type-metric-secondary text-foreground">
+                  {totalEP.toLocaleString()}
                 </div>
               </div>
-            )}
+              <div className="flex flex-col items-end">
+                <div className="text-subhead mb-2">{isCurrentYear ? "Current Tier" : "Tier Achieved"}</div>
+                <div className="type-metric-secondary" style={{ color: `hsl(var(--${tierColor}))` }}>
+                  {activeData.tierAchieved}
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* EP Breakdown */}
-          <h4 className="text-sm uppercase tracking-[0.2em] font-medium text-foreground/90 mb-5">EPs Breakdown</h4>
+          <h4 className="text-xs sm:text-sm uppercase tracking-[0.1em] sm:tracking-[0.2em] font-medium text-foreground/90 mb-3">EPs Breakdown</h4>
           <div className="grid grid-cols-3 gap-2 sm:gap-4 md:gap-8">
             {([
               ["Events", activeData.eps.events],
@@ -234,10 +217,10 @@ export const AnnualPerformance = () => {
             ] as const).map(([label, val]) => (
               <div key={label}>
                 <div className="text-subhead mb-2.5">{label}</div>
-                <div className="type-metric-secondary tabular-nums text-foreground">
-                  {val}
+                <div className="flex items-baseline gap-1">
+                  <span className="text-base font-medium tabular-nums text-foreground">{val}</span>
+                  <span className="text-sm text-muted-foreground font-light">EPs</span>
                 </div>
-                <div className="text-xs text-muted-foreground font-light mt-0.5">EPs</div>
               </div>
             ))}
           </div>
@@ -245,7 +228,7 @@ export const AnnualPerformance = () => {
 
         {/* Card 2 — Event Stats + Milestones */}
         <div className="card-29029 !overflow-visible p-4 sm:p-7 md:p-10">
-          <h4 className="text-sm uppercase tracking-[0.2em] font-medium text-foreground/90 mb-5">Your Event Stats</h4>
+          <h4 className="text-xs sm:text-sm uppercase tracking-[0.1em] sm:tracking-[0.2em] font-medium text-foreground/90 mb-5">Your Event Stats</h4>
           <Tabs defaultValue="mountain" className="w-full">
             <TabsList className="w-full mb-5 md:mb-6 bg-muted/15 p-1 rounded-lg border border-border/10 flex">
               <TabsTrigger
@@ -274,7 +257,7 @@ export const AnnualPerformance = () => {
             <TabsContent value="trail" className="mt-0">
               <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4">
                 <KPICard label="Total Events" shortLabel="Events" value={activeData.trail.totalEvents} />
-                <KPICard label="# of Marathons" shortLabel="Marathons" value={activeData.trail.marathons} />
+                <KPICard label="# of Finishes" shortLabel="Finishes" value={activeData.trail.marathons} />
                 <KPICard label="Total Miles" shortLabel="Miles" value={activeData.trail.totalMiles} compact />
               </div>
               <MilestoneBadges current={activeData.trail.marathons} color="ridge" />
