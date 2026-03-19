@@ -266,12 +266,12 @@ export const TiersContinuum = () => {
                     }}
                   />
                   <div className={cn(
-                    "text-xs uppercase tracking-wider transition-colors duration-500 text-center",
-                    isPassed ? "text-foreground font-semibold" : "text-[hsl(var(--text-muted))]"
+                    "text-sm uppercase tracking-wider transition-colors duration-500 text-center",
+                    isPassed ? "text-foreground font-semibold" : "text-muted-foreground"
                   )}>
                     {tier.name}
                   </div>
-                  <div className="text-xs text-[hsl(var(--text-disabled))] mt-0.5 sm:mt-1 tabular-nums">
+                  <div className="text-sm text-muted-foreground mt-0.5 sm:mt-1 tabular-nums">
                     {tier.threshold}
                   </div>
                 </div>
