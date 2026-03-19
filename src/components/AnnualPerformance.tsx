@@ -244,7 +244,7 @@ export const AnnualPerformance = () => {
             </TabsTrigger>
             <TabsTrigger
               value="trail"
-              className="flex-1 py-2.5 min-h-[44px] text-xs uppercase tracking-[0.2em] font-light data-[state=active]:bg-card/80 data-[state=active]:text-ridge data-[state=active]:shadow-sm"
+              className="flex-1 py-2.5 min-h-[44px] text-sm uppercase tracking-[0.15em] font-light data-[state=active]:bg-card/80 data-[state=active]:text-ridge data-[state=active]:shadow-sm"
             >
               Trail
             </TabsTrigger>

@@ -122,7 +122,7 @@ export const CalendarGrid = () => {
           </TabsTrigger>
           <TabsTrigger 
             value="trail" 
-            className="px-5 py-1.5 text-xs uppercase tracking-[0.2em] font-light data-[state=active]:bg-card data-[state=active]:text-amber-500"
+            className="px-5 py-1.5 text-sm uppercase tracking-[0.15em] font-light data-[state=active]:bg-card data-[state=active]:text-amber-500"
           >
             Trail
           </TabsTrigger>

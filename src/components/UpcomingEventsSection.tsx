@@ -170,7 +170,7 @@ export const UpcomingEventsSection = () => {
                   </div>
 
                   {/* Date */}
-                  <p className="text-supporting text-xs uppercase tracking-[0.2em] mt-3 pt-3 border-t border-border/20 font-light">
+                  <p className="text-supporting text-sm uppercase tracking-[0.2em] mt-3 pt-3 border-t border-border/20 font-light">
                     {event.eventDates}
                   </p>
                 </div>

@@ -119,7 +119,7 @@ export const StickyNav = () => {
                 >
                   <span
                     className={cn(
-                      "text-xs uppercase tracking-[0.15em] transition-colors duration-300",
+                      "text-sm uppercase tracking-[0.12em] transition-colors duration-300",
                       activeSection === link.href.slice(1)
                         ? "text-foreground"
                         : "text-muted-foreground hover:text-foreground"

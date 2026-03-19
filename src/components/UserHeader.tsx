@@ -69,7 +69,7 @@ export const UserHeader = () => {
             
             {/* Member Since */}
             <div 
-              className="text-xs tracking-[0.2em] uppercase font-normal animate-fade-in"
+              className="text-sm tracking-[0.18em] uppercase font-normal animate-fade-in"
               style={{ 
                 animationDelay: '0.4s', 
                 animationFillMode: 'both', 

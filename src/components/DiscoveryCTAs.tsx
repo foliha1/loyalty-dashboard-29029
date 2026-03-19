@@ -85,7 +85,7 @@ export const DiscoveryCTAs = () => {
           
           {/* Underline sweep effect */}
           <div className="relative inline-block">
-            <span className="text-foreground text-xs uppercase tracking-[0.25em] font-light">
+            <span className="text-foreground text-sm uppercase tracking-[0.2em] font-light">
               Shop Now
             </span>
             <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-primary group-hover:w-full transition-all duration-500" />
