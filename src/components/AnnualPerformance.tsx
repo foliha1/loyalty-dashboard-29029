@@ -184,9 +184,9 @@ export const AnnualPerformance = () => {
             <SelectValue />
           </SelectTrigger>
           <SelectContent className="bg-popover border-border/30 z-50">
-            {yearlyData.map((y) => (
-              <SelectItem key={y.year} value={y.year.toString()} className="text-foreground">
-                {y.year}
+            {availableYears.map((year) => (
+              <SelectItem key={year} value={year.toString()} className="text-foreground">
+                {year}
               </SelectItem>
             ))}
           </SelectContent>
