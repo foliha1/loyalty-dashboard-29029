@@ -11,6 +11,51 @@ import { EPsLabel } from "@/components/EPsLabel";
 
 const RequiredAsterisk = () => <span className="text-[hsl(var(--peak))] ml-0.5">*</span>;
 
+interface PastEvent {
+  name: string;
+  date: string;
+  type: "Mountain" | "TRAIL";
+  finished: boolean;
+  progress?: string;
+  award?: string;
+}
+
+const pastEvents: PastEvent[] = [
+  {
+    name: "Snowbasin 2025",
+    date: "June 2025",
+    type: "Mountain",
+    finished: true,
+    award: "Black Bib",
+  },
+  {
+    name: "Whistler TRAIL 2025",
+    date: "August 2025",
+    type: "TRAIL",
+    finished: true,
+  },
+  {
+    name: "Stratton 2024",
+    date: "September 2024",
+    type: "Mountain",
+    finished: false,
+    progress: "Summit 12 of 17",
+  },
+  {
+    name: "Sun Valley 2024",
+    date: "June 2024",
+    type: "Mountain",
+    finished: true,
+  },
+  {
+    name: "Tahoe TRAIL 2023",
+    date: "May 2023",
+    type: "TRAIL",
+    finished: true,
+    award: "5x Award",
+  },
+];
+
 export default function Profile() {
   const navigate = useNavigate();
   const [isEditing, setIsEditing] = useState(false);
