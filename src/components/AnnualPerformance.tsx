@@ -257,7 +257,7 @@ export const AnnualPerformance = () => {
             <TabsContent value="trail" className="mt-0">
               <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4">
                 <KPICard label="Total Events" shortLabel="Events" value={activeData.trail.totalEvents} />
-                <KPICard label="# of Marathons" shortLabel="Marathons" value={activeData.trail.marathons} />
+                <KPICard label="# of Finishes" shortLabel="Finishes" value={activeData.trail.marathons} />
                 <KPICard label="Total Miles" shortLabel="Miles" value={activeData.trail.totalMiles} compact />
               </div>
               <MilestoneBadges current={activeData.trail.marathons} color="ridge" />
