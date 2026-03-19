@@ -192,7 +192,7 @@ export const TiersContinuum = () => {
           </div>
           <div className="flex flex-col text-center sm:text-right mt-4 sm:mt-0">
             <div className="text-subhead mb-2 sm:mb-3">Total EPs</div>
-            <div className="text-3xl md:text-6xl font-light tracking-tight tabular-nums">
+            <div className="type-metric-primary tabular-nums">
               {animatedEP}
             </div>
             {/* Desktop-only link */}
