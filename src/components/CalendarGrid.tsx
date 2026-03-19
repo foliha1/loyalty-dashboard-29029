@@ -46,34 +46,48 @@ const RecognitionLadder = ({ current, color = 'ridge' }: { current: number; colo
 
   return (
     <div className="mt-4 md:mt-6">
+      {/* Label */}
+      <div className="text-sm uppercase tracking-[0.15em] text-muted-foreground mb-3 font-light">
+        Finish Milestones
+      </div>
+
       {/* Progress arrow track */}
       <div className="relative h-2 bg-white/10 rounded-full overflow-hidden">
         <div 
           className={`absolute inset-y-0 left-0 rounded-full transition-all duration-500 ${color === 'peak' ? 'bg-peak' : 'bg-ridge'}`}
           style={{ width: `${progressPercent}%` }}
         />
-        {/* Arrow head */}
-        <div 
-          className="absolute top-1/2 -translate-y-1/2 w-0 h-0 transition-all duration-500"
-          style={{
-            left: `${progressPercent}%`,
-            borderTop: '6px solid transparent',
-            borderBottom: '6px solid transparent',
-            borderLeft: `8px solid hsl(var(--${color}))`,
-            marginLeft: '-2px'
-          }}
-        />
+        {current > 0 && (
+          <div 
+            className="absolute top-1/2 -translate-y-1/2 w-0 h-0 transition-all duration-500"
+            style={{
+              left: `${progressPercent}%`,
+              borderTop: '6px solid transparent',
+              borderBottom: '6px solid transparent',
+              borderLeft: `8px solid hsl(var(--${color}))`,
+              marginLeft: '-2px'
+            }}
+          />
+        )}
       </div>
 
       {/* Milestone markers */}
       <div className="flex justify-between mt-3 px-1">
         {ticks.map((tick) => {
           const isPast = tick <= current;
+          const isCurrent = tick === current;
           const milestone = fixedMilestones.find((m) => m.value === tick);
           const isMobileVisible = mobileVisibleTicks.has(tick);
 
           return (
             <div key={tick} className="flex flex-col items-center" style={{ minWidth: 0, flex: '1 1 0' }}>
+              {/* Current position dot */}
+              {isCurrent && current > 0 && !milestone && (
+                <div
+                  className="w-1.5 h-1.5 rounded-full mb-1"
+                  style={{ backgroundColor: `hsl(var(--${color}))` }}
+                />
+              )}
               <span 
                 className={`text-sm font-light ${!isMobileVisible ? 'hidden sm:inline' : ''} ${
                   isPast ? (color === 'peak' ? 'text-peak' : 'text-ridge') : 'text-muted-foreground'
@@ -95,6 +109,13 @@ const RecognitionLadder = ({ current, color = 'ridge' }: { current: number; colo
           );
         })}
       </div>
+
+      {/* Zero state message */}
+      {current === 0 && (
+        <p className="text-sm text-muted-foreground mt-3 font-light">
+          Complete your first finish to start tracking milestones
+        </p>
+      )}
     </div>
   );
 };
