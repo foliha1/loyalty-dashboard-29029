@@ -26,6 +26,9 @@ interface YearData {
   };
 }
 
+const memberSince = 2022;
+const currentYear = 2026;
+
 const yearlyData: YearData[] = [
   {
     year: 2026,
@@ -55,7 +58,20 @@ const yearlyData: YearData[] = [
     trail: { totalEvents: 1, marathons: 1, totalMiles: 26.2, recognition: 0 },
     eps: { events: 150, apparel: 60, coaching: 90 },
   },
+  {
+    year: 2022,
+    tierAchieved: "Base",
+    mountain: { totalEvents: 1, summits: 0, verticalFeet: 14500, recognition: 0 },
+    trail: { totalEvents: 0, marathons: 0, totalMiles: 0, recognition: 0 },
+    eps: { events: 100, apparel: 40, coaching: 0 },
+  },
 ];
+
+// Generate available years from memberSince through currentYear
+const availableYears = Array.from(
+  { length: currentYear - memberSince + 1 },
+  (_, i) => currentYear - i
+);
 
 // Recognition ladder milestones
 const milestones = [1, 2, 3, 4, "5x", "10x"];
