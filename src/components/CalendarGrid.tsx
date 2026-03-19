@@ -162,7 +162,7 @@ export const CalendarGrid = () => {
             </div>
 
             {/* Recognition Ladder */}
-            <RecognitionLadder current={mountainData.currentRecognition} color="peak" />
+            <RecognitionLadder current={mountainData.summits} color="peak" />
           </div>
         </TabsContent>
 
