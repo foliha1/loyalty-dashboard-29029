@@ -26,6 +26,9 @@ interface YearData {
   };
 }
 
+const memberSince = 2022;
+const currentYear = 2026;
+
 const yearlyData: YearData[] = [
   {
     year: 2026,
@@ -55,7 +58,20 @@ const yearlyData: YearData[] = [
     trail: { totalEvents: 1, marathons: 1, totalMiles: 26.2, recognition: 0 },
     eps: { events: 150, apparel: 60, coaching: 90 },
   },
+  {
+    year: 2022,
+    tierAchieved: "Base",
+    mountain: { totalEvents: 1, summits: 0, verticalFeet: 14500, recognition: 0 },
+    trail: { totalEvents: 0, marathons: 0, totalMiles: 0, recognition: 0 },
+    eps: { events: 100, apparel: 40, coaching: 0 },
+  },
 ];
+
+// Generate available years from memberSince through currentYear
+const availableYears = Array.from(
+  { length: currentYear - memberSince + 1 },
+  (_, i) => currentYear - i
+);
 
 // Recognition ladder milestones
 const milestones = [1, 2, 3, 4, "5x", "10x"];
@@ -141,13 +157,22 @@ const tierColorVar: Record<string, string> = {
 // ── Main Component ───────────────────────────────────
 
 export const AnnualPerformance = () => {
-  const [selectedYear, setSelectedYear] = useState("2026");
+  const [selectedYear, setSelectedYear] = useState(currentYear.toString());
   const data = yearlyData.find((y) => y.year.toString() === selectedYear);
-  if (!data) return null;
 
-  const totalEP = data.eps.events + data.eps.apparel + data.eps.coaching;
-  const tierColor = tierColorVar[data.tierAchieved] || "ridge";
-  const isCurrentYear = selectedYear === new Date().getFullYear().toString();
+  // For years without detailed data, show a minimal placeholder
+  const fallbackData: YearData = {
+    year: parseInt(selectedYear),
+    tierAchieved: "Base",
+    mountain: { totalEvents: 0, summits: 0, verticalFeet: 0, recognition: 0 },
+    trail: { totalEvents: 0, marathons: 0, totalMiles: 0, recognition: 0 },
+    eps: { events: 0, apparel: 0, coaching: 0 },
+  };
+  const activeData = data || fallbackData;
+
+  const totalEP = activeData.eps.events + activeData.eps.apparel + activeData.eps.coaching;
+  const tierColor = tierColorVar[activeData.tierAchieved] || "ridge";
+  const isCurrentYear = selectedYear === currentYear.toString();
 
   return (
     <section>
@@ -159,9 +184,9 @@ export const AnnualPerformance = () => {
             <SelectValue />
           </SelectTrigger>
           <SelectContent className="bg-popover border-border/30 z-50">
-            {yearlyData.map((y) => (
-              <SelectItem key={y.year} value={y.year.toString()} className="text-foreground">
-                {y.year}
+            {availableYears.map((year) => (
+              <SelectItem key={year} value={year.toString()} className="text-foreground">
+                {year}
               </SelectItem>
             ))}
           </SelectContent>
@@ -206,7 +231,7 @@ export const AnnualPerformance = () => {
                   className="type-metric-primary"
                   style={{ color: `hsl(var(--${tierColor}))` }}
                 >
-                  {data.tierAchieved}
+                  {activeData.tierAchieved}
                 </div>
               </div>
             </div>
@@ -217,9 +242,9 @@ export const AnnualPerformance = () => {
         <h4 className="text-sm uppercase tracking-[0.2em] font-medium text-foreground/90 mb-5">EPs Breakdown</h4>
         <div className="grid grid-cols-3 gap-4 md:gap-8 mb-8 sm:mb-10">
           {([
-            ["Events", data.eps.events],
-            ["Apparel", data.eps.apparel],
-            ["Coaching", data.eps.coaching],
+            ["Events", activeData.eps.events],
+            ["Apparel", activeData.eps.apparel],
+            ["Coaching", activeData.eps.coaching],
           ] as const).map(([label, val]) => (
             <div key={label}>
               <div className="text-subhead mb-2.5">{label}</div>
@@ -252,20 +277,20 @@ export const AnnualPerformance = () => {
 
           <TabsContent value="mountain" className="mt-0">
             <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4">
-              <KPICard label="Total Events" value={data.mountain.totalEvents} />
-              <KPICard label="# of Summits" value={data.mountain.summits} />
-              <KPICard label="Total Vert Ft" value={data.mountain.verticalFeet} compact />
+              <KPICard label="Total Events" value={activeData.mountain.totalEvents} />
+              <KPICard label="# of Summits" value={activeData.mountain.summits} />
+              <KPICard label="Total Vert Ft" value={activeData.mountain.verticalFeet} compact />
             </div>
-            <RecognitionLadder current={data.mountain.recognition} color="peak" />
+            <RecognitionLadder current={activeData.mountain.recognition} color="peak" />
           </TabsContent>
 
           <TabsContent value="trail" className="mt-0">
             <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4">
-              <KPICard label="Total Events" value={data.trail.totalEvents} />
-              <KPICard label="# of Marathons" value={data.trail.marathons} />
-              <KPICard label="Total Miles" value={data.trail.totalMiles} compact />
+              <KPICard label="Total Events" value={activeData.trail.totalEvents} />
+              <KPICard label="# of Marathons" value={activeData.trail.marathons} />
+              <KPICard label="Total Miles" value={activeData.trail.totalMiles} compact />
             </div>
-            <RecognitionLadder current={data.trail.recognition} color="ridge" />
+            <RecognitionLadder current={activeData.trail.recognition} color="ridge" />
           </TabsContent>
         </Tabs>
       </div>
