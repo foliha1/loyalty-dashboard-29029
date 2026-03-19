@@ -258,19 +258,8 @@ All colors MUST be HSL.
      TYPOGRAPHY UTILITY CLASSES (6-Role System)
      =========================================== */
 
-  /* Page Identity - Username, top-level identity */
-  .type-identity {
-    font-size: var(--type-identity);
-    font-weight: 300;
-    letter-spacing: -0.01em;
-    line-height: 1.1;
-  }
-  
-  @media (min-width: 768px) {
-    .type-identity {
-      font-size: var(--type-identity-md);
-    }
-  }
+
+
 
   /* Primary Metrics - Hero EP values, current tier, large KPIs */
   .type-metric-primary {
