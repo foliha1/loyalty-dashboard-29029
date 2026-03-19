@@ -11,13 +11,11 @@ interface YearData {
     totalEvents: number;
     summits: number;
     verticalFeet: number;
-    recognition: number;
   };
   trail: {
     totalEvents: number;
     marathons: number;
     totalMiles: number;
-    recognition: number;
   };
   eps: {
     events: number;
