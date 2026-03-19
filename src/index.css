@@ -73,15 +73,8 @@ All colors MUST be HSL.
     --type-metric-secondary: 1.25rem; /* 20px - mobile */
     --type-metric-secondary-md: 1.5rem; /* 24px - desktop */
     
-    /* Subsection Titles - Card titles, CTA headings, accordion triggers */
-    --type-subsection: 1rem;          /* 16px - mobile */
-    --type-subsection-md: 1.125rem;   /* 18px - desktop */
     
     /* Body/Supporting - List items, descriptions, content */
-    --type-body: 0.875rem;            /* 14px - both */
-    
-    /* Meta/Helper - Labels, badges, navigation, timestamps */
-    --type-meta: 0.875rem;            /* 14px - ADA minimum */
     
     /* ===========================================
        TIER COLORS (Semantic - unchanged)
