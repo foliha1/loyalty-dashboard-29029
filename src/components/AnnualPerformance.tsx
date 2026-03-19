@@ -208,7 +208,7 @@ export const AnnualPerformance = () => {
           </div>
 
           {/* EP Breakdown */}
-          <h4 className="text-sm uppercase tracking-[0.2em] font-medium text-foreground/90 mb-5">EPs Breakdown</h4>
+          <h4 className="text-xs sm:text-sm uppercase tracking-[0.1em] sm:tracking-[0.2em] font-medium text-foreground/90 mb-3">EPs Breakdown</h4>
           <div className="grid grid-cols-3 gap-2 sm:gap-4 md:gap-8">
             {([
               ["Events", activeData.eps.events],
@@ -217,10 +217,10 @@ export const AnnualPerformance = () => {
             ] as const).map(([label, val]) => (
               <div key={label}>
                 <div className="text-subhead mb-2.5">{label}</div>
-                <div className="type-metric-secondary tabular-nums text-foreground">
-                  {val}
+                <div className="flex items-baseline gap-1">
+                  <span className="text-base font-medium tabular-nums text-foreground">{val}</span>
+                  <span className="text-sm text-muted-foreground font-light">EPs</span>
                 </div>
-                <div className="text-xs text-muted-foreground font-light mt-0.5">EPs</div>
               </div>
             ))}
           </div>
