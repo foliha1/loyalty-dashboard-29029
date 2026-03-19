@@ -46,7 +46,7 @@ const IndexContent = () => {
 
       {/* Horizon divider — solid chapter break */}
       <div className="relative w-full h-10 md:h-14 -mt-4 md:-mt-6 pointer-events-none" aria-hidden="true"
-        style={{ background: 'hsl(0 0% 5%)' }}
+        style={{ background: 'hsl(var(--surface-chapter))' }}
       />
 
       {/* Your Journey + remaining sections — new chapter, flatter bg */}
