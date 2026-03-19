@@ -83,7 +83,7 @@ All colors MUST be HSL.
     --type-body: 0.875rem;            /* 14px - both */
     
     /* Meta/Helper - Labels, badges, navigation, timestamps */
-    --type-meta: 0.75rem;             /* 12px - both */
+    --type-meta: 0.875rem;            /* 14px - ADA minimum */
     
     /* ===========================================
        TIER COLORS (Semantic - unchanged)
