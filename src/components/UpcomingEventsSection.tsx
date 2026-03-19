@@ -164,7 +164,7 @@ export const UpcomingEventsSection = () => {
                     >
                       {daysRemaining}
                     </div>
-                    <div className="text-xs uppercase tracking-[0.3em] text-muted-foreground font-light">
+                    <div className="text-sm uppercase tracking-[0.25em] text-muted-foreground font-light">
                       Days Until Event
                     </div>
                   </div>
