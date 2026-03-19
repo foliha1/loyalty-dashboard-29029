@@ -53,7 +53,30 @@ const eventTypeConfig = {
 
 // Event data - locations without state names
 const upcomingEvents: UpcomingEvent[] = [
-  // Temporarily emptied to test empty state
+  {
+    eventName: "Snowbasin",
+    eventType: "Everest",
+    eventDates: "Jun 11-14, 2026",
+    location: "Snowbasin",
+  },
+  {
+    eventName: "Tahoe TRAIL",
+    eventType: "Trail",
+    eventDates: "May 15-16, 2026",
+    location: "Tahoe",
+  },
+  {
+    eventName: "Rainier",
+    eventType: "Everest",
+    eventDates: "Jun 25-28, 2026",
+    location: "Rainier",
+  },
+  {
+    eventName: "Mont-Tremblant",
+    eventType: "Everest",
+    eventDates: "Jul 23-26, 2026",
+    location: "Mont-Tremblant",
+  },
 ];
 
 export const UpcomingEventsSection = () => {
