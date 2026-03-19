@@ -76,9 +76,9 @@ const RecognitionLadder = ({ current, color = 'ridge' }: { current: number; colo
 
           return (
             <div key={idx} className="flex flex-col items-center">
-              <span 
-                className={`text-xs font-light ${
-                  isCurrent || isPast ? (color === 'peak' ? 'text-peak' : 'text-ridge') : 'text-white/30'
+                <span 
+                className={`text-sm font-light ${
+                  isCurrent || isPast ? (color === 'peak' ? 'text-peak' : 'text-ridge') : 'text-muted-foreground'
                 }`}
               >
                 {milestone}
