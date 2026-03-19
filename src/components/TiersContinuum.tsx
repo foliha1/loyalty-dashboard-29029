@@ -90,7 +90,7 @@ export const TiersContinuum = () => {
     <>
       <div className="mb-5">
         <h4 className="text-sm font-medium text-[hsl(var(--base))] uppercase tracking-wider mb-2">Base</h4>
-        <ul className="space-y-1.5 text-sm text-muted-foreground">
+      <ul className="space-y-1.5 text-sm text-foreground/80">
           <li className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-[hsl(var(--base))]" /><span>Access to all 29029 events</span></li>
           <li className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-[hsl(var(--base))]" /><span>Member-only community access</span></li>
           <li className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-[hsl(var(--base))]" /><span>Personal progress tracking</span></li>
