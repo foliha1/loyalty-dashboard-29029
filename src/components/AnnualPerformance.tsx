@@ -231,7 +231,7 @@ export const AnnualPerformance = () => {
                   className="type-metric-primary"
                   style={{ color: `hsl(var(--${tierColor}))` }}
                 >
-                  {data.tierAchieved}
+                  {activeData.tierAchieved}
                 </div>
               </div>
             </div>
