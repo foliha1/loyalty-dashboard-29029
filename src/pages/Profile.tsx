@@ -109,7 +109,7 @@ export default function Profile() {
             {!isEditing ? (
               <Button
                 onClick={() => setIsEditing(true)}
-                className="bg-white hover:bg-white/90 text-black font-medium uppercase tracking-wider text-xs sm:text-sm min-h-[44px] px-4 sm:px-6 shadow-lg hover:shadow-xl transition-all"
+                className="bg-white hover:bg-white/90 text-black font-medium uppercase tracking-wider text-sm min-h-[44px] px-4 sm:px-6 shadow-lg hover:shadow-xl transition-all"
               >
                 Edit Profile
               </Button>
