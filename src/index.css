@@ -149,7 +149,7 @@ All colors MUST be HSL.
   /* ===========================================
      TIER UTILITIES (Semantic colors preserved)
      =========================================== */
-  .text-base {
+  .text-tier-base {
     color: hsl(var(--base));
   }
   
