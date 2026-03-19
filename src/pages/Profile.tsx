@@ -137,7 +137,7 @@ export default function Profile() {
           <Card className="card-29029 p-6 sm:p-8 md:p-10 mb-8 sm:mb-10">
             <div className="mb-8 sm:mb-10">
               <h3 className="text-xl sm:text-2xl font-light tracking-tight mb-1.5">Personal Information</h3>
-              <p className="text-xs sm:text-sm text-foreground/60 uppercase tracking-wider">Basic details and contact information</p>
+              <p className="text-sm text-muted-foreground uppercase tracking-wider">Basic details and contact information</p>
             </div>
             <div className="h-px bg-gradient-to-r from-tier-accent/20 via-tier-accent/40 to-tier-accent/20 mb-8 sm:mb-10" />
             
