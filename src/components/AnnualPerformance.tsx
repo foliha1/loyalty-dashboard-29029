@@ -216,7 +216,7 @@ export const AnnualPerformance = () => {
                 </div>
                 <div className="flex flex-col items-end">
                   <div className="text-subhead mb-2">Tier Achieved</div>
-                  <div className="type-metric-primary" style={{ color: `hsl(var(--${tierColor}))` }}>
+                  <div className="type-metric-secondary" style={{ color: `hsl(var(--${tierColor}))` }}>
                     {activeData.tierAchieved}
                   </div>
                 </div>
