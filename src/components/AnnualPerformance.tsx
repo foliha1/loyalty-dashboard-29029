@@ -108,6 +108,10 @@ const RecognitionLadder = ({ current, color = "ridge" }: { current: number; colo
   const ticks = Array.from({ length: axisMax + 1 }, (_, i) => i);
   const progressPercent = Math.min(100, (current / axisMax) * 100);
 
+  // On mobile, only show milestone ticks (0, 3, 5, 10) + current position
+  const milestoneValues = new Set([0, ...fixedMilestones.map((m) => m.value)]);
+  const mobileVisibleTicks = new Set([...milestoneValues, current]);
+
   return (
     <div className="mt-6 md:mt-8">
       <div className="relative h-1.5 bg-muted/20 rounded-full overflow-hidden">
@@ -130,13 +134,14 @@ const RecognitionLadder = ({ current, color = "ridge" }: { current: number; colo
         {ticks.map((tick) => {
           const isPast = tick <= current;
           const milestone = fixedMilestones.find((m) => m.value === tick);
+          const isMobileVisible = mobileVisibleTicks.has(tick);
           return (
             <div key={tick} className="flex flex-col items-center" style={{ minWidth: 0, flex: '1 1 0' }}>
-              <span className={`text-sm font-light ${isPast ? (color === "peak" ? "text-peak" : "text-ridge") : "text-muted-foreground"}`}>
+              <span className={`text-sm font-light ${!isMobileVisible ? 'hidden sm:inline' : ''} ${isPast ? (color === "peak" ? "text-peak" : "text-ridge") : "text-muted-foreground"}`}>
                 {tick}
               </span>
               {milestone && (
-                <span className="text-sm uppercase tracking-[0.12em] text-muted-foreground mt-2 font-medium whitespace-nowrap">
+                <span className="text-sm uppercase tracking-[0.06em] sm:tracking-[0.12em] text-muted-foreground mt-2 font-medium whitespace-nowrap">
                   {milestone.label}
                 </span>
               )}
