@@ -170,9 +170,9 @@ export const AnnualPerformance = () => {
   };
   const activeData = data || fallbackData;
 
-  const totalEP = data.eps.events + data.eps.apparel + data.eps.coaching;
-  const tierColor = tierColorVar[data.tierAchieved] || "ridge";
-  const isCurrentYear = selectedYear === new Date().getFullYear().toString();
+  const totalEP = activeData.eps.events + activeData.eps.apparel + activeData.eps.coaching;
+  const tierColor = tierColorVar[activeData.tierAchieved] || "ridge";
+  const isCurrentYear = selectedYear === currentYear.toString();
 
   return (
     <section>
