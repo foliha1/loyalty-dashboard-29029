@@ -286,11 +286,11 @@ export const AnnualPerformance = () => {
 
           <TabsContent value="trail" className="mt-0">
             <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4">
-              <KPICard label="Total Events" value={data.trail.totalEvents} />
-              <KPICard label="# of Marathons" value={data.trail.marathons} />
-              <KPICard label="Total Miles" value={data.trail.totalMiles} compact />
+              <KPICard label="Total Events" value={activeData.trail.totalEvents} />
+              <KPICard label="# of Marathons" value={activeData.trail.marathons} />
+              <KPICard label="Total Miles" value={activeData.trail.totalMiles} compact />
             </div>
-            <RecognitionLadder current={data.trail.recognition} color="ridge" />
+            <RecognitionLadder current={activeData.trail.recognition} color="ridge" />
           </TabsContent>
         </Tabs>
       </div>
