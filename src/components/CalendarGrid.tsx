@@ -128,7 +128,7 @@ export const CalendarGrid = () => {
             {/* KPIs Row */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 md:gap-3">
               <KPICard label="Total Events" value={mountainData.totalEvents} />
-              <KPICard label="# of Summits" value={mountainData.summits} />
+              <KPICard label="# of Finishes" value={mountainData.summits} />
               <KPICard label="Total Vert Ft" value={mountainData.verticalFeet.toLocaleString()} />
             </div>
 
