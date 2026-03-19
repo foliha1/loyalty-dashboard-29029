@@ -65,10 +65,6 @@ All colors MUST be HSL.
        TYPOGRAPHY SCALE (6-Role System)
        =========================================== */
     
-    /* Page Identity - Username, top-level identity */
-    --type-identity: 1.875rem;        /* 30px - mobile */
-    --type-identity-md: 2.25rem;      /* 36px - desktop */
-    
     /* Primary Metrics - Hero EP values, current tier, large KPIs */
     --type-metric-primary: 1.875rem;  /* 30px - mobile */
     --type-metric-primary-md: 3rem;   /* 48px - desktop */
