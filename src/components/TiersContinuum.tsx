@@ -169,10 +169,10 @@ export const TiersContinuum = () => {
             </h4>
             <Dialog>
               <DialogTrigger asChild>
-                <button className="mt-3 text-base text-muted-foreground hover:text-foreground transition-colors duration-200 cursor-pointer tracking-wide inline-flex items-center gap-1.5 underline underline-offset-4 decoration-muted-foreground/40">
-                  View Tier Benefits
-                  <Info size={14} />
-                </button>
+                 <button className="mt-3 text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors duration-200 cursor-pointer tracking-normal sm:tracking-wide inline-flex items-center gap-1.5 underline underline-offset-4 decoration-muted-foreground/40">
+                   View Tier Benefits
+                   <Info size={14} />
+                 </button>
               </DialogTrigger>
               <DialogContent className="max-w-md bg-background/95 backdrop-blur-xl border-border/30 p-0 overflow-hidden">
                 <DialogHeader className="px-6 pt-6 pb-4 border-b border-border/20">
