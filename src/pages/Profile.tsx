@@ -328,7 +328,7 @@ export default function Profile() {
             
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
               <div className="bg-card/30 border border-border/20 rounded-lg p-4 sm:p-5 md:p-6">
-                <div className="text-[10px] sm:text-xs text-foreground/65 mb-1.5 sm:mb-2 uppercase tracking-wider">Total Elevation</div>
+                <div className="text-xs sm:text-sm text-muted-foreground mb-1.5 sm:mb-2 uppercase tracking-wider">Total Elevation</div>
                 <div className="text-2xl sm:text-3xl font-light tracking-tight">145,800 ft</div>
               </div>
               
