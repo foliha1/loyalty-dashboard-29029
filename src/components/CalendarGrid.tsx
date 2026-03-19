@@ -116,7 +116,7 @@ export const CalendarGrid = () => {
         <TabsList className="mb-3 md:mb-4 bg-muted/20 p-1 rounded-lg">
           <TabsTrigger 
             value="mountain" 
-            className="px-5 py-1.5 text-xs uppercase tracking-[0.2em] font-light data-[state=active]:bg-card data-[state=active]:text-red-500"
+            className="px-5 py-1.5 text-sm uppercase tracking-[0.15em] font-light data-[state=active]:bg-card data-[state=active]:text-red-500"
           >
             Mountain
           </TabsTrigger>
