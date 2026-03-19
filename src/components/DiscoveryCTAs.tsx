@@ -47,7 +47,7 @@ export const DiscoveryCTAs = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         
         <div className="relative z-10 flex-1">
-          <h5 className="text-base md:text-lg font-light mb-2 tracking-tight leading-tight !text-foreground">
+          <h5 className="text-base md:text-lg font-light mb-2 tracking-tight leading-tight text-foreground">
             Discover 29029 Coaching
           </h5>
           <p className="text-[hsl(var(--text-secondary))] text-sm uppercase tracking-[0.1em] font-light mb-4 sm:mb-8 leading-snug">
