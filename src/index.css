@@ -149,7 +149,7 @@ All colors MUST be HSL.
   /* ===========================================
      TIER UTILITIES (Semantic colors preserved)
      =========================================== */
-  .text-base {
+  .text-tier-base {
     color: hsl(var(--base));
   }
   
@@ -165,7 +165,7 @@ All colors MUST be HSL.
     color: hsl(var(--summit));
   }
   
-  .border-base {
+  .border-tier-base {
     border-color: hsl(var(--base));
   }
   
@@ -181,7 +181,7 @@ All colors MUST be HSL.
     border-color: hsl(var(--summit));
   }
   
-  .base-glow {
+  .tier-base-glow {
     box-shadow: 0 0 20px hsl(var(--base) / 0.3);
   }
   
@@ -197,7 +197,7 @@ All colors MUST be HSL.
     box-shadow: 0 0 20px hsl(var(--summit) / 0.3);
   }
   
-  .bg-base {
+  .bg-tier-base {
     background-color: hsl(var(--base));
   }
 
