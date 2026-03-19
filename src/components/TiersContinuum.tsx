@@ -131,7 +131,7 @@ export const TiersContinuum = () => {
       </div>
       <div className="pt-4 border-t border-border/20">
         <h5 className="text-base font-semibold tracking-tight text-foreground mb-3">Tier Thresholds</h5>
-        <div className="space-y-2.5 text-sm text-muted-foreground leading-relaxed">
+        <div className="space-y-2.5 text-sm text-foreground/80 leading-relaxed">
           <p><span className="font-semibold text-foreground">Base:</span> 0 EPs (Starting tier)</p>
           <p><span className="font-semibold text-foreground">Ridge:</span> 500 EPs</p>
           <p><span className="font-semibold text-foreground">Peak:</span> 1,000 EPs</p>
