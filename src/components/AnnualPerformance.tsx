@@ -81,10 +81,15 @@ const formatCompact = (value: number): string => {
   return value.toLocaleString();
 };
 
-const KPICard = ({ label, value, compact }: { label: string; value: string | number; compact?: boolean }) => (
+const KPICard = ({ label, shortLabel, value, compact }: { label: string; shortLabel?: string; value: string | number; compact?: boolean }) => (
   <div className="p-2 sm:p-3 md:p-5 border border-border/20 rounded-lg text-center bg-background/30">
     <div className="text-subhead mb-2">
-      {label}
+      {shortLabel ? (
+        <>
+          <span className="sm:hidden">{shortLabel}</span>
+          <span className="hidden sm:inline">{label}</span>
+        </>
+      ) : label}
     </div>
     <div className="type-metric-secondary text-foreground">
       {typeof value === "number" ? (compact ? formatCompact(value) : value.toLocaleString()) : value}
