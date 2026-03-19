@@ -210,7 +210,7 @@ export const AnnualPerformance = () => {
                   <div className="text-subhead mb-2">
                     Total <EPsLabel /> Earned
                   </div>
-                  <div className="type-metric-primary text-foreground">
+                  <div className="type-metric-secondary text-foreground">
                     {totalEP.toLocaleString()}
                   </div>
                 </div>
