@@ -238,7 +238,7 @@ export default function Profile() {
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-7 md:gap-8">
                 <div className="space-y-2">
-                  <Label htmlFor="city" className="text-xs uppercase tracking-wider text-foreground/80 font-medium block">
+                  <Label htmlFor="city" className="text-sm uppercase tracking-wider text-muted-foreground font-medium block">
                     City
                   </Label>
                   <Input
