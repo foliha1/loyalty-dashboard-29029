@@ -1,5 +1,7 @@
 import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
+import { Mountain, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import patagoniaImage from "@/assets/patagonia-mountains.jpg";
 
 interface UpcomingEvent {
