@@ -197,8 +197,8 @@ export const AnnualPerformance = () => {
   const fallbackData: YearData = {
     year: parseInt(selectedYear),
     tierAchieved: "Base",
-    mountain: { totalEvents: 0, summits: 0, verticalFeet: 0, recognition: 0 },
-    trail: { totalEvents: 0, marathons: 0, totalMiles: 0, recognition: 0 },
+    mountain: { totalEvents: 0, summits: 0, verticalFeet: 0 },
+    trail: { totalEvents: 0, marathons: 0, totalMiles: 0 },
     eps: { events: 0, apparel: 0, coaching: 0 },
   };
   const activeData = data || fallbackData;
