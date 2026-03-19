@@ -118,7 +118,7 @@ export default function Profile() {
                 <Button
                   onClick={handleCancel}
                   variant="outline"
-                  className="uppercase tracking-wider text-xs sm:text-sm min-h-[44px] px-3 sm:px-4"
+                  className="uppercase tracking-wider text-xs sm:text-sm min-h-[44px] px-3 sm:px-4 border-white/30 text-white hover:bg-white/10"
                 >
                   Cancel
                 </Button>
