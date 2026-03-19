@@ -75,7 +75,7 @@ All colors MUST be HSL.
     
     
     /* Body/Supporting - List items, descriptions, content */
-    
+    --type-body: 0.875rem;            /* 14px - both */
     /* ===========================================
        TIER COLORS (Semantic - unchanged)
        =========================================== */
