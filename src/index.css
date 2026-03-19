@@ -68,12 +68,12 @@ All colors MUST be HSL.
     --type-identity-md: 2.25rem;      /* 36px - desktop */
     
     /* Primary Metrics - Hero EP values, current tier, large KPIs */
-    --type-metric-primary: 2.25rem;   /* 36px - mobile */
-    --type-metric-primary-md: 3.75rem; /* 60px - desktop */
+    --type-metric-primary: 1.875rem;  /* 30px - mobile */
+    --type-metric-primary-md: 3rem;   /* 48px - desktop */
     
     /* Secondary Metrics - Category EPs, days remaining, next milestone */
-    --type-metric-secondary: 1.5rem;  /* 24px - mobile */
-    --type-metric-secondary-md: 1.875rem; /* 30px - desktop */
+    --type-metric-secondary: 1.25rem; /* 20px - mobile */
+    --type-metric-secondary-md: 1.5rem; /* 24px - desktop */
     
     /* Subsection Titles - Card titles, CTA headings, accordion triggers */
     --type-subsection: 1rem;          /* 16px - mobile */
