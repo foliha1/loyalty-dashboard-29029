@@ -11,13 +11,11 @@ interface YearData {
     totalEvents: number;
     summits: number;
     verticalFeet: number;
-    recognition: number;
   };
   trail: {
     totalEvents: number;
     marathons: number;
     totalMiles: number;
-    recognition: number;
   };
   eps: {
     events: number;
@@ -33,36 +31,36 @@ const yearlyData: YearData[] = [
   {
     year: 2026,
     tierAchieved: "Ridge",
-    mountain: { totalEvents: 2, summits: 1, verticalFeet: 43500, recognition: 1 },
-    trail: { totalEvents: 1, marathons: 1, totalMiles: 26.2, recognition: 1 },
+    mountain: { totalEvents: 2, summits: 1, verticalFeet: 43500 },
+    trail: { totalEvents: 1, marathons: 1, totalMiles: 26.2 },
     eps: { events: 280, apparel: 120, coaching: 180 },
   },
   {
     year: 2025,
     tierAchieved: "Ridge",
-    mountain: { totalEvents: 3, summits: 2, verticalFeet: 87200, recognition: 2 },
-    trail: { totalEvents: 2, marathons: 3, totalMiles: 78.6, recognition: 1 },
+    mountain: { totalEvents: 3, summits: 2, verticalFeet: 87200 },
+    trail: { totalEvents: 2, marathons: 3, totalMiles: 78.6 },
     eps: { events: 350, apparel: 160, coaching: 210 },
   },
   {
     year: 2024,
     tierAchieved: "Base",
-    mountain: { totalEvents: 2, summits: 1, verticalFeet: 43500, recognition: 1 },
-    trail: { totalEvents: 1, marathons: 2, totalMiles: 52.4, recognition: 1 },
+    mountain: { totalEvents: 2, summits: 1, verticalFeet: 43500 },
+    trail: { totalEvents: 1, marathons: 2, totalMiles: 52.4 },
     eps: { events: 240, apparel: 110, coaching: 130 },
   },
   {
     year: 2023,
     tierAchieved: "Base",
-    mountain: { totalEvents: 1, summits: 0, verticalFeet: 21750, recognition: 0 },
-    trail: { totalEvents: 1, marathons: 1, totalMiles: 26.2, recognition: 0 },
+    mountain: { totalEvents: 1, summits: 0, verticalFeet: 21750 },
+    trail: { totalEvents: 1, marathons: 1, totalMiles: 26.2 },
     eps: { events: 150, apparel: 60, coaching: 90 },
   },
   {
     year: 2022,
     tierAchieved: "Base",
-    mountain: { totalEvents: 1, summits: 0, verticalFeet: 14500, recognition: 0 },
-    trail: { totalEvents: 0, marathons: 0, totalMiles: 0, recognition: 0 },
+    mountain: { totalEvents: 1, summits: 0, verticalFeet: 14500 },
+    trail: { totalEvents: 0, marathons: 0, totalMiles: 0 },
     eps: { events: 100, apparel: 40, coaching: 0 },
   },
 ];
@@ -114,29 +112,45 @@ const RecognitionLadder = ({ current, color = "ridge" }: { current: number; colo
 
   return (
     <div className="mt-6 md:mt-8">
+      {/* Label */}
+      <div className="text-subhead mb-3">Finish Milestones</div>
+
+      {/* Progress bar */}
       <div className="relative h-1.5 bg-muted/20 rounded-full overflow-hidden">
         <div
           className={`absolute inset-y-0 left-0 rounded-full transition-all duration-700 ease-out ${color === "peak" ? "bg-peak" : "bg-ridge"}`}
           style={{ width: `${progressPercent}%` }}
         />
-        <div
-          className="absolute top-1/2 -translate-y-1/2 w-0 h-0 transition-all duration-700 ease-out"
-          style={{
-            left: `${progressPercent}%`,
-            borderTop: "5px solid transparent",
-            borderBottom: "5px solid transparent",
-            borderLeft: `7px solid hsl(var(--${color}))`,
-            marginLeft: "-2px",
-          }}
-        />
+        {current > 0 && (
+          <div
+            className="absolute top-1/2 -translate-y-1/2 w-0 h-0 transition-all duration-700 ease-out"
+            style={{
+              left: `${progressPercent}%`,
+              borderTop: "5px solid transparent",
+              borderBottom: "5px solid transparent",
+              borderLeft: `7px solid hsl(var(--${color}))`,
+              marginLeft: "-2px",
+            }}
+          />
+        )}
       </div>
+
+      {/* Tick marks */}
       <div className="flex justify-between mt-3 px-1">
         {ticks.map((tick) => {
           const isPast = tick <= current;
+          const isCurrent = tick === current;
           const milestone = fixedMilestones.find((m) => m.value === tick);
           const isMobileVisible = mobileVisibleTicks.has(tick);
           return (
             <div key={tick} className="flex flex-col items-center" style={{ minWidth: 0, flex: '1 1 0' }}>
+              {/* Current position dot */}
+              {isCurrent && current > 0 && !milestone && (
+                <div
+                  className="w-1.5 h-1.5 rounded-full mb-1"
+                  style={{ backgroundColor: `hsl(var(--${color}))` }}
+                />
+              )}
               <span className={`text-sm font-light ${!isMobileVisible ? 'hidden sm:inline' : ''} ${isPast ? (color === "peak" ? "text-peak" : "text-ridge") : "text-muted-foreground"}`}>
                 {tick}
               </span>
@@ -154,6 +168,13 @@ const RecognitionLadder = ({ current, color = "ridge" }: { current: number; colo
           );
         })}
       </div>
+
+      {/* Zero state message */}
+      {current === 0 && (
+        <p className="text-sm text-muted-foreground mt-3 font-light">
+          Complete your first finish to start tracking milestones
+        </p>
+      )}
     </div>
   );
 };
@@ -176,8 +197,8 @@ export const AnnualPerformance = () => {
   const fallbackData: YearData = {
     year: parseInt(selectedYear),
     tierAchieved: "Base",
-    mountain: { totalEvents: 0, summits: 0, verticalFeet: 0, recognition: 0 },
-    trail: { totalEvents: 0, marathons: 0, totalMiles: 0, recognition: 0 },
+    mountain: { totalEvents: 0, summits: 0, verticalFeet: 0 },
+    trail: { totalEvents: 0, marathons: 0, totalMiles: 0 },
     eps: { events: 0, apparel: 0, coaching: 0 },
   };
   const activeData = data || fallbackData;
@@ -293,7 +314,7 @@ export const AnnualPerformance = () => {
               <KPICard label="# of Finishes" value={activeData.mountain.summits} />
               <KPICard label="Total Vert Ft" value={activeData.mountain.verticalFeet} compact />
             </div>
-            <RecognitionLadder current={activeData.mountain.recognition} color="peak" />
+            <RecognitionLadder current={activeData.mountain.summits} color="peak" />
           </TabsContent>
 
           <TabsContent value="trail" className="mt-0">
@@ -302,7 +323,7 @@ export const AnnualPerformance = () => {
               <KPICard label="# of Marathons" value={activeData.trail.marathons} />
               <KPICard label="Total Miles" value={activeData.trail.totalMiles} compact />
             </div>
-            <RecognitionLadder current={activeData.trail.recognition} color="ridge" />
+            <RecognitionLadder current={activeData.trail.marathons} color="ridge" />
           </TabsContent>
         </Tabs>
       </div>
