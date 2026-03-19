@@ -54,7 +54,7 @@ export const UserHeader = () => {
             
             {/* Full Name - Primary Heading */}
             <h1 
-              className="text-3xl sm:text-3xl md:text-4xl font-light tracking-tight mb-1 sm:mb-2 px-2 animate-fade-in"
+              className="type-metric-primary mb-1 sm:mb-2 px-2 animate-fade-in"
               style={{ animationDelay: '0.2s', animationFillMode: 'both', textShadow: '0 2px 8px rgba(0,0,0,0.4)', lineHeight: '1.1' }}
             >
               Alex Rivera

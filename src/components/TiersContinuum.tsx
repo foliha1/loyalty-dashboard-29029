@@ -339,7 +339,7 @@ export const TiersContinuum = () => {
             </div>
             <div className="text-right">
               <div className="text-subhead mb-2">EPs Needed</div>
-              <div className="text-xl md:text-3xl font-light tracking-tight tabular-nums" style={{
+              <div className="type-metric-secondary tabular-nums" style={{
                 color: currentTier ? `hsl(var(--${currentTier.color}))` : 'hsl(var(--tier-gold))'
               }}>
                 {remainingEP}
