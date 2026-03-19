@@ -102,8 +102,8 @@ export default function Profile() {
               className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors group min-h-[44px] min-w-[44px]"
             >
               <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5 group-hover:-translate-x-1 transition-transform" />
-              <span className="text-xs sm:text-sm uppercase tracking-wider hidden sm:inline">Back to Dashboard</span>
-              <span className="text-xs uppercase tracking-wider sm:hidden">Back</span>
+              <span className="text-sm uppercase tracking-wider hidden sm:inline">Back to Dashboard</span>
+              <span className="text-sm uppercase tracking-wider sm:hidden">Back</span>
             </button>
             
             {!isEditing ? (
