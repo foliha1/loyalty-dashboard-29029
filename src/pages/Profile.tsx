@@ -397,7 +397,7 @@ export default function Profile() {
               
               <div className="bg-card/30 border border-border/20 rounded-lg p-3 sm:p-4">
                 <div className="text-sm text-muted-foreground mb-1 sm:mb-1.5 uppercase tracking-wider">Miles Climbed</div>
-                <div className="text-2xl sm:text-3xl font-light tracking-tight">87.4 mi</div>
+                <div className="type-metric-secondary">87.4 mi</div>
               </div>
               
               <div className="bg-card/30 border border-border/20 rounded-lg p-3 sm:p-4">
