@@ -114,11 +114,11 @@ const RecognitionLadder = ({ current, color = "ridge" }: { current: number; colo
           const isPast = typeof milestone === "number" ? milestone < current : parseInt(String(milestone)) < current;
           return (
             <div key={idx} className="flex flex-col items-center">
-              <span className={`text-xs font-light ${isCurrent || isPast ? (color === "peak" ? "text-peak" : "text-ridge") : "text-muted-foreground/40"}`}>
+              <span className={`text-sm font-light ${isCurrent || isPast ? (color === "peak" ? "text-peak" : "text-ridge") : "text-muted-foreground"}`}>
                 {milestone}
               </span>
               {milestone === 3 && (
-                <span className="text-[10px] uppercase tracking-[0.15em] text-muted-foreground/60 mt-2 font-medium">
+                <span className="text-xs uppercase tracking-[0.15em] text-muted-foreground mt-2 font-medium">
                   Black Bib
                 </span>
               )}
@@ -174,7 +174,7 @@ export const AnnualPerformance = () => {
         {isCurrentYear && (
           <div className="flex items-center gap-2 mb-4 sm:mb-5">
             <span className="w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_6px_hsl(0_0%_100%/0.5)]" />
-            <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground/70 font-medium">
+            <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-medium">
               Current Year
             </span>
           </div>
@@ -214,7 +214,7 @@ export const AnnualPerformance = () => {
         </div>
 
         {/* EP Breakdown */}
-        <h4 className="text-xs uppercase tracking-[0.2em] font-medium text-foreground/90 mb-5">EPs Breakdown</h4>
+        <h4 className="text-sm uppercase tracking-[0.2em] font-medium text-foreground/90 mb-5">EPs Breakdown</h4>
         <div className="grid grid-cols-3 gap-4 md:gap-8 mb-8 sm:mb-10">
           {([
             ["Events", data.eps.events],
@@ -224,7 +224,7 @@ export const AnnualPerformance = () => {
             <div key={label}>
               <div className="text-subhead mb-2.5">{label}</div>
               <div className="type-metric-secondary text-foreground">
-                {val} <span className="text-xs text-muted-foreground/60 font-light">EPs</span>
+                {val} <span className="text-sm text-muted-foreground font-light">EPs</span>
               </div>
             </div>
           ))}
@@ -232,19 +232,19 @@ export const AnnualPerformance = () => {
 
         {/* Mountain / Trail tabs */}
         <div className="border-t border-border/20 pt-6 sm:pt-8 mt-2">
-          <h4 className="text-xs uppercase tracking-[0.2em] font-medium text-foreground/90 mb-5">Your Event Stats</h4>
+          <h4 className="text-sm uppercase tracking-[0.2em] font-medium text-foreground/90 mb-5">Your Event Stats</h4>
         </div>
         <Tabs defaultValue="mountain" className="w-full">
           <TabsList className="w-full mb-5 md:mb-6 bg-muted/15 p-1 rounded-lg border border-border/10 flex">
             <TabsTrigger
               value="mountain"
-              className="flex-1 py-2.5 min-h-[44px] text-xs uppercase tracking-[0.2em] font-light data-[state=active]:bg-card/80 data-[state=active]:text-peak data-[state=active]:shadow-sm"
+              className="flex-1 py-2.5 min-h-[44px] text-sm uppercase tracking-[0.15em] font-light data-[state=active]:bg-card/80 data-[state=active]:text-peak data-[state=active]:shadow-sm"
             >
               Mountain
             </TabsTrigger>
             <TabsTrigger
               value="trail"
-              className="flex-1 py-2.5 min-h-[44px] text-xs uppercase tracking-[0.2em] font-light data-[state=active]:bg-card/80 data-[state=active]:text-ridge data-[state=active]:shadow-sm"
+              className="flex-1 py-2.5 min-h-[44px] text-sm uppercase tracking-[0.15em] font-light data-[state=active]:bg-card/80 data-[state=active]:text-ridge data-[state=active]:shadow-sm"
             >
               Trail
             </TabsTrigger>

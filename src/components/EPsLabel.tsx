@@ -19,7 +19,7 @@ export const EPsLabel = ({ showInfo = false, className }: EPsLabelProps) => {
         <TooltipTrigger asChild>
           <button
             type="button"
-            className="inline-flex items-center justify-center text-muted-foreground/50 hover:text-muted-foreground transition-colors duration-200 focus:outline-none"
+            className="inline-flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors duration-200 focus:outline-none"
             aria-label="What are EPs?"
           >
             <Info size={12} />

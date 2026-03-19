@@ -23,7 +23,7 @@ const milestones = [1, 2, 3, 4, "5x", "10x"];
 // KPI Card component - simplified, premium styling
 const KPICard = ({ label, value }: { label: string; value: string | number }) => (
   <div className="p-2.5 md:p-4 border border-white/10 rounded-lg text-center">
-    <div className="text-xs uppercase tracking-[0.2em] text-white/40 mb-1 font-light">
+    <div className="text-sm uppercase tracking-[0.15em] text-muted-foreground mb-1 font-light">
       {label}
     </div>
     <div className="text-2xl md:text-4xl font-light tabular-nums text-white">
@@ -76,16 +76,16 @@ const RecognitionLadder = ({ current, color = 'ridge' }: { current: number; colo
 
           return (
             <div key={idx} className="flex flex-col items-center">
-              <span 
-                className={`text-xs font-light ${
-                  isCurrent || isPast ? (color === 'peak' ? 'text-peak' : 'text-ridge') : 'text-white/30'
+                <span 
+                className={`text-sm font-light ${
+                  isCurrent || isPast ? (color === 'peak' ? 'text-peak' : 'text-ridge') : 'text-muted-foreground'
                 }`}
               >
                 {milestone}
               </span>
               {/* BLACK BIB label under milestone 3 */}
               {milestone === 3 && (
-                <span className="text-xs uppercase tracking-[0.15em] text-white/60 mt-2 font-medium">
+                <span className="text-xs uppercase tracking-[0.15em] text-muted-foreground mt-2 font-medium">
                   Black Bib
                 </span>
               )}
@@ -116,13 +116,13 @@ export const CalendarGrid = () => {
         <TabsList className="mb-3 md:mb-4 bg-muted/20 p-1 rounded-lg">
           <TabsTrigger 
             value="mountain" 
-            className="px-5 py-1.5 text-xs uppercase tracking-[0.2em] font-light data-[state=active]:bg-card data-[state=active]:text-red-500"
+            className="px-5 py-1.5 text-sm uppercase tracking-[0.15em] font-light data-[state=active]:bg-card data-[state=active]:text-red-500"
           >
             Mountain
           </TabsTrigger>
           <TabsTrigger 
             value="trail" 
-            className="px-5 py-1.5 text-xs uppercase tracking-[0.2em] font-light data-[state=active]:bg-card data-[state=active]:text-amber-500"
+            className="px-5 py-1.5 text-sm uppercase tracking-[0.15em] font-light data-[state=active]:bg-card data-[state=active]:text-amber-500"
           >
             Trail
           </TabsTrigger>

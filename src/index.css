@@ -28,10 +28,10 @@ All colors MUST be HSL.
        TEXT COLORS (4 levels)
        =========================================== */
     --foreground: 0 0% 96%;          /* Primary text - high contrast */
-    --text-secondary: 0 0% 62%;      /* Body text */
-    --text-muted: 0 0% 45%;          /* Helper, meta text */
-    --text-disabled: 0 0% 35%;       /* Inactive states */
-    --muted-foreground: 0 0% 45%;    /* Shadcn compatibility */
+    --text-secondary: 0 0% 68%;      /* Body text — AA compliant */
+    --text-muted: 0 0% 60%;          /* Helper, meta text — AA compliant */
+    --text-disabled: 0 0% 50%;       /* Inactive states — improved */
+    --muted-foreground: 0 0% 60%;    /* Shadcn compatibility — AA compliant */
 
     /* ===========================================
        BORDERS (2 levels)
@@ -83,7 +83,7 @@ All colors MUST be HSL.
     --type-body: 0.875rem;            /* 14px - both */
     
     /* Meta/Helper - Labels, badges, navigation, timestamps */
-    --type-meta: 0.75rem;             /* 12px - both */
+    --type-meta: 0.875rem;            /* 14px - ADA minimum */
     
     /* ===========================================
        TIER COLORS (Semantic - unchanged)
@@ -366,10 +366,10 @@ All colors MUST be HSL.
      =========================================== */
   .text-subhead {
     font-family: 'Inter', sans-serif;
-    font-weight: 300;
+    font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: 0.2em;
-    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    font-size: 0.8125rem;
     color: hsl(var(--text-muted));
     line-height: 1.45;
   }
@@ -407,8 +407,8 @@ All colors MUST be HSL.
   .text-supporting {
     font-family: 'Inter', sans-serif;
     font-weight: 400;
-    font-size: 0.8125rem;
-    color: hsl(0 0% 40%) !important;
+    font-size: 0.875rem;
+    color: hsl(0 0% 58%) !important;
     text-align: left;
     line-height: 1.5;
   }

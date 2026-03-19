@@ -133,7 +133,7 @@ export const UpcomingEventsSection = () => {
                   {/* Event Type Badge */}
                   <div className="mb-3 md:mb-5">
                     <span 
-                      className="text-xs px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-full uppercase tracking-[0.2em] font-light border backdrop-blur-sm"
+                      className="text-sm px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-full uppercase tracking-[0.2em] font-light border backdrop-blur-sm"
                       style={{
                         borderColor: `hsl(${config.accentColor} / 0.4)`,
                         backgroundColor: `hsl(${config.accentColor} / 0.1)`,
@@ -164,13 +164,13 @@ export const UpcomingEventsSection = () => {
                     >
                       {daysRemaining}
                     </div>
-                    <div className="text-xs uppercase tracking-[0.3em] text-muted-foreground font-light">
+                    <div className="text-sm uppercase tracking-[0.25em] text-muted-foreground font-light">
                       Days Until Event
                     </div>
                   </div>
 
                   {/* Date */}
-                  <p className="text-supporting text-xs uppercase tracking-[0.2em] mt-3 pt-3 border-t border-border/20 font-light">
+                  <p className="text-supporting text-sm uppercase tracking-[0.2em] mt-3 pt-3 border-t border-border/20 font-light">
                     {event.eventDates}
                   </p>
                 </div>

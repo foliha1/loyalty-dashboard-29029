@@ -21,13 +21,13 @@ export const DiscoveryCTAs = () => {
           <h5 className="text-base md:text-lg font-light mb-2 tracking-tight leading-tight !text-foreground">
             Discover 29029 Events
           </h5>
-          <p className="text-[hsl(var(--text-secondary))] text-xs uppercase tracking-[0.15em] font-light mb-4 sm:mb-8">
+          <p className="text-[hsl(var(--text-secondary))] text-sm uppercase tracking-[0.15em] font-light mb-4 sm:mb-8">
             Browse All Experiences
           </p>
           
           {/* Underline sweep effect */}
           <div className="relative inline-block">
-            <span className="text-foreground text-xs uppercase tracking-[0.25em] font-light">
+            <span className="text-foreground text-sm uppercase tracking-[0.2em] font-light">
               Explore
             </span>
             <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-primary group-hover:w-full transition-all duration-500" />
@@ -50,13 +50,13 @@ export const DiscoveryCTAs = () => {
           <h5 className="text-base md:text-lg font-light mb-2 tracking-tight leading-tight !text-foreground">
             Discover 29029 Experience Coaching
           </h5>
-          <p className="text-[hsl(var(--text-secondary))] text-xs uppercase tracking-[0.15em] font-light mb-4 sm:mb-8">
+          <p className="text-[hsl(var(--text-secondary))] text-sm uppercase tracking-[0.15em] font-light mb-4 sm:mb-8">
             Personal Experience
           </p>
           
           {/* Underline sweep effect */}
           <div className="relative inline-block">
-            <span className="text-foreground text-xs uppercase tracking-[0.25em] font-light">
+            <span className="text-foreground text-sm uppercase tracking-[0.2em] font-light">
               Learn More
             </span>
             <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-primary group-hover:w-full transition-all duration-500" />
@@ -79,13 +79,13 @@ export const DiscoveryCTAs = () => {
           <h5 className="text-base md:text-lg font-light mb-2 tracking-tight leading-tight !text-foreground">
             Discover 29029 Apparel
           </h5>
-          <p className="text-[hsl(var(--text-secondary))] text-xs uppercase tracking-[0.15em] font-light mb-4 sm:mb-8">
+          <p className="text-[hsl(var(--text-secondary))] text-sm uppercase tracking-[0.15em] font-light mb-4 sm:mb-8">
             Shop Collection
           </p>
           
           {/* Underline sweep effect */}
           <div className="relative inline-block">
-            <span className="text-foreground text-xs uppercase tracking-[0.25em] font-light">
+            <span className="text-foreground text-sm uppercase tracking-[0.2em] font-light">
               Shop Now
             </span>
             <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-primary group-hover:w-full transition-all duration-500" />

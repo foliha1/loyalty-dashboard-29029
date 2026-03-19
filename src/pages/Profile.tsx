@@ -137,13 +137,13 @@ export default function Profile() {
           <Card className="card-29029 p-6 sm:p-8 md:p-10 mb-8 sm:mb-10">
             <div className="mb-8 sm:mb-10">
               <h3 className="text-xl sm:text-2xl font-light tracking-tight mb-1.5">Personal Information</h3>
-              <p className="text-xs sm:text-sm text-foreground/60 uppercase tracking-wider">Basic details and contact information</p>
+              <p className="text-sm text-muted-foreground uppercase tracking-wider">Basic details and contact information</p>
             </div>
             <div className="h-px bg-gradient-to-r from-tier-accent/20 via-tier-accent/40 to-tier-accent/20 mb-8 sm:mb-10" />
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-7 md:gap-8">
               <div className="space-y-2">
-                <Label htmlFor="firstName" className="text-xs uppercase tracking-wider text-foreground/80 font-medium block">
+                <Label htmlFor="firstName" className="text-sm uppercase tracking-wider text-muted-foreground font-medium block">
                   First Name *
                 </Label>
                 <Input
@@ -157,7 +157,7 @@ export default function Profile() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="lastName" className="text-xs uppercase tracking-wider text-foreground/80 font-medium block">
+                <Label htmlFor="lastName" className="text-sm uppercase tracking-wider text-muted-foreground font-medium block">
                   Last Name *
                 </Label>
                 <Input
@@ -171,7 +171,7 @@ export default function Profile() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="email" className="text-xs uppercase tracking-wider text-foreground/80 font-medium block">
+                <Label htmlFor="email" className="text-sm uppercase tracking-wider text-muted-foreground font-medium block">
                   Email Address *
                 </Label>
                 <Input
@@ -186,7 +186,7 @@ export default function Profile() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="phone" className="text-xs uppercase tracking-wider text-foreground/80 font-medium block">
+                <Label htmlFor="phone" className="text-sm uppercase tracking-wider text-muted-foreground font-medium block">
                   Phone Number
                 </Label>
                 <Input
@@ -200,7 +200,7 @@ export default function Profile() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="birthday" className="text-xs uppercase tracking-wider text-foreground/80 font-medium block">
+                <Label htmlFor="birthday" className="text-sm uppercase tracking-wider text-muted-foreground font-medium block">
                   Date of Birth
                 </Label>
                 <Input
@@ -218,13 +218,13 @@ export default function Profile() {
           <Card className="card-29029 p-6 sm:p-8 md:p-10 mb-8 sm:mb-10">
             <div className="mb-8 sm:mb-10">
               <h3 className="text-xl sm:text-2xl font-light tracking-tight mb-1.5">Address</h3>
-              <p className="text-xs sm:text-sm text-foreground/60 uppercase tracking-wider">Mailing and billing address</p>
+              <p className="text-sm text-muted-foreground uppercase tracking-wider">Mailing and billing address</p>
             </div>
             <div className="h-px bg-gradient-to-r from-tier-accent/20 via-tier-accent/40 to-tier-accent/20 mb-8 sm:mb-10" />
             
             <div className="space-y-6 sm:space-y-7 md:space-y-8">
               <div className="space-y-2">
-                <Label htmlFor="address" className="text-xs uppercase tracking-wider text-foreground/80 font-medium block">
+                <Label htmlFor="address" className="text-sm uppercase tracking-wider text-muted-foreground font-medium block">
                   Street Address
                 </Label>
                 <Input
@@ -238,7 +238,7 @@ export default function Profile() {
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-7 md:gap-8">
                 <div className="space-y-2">
-                  <Label htmlFor="city" className="text-xs uppercase tracking-wider text-foreground/80 font-medium block">
+                  <Label htmlFor="city" className="text-sm uppercase tracking-wider text-muted-foreground font-medium block">
                     City
                   </Label>
                   <Input
@@ -251,7 +251,7 @@ export default function Profile() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="state" className="text-xs uppercase tracking-wider text-foreground/80 font-medium block">
+                  <Label htmlFor="state" className="text-sm uppercase tracking-wider text-muted-foreground font-medium block">
                     State
                   </Label>
                   <Input
@@ -264,7 +264,7 @@ export default function Profile() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="zipCode" className="text-xs uppercase tracking-wider text-foreground/80 font-medium block">
+                  <Label htmlFor="zipCode" className="text-sm uppercase tracking-wider text-muted-foreground font-medium block">
                     Zip Code
                   </Label>
                   <Input
@@ -283,13 +283,13 @@ export default function Profile() {
           <Card className="card-29029 p-6 sm:p-8 md:p-10 mb-8 sm:mb-10">
             <div className="mb-8 sm:mb-10">
               <h3 className="text-xl sm:text-2xl font-light tracking-tight mb-1.5">Emergency Contact</h3>
-              <p className="text-xs sm:text-sm text-foreground/60 uppercase tracking-wider">Primary emergency contact information</p>
+              <p className="text-sm text-muted-foreground uppercase tracking-wider">Primary emergency contact information</p>
             </div>
             <div className="h-px bg-gradient-to-r from-tier-accent/20 via-tier-accent/40 to-tier-accent/20 mb-8 sm:mb-10" />
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-7 md:gap-8">
               <div className="space-y-2">
-                <Label htmlFor="emergencyContact" className="text-xs uppercase tracking-wider text-foreground/80 font-medium block">
+                <Label htmlFor="emergencyContact" className="text-sm uppercase tracking-wider text-muted-foreground font-medium block">
                   Contact Name *
                 </Label>
                 <Input
@@ -303,7 +303,7 @@ export default function Profile() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="emergencyPhone" className="text-xs uppercase tracking-wider text-foreground/80 font-medium block">
+                <Label htmlFor="emergencyPhone" className="text-sm uppercase tracking-wider text-muted-foreground font-medium block">
                   Contact Phone *
                 </Label>
                 <Input
@@ -322,38 +322,38 @@ export default function Profile() {
           <Card className="card-29029 p-6 sm:p-8 md:p-10">
             <div className="mb-8 sm:mb-10">
               <h3 className="text-xl sm:text-2xl font-light tracking-tight mb-1.5">Lifetime Statistics</h3>
-              <p className="text-xs sm:text-sm text-foreground/60 uppercase tracking-wider">Your complete journey at a glance</p>
+              <p className="text-sm text-muted-foreground uppercase tracking-wider">Your complete journey at a glance</p>
             </div>
             <div className="h-px bg-gradient-to-r from-tier-accent/20 via-tier-accent/40 to-tier-accent/20 mb-8 sm:mb-10" />
             
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
               <div className="bg-card/30 border border-border/20 rounded-lg p-4 sm:p-5 md:p-6">
-                <div className="text-[10px] sm:text-xs text-foreground/65 mb-1.5 sm:mb-2 uppercase tracking-wider">Total Elevation</div>
+                <div className="text-xs sm:text-sm text-muted-foreground mb-1.5 sm:mb-2 uppercase tracking-wider">Total Elevation</div>
                 <div className="text-2xl sm:text-3xl font-light tracking-tight">145,800 ft</div>
               </div>
               
               <div className="bg-card/30 border border-border/20 rounded-lg p-4 sm:p-5 md:p-6">
-                <div className="text-[10px] sm:text-xs text-foreground/65 mb-1.5 sm:mb-2 uppercase tracking-wider">Miles Climbed</div>
+                <div className="text-xs sm:text-sm text-muted-foreground mb-1.5 sm:mb-2 uppercase tracking-wider">Miles Climbed</div>
                 <div className="text-2xl sm:text-3xl font-light tracking-tight">87.4 mi</div>
               </div>
               
               <div className="bg-card/30 border border-border/20 rounded-lg p-4 sm:p-5 md:p-6">
-                <div className="text-[10px] sm:text-xs text-foreground/65 mb-1.5 sm:mb-2 uppercase tracking-wider">Events</div>
+                <div className="text-xs sm:text-sm text-muted-foreground mb-1.5 sm:mb-2 uppercase tracking-wider">Events</div>
                 <div className="text-2xl sm:text-3xl font-light tracking-tight">9</div>
               </div>
               
               <div className="bg-card/30 border border-border/20 rounded-lg p-4 sm:p-5 md:p-6">
-                <div className="text-[10px] sm:text-xs text-foreground/65 mb-1.5 sm:mb-2 uppercase tracking-wider">Total <EPsLabel showInfo /></div>
+                <div className="text-xs sm:text-sm text-muted-foreground mb-1.5 sm:mb-2 uppercase tracking-wider">Total <EPsLabel showInfo /></div>
                 <div className="text-2xl sm:text-3xl font-light tracking-tight">1,440</div>
               </div>
               
               <div className="bg-card/30 border border-border/20 rounded-lg p-4 sm:p-5 md:p-6">
-                <div className="text-[10px] sm:text-xs text-foreground/65 mb-1.5 sm:mb-2 uppercase tracking-wider">Coaching</div>
+                <div className="text-xs sm:text-sm text-muted-foreground mb-1.5 sm:mb-2 uppercase tracking-wider">Coaching</div>
                 <div className="text-2xl sm:text-3xl font-light tracking-tight">12</div>
               </div>
               
               <div className="bg-card/30 border border-border/20 rounded-lg p-4 sm:p-5 md:p-6">
-                <div className="text-[10px] sm:text-xs text-foreground/65 mb-1.5 sm:mb-2 uppercase tracking-wider">Days Active</div>
+                <div className="text-xs sm:text-sm text-muted-foreground mb-1.5 sm:mb-2 uppercase tracking-wider">Days Active</div>
                 <div className="text-2xl sm:text-3xl font-light tracking-tight">1,044</div>
               </div>
             </div>

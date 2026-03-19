@@ -90,7 +90,7 @@ export const TiersContinuum = () => {
     <>
       <div className="mb-5">
         <h4 className="text-sm font-medium text-[hsl(var(--base))] uppercase tracking-wider mb-2">Base</h4>
-        <ul className="space-y-1.5 text-sm text-muted-foreground">
+      <ul className="space-y-1.5 text-sm text-foreground/80">
           <li className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-[hsl(var(--base))]" /><span>Access to all 29029 events</span></li>
           <li className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-[hsl(var(--base))]" /><span>Member-only community access</span></li>
           <li className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-[hsl(var(--base))]" /><span>Personal progress tracking</span></li>
@@ -98,7 +98,7 @@ export const TiersContinuum = () => {
       </div>
       <div className="mb-5 pt-4 border-t border-border/20">
         <h4 className="text-sm font-medium text-[hsl(var(--ridge))] uppercase tracking-wider mb-2">Ridge <span className="text-muted-foreground font-light">(500+ EPs)</span></h4>
-        <ul className="space-y-1.5 text-sm text-muted-foreground">
+        <ul className="space-y-1.5 text-sm text-foreground/80">
           <li className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-[hsl(var(--ridge))]" /><span>Priority event registration</span></li>
           <li className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-[hsl(var(--ridge))]" /><span>Exclusive Ridge merchandise</span></li>
           <li className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-[hsl(var(--ridge))]" /><span>10% discount on apparel</span></li>
@@ -107,7 +107,7 @@ export const TiersContinuum = () => {
       </div>
       <div className="pt-4 border-t border-border/20">
         <h4 className="text-sm font-medium text-[hsl(var(--peak))] uppercase tracking-wider mb-2">Peak <span className="text-muted-foreground font-light">(1000+ EPs)</span></h4>
-        <ul className="space-y-1.5 text-sm text-muted-foreground">
+        <ul className="space-y-1.5 text-sm text-foreground/80">
           <li className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-[hsl(var(--peak))]" /><span>All Ridge benefits</span></li>
           <li className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-[hsl(var(--peak))]" /><span>VIP event experiences</span></li>
           <li className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-[hsl(var(--peak))]" /><span>Exclusive Peak merchandise</span></li>
@@ -123,7 +123,7 @@ export const TiersContinuum = () => {
     <div className="space-y-6">
       <div>
         <h5 className="text-base font-semibold tracking-tight text-foreground mb-3">Earning EPs</h5>
-        <div className="space-y-2.5 text-sm text-muted-foreground leading-relaxed">
+        <div className="space-y-2.5 text-sm text-foreground/80 leading-relaxed">
           <p><span className="font-semibold text-foreground">Events:</span> 150 EPs per event attended</p>
           <p><span className="font-semibold text-foreground">Coaching:</span> Variable EPs based on session type</p>
           <p><span className="font-semibold text-foreground">Apparel:</span> 1 EP per dollar spent</p>
@@ -131,7 +131,7 @@ export const TiersContinuum = () => {
       </div>
       <div className="pt-4 border-t border-border/20">
         <h5 className="text-base font-semibold tracking-tight text-foreground mb-3">Tier Thresholds</h5>
-        <div className="space-y-2.5 text-sm text-muted-foreground leading-relaxed">
+        <div className="space-y-2.5 text-sm text-foreground/80 leading-relaxed">
           <p><span className="font-semibold text-foreground">Base:</span> 0 EPs (Starting tier)</p>
           <p><span className="font-semibold text-foreground">Ridge:</span> 500 EPs</p>
           <p><span className="font-semibold text-foreground">Peak:</span> 1,000 EPs</p>
@@ -139,7 +139,7 @@ export const TiersContinuum = () => {
       </div>
       <div className="pt-4 border-t border-border/20">
         <h5 className="text-base font-semibold tracking-tight text-foreground mb-3">Your Progress</h5>
-        <p className="text-sm text-muted-foreground leading-relaxed">
+        <p className="text-sm text-foreground/80 leading-relaxed">
           Your EPs accumulate over your entire member journey. Each tier unlocks new benefits 
           and experiences as you progress through Base, Ridge, and Peak tiers.
         </p>
@@ -169,9 +169,9 @@ export const TiersContinuum = () => {
             </h4>
             <Dialog>
               <DialogTrigger asChild>
-                <button className="mt-3 text-xs text-muted-foreground/60 hover:text-muted-foreground transition-colors duration-200 cursor-pointer tracking-wide inline-flex items-center gap-1">
+                <button className="mt-3 text-base text-muted-foreground hover:text-foreground transition-colors duration-200 cursor-pointer tracking-wide inline-flex items-center gap-1.5 underline underline-offset-4 decoration-muted-foreground/40">
                   View Tier Benefits
-                  <Info size={11} />
+                  <Info size={14} />
                 </button>
               </DialogTrigger>
               <DialogContent className="max-w-md bg-background/95 backdrop-blur-xl border-border/30 p-0 overflow-hidden">
@@ -196,9 +196,9 @@ export const TiersContinuum = () => {
             </div>
             <Dialog>
               <DialogTrigger asChild>
-                <button className="mt-3 text-xs text-muted-foreground/60 hover:text-muted-foreground transition-colors duration-200 cursor-pointer tracking-wide inline-flex items-center gap-1 ml-auto">
+                <button className="mt-3 text-base text-muted-foreground hover:text-foreground transition-colors duration-200 cursor-pointer tracking-wide inline-flex items-center gap-1.5 ml-auto underline underline-offset-4 decoration-muted-foreground/40">
                   How EPs Work
-                  <Info size={11} />
+                  <Info size={14} />
                 </button>
               </DialogTrigger>
               <DialogContent className="max-w-md bg-background/95 backdrop-blur-xl border-border/30 p-0 overflow-hidden">
@@ -266,12 +266,12 @@ export const TiersContinuum = () => {
                     }}
                   />
                   <div className={cn(
-                    "text-xs uppercase tracking-wider transition-colors duration-500 text-center",
-                    isPassed ? "text-foreground font-semibold" : "text-[hsl(var(--text-muted))]"
+                    "text-sm uppercase tracking-wider transition-colors duration-500 text-center",
+                    isPassed ? "text-foreground font-semibold" : "text-muted-foreground"
                   )}>
                     {tier.name}
                   </div>
-                  <div className="text-xs text-[hsl(var(--text-disabled))] mt-0.5 sm:mt-1 tabular-nums">
+                  <div className="text-sm text-muted-foreground mt-0.5 sm:mt-1 tabular-nums">
                     {tier.threshold}
                   </div>
                 </div>
