@@ -90,7 +90,7 @@ export const StickyNav = () => {
                         href={link.href}
                         onClick={(e) => handleLinkClick(e, link.href)}
                         className={cn(
-                          "min-h-[44px] py-4 px-6 text-sm uppercase tracking-[0.2em] transition-colors duration-300 rounded-lg animate-fade-in",
+                          "min-h-[44px] py-4 px-6 text-sm uppercase tracking-[0.15em] transition-colors duration-300 rounded-lg animate-fade-in",
                           activeSection === link.href.slice(1)
                             ? "text-foreground"
                             : "text-muted-foreground hover:text-foreground"
