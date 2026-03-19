@@ -19,9 +19,9 @@ const trailData = {
 
 // Fixed milestone markers for awards
 const fixedMilestones = [
-  { value: 3, label: "Black Bib" },
-  { value: 5, label: "5x Award" },
-  { value: 10, label: "10x Award" },
+  { value: 3, label: "Black Bib", mobileLabel: "Black Bib" },
+  { value: 5, label: "5x Award", mobileLabel: "5x" },
+  { value: 10, label: "10x Award", mobileLabel: "10x" },
 ];
 
 // KPI Card component - simplified, premium styling
@@ -84,9 +84,14 @@ const RecognitionLadder = ({ current, color = 'ridge' }: { current: number; colo
                 {tick}
               </span>
               {milestone && (
-                <span className="text-sm uppercase tracking-[0.06em] sm:tracking-[0.12em] text-muted-foreground mt-2 font-medium whitespace-nowrap">
-                  {milestone.label}
-                </span>
+                <>
+                  <span className="text-sm uppercase tracking-[0.06em] text-muted-foreground mt-2 font-medium whitespace-nowrap sm:hidden">
+                    {milestone.mobileLabel}
+                  </span>
+                  <span className="text-sm uppercase tracking-[0.12em] text-muted-foreground mt-2 font-medium whitespace-nowrap hidden sm:inline">
+                    {milestone.label}
+                  </span>
+                </>
               )}
             </div>
           );
