@@ -427,7 +427,7 @@ export default function Profile() {
               <h3 className="text-xl sm:text-2xl font-light tracking-tight mb-1">Events You've Attended</h3>
               <p className="text-sm text-muted-foreground uppercase tracking-wider">Your complete event history and results</p>
             </div>
-            <div className="h-px bg-gradient-to-r from-tier-accent/20 via-tier-accent/40 to-tier-accent/20 mb-5 sm:mb-6" />
+            <div className="h-px bg-gradient-to-r from-tier-accent/20 via-tier-accent/40 to-tier-accent/20 mb-4 sm:mb-5" />
 
             {pastEvents.length > 0 ? (
               <div className="space-y-3">
