@@ -181,19 +181,30 @@ export const UpcomingEventsSection = () => {
           })}
         </div>
       ) : (
-        <div className="card-29029 p-10 md:p-16 text-center max-w-3xl mx-auto">
-          <div className="h-px w-20 md:w-24 bg-border/40 mx-auto mb-6 md:mb-8" />
+        <div className="card-29029 p-10 md:p-16 text-center max-w-2xl mx-auto">
+          {/* Subtle mountain icon */}
+          <div className="flex justify-center mb-6">
+            <div className="w-16 h-16 rounded-full border border-border/30 flex items-center justify-center bg-muted/10">
+              <Mountain className="w-7 h-7 text-muted-foreground" strokeWidth={1.5} />
+            </div>
+          </div>
           
-          <h4 className="text-lg md:text-xl font-bold mb-4 tracking-wide px-4">
-            Your Next Challenge Awaits
+          <h4 className="text-lg md:text-xl font-light tracking-tight mb-3 text-foreground">
+            No upcoming events yet
           </h4>
           
-          <p className="text-supporting text-sm max-w-xl mx-auto leading-relaxed px-4">
-            You're not currently registered for any events. Explore our upcoming experiences 
-            and find your next summit.
+          <p className="text-sm text-muted-foreground max-w-md mx-auto leading-relaxed mb-8">
+            You're not currently registered for any events. Explore our upcoming 
+            experiences and find your next challenge.
           </p>
           
-          <div className="h-px w-20 md:w-24 bg-border/40 mx-auto mt-6 md:mt-8" />
+          <Link
+            to="/events"
+            className="inline-flex items-center gap-2 px-6 py-3 min-h-[44px] rounded-lg bg-foreground text-background text-sm font-medium uppercase tracking-[0.12em] hover:bg-foreground/90 transition-colors duration-300"
+          >
+            Browse Events
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       )}
     </section>
