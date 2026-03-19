@@ -23,6 +23,8 @@ All colors MUST be HSL.
     --card: 0 0% 9%;                 /* Cards, elevated surfaces */
     --muted: 0 0% 14%;               /* Muted backgrounds */
     --surface-elevated: 0 0% 18%;    /* Highest elevation */
+    --surface-chapter: 0 0% 5%;      /* Chapter break / lower sections */
+    --success: 160 84% 39%;          /* Success green */
 
     /* ===========================================
        TEXT COLORS (4 levels)

@@ -460,7 +460,7 @@ export default function Profile() {
                     {/* Right: Result + Award */}
                     <div className="flex items-center gap-3 shrink-0">
                       {event.finished ? (
-                        <span className="inline-flex items-center gap-1 text-sm text-emerald-400">
+                        <span className="inline-flex items-center gap-1 text-sm text-[hsl(var(--success))]">
                           <Check className="w-4 h-4" />
                           Finished
                         </span>
