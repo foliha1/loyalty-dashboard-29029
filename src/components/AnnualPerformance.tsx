@@ -224,7 +224,7 @@ export const AnnualPerformance = () => {
             <div key={label}>
               <div className="text-subhead mb-2.5">{label}</div>
               <div className="type-metric-secondary text-foreground">
-                {val} <span className="text-xs text-muted-foreground/60 font-light">EPs</span>
+                {val} <span className="text-sm text-muted-foreground font-light">EPs</span>
               </div>
             </div>
           ))}
