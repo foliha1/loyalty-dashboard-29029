@@ -197,7 +197,7 @@ All colors MUST be HSL.
     box-shadow: 0 0 20px hsl(var(--summit) / 0.3);
   }
   
-  .bg-base {
+  .bg-tier-base {
     background-color: hsl(var(--base));
   }
 
