@@ -7,14 +7,12 @@ const mountainData = {
   totalEvents: 5,
   summits: 3,
   verticalFeet: 109069,
-  currentRecognition: 3
 };
 
 const trailData = {
   totalEvents: 2,
   marathons: 6,
   totalMiles: 156.6,
-  currentRecognition: 2
 };
 
 // Fixed milestone markers for awards
