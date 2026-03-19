@@ -50,7 +50,7 @@ export const DiscoveryCTAs = () => {
           <h5 className="text-base md:text-lg font-light mb-2 tracking-tight leading-tight text-foreground">
             Discover 29029 Coaching
           </h5>
-          <p className="text-[hsl(var(--text-secondary))] text-sm uppercase tracking-[0.1em] font-light mb-4 sm:mb-8 leading-snug">
+          <p className="text-[hsl(var(--text-secondary))] text-sm uppercase tracking-normal sm:tracking-[0.1em] font-light mb-4 sm:mb-8 leading-snug">
             Elite Coaching for Endurance Athletes
           </p>
           

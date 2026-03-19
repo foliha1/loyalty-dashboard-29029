@@ -196,7 +196,7 @@ export const TiersContinuum = () => {
             </div>
             <Dialog>
               <DialogTrigger asChild>
-                <button className="mt-3 text-base text-muted-foreground hover:text-foreground transition-colors duration-200 cursor-pointer tracking-wide inline-flex items-center gap-1.5 ml-auto underline underline-offset-4 decoration-muted-foreground/40">
+                <button className="mt-3 text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors duration-200 cursor-pointer tracking-normal sm:tracking-wide inline-flex items-center gap-1.5 ml-auto underline underline-offset-4 decoration-muted-foreground/40">
                   How EPs Work
                   <Info size={14} />
                 </button>
