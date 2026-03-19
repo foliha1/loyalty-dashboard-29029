@@ -141,9 +141,14 @@ const RecognitionLadder = ({ current, color = "ridge" }: { current: number; colo
                 {tick}
               </span>
               {milestone && (
-                <span className="text-sm uppercase tracking-[0.06em] sm:tracking-[0.12em] text-muted-foreground mt-2 font-medium whitespace-nowrap">
-                  {milestone.label}
-                </span>
+                <>
+                  <span className="text-sm uppercase tracking-[0.06em] text-muted-foreground mt-2 font-medium whitespace-nowrap sm:hidden">
+                    {milestone.mobileLabel}
+                  </span>
+                  <span className="text-sm uppercase tracking-[0.12em] text-muted-foreground mt-2 font-medium whitespace-nowrap hidden sm:inline">
+                    {milestone.label}
+                  </span>
+                </>
               )}
             </div>
           );
