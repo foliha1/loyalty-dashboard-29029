@@ -98,7 +98,7 @@ export const TiersContinuum = () => {
       </div>
       <div className="mb-5 pt-4 border-t border-border/20">
         <h4 className="text-sm font-medium text-[hsl(var(--ridge))] uppercase tracking-wider mb-2">Ridge <span className="text-muted-foreground font-light">(500+ EPs)</span></h4>
-        <ul className="space-y-1.5 text-sm text-muted-foreground">
+        <ul className="space-y-1.5 text-sm text-foreground/80">
           <li className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-[hsl(var(--ridge))]" /><span>Priority event registration</span></li>
           <li className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-[hsl(var(--ridge))]" /><span>Exclusive Ridge merchandise</span></li>
           <li className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-[hsl(var(--ridge))]" /><span>10% discount on apparel</span></li>
