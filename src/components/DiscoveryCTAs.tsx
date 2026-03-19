@@ -22,7 +22,7 @@ export const DiscoveryCTAs = () => {
             Discover 29029 Events
           </h5>
           <p className="text-[hsl(var(--text-secondary))] text-sm uppercase tracking-[0.15em] font-light mb-4 sm:mb-8">
-            Browse All Experiences
+            Browse All Events
           </p>
           
           {/* Underline sweep effect */}
@@ -48,10 +48,10 @@ export const DiscoveryCTAs = () => {
         
         <div className="relative z-10 flex-1">
           <h5 className="text-base md:text-lg font-light mb-2 tracking-tight leading-tight !text-foreground">
-            Discover 29029 Experience Coaching
+            Discover 29029 Coaching
           </h5>
-          <p className="text-[hsl(var(--text-secondary))] text-sm uppercase tracking-[0.15em] font-light mb-4 sm:mb-8">
-            Personal Experience
+          <p className="text-[hsl(var(--text-secondary))] text-sm uppercase tracking-[0.1em] font-light mb-4 sm:mb-8 leading-snug">
+            Elite Coaching for Endurance Athletes
           </p>
           
           {/* Underline sweep effect */}
