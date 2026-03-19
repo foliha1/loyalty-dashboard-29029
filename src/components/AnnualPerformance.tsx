@@ -135,34 +135,53 @@ const RecognitionLadder = ({ current, color = "ridge" }: { current: number; colo
         )}
       </div>
 
-      {/* Tick marks */}
-      <div className="flex justify-between mt-3 px-1">
+      {/* Mobile ticks: absolute positioned, only milestones + current */}
+      <div className="relative mt-3 h-14 sm:hidden">
+        {[{ value: 0 }, ...fixedMilestones.map(m => ({ value: m.value, label: m.mobileLabel })), ...(current > 0 && !milestoneValues.has(current) ? [{ value: current }] : [])].map((item) => {
+          const isPast = item.value <= current;
+          const isCurrent = item.value === current;
+          const pct = (item.value / axisMax) * 100;
+          const milestone = fixedMilestones.find(m => m.value === item.value);
+          return (
+            <div
+              key={item.value}
+              className="absolute flex flex-col items-center -translate-x-1/2"
+              style={{ left: `${pct}%` }}
+            >
+              {isCurrent && current > 0 && !milestone && (
+                <div className="w-1.5 h-1.5 rounded-full mb-1" style={{ backgroundColor: `hsl(var(--${color}))` }} />
+              )}
+              <span className={`text-sm font-light ${isPast ? (color === "peak" ? "text-peak" : "text-ridge") : "text-muted-foreground"}`}>
+                {item.value}
+              </span>
+              {milestone && (
+                <span className="text-sm uppercase tracking-[0.06em] text-muted-foreground mt-1 font-medium whitespace-nowrap">
+                  {milestone.mobileLabel}
+                </span>
+              )}
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Desktop ticks: flex-based, all ticks visible */}
+      <div className="hidden sm:flex justify-between mt-3 px-1">
         {ticks.map((tick) => {
           const isPast = tick <= current;
           const isCurrent = tick === current;
           const milestone = fixedMilestones.find((m) => m.value === tick);
-          const isMobileVisible = mobileVisibleTicks.has(tick);
           return (
             <div key={tick} className="flex flex-col items-center" style={{ minWidth: 0, flex: '1 1 0' }}>
-              {/* Current position dot */}
               {isCurrent && current > 0 && !milestone && (
-                <div
-                  className="w-1.5 h-1.5 rounded-full mb-1"
-                  style={{ backgroundColor: `hsl(var(--${color}))` }}
-                />
+                <div className="w-1.5 h-1.5 rounded-full mb-1" style={{ backgroundColor: `hsl(var(--${color}))` }} />
               )}
-              <span className={`text-sm font-light ${!isMobileVisible ? 'hidden sm:inline' : ''} ${isPast ? (color === "peak" ? "text-peak" : "text-ridge") : "text-muted-foreground"}`}>
+              <span className={`text-sm font-light ${isPast ? (color === "peak" ? "text-peak" : "text-ridge") : "text-muted-foreground"}`}>
                 {tick}
               </span>
               {milestone && (
-                <>
-                  <span className="text-sm uppercase tracking-[0.06em] text-muted-foreground mt-2 font-medium whitespace-nowrap sm:hidden">
-                    {milestone.mobileLabel}
-                  </span>
-                  <span className="text-sm uppercase tracking-[0.12em] text-muted-foreground mt-2 font-medium whitespace-nowrap hidden sm:inline">
-                    {milestone.label}
-                  </span>
-                </>
+                <span className="text-sm uppercase tracking-[0.12em] text-muted-foreground mt-2 font-medium whitespace-nowrap">
+                  {milestone.label}
+                </span>
               )}
             </div>
           );
