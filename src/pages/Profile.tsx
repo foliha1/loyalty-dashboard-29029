@@ -169,7 +169,7 @@ export default function Profile() {
               </div>
               
               <div className="flex-1 text-center md:text-left">
-                <h2 className="text-2xl sm:text-3xl font-light tracking-tight mb-2">
+                <h2 className="type-metric-secondary mb-2">
                   {profileData.firstName} {profileData.lastName}
                 </h2>
                 <div className="space-y-1 text-foreground/70">
