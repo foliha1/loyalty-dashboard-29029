@@ -1,3 +1,7 @@
+// Reference-only design tokens — not imported by components.
+// The active design system lives in index.css (CSS custom properties + utility classes).
+// This file serves as documentation for the token values.
+//
 // src/design/tokens.ts
 
 // Core types (optional but helpful)

@@ -65,10 +65,6 @@ All colors MUST be HSL.
        TYPOGRAPHY SCALE (6-Role System)
        =========================================== */
     
-    /* Page Identity - Username, top-level identity */
-    --type-identity: 1.875rem;        /* 30px - mobile */
-    --type-identity-md: 2.25rem;      /* 36px - desktop */
-    
     /* Primary Metrics - Hero EP values, current tier, large KPIs */
     --type-metric-primary: 1.875rem;  /* 30px - mobile */
     --type-metric-primary-md: 3rem;   /* 48px - desktop */
@@ -77,16 +73,9 @@ All colors MUST be HSL.
     --type-metric-secondary: 1.25rem; /* 20px - mobile */
     --type-metric-secondary-md: 1.5rem; /* 24px - desktop */
     
-    /* Subsection Titles - Card titles, CTA headings, accordion triggers */
-    --type-subsection: 1rem;          /* 16px - mobile */
-    --type-subsection-md: 1.125rem;   /* 18px - desktop */
     
     /* Body/Supporting - List items, descriptions, content */
     --type-body: 0.875rem;            /* 14px - both */
-    
-    /* Meta/Helper - Labels, badges, navigation, timestamps */
-    --type-meta: 0.875rem;            /* 14px - ADA minimum */
-    
     /* ===========================================
        TIER COLORS (Semantic - unchanged)
        =========================================== */
@@ -269,19 +258,8 @@ All colors MUST be HSL.
      TYPOGRAPHY UTILITY CLASSES (6-Role System)
      =========================================== */
 
-  /* Page Identity - Username, top-level identity */
-  .type-identity {
-    font-size: var(--type-identity);
-    font-weight: 300;
-    letter-spacing: -0.01em;
-    line-height: 1.1;
-  }
-  
-  @media (min-width: 768px) {
-    .type-identity {
-      font-size: var(--type-identity-md);
-    }
-  }
+
+
 
   /* Primary Metrics - Hero EP values, current tier, large KPIs */
   .type-metric-primary {
@@ -313,20 +291,6 @@ All colors MUST be HSL.
     }
   }
 
-  /* Subsection Titles - Card titles, CTA headings, accordion triggers */
-  .type-subsection {
-    font-size: var(--type-subsection);
-    font-weight: 400;
-    letter-spacing: 0.01em;
-    line-height: 1.3;
-  }
-  
-  @media (min-width: 768px) {
-    .type-subsection {
-      font-size: var(--type-subsection-md);
-    }
-  }
-
   /* Body/Supporting - List items, descriptions */
   .type-body {
     font-size: var(--type-body);
@@ -334,14 +298,6 @@ All colors MUST be HSL.
     line-height: 1.6;
   }
 
-  /* Meta/Helper - Labels, badges, navigation */
-  .type-meta {
-    font-size: var(--type-meta);
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    line-height: 1.2;
-  }
 
   /* ===========================================
      SECTION TITLES (Primary text)
