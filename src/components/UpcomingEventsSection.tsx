@@ -61,7 +61,7 @@ const upcomingEvents: UpcomingEvent[] = [
     eventName: "Tahoe Trail",
     eventType: "Trail",
     eventDates: "May 15-16, 2026",
-    location: "Lake Tahoe",
+    location: "Tahoe",
   },
   {
     eventName: "Rainier",
