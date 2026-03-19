@@ -30,7 +30,7 @@ All colors MUST be HSL.
     --foreground: 0 0% 96%;          /* Primary text - high contrast */
     --text-secondary: 0 0% 68%;      /* Body text — AA compliant */
     --text-muted: 0 0% 60%;          /* Helper, meta text — AA compliant */
-    --text-disabled: 0 0% 50%;       /* Inactive states — improved */
+    --text-disabled: 0 0% 58%;       /* Inactive states — AA compliant */
     --muted-foreground: 0 0% 60%;    /* Shadcn compatibility — AA compliant */
 
     /* ===========================================
@@ -408,7 +408,7 @@ All colors MUST be HSL.
     font-family: 'Inter', sans-serif;
     font-weight: 400;
     font-size: 0.875rem;
-    color: hsl(0 0% 58%) !important;
+    color: hsl(0 0% 62%) !important;
     text-align: left;
     line-height: 1.5;
   }
