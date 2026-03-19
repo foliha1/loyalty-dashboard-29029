@@ -165,7 +165,7 @@ All colors MUST be HSL.
     color: hsl(var(--summit));
   }
   
-  .border-base {
+  .border-tier-base {
     border-color: hsl(var(--base));
   }
   
