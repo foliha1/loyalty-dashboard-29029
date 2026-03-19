@@ -22,7 +22,7 @@ export const DiscoveryCTAs = () => {
             Discover 29029 Events
           </h5>
           <p className="text-[hsl(var(--text-secondary))] text-sm uppercase tracking-[0.15em] font-light mb-4 sm:mb-8">
-            Browse All Experiences
+            Browse All Events
           </p>
           
           {/* Underline sweep effect */}
