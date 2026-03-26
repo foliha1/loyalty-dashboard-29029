@@ -184,7 +184,7 @@ export const TiersContinuum = () => {
             {/* Desktop-only link */}
             <Dialog>
               <DialogTrigger asChild>
-                 <button className="hidden sm:inline-flex mt-3 text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors duration-200 cursor-pointer tracking-normal sm:tracking-wide items-center gap-1.5 underline underline-offset-4 decoration-muted-foreground/40">
+                 <button className="hidden sm:inline-flex min-h-[44px] mt-3 text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors duration-200 cursor-pointer tracking-normal sm:tracking-wide items-center gap-1.5 underline underline-offset-4 decoration-muted-foreground/40">
                    View Tier Benefits
                    <Info size={14} />
                  </button>
@@ -212,7 +212,7 @@ export const TiersContinuum = () => {
             {/* Desktop-only link */}
             <Dialog>
               <DialogTrigger asChild>
-                <button className="hidden sm:inline-flex mt-3 text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors duration-200 cursor-pointer tracking-normal sm:tracking-wide items-center gap-1.5 sm:ml-auto underline underline-offset-4 decoration-muted-foreground/40">
+                <button className="hidden sm:inline-flex min-h-[44px] mt-3 text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors duration-200 cursor-pointer tracking-normal sm:tracking-wide items-center gap-1.5 sm:ml-auto underline underline-offset-4 decoration-muted-foreground/40">
                   How EPs Work
                   <Info size={14} />
                 </button>
@@ -236,7 +236,7 @@ export const TiersContinuum = () => {
           <div className="flex sm:hidden items-center justify-center gap-3 mt-4 w-full">
             <Dialog>
               <DialogTrigger asChild>
-                <button className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 cursor-pointer inline-flex items-center gap-1.5 underline underline-offset-4 decoration-muted-foreground/40">
+                <button className="min-h-[44px] text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 cursor-pointer inline-flex items-center gap-1.5 underline underline-offset-4 decoration-muted-foreground/40">
                   View Tier Benefits
                   <Info size={14} />
                 </button>
@@ -258,7 +258,7 @@ export const TiersContinuum = () => {
             <span className="text-muted-foreground/40">·</span>
             <Dialog>
               <DialogTrigger asChild>
-                <button className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 cursor-pointer inline-flex items-center gap-1.5 underline underline-offset-4 decoration-muted-foreground/40">
+                <button className="min-h-[44px] text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 cursor-pointer inline-flex items-center gap-1.5 underline underline-offset-4 decoration-muted-foreground/40">
                   How EPs Work
                   <Info size={14} />
                 </button>

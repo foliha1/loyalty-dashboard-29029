@@ -62,7 +62,7 @@ export const StickyNav = () => {
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-12 sm:h-14">
           {/* Logo */}
-          <a href="#" className="flex items-center">
+          <a href="#" className="flex items-center" aria-label="29029 home">
             <Logo29029 className="h-5 sm:h-6 w-auto text-foreground" />
           </a>
 
