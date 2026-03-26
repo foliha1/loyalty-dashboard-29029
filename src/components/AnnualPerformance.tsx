@@ -192,7 +192,7 @@ export const AnnualPerformance = () => {
             <div className="flex flex-row items-start justify-between">
               <div>
                 <div className="text-subhead mb-2">
-                  {isCurrentYear ? "Total EPs" : <>Total <EPsLabel /> Earned</>}
+                  {isCurrentYear ? <>Total <span style={{ textTransform: 'none' }}>EPs</span></> : <>Total <EPsLabel /> Earned</>}
                 </div>
                 <div className="type-metric-secondary text-foreground">
                   {totalEP.toLocaleString()}
@@ -208,7 +208,7 @@ export const AnnualPerformance = () => {
           </div>
 
           {/* EP Breakdown */}
-          <h4 className="text-xs sm:text-sm uppercase tracking-[0.1em] sm:tracking-[0.2em] font-medium text-foreground/90 mb-3">EPs Breakdown</h4>
+          <h4 className="text-xs sm:text-sm uppercase tracking-[0.1em] sm:tracking-[0.2em] font-medium text-foreground/90 mb-3"><span style={{ textTransform: 'none' }}>EPs</span> Breakdown</h4>
           <div className="grid grid-cols-3 gap-2 sm:gap-4 md:gap-8">
             {([
               ["Events", activeData.eps.events],
