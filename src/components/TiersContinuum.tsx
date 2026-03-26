@@ -119,26 +119,17 @@ export const TiersContinuum = () => {
     <div className="space-y-6">
       <div>
         <h5 className="text-base font-semibold tracking-tight text-foreground mb-3">Earning EPs</h5>
-        <div className="space-y-2.5 text-sm text-foreground/80 leading-relaxed">
-          <p><span className="font-semibold text-foreground">Events:</span> 150 EPs per event attended</p>
-          <p><span className="font-semibold text-foreground">Coaching:</span> Variable EPs based on session type</p>
-          <p><span className="font-semibold text-foreground">Apparel:</span> 1 EP per dollar spent</p>
-        </div>
+        <p className="text-sm text-foreground/80 leading-relaxed">
+          EPs are a calculation of participation and historical spend in event, apparel and coaching
+        </p>
       </div>
       <div className="pt-4 border-t border-border/20">
         <h5 className="text-base font-semibold tracking-tight text-foreground mb-3">Tier Thresholds</h5>
         <div className="space-y-2.5 text-sm text-foreground/80 leading-relaxed">
           <p><span className="font-semibold text-foreground">Base:</span> 0–399 EPs</p>
-          <p><span className="font-semibold text-foreground">Ridge:</span> 400–749 EPs</p>
+          <p><span className="font-semibold text-foreground">Ridge:</span> 400–759 EPs</p>
           <p><span className="font-semibold text-foreground">Peak:</span> 750+ EPs</p>
         </div>
-      </div>
-      <div className="pt-4 border-t border-border/20">
-        <h5 className="text-base font-semibold tracking-tight text-foreground mb-3">Your Progress</h5>
-        <p className="text-sm text-foreground/80 leading-relaxed">
-          Your EPs accumulate over your entire member journey. Each tier unlocks new benefits 
-          and experiences as you progress through Base, Ridge, and Peak tiers.
-        </p>
       </div>
     </div>
   );
