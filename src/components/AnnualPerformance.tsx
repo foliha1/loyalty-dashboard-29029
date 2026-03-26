@@ -51,7 +51,7 @@ const RecognitionBar = ({ finishes, color }: { finishes: number; color: "peak" |
       </div>
 
       {/* Progress bar */}
-      <div className="relative h-2 bg-[hsl(var(--border))] rounded-full">
+      <div className="relative h-2 bg-[hsl(var(--border))] rounded-full" role="progressbar" aria-valuenow={capped} aria-valuemin={0} aria-valuemax={axisMax} aria-label={`Finish milestones progress: ${capped} of ${axisMax}`}>
         <div
           className="absolute inset-y-0 left-0 rounded-full transition-all duration-700 ease-out"
           style={{ width: `${fillPercent}%`, backgroundColor: cssColor }}
