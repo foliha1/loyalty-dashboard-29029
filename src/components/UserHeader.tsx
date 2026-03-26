@@ -46,8 +46,10 @@ export const UserHeader = () => {
                 className="relative group cursor-pointer min-w-[44px] min-h-[44px]"
               >
                 <Avatar className="w-14 h-14 sm:w-20 sm:h-20 md:w-22 md:h-22 border-2 border-tier-accent/50 flex-shrink-0 transition-all duration-500 hover:scale-105 hover:border-tier-accent hover:shadow-[0_0_20px_hsl(var(--tier-accent)/0.4)]">
-                  <AvatarImage src="https://i.pravatar.cc/300?img=12" alt="Alex Rivera" />
-                  <AvatarFallback className="bg-secondary text-foreground text-lg font-semibold">AR</AvatarFallback>
+                  <AvatarImage alt="Alex Rivera" />
+                  <AvatarFallback className="bg-card/30 flex items-center justify-center">
+                    <Logo29029 size={24} className="text-muted-foreground" />
+                  </AvatarFallback>
                 </Avatar>
               </button>
             </div>
