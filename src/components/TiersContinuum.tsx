@@ -56,8 +56,8 @@ export const TiersContinuum = () => {
   const currentEP = activity2026.events.totalEP + activity2026.apparel.totalEP + activity2026.coaching.totalEP;
   const currentTierName = "Ridge";
   
-  // Find current and next tier - exclude Summit Circle
-  const visibleTiers = tiers.filter(t => t.name !== "Summit Circle");
+  // Find current and next tier - exclude The 29
+  const visibleTiers = tiers.filter(t => t.name !== "The 29");
   const currentTierIndex = visibleTiers.findIndex(t => t.name === currentTierName);
   const currentTier = visibleTiers[currentTierIndex];
   const previousTier = currentTierIndex > 0 ? visibleTiers[currentTierIndex - 1] : null;
