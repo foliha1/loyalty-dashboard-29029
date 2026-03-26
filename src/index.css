@@ -405,7 +405,7 @@ All colors MUST be HSL.
     --button-text-color: hsl(var(--foreground));
   }
 
-  [data-current-tier="Summit Circle"] {
+  [data-current-tier="The 29"] {
     --current-tier-accent: var(--summit);
     --current-tier-accent-glow: var(--summit-glow);
     --button-text-color: hsl(var(--background));
@@ -448,7 +448,7 @@ All colors MUST be HSL.
     color: hsl(var(--foreground));
   }
 
-  [data-current-tier="Summit Circle"] .bg-tier-accent {
+  [data-current-tier="The 29"] .bg-tier-accent {
     color: hsl(var(--background));
   }
 
