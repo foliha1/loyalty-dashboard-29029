@@ -445,6 +445,8 @@ export default function Profile() {
                   ) : null;
                 })()}
 
+                <div className="h-px bg-border/20 my-6" />
+
                 {/* TRAIL Events */}
                 {(() => {
                   const trailEvents = pastEvents.filter(e => e.type === "TRAIL");
