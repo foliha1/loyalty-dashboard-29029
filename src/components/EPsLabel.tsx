@@ -9,11 +9,11 @@ interface EPsLabelProps {
 
 export const EPsLabel = ({ showInfo = false, className }: EPsLabelProps) => {
   if (!showInfo) {
-    return <span className={className}>EPs</span>;
+    return <span className={className} style={{ textTransform: 'none' }}>EPs</span>;
   }
 
   return (
-    <span className={cn("inline-flex items-center gap-1", className)}>
+    <span className={cn("inline-flex items-center gap-1", className)} style={{ textTransform: 'none' }}>
       EPs
       <Tooltip>
         <TooltipTrigger asChild>

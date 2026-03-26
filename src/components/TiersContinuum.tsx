@@ -97,7 +97,7 @@ export const TiersContinuum = () => {
         </ul>
       </div>
       <div className="mb-5 pt-4 border-t border-border/20">
-        <h4 className="text-sm font-medium text-[hsl(var(--ridge))] uppercase tracking-wider mb-2">Ridge <span className="text-muted-foreground font-light">(500+ EPs)</span></h4>
+        <h4 className="text-sm font-medium text-[hsl(var(--ridge))] uppercase tracking-wider mb-2">Ridge <span className="text-muted-foreground font-light">(500+ <span style={{ textTransform: 'none' }}>EPs</span>)</span></h4>
         <ul className="space-y-1.5 text-sm text-foreground/80">
           <li className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-[hsl(var(--ridge))]" /><span>Priority event registration</span></li>
           <li className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-[hsl(var(--ridge))]" /><span>Exclusive Ridge merchandise</span></li>
@@ -106,7 +106,7 @@ export const TiersContinuum = () => {
         </ul>
       </div>
       <div className="pt-4 border-t border-border/20">
-        <h4 className="text-sm font-medium text-[hsl(var(--peak))] uppercase tracking-wider mb-2">Peak <span className="text-muted-foreground font-light">(1000+ EPs)</span></h4>
+        <h4 className="text-sm font-medium text-[hsl(var(--peak))] uppercase tracking-wider mb-2">Peak <span className="text-muted-foreground font-light">(1000+ <span style={{ textTransform: 'none' }}>EPs</span>)</span></h4>
         <ul className="space-y-1.5 text-sm text-foreground/80">
           <li className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-[hsl(var(--peak))]" /><span>All Ridge benefits</span></li>
           <li className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-[hsl(var(--peak))]" /><span>VIP event experiences</span></li>
@@ -191,7 +191,7 @@ export const TiersContinuum = () => {
             </Dialog>
           </div>
           <div className="flex flex-col text-center sm:text-right mt-4 sm:mt-0">
-            <div className="text-subhead mb-2 sm:mb-3">Total EPs</div>
+            <div className="text-subhead mb-2 sm:mb-3">Total <span style={{ textTransform: 'none' }}>EPs</span></div>
             <div className="type-metric-primary tabular-nums">
               {animatedEP}
             </div>
@@ -206,7 +206,7 @@ export const TiersContinuum = () => {
               <DialogContent className="max-w-md bg-background/95 backdrop-blur-xl border-border/30 p-0 overflow-hidden">
                 <DialogHeader className="px-6 pt-6 pb-4 border-b border-border/20">
                   <DialogTitle className="text-lg font-normal tracking-[0.1em] uppercase">
-                    How Elevation Points (EPs) Work
+                    How Elevation Points (<span style={{ textTransform: 'none' }}>EPs</span>) Work
                   </DialogTitle>
                   <DialogDescription className="text-sm text-muted-foreground">
                     Learn how to earn and progress through tiers
@@ -252,7 +252,7 @@ export const TiersContinuum = () => {
               <DialogContent className="max-w-md bg-background/95 backdrop-blur-xl border-border/30 p-0 overflow-hidden">
                 <DialogHeader className="px-6 pt-6 pb-4 border-b border-border/20">
                   <DialogTitle className="text-lg font-normal tracking-[0.1em] uppercase">
-                    How Elevation Points (EPs) Work
+                    How Elevation Points (<span style={{ textTransform: 'none' }}>EPs</span>) Work
                   </DialogTitle>
                   <DialogDescription className="text-sm text-muted-foreground">
                     Learn how to earn and progress through tiers
