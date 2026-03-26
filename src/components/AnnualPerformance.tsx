@@ -88,8 +88,8 @@ const RecognitionBar = ({ finishes, color }: { finishes: number; color: "peak" |
                 </span>
                 {hasMilestone && (
                   <span
-                    className={`text-xs uppercase tracking-wider ${i <= capped ? 'text-foreground/70' : 'text-muted-foreground/40'}`}
-                    style={{ writingMode: 'vertical-lr', height: '3.5rem' }}
+                    className={`text-[10px] uppercase tracking-wider whitespace-nowrap ${i <= capped ? 'text-foreground/70' : 'text-muted-foreground/40'}`}
+                    style={{ writingMode: 'vertical-lr', height: '4rem' }}
                   >
                     {milestoneLabels[i]}
                   </span>
@@ -118,8 +118,8 @@ const RecognitionBar = ({ finishes, color }: { finishes: number; color: "peak" |
                 </span>
                 {hasMilestone && (
                   <span
-                    className={`text-xs uppercase tracking-wider ${tick <= capped ? 'text-foreground/70' : 'text-muted-foreground/40'}`}
-                    style={{ writingMode: 'vertical-lr', height: '3.5rem' }}
+                    className={`text-[10px] uppercase tracking-wider whitespace-nowrap ${tick <= capped ? 'text-foreground/70' : 'text-muted-foreground/40'}`}
+                    style={{ writingMode: 'vertical-lr', height: '4rem' }}
                   >
                     {milestoneLabels[tick]}
                   </span>
