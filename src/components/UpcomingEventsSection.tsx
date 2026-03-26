@@ -6,7 +6,7 @@ import patagoniaImage from "@/assets/patagonia-mountains.jpg";
 
 interface UpcomingEvent {
   eventName: string;
-  eventType: "Everest" | "Basecamp" | "Trail";
+  eventType: "Mountain" | "Basecamp" | "Trail";
   eventDates: string;
   location: string;
 }
@@ -34,7 +34,7 @@ const getDaysRemaining = (dateStr: string): number => {
 
 // Event type color configurations
 const eventTypeConfig = {
-  Everest: {
+  Mountain: {
     gradient: "linear-gradient(135deg, rgba(220, 38, 38, 0.08) 0%, rgba(127, 29, 29, 0.12) 100%)",
     accentColor: "5 85% 50%",
     glowColor: "5 85% 60%"
@@ -55,7 +55,7 @@ const eventTypeConfig = {
 const upcomingEvents: UpcomingEvent[] = [
   {
     eventName: "Snowbasin",
-    eventType: "Everest",
+    eventType: "Mountain",
     eventDates: "Jun 11-14, 2026",
     location: "Snowbasin",
   },
@@ -67,13 +67,13 @@ const upcomingEvents: UpcomingEvent[] = [
   },
   {
     eventName: "Rainier",
-    eventType: "Everest",
+    eventType: "Mountain",
     eventDates: "Jun 25-28, 2026",
     location: "Rainier",
   },
   {
     eventName: "Mont-Tremblant",
-    eventType: "Everest",
+    eventType: "Mountain",
     eventDates: "Jul 23-26, 2026",
     location: "Mont-Tremblant",
   },
