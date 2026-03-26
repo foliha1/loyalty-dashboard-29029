@@ -70,8 +70,8 @@ const RecognitionBar = ({ finishes, color }: { finishes: number; color: "peak" |
         )}
       </div>
 
-      {/* Desktop ticks: all 0–10 */}
-      <div className="hidden sm:block relative mt-2" style={{ height: '5.5rem' }}>
+      {/* Ticks: all 0–10 */}
+      <div className="relative mt-2" style={{ height: '5.5rem' }}>
         {Array.from({ length: axisMax + 1 }, (_, i) => {
           const pct = (i / axisMax) * 100;
           const hasMilestone = !!milestoneLabels[i];
