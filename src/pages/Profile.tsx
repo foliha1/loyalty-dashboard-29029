@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
 import { ArrowLeft, Save, Lock, Check } from "lucide-react";
 import { toast } from "sonner";
-import { EPsLabel } from "@/components/EPsLabel";
+
 import { Logo29029 } from "@/components/Logo29029";
 
 const RequiredAsterisk = () => <span className="text-[hsl(var(--peak))] ml-0.5">*</span>;
@@ -399,35 +399,25 @@ export default function Profile() {
             </div>
             <div className="h-px bg-gradient-to-r from-tier-accent/20 via-tier-accent/40 to-tier-accent/20 mb-4 sm:mb-5" />
             
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
               <div className="bg-card/30 border border-border/20 rounded-lg p-3 sm:p-4">
-                <div className="text-sm text-muted-foreground mb-1 sm:mb-1.5 uppercase tracking-wider">Total Elevation</div>
+                <div className="text-sm text-muted-foreground mb-1 sm:mb-1.5 uppercase tracking-wider">Total Vert Ft</div>
                 <div className="type-metric-secondary">145,800 ft</div>
               </div>
               
               <div className="bg-card/30 border border-border/20 rounded-lg p-3 sm:p-4">
-                <div className="text-sm text-muted-foreground mb-1 sm:mb-1.5 uppercase tracking-wider">Miles Climbed</div>
+                <div className="text-sm text-muted-foreground mb-1 sm:mb-1.5 uppercase tracking-wider">Total Miles</div>
                 <div className="type-metric-secondary">87.4 mi</div>
               </div>
               
               <div className="bg-card/30 border border-border/20 rounded-lg p-3 sm:p-4">
-                <div className="text-sm text-muted-foreground mb-1 sm:mb-1.5 uppercase tracking-wider">Events</div>
-                <div className="type-metric-secondary">9</div>
+                <div className="text-sm text-muted-foreground mb-1 sm:mb-1.5 uppercase tracking-wider">Mountain Events</div>
+                <div className="type-metric-secondary">{pastEvents.filter(e => e.type === "Mountain").length}</div>
               </div>
               
               <div className="bg-card/30 border border-border/20 rounded-lg p-3 sm:p-4">
-                <div className="text-sm text-muted-foreground mb-1 sm:mb-1.5 uppercase tracking-wider">Total <EPsLabel showInfo /></div>
-                <div className="type-metric-secondary">1,440</div>
-              </div>
-              
-              <div className="bg-card/30 border border-border/20 rounded-lg p-3 sm:p-4">
-                <div className="text-sm text-muted-foreground mb-1 sm:mb-1.5 uppercase tracking-wider">Coaching</div>
-                <div className="type-metric-secondary">12</div>
-              </div>
-              
-              <div className="bg-card/30 border border-border/20 rounded-lg p-3 sm:p-4">
-                <div className="text-sm text-muted-foreground mb-1 sm:mb-1.5 uppercase tracking-wider">Days Active</div>
-                <div className="type-metric-secondary">1,044</div>
+                <div className="text-sm text-muted-foreground mb-1 sm:mb-1.5 uppercase tracking-wider">TRAIL Events</div>
+                <div className="type-metric-secondary">{pastEvents.filter(e => e.type === "TRAIL").length}</div>
               </div>
             </div>
           </Card>
