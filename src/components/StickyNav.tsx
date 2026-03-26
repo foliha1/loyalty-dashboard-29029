@@ -84,27 +84,37 @@ export const StickyNav = () => {
                 <div className="flex flex-col items-center justify-center h-full">
                   <Logo29029 className="h-7 w-auto text-foreground mb-12" />
 
-                  <nav className="flex flex-col items-center gap-2">
-                    {navLinks.map((link, index) => (
-                      <a
-                        key={link.href}
-                        href={link.href}
-                        onClick={(e) => handleLinkClick(e, link.href)}
-                        className={cn(
-                          "min-h-[44px] py-4 px-6 text-sm uppercase tracking-[0.1em] transition-colors duration-300 rounded-lg animate-fade-in",
-                          activeSection === link.href.slice(1)
-                            ? "text-foreground"
-                            : "text-muted-foreground hover:text-foreground"
-                        )}
-                        style={{
-                          animationDelay: `${index * 50}ms`,
-                          animationFillMode: "both",
-                        }}
-                      >
-                        {link.label}
-                      </a>
-                    ))}
-                  </nav>
+                  <div className="flex flex-col items-center gap-2">
+                    <Link
+                      to="/login"
+                      onClick={() => setIsOpen(false)}
+                      className="min-h-[44px] py-4 px-6 text-sm uppercase tracking-[0.1em] font-medium text-foreground transition-colors duration-300 rounded-lg border border-foreground/20 mb-4 animate-fade-in"
+                    >
+                      Log In
+                    </Link>
+
+                    <nav className="flex flex-col items-center gap-2">
+                      {navLinks.map((link, index) => (
+                        <a
+                          key={link.href}
+                          href={link.href}
+                          onClick={(e) => handleLinkClick(e, link.href)}
+                          className={cn(
+                            "min-h-[44px] py-4 px-6 text-sm uppercase tracking-[0.1em] transition-colors duration-300 rounded-lg animate-fade-in",
+                            activeSection === link.href.slice(1)
+                              ? "text-foreground"
+                              : "text-muted-foreground hover:text-foreground"
+                          )}
+                          style={{
+                            animationDelay: `${(index + 1) * 50}ms`,
+                            animationFillMode: "both",
+                          }}
+                        >
+                          {link.label}
+                        </a>
+                      ))}
+                    </nav>
+                  </div>
                 </div>
               </SheetContent>
             </Sheet>
@@ -138,6 +148,12 @@ export const StickyNav = () => {
                   />
                 </a>
               ))}
+              <Link
+                to="/login"
+                className="text-sm uppercase tracking-[0.1em] text-foreground border border-foreground/30 rounded-lg px-4 py-1.5 hover:bg-foreground/10 transition-colors duration-200"
+              >
+                Log In
+              </Link>
             </div>
           )}
         </div>
