@@ -25,7 +25,6 @@ const pastEvents: PastEvent[] = [
   { name: "Whistler TRAIL 2025", type: "TRAIL", result: "TRAIL Finisher" },
   { name: "Tahoe TRAIL 2023", type: "TRAIL", result: "TRAIL Finisher" },
 ];
-];
 
 export default function Profile() {
   const navigate = useNavigate();
