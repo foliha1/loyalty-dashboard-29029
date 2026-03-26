@@ -73,13 +73,16 @@ const RecognitionBar = ({ finishes, color }: { finishes: number; color: "peak" |
       {/* Desktop ticks: all 0–10 */}
       <div className="hidden sm:flex justify-between mt-2 relative">
         {Array.from({ length: axisMax + 1 }, (_, i) => (
-          <div key={i} className="flex flex-col items-center" style={{ width: `${100 / axisMax}%`, maxWidth: i === 0 || i === axisMax ? 'none' : undefined }}>
+          <div key={i} className="flex flex-col items-center" style={{ width: `${100 / axisMax}%` }}>
             <div className="w-px h-1.5 bg-border/40 mb-1" />
             <span className={`text-[10px] tabular-nums ${i <= capped ? 'text-foreground/70' : 'text-muted-foreground/50'}`}>
               {i}
             </span>
             {milestoneLabels[i] && (
-              <span className={`text-[9px] uppercase tracking-wider mt-0.5 ${i <= capped ? 'text-foreground/60' : 'text-muted-foreground/40'}`}>
+              <span
+                className={`text-xs uppercase tracking-wider mt-1 ${i <= capped ? 'text-foreground/70' : 'text-muted-foreground/40'}`}
+                style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)', height: '3.5rem' }}
+              >
                 {milestoneLabels[i]}
               </span>
             )}
@@ -88,7 +91,7 @@ const RecognitionBar = ({ finishes, color }: { finishes: number; color: "peak" |
       </div>
 
       {/* Mobile ticks: only milestones + current position */}
-      <div className="sm:hidden relative mt-2 h-10">
+      <div className="sm:hidden relative mt-2" style={{ height: '5.5rem' }}>
         {milestoneTicks.map((tick) => {
           const pct = (tick / axisMax) * 100;
           return (
@@ -102,7 +105,10 @@ const RecognitionBar = ({ finishes, color }: { finishes: number; color: "peak" |
                 {tick}
               </span>
               {milestoneLabels[tick] && (
-                <span className={`text-[8px] uppercase tracking-wider mt-0.5 whitespace-nowrap ${tick <= capped ? 'text-foreground/60' : 'text-muted-foreground/40'}`}>
+                <span
+                  className={`text-xs uppercase tracking-wider mt-1 ${tick <= capped ? 'text-foreground/70' : 'text-muted-foreground/40'}`}
+                  style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)', height: '3.5rem' }}
+                >
                   {milestoneLabels[tick]}
                 </span>
               )}
