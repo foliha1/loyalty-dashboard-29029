@@ -89,31 +89,27 @@ export const TiersContinuum = () => {
   const tierBenefitsContent = (
     <>
       <div className="mb-5">
-        <h4 className="text-sm font-medium text-[hsl(var(--base))] uppercase tracking-wider mb-2">Base</h4>
-      <ul className="space-y-1.5 text-sm text-foreground/80">
-          <li className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-[hsl(var(--base))]" /><span>Access to all 29029 events</span></li>
-          <li className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-[hsl(var(--base))]" /><span>Member-only community access</span></li>
-          <li className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-[hsl(var(--base))]" /><span>Personal progress tracking</span></li>
+        <h4 className="text-sm font-medium text-[hsl(var(--base))] uppercase tracking-wider mb-2">Base <span className="text-muted-foreground font-light">(0–399 <span style={{ textTransform: 'none' }}>EPs</span>)</span></h4>
+        <ul className="space-y-1.5 text-sm text-foreground/80">
+          <li className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-[hsl(var(--base))]" /><span>Priority registration access for events</span></li>
+          <li className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-[hsl(var(--base))]" /><span>Can register 1 guest doing same event prior to Day 3 (Alumni Day)</span></li>
+          <li className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-[hsl(var(--base))]" /><span>2 lottery entries into lottery based events</span></li>
         </ul>
       </div>
       <div className="mb-5 pt-4 border-t border-border/20">
-        <h4 className="text-sm font-medium text-[hsl(var(--ridge))] uppercase tracking-wider mb-2">Ridge <span className="text-muted-foreground font-light">(500+ <span style={{ textTransform: 'none' }}>EPs</span>)</span></h4>
+        <h4 className="text-sm font-medium text-[hsl(var(--ridge))] uppercase tracking-wider mb-2">Ridge <span className="text-muted-foreground font-light">(400–749 <span style={{ textTransform: 'none' }}>EPs</span>)</span></h4>
         <ul className="space-y-1.5 text-sm text-foreground/80">
-          <li className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-[hsl(var(--ridge))]" /><span>Priority event registration</span></li>
-          <li className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-[hsl(var(--ridge))]" /><span>Exclusive Ridge merchandise</span></li>
-          <li className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-[hsl(var(--ridge))]" /><span>10% discount on apparel</span></li>
-          <li className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-[hsl(var(--ridge))]" /><span>Access to member-only content</span></li>
+          <li className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-[hsl(var(--ridge))]" /><span>Priority registration access for events</span></li>
+          <li className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-[hsl(var(--ridge))]" /><span>Can register up to 2 guests doing same event prior to Day 3 (Alumni Day)</span></li>
+          <li className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-[hsl(var(--ridge))]" /><span>3 lottery entries into lottery based events</span></li>
         </ul>
       </div>
       <div className="pt-4 border-t border-border/20">
-        <h4 className="text-sm font-medium text-[hsl(var(--peak))] uppercase tracking-wider mb-2">Peak <span className="text-muted-foreground font-light">(1000+ <span style={{ textTransform: 'none' }}>EPs</span>)</span></h4>
+        <h4 className="text-sm font-medium text-[hsl(var(--peak))] uppercase tracking-wider mb-2">Peak <span className="text-muted-foreground font-light">(750+ <span style={{ textTransform: 'none' }}>EPs</span>)</span></h4>
         <ul className="space-y-1.5 text-sm text-foreground/80">
-          <li className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-[hsl(var(--peak))]" /><span>All Ridge benefits</span></li>
-          <li className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-[hsl(var(--peak))]" /><span>VIP event experiences</span></li>
-          <li className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-[hsl(var(--peak))]" /><span>Exclusive Peak merchandise</span></li>
-          <li className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-[hsl(var(--peak))]" /><span>15% discount on apparel</span></li>
-          <li className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-[hsl(var(--peak))]" /><span>Free coaching session annually</span></li>
-          <li className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-[hsl(var(--peak))]" /><span>Early access to new events</span></li>
+          <li className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-[hsl(var(--peak))]" /><span>Early Priority registration access for events</span></li>
+          <li className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-[hsl(var(--peak))]" /><span>Can register up to 3 guests doing same event prior to Day 3 (Alumni Day)</span></li>
+          <li className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-[hsl(var(--peak))]" /><span>5 lottery entries into lottery based events</span></li>
         </ul>
       </div>
     </>
@@ -132,9 +128,9 @@ export const TiersContinuum = () => {
       <div className="pt-4 border-t border-border/20">
         <h5 className="text-base font-semibold tracking-tight text-foreground mb-3">Tier Thresholds</h5>
         <div className="space-y-2.5 text-sm text-foreground/80 leading-relaxed">
-          <p><span className="font-semibold text-foreground">Base:</span> 0 EPs (Starting tier)</p>
-          <p><span className="font-semibold text-foreground">Ridge:</span> 500 EPs</p>
-          <p><span className="font-semibold text-foreground">Peak:</span> 1,000 EPs</p>
+          <p><span className="font-semibold text-foreground">Base:</span> 0–399 EPs</p>
+          <p><span className="font-semibold text-foreground">Ridge:</span> 400–749 EPs</p>
+          <p><span className="font-semibold text-foreground">Peak:</span> 750+ EPs</p>
         </div>
       </div>
       <div className="pt-4 border-t border-border/20">

@@ -20,14 +20,14 @@ export const tiers: Tier[] = [
     name: "Ridge",
     description: "Transformation, turning point",
     icon: TrendingUp,
-    threshold: 500,
+    threshold: 400,
     color: "ridge",
   },
   {
     name: "Peak",
     description: "Mastery, passion refined",
     icon: Flame,
-    threshold: 1000,
+    threshold: 750,
     color: "peak",
   },
   {
