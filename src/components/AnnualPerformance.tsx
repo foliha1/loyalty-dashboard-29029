@@ -71,23 +71,30 @@ const RecognitionBar = ({ finishes, color }: { finishes: number; color: "peak" |
       </div>
 
       {/* Desktop ticks: all 0–10 */}
-      <div className="hidden sm:flex justify-between mt-2 relative">
-        {Array.from({ length: axisMax + 1 }, (_, i) => (
-          <div key={i} className="flex flex-col items-center" style={{ width: `${100 / axisMax}%` }}>
-            <div className="w-px h-1.5 bg-border/40 mb-1" />
-            <span className={`text-[10px] tabular-nums ${i <= capped ? 'text-foreground/70' : 'text-muted-foreground/50'}`}>
-              {i}
-            </span>
-            {milestoneLabels[i] && (
-              <span
-                className={`text-xs uppercase tracking-wider mt-1 ${i <= capped ? 'text-foreground/70' : 'text-muted-foreground/40'}`}
-                style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)', height: '3.5rem' }}
-              >
-                {milestoneLabels[i]}
+      <div className="hidden sm:block relative mt-2" style={{ height: '5.5rem' }}>
+        {Array.from({ length: axisMax + 1 }, (_, i) => {
+          const pct = (i / axisMax) * 100;
+          return (
+            <div
+              key={i}
+              className="absolute flex flex-col items-center -translate-x-1/2"
+              style={{ left: `${pct}%` }}
+            >
+              <div className="w-px h-1.5 bg-border/40 mb-1" />
+              <span className={`text-[10px] tabular-nums ${i <= capped ? 'text-foreground/70' : 'text-muted-foreground/50'}`}>
+                {i}
               </span>
-            )}
-          </div>
-        ))}
+              {milestoneLabels[i] && (
+                <span
+                  className={`text-xs uppercase tracking-wider mt-1 ${i <= capped ? 'text-foreground/70' : 'text-muted-foreground/40'}`}
+                  style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)', height: '3.5rem' }}
+                >
+                  {milestoneLabels[i]}
+                </span>
+              )}
+            </div>
+          );
+        })}
       </div>
 
       {/* Mobile ticks: only milestones + current position */}
