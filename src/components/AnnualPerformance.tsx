@@ -51,11 +51,23 @@ const RecognitionBar = ({ finishes, color }: { finishes: number; color: "peak" |
       </div>
 
       {/* Progress bar */}
-      <div className="relative h-2 bg-[hsl(var(--border))] rounded-full overflow-hidden">
+      <div className="relative h-2 bg-[hsl(var(--border))] rounded-full">
         <div
           className="absolute inset-y-0 left-0 rounded-full transition-all duration-700 ease-out"
           style={{ width: `${fillPercent}%`, backgroundColor: cssColor }}
         />
+        {capped > 0 && (
+          <div
+            className="absolute w-3.5 h-3.5 rounded-full transition-all duration-700 ease-out"
+            style={{
+              left: `${fillPercent}%`,
+              top: '50%',
+              transform: 'translate(-50%, -50%)',
+              backgroundColor: cssColor,
+              boxShadow: `0 0 8px ${cssColor.replace(')', ' / 0.25)')}`,
+            }}
+          />
+        )}
       </div>
 
       {/* Desktop ticks: all 0–10 */}
