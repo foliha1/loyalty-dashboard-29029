@@ -127,16 +127,16 @@ export const AnnualPerformance = () => {
 
       <div className="card-29029 !overflow-visible p-4 sm:p-7 md:p-10">
         <Tabs defaultValue="mountain" className="w-full">
-          <TabsList className="w-full mb-5 md:mb-6 bg-muted/15 p-1 rounded-lg border border-border/10 flex">
+          <TabsList className="w-full mb-5 md:mb-6 bg-transparent p-1 rounded-full border border-border/10 flex gap-2">
             <TabsTrigger
               value="mountain"
-              className="flex-1 py-2.5 min-h-[44px] text-sm uppercase tracking-[0.1em] font-light data-[state=active]:bg-peak data-[state=active]:text-black data-[state=active]:shadow-sm"
+              className="flex-1 py-2.5 min-h-[44px] text-sm uppercase tracking-[0.1em] font-light rounded-full transition-all data-[state=active]:border data-[state=active]:backdrop-blur-sm data-[state=active]:shadow-none data-[state=active]:border-[hsl(5_85%_50%/0.4)] data-[state=active]:bg-[hsl(5_85%_50%/0.1)] data-[state=active]:text-[hsl(5_85%_60%)]"
             >
               Mountain
             </TabsTrigger>
             <TabsTrigger
               value="trail"
-              className="flex-1 py-2.5 min-h-[44px] text-sm uppercase tracking-[0.1em] font-light data-[state=active]:bg-ridge data-[state=active]:text-black data-[state=active]:shadow-sm"
+              className="flex-1 py-2.5 min-h-[44px] text-sm uppercase tracking-[0.1em] font-light rounded-full transition-all data-[state=active]:border data-[state=active]:backdrop-blur-sm data-[state=active]:shadow-none data-[state=active]:border-[hsl(38_92%_50%/0.4)] data-[state=active]:bg-[hsl(38_92%_50%/0.1)] data-[state=active]:text-[hsl(38_92%_60%)]"
             >
               Trail
             </TabsTrigger>
