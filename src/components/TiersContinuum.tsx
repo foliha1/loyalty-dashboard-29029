@@ -124,7 +124,7 @@ export const TiersContinuum = () => {
         </ul>
       </div>
       <div className="mb-5 pt-4 border-t border-border/20">
-        <h4 className="text-sm font-medium text-[hsl(var(--ridge))] uppercase tracking-wider mb-2">Ridge <span className="text-muted-foreground font-light">(400–759 <span style={{ textTransform: 'none' }}>EPs</span>)</span></h4>
+        <h4 className="text-sm font-medium text-[hsl(var(--ridge))] uppercase tracking-wider mb-2">Ridge <span className="text-muted-foreground font-light">(400–749 <span style={{ textTransform: 'none' }}>EPs</span>)</span></h4>
         <ul className="space-y-1.5 text-sm text-foreground/80">
           <li className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-[hsl(var(--ridge))]" /><span>Priority registration access for events</span></li>
           <li className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-[hsl(var(--ridge))]" /><span>Can register up to 2 guests doing same event prior to Day 3 (Alumni Day)</span></li>
@@ -154,7 +154,7 @@ export const TiersContinuum = () => {
         <h5 className="text-base font-semibold tracking-tight text-foreground mb-3">Tier Thresholds</h5>
         <div className="space-y-2.5 text-sm text-foreground/80 leading-relaxed">
           <p><span className="font-semibold text-foreground">Base:</span> 0–399 EPs</p>
-          <p><span className="font-semibold text-foreground">Ridge:</span> 400–759 EPs</p>
+          <p><span className="font-semibold text-foreground">Ridge:</span> 400–749 EPs</p>
           <p><span className="font-semibold text-foreground">Peak:</span> 750+ EPs</p>
         </div>
       </div>
