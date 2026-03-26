@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 const navLinks = [
   { label: "Overview", href: "#journey" },
-  { label: "Journey", href: "#upcoming" },
+  { label: "Stats", href: "#event-stats" },
   { label: "Events", href: "#upcoming-events" },
   { label: "Discover", href: "#discover" },
 ];
@@ -23,7 +23,7 @@ export const StickyNav = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
 
-      const sections = ["journey", "upcoming", "upcoming-events", "discover"];
+      const sections = ["journey", "event-stats", "upcoming-events", "discover"];
       for (const section of sections.reverse()) {
         const element = document.getElementById(section);
         if (element) {
