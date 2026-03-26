@@ -83,12 +83,12 @@ const RecognitionBar = ({ finishes, color }: { finishes: number; color: "peak" |
             >
               <div className="w-px h-1.5 bg-border/40 mb-1 mx-auto" />
               <div className="flex flex-col items-center gap-1.5">
-                <span className={`text-[10px] tabular-nums ${i === capped && capped > 0 ? '' : i < capped ? 'text-foreground/70' : 'text-muted-foreground/50'}`} style={i === capped && capped > 0 ? { color: cssColor } : undefined}>
+                <span className={`text-xs tabular-nums ${i === capped && capped > 0 ? '' : i < capped ? 'text-foreground/70' : 'text-muted-foreground/50'}`} style={i === capped && capped > 0 ? { color: cssColor } : undefined}>
                   {i}
                 </span>
                 {hasMilestone && (
                   <span
-                    className={`text-[10px] uppercase tracking-wider whitespace-nowrap ${i === capped && capped > 0 ? '' : i < capped ? 'text-foreground/70' : 'text-muted-foreground/40'}`}
+                    className={`text-xs uppercase tracking-wider whitespace-nowrap ${i === capped && capped > 0 ? '' : i < capped ? 'text-foreground/70' : 'text-muted-foreground/40'}`}
                     style={{ writingMode: 'vertical-lr', height: '4rem', ...(i === capped && capped > 0 ? { color: cssColor } : {}) }}
                   >
                     {milestoneLabels[i]}

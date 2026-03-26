@@ -143,7 +143,7 @@ export default function Profile() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
                       </svg>
                     </button>
-                    <span className="text-[10px] uppercase tracking-wider text-muted-foreground mt-1">Add Photo</span>
+                    <span className="text-xs uppercase tracking-wider text-muted-foreground mt-1">Add Photo</span>
                   </div>
                 )}
               </div>
