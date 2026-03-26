@@ -19,6 +19,33 @@ const activity2026 = {
   }
 };
 
+const tierBenefits: Record<string, string[]> = {
+  Base: [
+    "Priority registration access for events",
+    "Can register 1 guest doing same event prior to Day 3 (Alumni Day)",
+    "2 lottery entries into lottery based events",
+  ],
+  Ridge: [
+    "Priority registration access for events",
+    "Can register up to 2 guests doing same event prior to Day 3 (Alumni Day)",
+    "3 lottery entries into lottery based events",
+  ],
+  Peak: [
+    "Early Priority registration access for events",
+    "Can register up to 3 guests doing same event prior to Day 3 (Alumni Day)",
+    "5 lottery entries into lottery based events",
+  ],
+  "The 29": [
+    "Early Priority registration access for events",
+    "Can register up to 4 guests doing same event prior to Day 3 (Alumni Day)",
+    "Gifting priority access to the earliest registration window to one person",
+    "Can gift Peak status to one person for upcoming season",
+    "Access to 29029 Haus 2 or 3 nights FREE",
+    "Concierge 29029 representative to personally assist with registration",
+    "Guaranteed Lottery Access",
+  ],
+};
+
 export const TiersContinuum = () => {
   const { currentTier: globalTier } = useTier();
   const [isRevealed, setIsRevealed] = useState(false);
