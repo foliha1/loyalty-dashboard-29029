@@ -74,24 +74,27 @@ const RecognitionBar = ({ finishes, color }: { finishes: number; color: "peak" |
       <div className="hidden sm:block relative mt-2" style={{ height: '5.5rem' }}>
         {Array.from({ length: axisMax + 1 }, (_, i) => {
           const pct = (i / axisMax) * 100;
+          const hasMilestone = !!milestoneLabels[i];
           return (
             <div
               key={i}
-              className="absolute flex flex-col items-center -translate-x-1/2"
+              className="absolute -translate-x-1/2"
               style={{ left: `${pct}%` }}
             >
-              <div className="w-px h-1.5 bg-border/40 mb-1" />
-              <span className={`text-[10px] tabular-nums ${i <= capped ? 'text-foreground/70' : 'text-muted-foreground/50'}`}>
-                {i}
-              </span>
-              {milestoneLabels[i] && (
-                <span
-                  className={`text-xs uppercase tracking-wider mt-1 ${i <= capped ? 'text-foreground/70' : 'text-muted-foreground/40'}`}
-                  style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)', height: '3.5rem' }}
-                >
-                  {milestoneLabels[i]}
+              <div className="w-px h-1.5 bg-border/40 mb-1 mx-auto" />
+              <div className={`flex flex-row items-start ${hasMilestone ? 'gap-1' : ''}`}>
+                <span className={`text-[10px] tabular-nums ${i <= capped ? 'text-foreground/70' : 'text-muted-foreground/50'}`}>
+                  {i}
                 </span>
-              )}
+                {hasMilestone && (
+                  <span
+                    className={`text-xs uppercase tracking-wider ${i <= capped ? 'text-foreground/70' : 'text-muted-foreground/40'}`}
+                    style={{ writingMode: 'vertical-lr', height: '3.5rem' }}
+                  >
+                    {milestoneLabels[i]}
+                  </span>
+                )}
+              </div>
             </div>
           );
         })}
@@ -101,31 +104,34 @@ const RecognitionBar = ({ finishes, color }: { finishes: number; color: "peak" |
       <div className="sm:hidden relative mt-2" style={{ height: '5.5rem' }}>
         {milestoneTicks.map((tick) => {
           const pct = (tick / axisMax) * 100;
+          const hasMilestone = !!milestoneLabels[tick];
           return (
             <div
               key={tick}
-              className="absolute flex flex-col items-center -translate-x-1/2"
+              className="absolute -translate-x-1/2"
               style={{ left: `${pct}%` }}
             >
-              <div className="w-px h-1.5 bg-border/40 mb-1" />
-              <span className={`text-[10px] tabular-nums ${tick <= capped ? 'text-foreground/70' : 'text-muted-foreground/50'}`}>
-                {tick}
-              </span>
-              {milestoneLabels[tick] && (
-                <span
-                  className={`text-xs uppercase tracking-wider mt-1 ${tick <= capped ? 'text-foreground/70' : 'text-muted-foreground/40'}`}
-                  style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)', height: '3.5rem' }}
-                >
-                  {milestoneLabels[tick]}
+              <div className="w-px h-1.5 bg-border/40 mb-1 mx-auto" />
+              <div className={`flex flex-row items-start ${hasMilestone ? 'gap-1' : ''}`}>
+                <span className={`text-[10px] tabular-nums ${tick <= capped ? 'text-foreground/70' : 'text-muted-foreground/50'}`}>
+                  {tick}
                 </span>
-              )}
+                {hasMilestone && (
+                  <span
+                    className={`text-xs uppercase tracking-wider ${tick <= capped ? 'text-foreground/70' : 'text-muted-foreground/40'}`}
+                    style={{ writingMode: 'vertical-lr', height: '3.5rem' }}
+                  >
+                    {milestoneLabels[tick]}
+                  </span>
+                )}
+              </div>
             </div>
           );
         })}
         {/* Current position marker if not on a milestone tick */}
         {capped > 0 && !milestoneTicks.includes(capped) && (
           <div
-            className="absolute flex flex-col items-center -translate-x-1/2"
+            className="absolute -translate-x-1/2"
             style={{ left: `${fillPercent}%` }}
           >
             <div className="w-px h-1.5 mb-1" style={{ backgroundColor: cssColor }} />
