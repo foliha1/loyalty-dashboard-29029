@@ -1,4 +1,3 @@
-import { Lock, Check } from "lucide-react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 
 // ── Data ──────────────────────────────────────────────
@@ -31,46 +30,103 @@ const KPICard = ({ label, shortLabel, value, compact }: { label: string; shortLa
   </div>
 );
 
-// ── Milestone badges ─────────────────────────────────
-const milestones = [
-  { name: "Black Bib", threshold: 3 },
-  { name: "5x Award", threshold: 5 },
-  { name: "10x Award", threshold: 10 },
-];
+// ── Recognition Bar ──────────────────────────────────
+const axisMax = 10;
+const milestoneLabels: Record<number, string> = {
+  3: "Black Bib",
+  5: "5x Award",
+  10: "10x Award",
+};
+const milestoneTicks = [0, 3, 5, 10];
 
-const MilestoneBadges = ({ current, color = "ridge" }: { current: number; color?: "peak" | "ridge" }) => (
-  <div className="mt-3 sm:mt-6">
-    <div className="text-xs sm:text-sm uppercase tracking-[0.1em] sm:tracking-[0.2em] font-medium text-foreground/90 mb-2">Finish Milestones</div>
-    <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4">
-      {milestones.map((m) => {
-        const unlocked = current >= m.threshold;
-        const remaining = m.threshold - current;
-        return (
-          <div
-            key={m.name}
-            className={`rounded-lg border text-center flex flex-col items-center justify-center p-2 sm:p-3 md:p-5 transition-all ${
-              unlocked
-                ? `border-border/30 bg-background/40 shadow-[0_0_12px_-4px_hsl(var(--${color})/0.3)]`
-                : "border-border/10 bg-card/20 opacity-60"
-            }`}
-          >
-            <div className={`text-xs uppercase tracking-wide sm:tracking-wider font-medium mb-2 ${unlocked ? "text-foreground" : "text-muted-foreground"}`}>
-              {m.name}
-            </div>
-            {unlocked ? (
-              <Check className={`w-5 h-5 mb-1.5 ${color === "peak" ? "text-peak" : "text-ridge"}`} strokeWidth={2.5} />
-            ) : (
-              <Lock className="w-4 h-4 mb-1.5 text-muted-foreground/60" strokeWidth={1.5} />
+const RecognitionBar = ({ finishes, color }: { finishes: number; color: "peak" | "ridge" }) => {
+  const capped = Math.min(finishes, axisMax);
+  const fillPercent = (capped / axisMax) * 100;
+  const cssColor = `hsl(var(--${color}))`;
+
+  return (
+    <div className="mt-4 sm:mt-6">
+      <div className="text-xs sm:text-sm uppercase tracking-[0.1em] sm:tracking-[0.2em] font-medium text-foreground/90 mb-3">
+        Finish Milestones
+      </div>
+
+      {/* Progress bar */}
+      <div className="relative h-2 bg-[hsl(var(--border))] rounded-full overflow-hidden">
+        <div
+          className="absolute inset-y-0 left-0 rounded-full transition-all duration-700 ease-out"
+          style={{ width: `${fillPercent}%`, backgroundColor: cssColor }}
+        />
+      </div>
+
+      {/* Desktop ticks: all 0–10 */}
+      <div className="hidden sm:flex justify-between mt-2 relative">
+        {Array.from({ length: axisMax + 1 }, (_, i) => (
+          <div key={i} className="flex flex-col items-center" style={{ width: `${100 / axisMax}%`, maxWidth: i === 0 || i === axisMax ? 'none' : undefined }}>
+            <div className="w-px h-1.5 bg-border/40 mb-1" />
+            <span className={`text-[10px] tabular-nums ${i <= capped ? 'text-foreground/70' : 'text-muted-foreground/50'}`}>
+              {i}
+            </span>
+            {milestoneLabels[i] && (
+              <span className={`text-[9px] uppercase tracking-wider mt-0.5 ${i <= capped ? 'text-foreground/60' : 'text-muted-foreground/40'}`}>
+                {milestoneLabels[i]}
+              </span>
             )}
-            <div className={`text-xs font-light ${unlocked ? (color === "peak" ? "text-peak" : "text-ridge") : "text-muted-foreground"}`}>
-              {unlocked ? "Earned" : `${remaining} more needed`}
-            </div>
           </div>
-        );
-      })}
+        ))}
+      </div>
+
+      {/* Mobile ticks: only milestones + current position */}
+      <div className="sm:hidden relative mt-2 h-10">
+        {milestoneTicks.map((tick) => {
+          const pct = (tick / axisMax) * 100;
+          return (
+            <div
+              key={tick}
+              className="absolute flex flex-col items-center -translate-x-1/2"
+              style={{ left: `${pct}%` }}
+            >
+              <div className="w-px h-1.5 bg-border/40 mb-1" />
+              <span className={`text-[10px] tabular-nums ${tick <= capped ? 'text-foreground/70' : 'text-muted-foreground/50'}`}>
+                {tick}
+              </span>
+              {milestoneLabels[tick] && (
+                <span className={`text-[8px] uppercase tracking-wider mt-0.5 whitespace-nowrap ${tick <= capped ? 'text-foreground/60' : 'text-muted-foreground/40'}`}>
+                  {milestoneLabels[tick]}
+                </span>
+              )}
+            </div>
+          );
+        })}
+        {/* Current position marker if not on a milestone tick */}
+        {capped > 0 && !milestoneTicks.includes(capped) && (
+          <div
+            className="absolute flex flex-col items-center -translate-x-1/2"
+            style={{ left: `${fillPercent}%` }}
+          >
+            <div className="w-px h-1.5 mb-1" style={{ backgroundColor: cssColor }} />
+            <span className="text-[10px] tabular-nums" style={{ color: cssColor }}>
+              {capped}
+            </span>
+          </div>
+        )}
+      </div>
+
+      {/* Beyond 10 summary */}
+      {finishes > axisMax && (
+        <div className="mt-2 text-sm text-foreground/80">
+          <span style={{ color: cssColor }} className="font-medium">{finishes}</span> Finishes — 10x Award Earned
+        </div>
+      )}
+
+      {/* Zero state */}
+      {finishes === 0 && (
+        <div className="mt-2 text-sm text-muted-foreground">
+          Complete your first finish to start tracking milestones
+        </div>
+      )}
     </div>
-  </div>
-);
+  );
+};
 
 // ── Main Component ───────────────────────────────────
 
@@ -102,7 +158,7 @@ export const AnnualPerformance = () => {
               <KPICard label="# of Finishes" shortLabel="Finishes" value={mountainData.summits} />
               <KPICard label="Total Vert Ft" shortLabel="Vert Ft" value={mountainData.verticalFeet} compact />
             </div>
-            <MilestoneBadges current={mountainData.summits} color="peak" />
+            <RecognitionBar finishes={mountainData.summits} color="peak" />
           </TabsContent>
 
           <TabsContent value="trail" className="mt-0">
@@ -111,7 +167,7 @@ export const AnnualPerformance = () => {
               <KPICard label="# of Finishes" shortLabel="Finishes" value={trailData.marathons} />
               <KPICard label="Total Miles" shortLabel="Miles" value={trailData.totalMiles} compact />
             </div>
-            <MilestoneBadges current={trailData.marathons} color="ridge" />
+            <RecognitionBar finishes={trailData.marathons} color="ridge" />
           </TabsContent>
         </Tabs>
       </div>
