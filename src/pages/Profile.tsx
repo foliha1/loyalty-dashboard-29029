@@ -8,6 +8,7 @@ import { Card } from "@/components/ui/card";
 import { ArrowLeft, Save, Lock, Check } from "lucide-react";
 import { toast } from "sonner";
 import { EPsLabel } from "@/components/EPsLabel";
+import { Logo29029 } from "@/components/Logo29029";
 
 const RequiredAsterisk = () => <span className="text-[hsl(var(--peak))] ml-0.5">*</span>;
 
@@ -74,7 +75,13 @@ export default function Profile() {
     emergencyPhone: "+1 (555) 987-6543",
     emergencyRelationship: "Spouse",
     memberId: "AR-5847",
-    joinDate: "January 2023"
+    joinDate: (() => {
+      const years = pastEvents.map(e => {
+        const match = e.name.match(/\d{4}/);
+        return match ? parseInt(match[0]) : 9999;
+      });
+      return String(Math.min(...years));
+    })()
   });
 
   const handleInputChange = (field: string, value: string) => {
@@ -150,21 +157,24 @@ export default function Profile() {
             <div className="flex flex-col md:flex-row items-center md:items-start gap-5 sm:gap-6">
               <div className="relative">
                 <Avatar className="w-24 h-24 sm:w-28 sm:h-28 border-2 border-tier-accent/50">
-                  <AvatarImage src="https://i.pravatar.cc/300?img=12" alt="Profile" />
-                  <AvatarFallback className="bg-secondary text-foreground text-3xl">
-                    {profileData.firstName[0]}{profileData.lastName[0]}
+                  <AvatarImage alt="Profile" />
+                  <AvatarFallback className="bg-card/30 flex items-center justify-center">
+                    <Logo29029 size={32} className="text-muted-foreground" />
                   </AvatarFallback>
                 </Avatar>
                 {isEditing && (
-                  <button 
-                    className="absolute bottom-0 right-0 bg-tier-accent hover:bg-tier-accent/90 text-black rounded-full p-2.5 transition-colors shadow-lg min-w-[44px] min-h-[44px] flex items-center justify-center"
-                    aria-label="Change profile picture"
-                  >
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                  </button>
+                  <div className="absolute bottom-0 inset-x-0 flex flex-col items-center">
+                    <button 
+                      className="bg-tier-accent hover:bg-tier-accent/90 text-black rounded-full p-2 transition-colors shadow-lg min-w-[44px] min-h-[44px] flex flex-col items-center justify-center"
+                      aria-label="Add profile photo"
+                    >
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
+                    </button>
+                    <span className="text-[10px] uppercase tracking-wider text-muted-foreground mt-1">Add Photo</span>
+                  </div>
                 )}
               </div>
               
