@@ -335,6 +335,19 @@ export const TiersContinuum = () => {
           </div>
         </div>
 
+        {/* Current Tier Benefits */}
+        <div className="pt-4 sm:pt-6 md:pt-7 border-t border-border/20">
+          <div className="text-subhead mb-3">Current Tier Benefits</div>
+          <ul className="space-y-1.5">
+            {(tierBenefits[currentTierName] || tierBenefits["Base"]).map((benefit, i) => (
+              <li key={i} className="flex items-start gap-2 text-sm text-foreground/80">
+                <span className="text-muted-foreground mt-1.5 text-[6px] leading-none">●</span>
+                <span>{benefit}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
       </div>
 
     </section>
