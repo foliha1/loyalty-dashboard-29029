@@ -100,47 +100,6 @@ const RecognitionBar = ({ finishes, color }: { finishes: number; color: "peak" |
         })}
       </div>
 
-      {/* Mobile ticks: only milestones + current position */}
-      <div className="sm:hidden relative mt-2" style={{ height: '5.5rem' }}>
-        {milestoneTicks.map((tick) => {
-          const pct = (tick / axisMax) * 100;
-          const hasMilestone = !!milestoneLabels[tick];
-          return (
-            <div
-              key={tick}
-              className="absolute -translate-x-1/2"
-              style={{ left: `${pct}%` }}
-            >
-              <div className="w-px h-1.5 bg-border/40 mb-1 mx-auto" />
-              <div className="flex flex-col items-center gap-1.5">
-                <span className={`text-[10px] tabular-nums ${tick === capped && capped > 0 ? '' : tick < capped ? 'text-foreground/70' : 'text-muted-foreground/50'}`} style={tick === capped && capped > 0 ? { color: cssColor } : undefined}>
-                  {tick}
-                </span>
-                {hasMilestone && (
-                  <span
-                    className={`text-[10px] uppercase tracking-wider whitespace-nowrap ${tick === capped && capped > 0 ? '' : tick < capped ? 'text-foreground/70' : 'text-muted-foreground/40'}`}
-                    style={{ writingMode: 'vertical-lr', height: '4rem', ...(tick === capped && capped > 0 ? { color: cssColor } : {}) }}
-                  >
-                    {milestoneLabels[tick]}
-                  </span>
-                )}
-              </div>
-            </div>
-          );
-        })}
-        {/* Current position marker if not on a milestone tick */}
-        {capped > 0 && !milestoneTicks.includes(capped) && (
-          <div
-            className="absolute -translate-x-1/2"
-            style={{ left: `${fillPercent}%` }}
-          >
-            <div className="w-px h-1.5 mb-1" style={{ backgroundColor: cssColor }} />
-            <span className="text-[10px] tabular-nums" style={{ color: cssColor }}>
-              {capped}
-            </span>
-          </div>
-        )}
-      </div>
 
       {/* Beyond 10 summary */}
       {finishes > axisMax && (
