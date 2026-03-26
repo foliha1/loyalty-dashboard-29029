@@ -82,7 +82,7 @@ const RecognitionBar = ({ finishes, color }: { finishes: number; color: "peak" |
               style={{ left: `${pct}%` }}
             >
               <div className="w-px h-1.5 bg-border/40 mb-1 mx-auto" />
-              <div className={`flex flex-row items-start ${hasMilestone ? 'gap-1' : ''}`}>
+              <div className="flex flex-col items-center">
                 <span className={`text-[10px] tabular-nums ${i <= capped ? 'text-foreground/70' : 'text-muted-foreground/50'}`}>
                   {i}
                 </span>
@@ -112,7 +112,7 @@ const RecognitionBar = ({ finishes, color }: { finishes: number; color: "peak" |
               style={{ left: `${pct}%` }}
             >
               <div className="w-px h-1.5 bg-border/40 mb-1 mx-auto" />
-              <div className={`flex flex-row items-start ${hasMilestone ? 'gap-1' : ''}`}>
+              <div className="flex flex-col items-center">
                 <span className={`text-[10px] tabular-nums ${tick <= capped ? 'text-foreground/70' : 'text-muted-foreground/50'}`}>
                   {tick}
                 </span>
