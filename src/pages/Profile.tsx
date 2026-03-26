@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { ArrowLeft, Save, Lock } from "lucide-react";
 import { toast } from "sonner";
 
@@ -38,7 +39,7 @@ export default function Profile() {
     birthday: "1990-05-15",
     address: "123 Mountain View Dr",
     city: "Denver",
-    state: "Colorado",
+    state: "CO",
     zipCode: "80202",
     emergencyContact: "Maria Rivera",
     emergencyPhone: "+1 (555) 987-6543",
@@ -281,13 +282,31 @@ export default function Profile() {
                   <Label htmlFor="state" className="text-sm uppercase tracking-wider text-muted-foreground font-medium block">
                     State
                   </Label>
-                  <Input
-                    id="state"
+                  <Select
                     value={profileData.state}
-                    onChange={(e) => handleInputChange("state", e.target.value)}
+                    onValueChange={(value) => handleInputChange("state", value)}
                     disabled={!isEditing}
-                    placeholder="State"
-                  />
+                  >
+                    <SelectTrigger className="bg-card/40 border-border/20 text-sm text-foreground">
+                      <SelectValue placeholder="Select state" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {[
+                        ["AL","Alabama"],["AK","Alaska"],["AZ","Arizona"],["AR","Arkansas"],["CA","California"],
+                        ["CO","Colorado"],["CT","Connecticut"],["DE","Delaware"],["DC","District of Columbia"],["FL","Florida"],
+                        ["GA","Georgia"],["HI","Hawaii"],["ID","Idaho"],["IL","Illinois"],["IN","Indiana"],
+                        ["IA","Iowa"],["KS","Kansas"],["KY","Kentucky"],["LA","Louisiana"],["ME","Maine"],
+                        ["MD","Maryland"],["MA","Massachusetts"],["MI","Michigan"],["MN","Minnesota"],["MS","Mississippi"],
+                        ["MO","Missouri"],["MT","Montana"],["NE","Nebraska"],["NV","Nevada"],["NH","New Hampshire"],
+                        ["NJ","New Jersey"],["NM","New Mexico"],["NY","New York"],["NC","North Carolina"],["ND","North Dakota"],
+                        ["OH","Ohio"],["OK","Oklahoma"],["OR","Oregon"],["PA","Pennsylvania"],["RI","Rhode Island"],
+                        ["SC","South Carolina"],["SD","South Dakota"],["TN","Tennessee"],["TX","Texas"],["UT","Utah"],
+                        ["VT","Vermont"],["VA","Virginia"],["WA","Washington"],["WV","West Virginia"],["WI","Wisconsin"],["WY","Wyoming"],
+                      ].map(([abbr, name]) => (
+                        <SelectItem key={abbr} value={abbr}>{name}</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                 </div>
 
                 <div className="space-y-1.5">
