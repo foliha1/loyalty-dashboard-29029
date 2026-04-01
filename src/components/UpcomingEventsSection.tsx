@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { useTier } from "@/contexts/TierContext";
 import { useState, useEffect } from "react";
 import { Mountain, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
