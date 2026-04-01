@@ -124,10 +124,6 @@ const RecognitionBar = ({ finishes, color }: { finishes: number; color: "peak" |
 export const AnnualPerformance = () => {
     const { currentTier } = useTier();
     const isLight = currentTier === "The 29";
-    const trailBorder = isLight ? "hsl(38_70%_33%/0.4)" : "hsl(38_92%_50%/0.4)";
-    const trailBg = isLight ? "hsl(38_70%_33%/0.1)" : "hsl(38_92%_50%/0.1)";
-    const trailText = isLight ? "hsl(38_70%_30%)" : "hsl(38_92%_60%)";
-
     return (
     <section>
       <h3 className="text-section-title mb-5 sm:mb-6 px-0 md:px-2">Your Event Stats</h3>
