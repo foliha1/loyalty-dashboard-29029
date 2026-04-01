@@ -27,8 +27,9 @@ export const UserHeader = () => {
       <div
         className="absolute inset-0 z-0 pointer-events-none"
         style={{
-          background:
-            "linear-gradient(180deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.9) 100%)",
+          background: currentTierName === "The 29"
+            ? "linear-gradient(180deg, rgba(255,250,240,0.85) 0%, rgba(255,250,240,0.7) 50%, rgba(255,250,240,0.9) 100%)"
+            : "linear-gradient(180deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.9) 100%)",
         }}
       />
       
