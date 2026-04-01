@@ -283,11 +283,13 @@ export const TiersContinuum = () => {
               className="absolute inset-y-0 left-0 rounded-full transition-all duration-1000 ease-out"
               style={{
                 width: `${animatedProgress}%`,
-                background: `linear-gradient(to right, 
-                  hsl(var(--${previousTier?.color || currentTier?.color || 'base'})) 0%, 
-                  hsl(var(--${currentTier?.color || 'base'})) 20%, 
-                  hsl(var(--${currentTier?.color || 'base'})) 82%, 
-                  hsl(var(--${nextTier?.color || currentTier?.color || 'base'})) 100%)`,
+                background: isThe29
+                  ? `linear-gradient(to right, hsl(var(--base)) 0%, hsl(var(--ridge)) 30%, hsl(var(--peak)) 60%, hsl(var(--summit)) 100%)`
+                  : `linear-gradient(to right, 
+                    hsl(var(--${previousTier?.color || currentTier?.color || 'base'})) 0%, 
+                    hsl(var(--${currentTier?.color || 'base'})) 20%, 
+                    hsl(var(--${currentTier?.color || 'base'})) 82%, 
+                    hsl(var(--${nextTier?.color || currentTier?.color || 'base'})) 100%)`,
                 boxShadow: `0 0 12px hsl(var(--${currentTier?.color || 'base'}) / 0.25)`
               }}
             />
