@@ -811,3 +811,9 @@ All colors MUST be HSL.
     filter: none !important;
   }
 }
+
+[data-state="active"][value="trail"] {
+  border-color: var(--trail-border) !important;
+  background-color: var(--trail-bg) !important;
+  color: var(--trail-text) !important;
+}
