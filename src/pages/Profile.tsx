@@ -22,7 +22,7 @@ interface PastEvent {
 const pastEvents: PastEvent[] = [
   { name: "Snowbasin 2025", type: "Mountain", result: "Everest" },
   { name: "Stratton 2024", type: "Mountain", result: "Kilimanjaro" },
-  { name: "Sun Valley 2024", type: "Mountain", result: "DNF" },
+  { name: "Sun Valley 2024", type: "Mountain", result: "No Summit" },
   { name: "Whistler TRAIL 2025", type: "TRAIL", result: "TRAIL Finisher" },
   { name: "Tahoe TRAIL 2023", type: "TRAIL", result: "TRAIL Finisher" },
 ];
