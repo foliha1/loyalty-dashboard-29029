@@ -340,7 +340,8 @@ export const TiersContinuum = () => {
           </div>
         </div>
 
-        {/* Next Tier Info */}
+        {/* Next Tier Info — hidden for The 29 */}
+        {!isThe29 && (
         <div className="pt-4 sm:pt-6 md:pt-7 border-t border-border/20">
           <div className="flex flex-row items-start justify-between">
             <div>
@@ -359,6 +360,7 @@ export const TiersContinuum = () => {
             </div>
           </div>
         </div>
+        )}
 
         {/* Current Tier Benefits */}
         <div className="pt-4 sm:pt-6 md:pt-7 border-t border-border/20">
