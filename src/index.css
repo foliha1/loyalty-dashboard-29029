@@ -434,6 +434,8 @@ All colors MUST be HSL.
     --secondary: 40 10% 93%;
     --secondary-foreground: 0 0% 8%;
     --input: 40 10% 90%;
+    --ridge: 40 60% 35%;
+    --ridge-glow: 40 60% 45%;
   }
 
   [data-current-tier="The 29"] .card-29029 {
