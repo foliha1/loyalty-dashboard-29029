@@ -285,14 +285,8 @@ export const TiersContinuum = () => {
                 width: `${animatedProgress}%`,
                 background: isThe29
                   ? 'hsl(var(--peak))'
-                  : `linear-gradient(to right, 
-                    hsl(var(--${previousTier?.color || currentTier?.color || 'base'})) 0%, 
-                    hsl(var(--${currentTier?.color || 'base'})) 20%, 
-                    hsl(var(--${currentTier?.color || 'base'})) 82%, 
-                    hsl(var(--${nextTier?.color || currentTier?.color || 'base'})) 100%)`,
-                boxShadow: isThe29
-                  ? '0 0 12px hsl(var(--peak) / 0.25)'
-                  : `0 0 12px hsl(var(--${currentTier?.color || 'base'}) / 0.25)`
+                  : 'linear-gradient(to right, hsl(var(--base)) 0%, hsl(var(--ridge)) 50%, hsl(var(--peak)) 100%)',
+                boxShadow: `0 0 12px hsl(var(--${isThe29 ? 'peak' : (currentTier?.color || 'base')}) / 0.25)`
               }}
             />
           </div>
