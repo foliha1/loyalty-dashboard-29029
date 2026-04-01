@@ -123,7 +123,6 @@ const RecognitionBar = ({ finishes, color }: { finishes: number; color: "peak" |
 
 export const AnnualPerformance = () => {
     return (
-    return (
     <section>
       <h3 className="text-section-title mb-5 sm:mb-6 px-0 md:px-2">Your Event Stats</h3>
 
