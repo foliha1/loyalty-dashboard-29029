@@ -63,24 +63,11 @@ export const UserHeader = () => {
               Alex Rivera
             </h1>
             
-            {/* ID Number - Secondary Metadata */}
-            <div className="mb-3 sm:mb-4 animate-fade-in" style={{ animationDelay: '0.3s', animationFillMode: 'both' }}>
+            {/* Program Name & Member Since */}
+            <div className="animate-fade-in" style={{ animationDelay: '0.3s', animationFillMode: 'both' }}>
               <span className="text-sm tracking-[0.2em] uppercase font-normal text-muted-foreground" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>
-                29029 ID: AR-5847
+                The Vertical · Member Since 2023
               </span>
-            </div>
-            
-            {/* Member Since */}
-            <div 
-              className="text-sm tracking-[0.2em] uppercase font-normal animate-fade-in"
-              style={{ 
-                animationDelay: '0.4s', 
-                animationFillMode: 'both', 
-                textShadow: '0 2px 4px rgba(0,0,0,0.5)',
-                color: currentTier ? `hsl(var(--${currentTier.color}))` : 'hsl(var(--muted-foreground))'
-              }}
-            >
-              Member Since 2023
             </div>
           </div>
         </div>
