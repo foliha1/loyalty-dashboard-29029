@@ -412,8 +412,8 @@ All colors MUST be HSL.
   }
 
   [data-current-tier="The 29"] {
-    --current-tier-accent: var(--summit);
-    --current-tier-accent-glow: var(--summit-glow);
+    --current-tier-accent: var(--peak);
+    --current-tier-accent-glow: var(--peak-glow);
     --button-text-color: hsl(0 0% 100%);
     --background: 40 20% 97%;
     --card: 0 0% 100%;
