@@ -1,4 +1,5 @@
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { useTier } from "@/contexts/TierContext";
 
 // ── Data ──────────────────────────────────────────────
 const mountainData = { totalEvents: 2, summits: 3, verticalFeet: 43500 };
