@@ -124,10 +124,6 @@ const RecognitionBar = ({ finishes, color }: { finishes: number; color: "peak" |
 export const AnnualPerformance = () => {
     const { currentTier } = useTier();
     const isLight = currentTier === "The 29";
-    const trailBorder = isLight ? "hsl(38_70%_33%/0.4)" : "hsl(38_92%_50%/0.4)";
-    const trailBg = isLight ? "hsl(38_70%_33%/0.1)" : "hsl(38_92%_50%/0.1)";
-    const trailText = isLight ? "hsl(38_70%_30%)" : "hsl(38_92%_60%)";
-
     return (
     <section>
       <h3 className="text-section-title mb-5 sm:mb-6 px-0 md:px-2">Your Event Stats</h3>
@@ -143,7 +139,12 @@ export const AnnualPerformance = () => {
             </TabsTrigger>
             <TabsTrigger
               value="trail"
-              className={`flex-1 py-2.5 min-h-[44px] text-sm uppercase tracking-[0.1em] font-light rounded-full border border-transparent transition-all data-[state=active]:backdrop-blur-sm data-[state=active]:shadow-none data-[state=active]:border-[${trailBorder}] data-[state=active]:bg-[${trailBg}] data-[state=active]:text-[${trailText}]`}
+              className="flex-1 py-2.5 min-h-[44px] text-sm uppercase tracking-[0.1em] font-light rounded-full border border-transparent transition-all data-[state=active]:backdrop-blur-sm data-[state=active]:shadow-none"
+              style={{
+                '--trail-border': isLight ? 'hsl(38 70% 33% / 0.4)' : 'hsl(38 92% 50% / 0.4)',
+                '--trail-bg': isLight ? 'hsl(38 70% 33% / 0.1)' : 'hsl(38 92% 50% / 0.1)',
+                '--trail-text': isLight ? 'hsl(38 70% 30%)' : 'hsl(38 92% 60%)',
+              } as React.CSSProperties}
             >
               Trail
             </TabsTrigger>
