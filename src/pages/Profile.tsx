@@ -22,7 +22,7 @@ interface PastEvent {
 const pastEvents: PastEvent[] = [
   { name: "Snowbasin 2025", type: "Mountain", result: "Everest" },
   { name: "Stratton 2024", type: "Mountain", result: "Kilimanjaro" },
-  { name: "Sun Valley 2024", type: "Mountain", result: "DNF" },
+  { name: "Sun Valley 2024", type: "Mountain", result: "No Summit" },
   { name: "Whistler TRAIL 2025", type: "TRAIL", result: "TRAIL Finisher" },
   { name: "Tahoe TRAIL 2023", type: "TRAIL", result: "TRAIL Finisher" },
 ];
@@ -421,7 +421,7 @@ export default function Profile() {
                 {/* Mountain Events */}
                 {(() => {
                   const mountainEvents = pastEvents.filter(e => e.type === "Mountain");
-                  const mountainFinishes = mountainEvents.filter(e => e.result !== "DNF").length;
+                  const mountainFinishes = mountainEvents.filter(e => e.result !== "No Summit").length;
                   return mountainEvents.length > 0 ? (
                     <div>
                       <div className="text-subhead mb-1">Mountain Events</div>
@@ -433,7 +433,7 @@ export default function Profile() {
                             className={`flex justify-between items-center py-2 ${idx < mountainEvents.length - 1 ? 'border-b border-border/10' : ''}`}
                           >
                             <span className="text-sm font-medium text-white">{event.name}</span>
-                            <span className={`text-sm ${event.result === "DNF" ? "text-muted-foreground" : "text-foreground"}`}>
+                            <span className={`text-sm ${event.result === "No Summit" ? "text-muted-foreground" : "text-foreground"}`}>
                               {event.result}
                             </span>
                           </div>
