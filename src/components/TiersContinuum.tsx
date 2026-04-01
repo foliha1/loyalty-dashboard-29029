@@ -139,7 +139,7 @@ export const TiersContinuum = () => {
       <div>
         <h5 className="text-base font-semibold tracking-tight text-foreground mb-3">Earning EPs</h5>
         <p className="text-sm text-foreground/80 leading-relaxed">
-          EPs are a calculation of participation and historical spend in event, apparel and coaching
+          EPs are a calculation of participation and historical spend for events, apparel and coaching
         </p>
       </div>
       <div className="pt-4 border-t border-border/20">
