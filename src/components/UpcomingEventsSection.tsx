@@ -113,7 +113,7 @@ export const UpcomingEventsSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 lg:gap-7">
           {upcomingEvents.map((event, idx) => {
             const daysRemaining = getDaysRemaining(event.eventDates);
-            const config = eventTypeConfig[event.eventType];
+            const config = activeEventTypeConfig[event.eventType];
             
             return (
               <div
