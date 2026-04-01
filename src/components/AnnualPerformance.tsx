@@ -122,8 +122,7 @@ const RecognitionBar = ({ finishes, color }: { finishes: number; color: "peak" |
 // ── Main Component ───────────────────────────────────
 
 export const AnnualPerformance = () => {
-    const { currentTier } = useTier();
-    const isLight = currentTier === "The 29";
+    return (
     return (
     <section>
       <h3 className="text-section-title mb-5 sm:mb-6 px-0 md:px-2">Your Event Stats</h3>
