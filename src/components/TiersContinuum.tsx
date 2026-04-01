@@ -163,6 +163,10 @@ export const TiersContinuum = () => {
           "card-29029 !overflow-visible p-4 sm:p-6 md:p-8 lg:p-10 transition-all duration-700 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.7)]",
           isRevealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         )}
+        style={isThe29 ? {
+          borderColor: 'hsl(var(--summit) / 0.5)',
+          boxShadow: '0 0 60px hsl(var(--summit) / 0.15), 0 8px 32px -8px rgba(0,0,0,0.7)'
+        } : undefined}
       >
         {/* Current Tier Badge */}
         <div className="flex flex-col items-center sm:flex-row sm:items-start sm:justify-between mb-4 sm:mb-8 md:mb-12">
