@@ -6,18 +6,8 @@ import { Check, Info } from "lucide-react";
 import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { EPsLabel } from "@/components/EPsLabel";
 
-// 2026 Activity Data (current year)
-const activity2026 = {
-  events: {
-    totalEP: 280
-  },
-  apparel: {
-    totalEP: 120
-  },
-  coaching: {
-    totalEP: 180
-  }
-};
+// Mock EP values per tier for demo switching
+const tierMockEPs: Record<string, number> = { Base: 180, Ridge: 580, Peak: 900, "The 29": 2500 };
 
 const tierBenefits: Record<string, string[]> = {
   Base: [
@@ -53,8 +43,8 @@ export const TiersContinuum = () => {
   const [animatedEP, setAnimatedEP] = useState(0);
   
   // User data
-  const currentEP = activity2026.events.totalEP + activity2026.apparel.totalEP + activity2026.coaching.totalEP;
-  const currentTierName = "Ridge";
+  const currentEP = tierMockEPs[globalTier] || 580;
+  const currentTierName = globalTier;
   
   // Find current and next tier - exclude The 29
   const visibleTiers = tiers.filter(t => t.name !== "The 29");
