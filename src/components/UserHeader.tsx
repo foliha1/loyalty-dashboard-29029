@@ -58,15 +58,15 @@ export const UserHeader = () => {
             
             {/* Full Name - Primary Heading */}
             <h1 
-              className="type-metric-primary mb-1 sm:mb-2 px-2 animate-fade-in"
-              style={{ animationDelay: '0.2s', animationFillMode: 'both', textShadow: '0 2px 8px rgba(0,0,0,0.4)', lineHeight: '1.1' }}
+              className="type-metric-primary text-foreground mb-1 sm:mb-2 px-2 animate-fade-in"
+              style={{ animationDelay: '0.2s', animationFillMode: 'both', textShadow: currentTierName === "The 29" ? 'none' : '0 2px 8px rgba(0,0,0,0.4)', lineHeight: '1.1' }}
             >
               Alex Rivera
             </h1>
             
             {/* Program Name & Member Since */}
             <div className="animate-fade-in" style={{ animationDelay: '0.3s', animationFillMode: 'both' }}>
-              <span className="text-sm tracking-[0.2em] uppercase font-normal text-muted-foreground" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>
+              <span className="text-sm tracking-[0.2em] uppercase font-normal text-muted-foreground" style={{ textShadow: currentTierName === "The 29" ? 'none' : '0 2px 4px rgba(0,0,0,0.5)' }}>
                 The Vertical · Member Since 2023
               </span>
             </div>
