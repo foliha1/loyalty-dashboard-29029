@@ -125,27 +125,25 @@ export default function Profile() {
           {/* Profile Avatar Section */}
           <Card className="card-29029 p-5 sm:p-6 md:p-8 mb-5 sm:mb-6">
             <div className="flex flex-col md:flex-row items-center md:items-start gap-5 sm:gap-6">
-              <div className="relative">
+              <div className="relative group">
                 <Avatar className="w-24 h-24 sm:w-28 sm:h-28 border-2 border-tier-accent/50">
                   <AvatarImage alt="Profile" />
                   <AvatarFallback className="bg-card/30 flex items-center justify-center">
                     <Logo29029 size={32} className="text-muted-foreground" />
                   </AvatarFallback>
                 </Avatar>
-                {isEditing && (
-                  <div className="absolute bottom-0 inset-x-0 flex flex-col items-center">
-                    <button 
-                      className="bg-tier-accent hover:bg-tier-accent/90 text-black rounded-full p-2 transition-colors shadow-lg min-w-[44px] min-h-[44px] flex flex-col items-center justify-center"
-                      aria-label="Add profile photo"
-                    >
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
-                      </svg>
-                    </button>
-                    <span className="text-xs uppercase tracking-wider text-muted-foreground mt-1">Add Photo</span>
-                  </div>
-                )}
+                <div className="bg-black/60 rounded-full absolute inset-0 flex flex-col items-center justify-center opacity-40 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-200 cursor-pointer">
+                  <button 
+                    className="text-white flex flex-col items-center justify-center min-w-[44px] min-h-[44px]"
+                    aria-label="Add profile photo"
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    <span className="text-xs uppercase tracking-wider text-white/80 mt-1">Add Photo</span>
+                  </button>
+                </div>
               </div>
               
               <div className="flex-1 text-center md:text-left">
