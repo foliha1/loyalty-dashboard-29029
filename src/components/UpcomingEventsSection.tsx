@@ -81,6 +81,20 @@ const upcomingEvents: UpcomingEvent[] = [
 ];
 
 export const UpcomingEventsSection = () => {
+  const { currentTier } = useTier();
+  const isLight = currentTier === "The 29";
+  
+  const activeEventTypeConfig = isLight
+    ? {
+        ...eventTypeConfig,
+        Trail: {
+          ...eventTypeConfig.Trail,
+          accentColor: "38 70% 33%",
+          glowColor: "38 70% 30%",
+        },
+      }
+    : eventTypeConfig;
+
   const hasEvents = upcomingEvents.length > 0;
   const [isRevealed, setIsRevealed] = useState(false);
 
