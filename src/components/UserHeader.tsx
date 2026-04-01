@@ -66,7 +66,7 @@ export const UserHeader = () => {
             
             {/* Program Name & Member Since */}
             <div className="animate-fade-in" style={{ animationDelay: '0.3s', animationFillMode: 'both' }}>
-              <span className="text-sm tracking-[0.2em] uppercase font-normal text-muted-foreground" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>
+              <span className="text-sm tracking-[0.2em] uppercase font-normal text-muted-foreground" style={{ textShadow: currentTierName === "The 29" ? 'none' : '0 2px 4px rgba(0,0,0,0.5)' }}>
                 The Vertical · Member Since 2023
               </span>
             </div>
