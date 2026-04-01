@@ -433,7 +433,7 @@ export default function Profile() {
                             className={`flex justify-between items-center py-2 ${idx < mountainEvents.length - 1 ? 'border-b border-border/10' : ''}`}
                           >
                             <span className="text-sm font-medium text-white">{event.name}</span>
-                            <span className={`text-sm ${event.result === "DNF" ? "text-muted-foreground" : "text-foreground"}`}>
+                            <span className={`text-sm ${event.result === "No Summit" ? "text-muted-foreground" : "text-foreground"}`}>
                               {event.result}
                             </span>
                           </div>
