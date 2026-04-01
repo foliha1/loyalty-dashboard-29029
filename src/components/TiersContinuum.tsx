@@ -43,8 +43,8 @@ export const TiersContinuum = () => {
   const [animatedEP, setAnimatedEP] = useState(0);
   
   // User data
-  const currentEP = activity2026.events.totalEP + activity2026.apparel.totalEP + activity2026.coaching.totalEP;
-  const currentTierName = "Ridge";
+  const currentEP = tierMockEPs[globalTier] || 580;
+  const currentTierName = globalTier;
   
   // Find current and next tier - exclude The 29
   const visibleTiers = tiers.filter(t => t.name !== "The 29");
