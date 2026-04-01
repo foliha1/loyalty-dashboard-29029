@@ -422,9 +422,9 @@ All colors MUST be HSL.
     --surface-chapter: 40 15% 95%;
     --foreground: 0 0% 8%;
     --text-secondary: 0 0% 35%;
-    --text-muted: 0 0% 45%;
-    --text-disabled: 0 0% 55%;
-    --muted-foreground: 0 0% 45%;
+    --text-muted: 0 0% 38%;
+    --text-disabled: 0 0% 45%;
+    --muted-foreground: 0 0% 38%;
     --border: 40 15% 85%;
     --border-strong: 40 15% 75%;
     --popover: 0 0% 100%;
