@@ -89,6 +89,7 @@ const Index = () => {
   return (
     <TierProvider>
       <IndexContent />
+      <TierSwitcher />
     </TierProvider>
   );
 };
