@@ -53,7 +53,7 @@ export const TiersContinuum = () => {
   const currentTierIndex = isThe29 ? visibleTiers.length - 1 : visibleTiers.findIndex(t => t.name === currentTierName);
   const currentTier = isThe29 ? tiers.find(t => t.name === "The 29")! : visibleTiers[currentTierIndex];
   const previousTier = currentTierIndex > 0 ? visibleTiers[currentTierIndex - 1] : null;
-  const nextTier = visibleTiers[currentTierIndex + 1];
+  const nextTier = isThe29 ? undefined : visibleTiers[currentTierIndex + 1];
   
   // Calculate progress
   const currentThreshold = currentTier?.threshold || 0;
@@ -61,12 +61,12 @@ export const TiersContinuum = () => {
   const tierRange = nextThreshold - currentThreshold;
   const progressInTier = currentEP - currentThreshold;
   const progressPercent = Math.min(100, (progressInTier / tierRange) * 100);
-  const remainingEP = Math.max(0, nextThreshold - currentEP);
+  const remainingEP = isThe29 ? 0 : Math.max(0, nextThreshold - currentEP);
   const nextTierName = nextTier?.name || "Peak";
   
   // Calculate overall progress for the bar (0 to max tier threshold)
   const maxTierThreshold = visibleTiers[visibleTiers.length - 1]?.threshold || 1000;
-  const overallProgressPercent = Math.min(100, (currentEP / maxTierThreshold) * 100);
+  const overallProgressPercent = isThe29 ? 100 : Math.min(100, (currentEP / maxTierThreshold) * 100);
 
   // Reveal animation
   useEffect(() => {
