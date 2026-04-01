@@ -46,10 +46,12 @@ export const TiersContinuum = () => {
   const currentEP = tierMockEPs[globalTier] || 580;
   const currentTierName = globalTier;
   
-  // Find current and next tier - exclude The 29
+  const isThe29 = currentTierName === "The 29";
+  
+  // Find current and next tier - exclude The 29 from visible bar tiers
   const visibleTiers = tiers.filter(t => t.name !== "The 29");
-  const currentTierIndex = visibleTiers.findIndex(t => t.name === currentTierName);
-  const currentTier = visibleTiers[currentTierIndex];
+  const currentTierIndex = isThe29 ? visibleTiers.length - 1 : visibleTiers.findIndex(t => t.name === currentTierName);
+  const currentTier = isThe29 ? tiers.find(t => t.name === "The 29")! : visibleTiers[currentTierIndex];
   const previousTier = currentTierIndex > 0 ? visibleTiers[currentTierIndex - 1] : null;
   const nextTier = visibleTiers[currentTierIndex + 1];
   
