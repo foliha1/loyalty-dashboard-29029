@@ -13,7 +13,7 @@ export const UserHeader = () => {
   
   return (
     <section 
-      className="relative z-10 w-full overflow-hidden mb-3 bg-background border-b border-transparent pt-[72px] sm:pt-20 pb-5 sm:pb-6 md:pb-7"
+      className="relative z-10 w-full overflow-hidden bg-background pt-[72px] sm:pt-20 pb-5 sm:pb-6 md:pb-7"
     >
       {/* Subtle background image */}
       <div
