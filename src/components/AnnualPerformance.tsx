@@ -1,5 +1,5 @@
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { useTier } from "@/contexts/TierContext";
+
 
 // ── Data ──────────────────────────────────────────────
 const mountainData = { totalEvents: 2, summits: 3, verticalFeet: 43500 };
@@ -122,8 +122,6 @@ const RecognitionBar = ({ finishes, color }: { finishes: number; color: "peak" |
 // ── Main Component ───────────────────────────────────
 
 export const AnnualPerformance = () => {
-    const { currentTier } = useTier();
-    const isLight = currentTier === "The 29";
     return (
     <section>
       <h3 className="text-section-title mb-5 sm:mb-6 px-0 md:px-2">Your Event Stats</h3>
@@ -139,12 +137,7 @@ export const AnnualPerformance = () => {
             </TabsTrigger>
             <TabsTrigger
               value="trail"
-              className="flex-1 py-2.5 min-h-[44px] text-sm uppercase tracking-[0.1em] font-light rounded-full border border-transparent transition-all data-[state=active]:backdrop-blur-sm data-[state=active]:shadow-none"
-              style={{
-                '--trail-border': isLight ? 'hsl(38 70% 33% / 0.4)' : 'hsl(38 92% 50% / 0.4)',
-                '--trail-bg': isLight ? 'hsl(38 70% 33% / 0.1)' : 'hsl(38 92% 50% / 0.1)',
-                '--trail-text': isLight ? 'hsl(38 70% 30%)' : 'hsl(38 92% 60%)',
-              } as React.CSSProperties}
+              className="flex-1 py-2.5 min-h-[44px] text-sm uppercase tracking-[0.1em] font-light rounded-full border border-transparent transition-all data-[state=active]:backdrop-blur-sm data-[state=active]:shadow-none data-[state=active]:border-[hsl(38_92%_50%/0.4)] data-[state=active]:bg-[hsl(38_92%_50%/0.1)] data-[state=active]:text-[hsl(38_92%_60%)]"
             >
               Trail
             </TabsTrigger>
