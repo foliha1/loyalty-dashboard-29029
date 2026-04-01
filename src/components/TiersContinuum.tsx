@@ -46,12 +46,14 @@ export const TiersContinuum = () => {
   const currentEP = tierMockEPs[globalTier] || 580;
   const currentTierName = globalTier;
   
-  // Find current and next tier - exclude The 29
+  const isThe29 = currentTierName === "The 29";
+  
+  // Find current and next tier - exclude The 29 from visible bar tiers
   const visibleTiers = tiers.filter(t => t.name !== "The 29");
-  const currentTierIndex = visibleTiers.findIndex(t => t.name === currentTierName);
-  const currentTier = visibleTiers[currentTierIndex];
+  const currentTierIndex = isThe29 ? visibleTiers.length - 1 : visibleTiers.findIndex(t => t.name === currentTierName);
+  const currentTier = isThe29 ? tiers.find(t => t.name === "The 29")! : visibleTiers[currentTierIndex];
   const previousTier = currentTierIndex > 0 ? visibleTiers[currentTierIndex - 1] : null;
-  const nextTier = visibleTiers[currentTierIndex + 1];
+  const nextTier = isThe29 ? undefined : visibleTiers[currentTierIndex + 1];
   
   // Calculate progress
   const currentThreshold = currentTier?.threshold || 0;
@@ -59,12 +61,12 @@ export const TiersContinuum = () => {
   const tierRange = nextThreshold - currentThreshold;
   const progressInTier = currentEP - currentThreshold;
   const progressPercent = Math.min(100, (progressInTier / tierRange) * 100);
-  const remainingEP = Math.max(0, nextThreshold - currentEP);
+  const remainingEP = isThe29 ? 0 : Math.max(0, nextThreshold - currentEP);
   const nextTierName = nextTier?.name || "Peak";
   
   // Calculate overall progress for the bar (0 to max tier threshold)
   const maxTierThreshold = visibleTiers[visibleTiers.length - 1]?.threshold || 1000;
-  const overallProgressPercent = Math.min(100, (currentEP / maxTierThreshold) * 100);
+  const overallProgressPercent = isThe29 ? 100 : Math.min(100, (currentEP / maxTierThreshold) * 100);
 
   // Reveal animation
   useEffect(() => {
@@ -161,6 +163,10 @@ export const TiersContinuum = () => {
           "card-29029 !overflow-visible p-4 sm:p-6 md:p-8 lg:p-10 transition-all duration-700 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.7)]",
           isRevealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         )}
+        style={isThe29 ? {
+          borderColor: 'hsl(var(--summit) / 0.5)',
+          boxShadow: '0 0 60px hsl(var(--summit) / 0.15), 0 8px 32px -8px rgba(0,0,0,0.7)'
+        } : undefined}
       >
         {/* Current Tier Badge */}
         <div className="flex flex-col items-center sm:flex-row sm:items-start sm:justify-between mb-4 sm:mb-8 md:mb-12">
@@ -277,11 +283,13 @@ export const TiersContinuum = () => {
               className="absolute inset-y-0 left-0 rounded-full transition-all duration-1000 ease-out"
               style={{
                 width: `${animatedProgress}%`,
-                background: `linear-gradient(to right, 
-                  hsl(var(--${previousTier?.color || currentTier?.color || 'base'})) 0%, 
-                  hsl(var(--${currentTier?.color || 'base'})) 20%, 
-                  hsl(var(--${currentTier?.color || 'base'})) 82%, 
-                  hsl(var(--${nextTier?.color || currentTier?.color || 'base'})) 100%)`,
+                background: isThe29
+                  ? `linear-gradient(to right, hsl(var(--base)) 0%, hsl(var(--ridge)) 30%, hsl(var(--peak)) 60%, hsl(var(--summit)) 100%)`
+                  : `linear-gradient(to right, 
+                    hsl(var(--${previousTier?.color || currentTier?.color || 'base'})) 0%, 
+                    hsl(var(--${currentTier?.color || 'base'})) 20%, 
+                    hsl(var(--${currentTier?.color || 'base'})) 82%, 
+                    hsl(var(--${nextTier?.color || currentTier?.color || 'base'})) 100%)`,
                 boxShadow: `0 0 12px hsl(var(--${currentTier?.color || 'base'}) / 0.25)`
               }}
             />
@@ -332,7 +340,8 @@ export const TiersContinuum = () => {
           </div>
         </div>
 
-        {/* Next Tier Info */}
+        {/* Next Tier Info — hidden for The 29 */}
+        {!isThe29 && (
         <div className="pt-4 sm:pt-6 md:pt-7 border-t border-border/20">
           <div className="flex flex-row items-start justify-between">
             <div>
@@ -351,6 +360,7 @@ export const TiersContinuum = () => {
             </div>
           </div>
         </div>
+        )}
 
         {/* Current Tier Benefits */}
         <div className="pt-4 sm:pt-6 md:pt-7 border-t border-border/20">
