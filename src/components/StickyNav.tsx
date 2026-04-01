@@ -55,7 +55,7 @@ export const StickyNav = () => {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-200 ease-in-out",
         isScrolled
-          ? "bg-background/70 backdrop-blur-xl border-b border-white/10"
+          ? "bg-background/70 backdrop-blur-xl border-b border-border/30"
           : "bg-transparent border-b border-transparent"
       )}
     >
