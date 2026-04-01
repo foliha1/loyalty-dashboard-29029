@@ -13,7 +13,7 @@ export const UserHeader = () => {
   
   return (
     <section 
-      className="relative z-10 w-full overflow-hidden mb-3 bg-background border-b border-transparent pt-[72px] sm:pt-20 pb-5 sm:pb-6 md:pb-7"
+      className="relative z-10 w-full overflow-hidden bg-background pt-[72px] sm:pt-20 pb-5 sm:pb-6 md:pb-7"
     >
       {/* Subtle background image */}
       <div
@@ -28,7 +28,7 @@ export const UserHeader = () => {
         className="absolute inset-0 z-0 pointer-events-none"
         style={{
           background: currentTierName === "The 29"
-            ? "linear-gradient(180deg, rgba(255,248,240,0.9) 0%, rgba(255,248,240,0.75) 50%, rgba(255,248,240,0.95) 100%)"
+            ? "linear-gradient(180deg, hsl(40 20% 97% / 0.92) 0%, hsl(40 20% 97% / 0.78) 50%, hsl(40 20% 97%) 100%)"
             : "linear-gradient(180deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.9) 100%)",
         }}
       />
