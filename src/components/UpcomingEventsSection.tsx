@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { useTier } from "@/contexts/TierContext";
 import { useState, useEffect } from "react";
 import { Mountain, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -80,6 +81,20 @@ const upcomingEvents: UpcomingEvent[] = [
 ];
 
 export const UpcomingEventsSection = () => {
+  const { currentTier } = useTier();
+  const isLight = currentTier === "The 29";
+  
+  const activeEventTypeConfig = isLight
+    ? {
+        ...eventTypeConfig,
+        Trail: {
+          ...eventTypeConfig.Trail,
+          accentColor: "38 70% 33%",
+          glowColor: "38 70% 30%",
+        },
+      }
+    : eventTypeConfig;
+
   const hasEvents = upcomingEvents.length > 0;
   const [isRevealed, setIsRevealed] = useState(false);
 
@@ -98,7 +113,7 @@ export const UpcomingEventsSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 lg:gap-7">
           {upcomingEvents.map((event, idx) => {
             const daysRemaining = getDaysRemaining(event.eventDates);
-            const config = eventTypeConfig[event.eventType];
+            const config = activeEventTypeConfig[event.eventType];
             
             return (
               <div
