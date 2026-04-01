@@ -8,6 +8,7 @@ import { useParallax } from "@/hooks/useParallax";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 import { TierProvider, useTier } from "@/contexts/TierContext";
+import { TierSwitcher } from "@/components/TierSwitcher";
 
 const IndexContent = () => {
   const parallaxOffset = useParallax(0.3);
