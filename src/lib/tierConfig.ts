@@ -35,7 +35,7 @@ export const tiers: Tier[] = [
     description: "Sacred, inner circle — invitation only",
     icon: Crown,
     threshold: 2000,
-    color: "summit",
+    color: "peak",
   },
 ];
 
