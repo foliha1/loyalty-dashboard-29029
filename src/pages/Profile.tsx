@@ -421,7 +421,7 @@ export default function Profile() {
                 {/* Mountain Events */}
                 {(() => {
                   const mountainEvents = pastEvents.filter(e => e.type === "Mountain");
-                  const mountainFinishes = mountainEvents.filter(e => e.result !== "DNF").length;
+                  const mountainFinishes = mountainEvents.filter(e => e.result !== "No Summit").length;
                   return mountainEvents.length > 0 ? (
                     <div>
                       <div className="text-subhead mb-1">Mountain Events</div>
