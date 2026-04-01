@@ -164,8 +164,8 @@ export const TiersContinuum = () => {
           isRevealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         )}
         style={isThe29 ? {
-          borderColor: 'hsl(var(--summit) / 0.5)',
-          boxShadow: '0 0 60px hsl(var(--summit) / 0.15), 0 8px 32px -8px rgba(0,0,0,0.7)'
+          borderColor: 'hsl(var(--peak) / 0.5)',
+          boxShadow: '0 0 60px hsl(var(--peak) / 0.15), 0 8px 32px -8px rgba(0,0,0,0.7)'
         } : undefined}
       >
         {/* Current Tier Badge */}
