@@ -20,7 +20,7 @@ export const UserHeader = () => {
         className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat pointer-events-none"
         style={{
           backgroundImage: `url(${heroTopoBg})`,
-          opacity: 0.15,
+          opacity: currentTierName === "The 29" ? 0.04 : 0.15,
         }}
       />
       {/* Gradient overlay to keep text readable */}
