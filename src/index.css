@@ -436,6 +436,16 @@ All colors MUST be HSL.
     --input: 40 10% 90%;
   }
 
+  [data-current-tier="The 29"] .card-29029 {
+    background: hsl(0 0% 100%);
+    border-color: hsl(40 20% 88%);
+    box-shadow: 0 2px 12px hsl(40 20% 80% / 0.3);
+  }
+
+  [data-current-tier="The 29"] .text-white {
+    color: hsl(0 0% 8%);
+  }
+
   .text-tier-accent {
     color: hsl(var(--current-tier-accent));
   }
