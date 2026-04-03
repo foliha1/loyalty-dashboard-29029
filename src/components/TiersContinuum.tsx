@@ -30,7 +30,7 @@ const tierBenefits: Record<string, string[]> = {
     "Can register up to 4 guests doing same event prior to Day 3 (Alumni Day)",
     "Gifting priority access to the earliest registration window to one person",
     "Can gift Peak status to one person for upcoming season",
-    "Access to 29029 Haus 2 or 3 nights FREE",
+    
     "Concierge 29029 representative to personally assist with registration",
     "Guaranteed Lottery Access",
   ],
