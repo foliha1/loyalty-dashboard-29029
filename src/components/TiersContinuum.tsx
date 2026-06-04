@@ -7,7 +7,7 @@ import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, Dialog
 import { EPsLabel } from "@/components/EPsLabel";
 
 // Mock EP values per tier for demo switching
-const tierMockEPs: Record<string, number> = { Base: 180, Ridge: 580, Peak: 900, "The 29": 2500 };
+const tierMockEPs: Record<string, number> = { "The Vertical Member": 12, Base: 180, Ridge: 580, Peak: 900, "The 29": 2500 };
 
 const tierBenefits: Record<string, string[]> = {
   Base: [
@@ -47,6 +47,7 @@ export const TiersContinuum = () => {
   const currentTierName = globalTier;
   
   const isThe29 = currentTierName === "The 29";
+  const isVerticalMember = currentTierName === "The Vertical Member";
   
   // Find current and next tier - exclude The 29 from visible bar tiers
   const visibleTiers = tiers.filter(t => t.name !== "The 29");
@@ -173,7 +174,7 @@ export const TiersContinuum = () => {
           <div className="flex flex-col text-center sm:text-left">
             <div className="text-subhead mb-2 sm:mb-3">Current Loyalty Tier</div>
             <h4 className="type-metric-primary" style={{
-              color: currentTier ? `hsl(var(--${currentTier.color}))` : 'hsl(var(--tier-gold))'
+              color: isVerticalMember ? 'hsl(var(--foreground))' : currentTier ? `hsl(var(--${currentTier.color}))` : 'hsl(var(--tier-gold))'
             }}>
               {currentTierName}
             </h4>
