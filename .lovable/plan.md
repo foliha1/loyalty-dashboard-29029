@@ -1,14 +1,14 @@
+## Add "The Vertical Member" Tier
 
+**File:** `src/lib/tierConfig.ts`
 
-## Update Nav Labels: My Profile + Log Out
+1. Insert a new tier object at the **start** of the `tiers` array (before Base):
+   - name: "The Vertical Member"
+   - description: "Welcome to The Vertical"
+   - icon: Sparkles
+   - threshold: 0
+   - color: "base"
 
-**File:** `src/components/StickyNav.tsx`
+2. Change the existing Base tier's `threshold` from `0` to `25`.
 
-### Changes
-
-1. **Desktop nav** — Change the "Log In" link text to "Log Out" (keep it pointing to `/login` as a placeholder).
-
-2. **Mobile nav** — Same change: "Log In" becomes "Log Out".
-
-No other logic changes. Both "My Profile" and "Log Out" remain as static links.
-
+Ridge (400), Peak (750), and The 29 (2000) remain unchanged. Sparkles is already imported. This new tier will automatically appear in the `TierSwitcher` component since it consumes the full `tiers` array.
