@@ -62,8 +62,8 @@ export const TiersContinuum = () => {
   const tierRange = nextThreshold - currentThreshold;
   const progressInTier = currentEP - currentThreshold;
   const progressPercent = Math.min(100, (progressInTier / tierRange) * 100);
-  const remainingEP = isThe29 ? 0 : Math.max(0, nextThreshold - currentEP);
-  const nextTierName = nextTier?.name || "Peak";
+  const remainingEP = isThe29 ? 0 : isVerticalMember ? Math.max(0, 25 - currentEP) : Math.max(0, nextThreshold - currentEP);
+  const nextTierName = isVerticalMember ? "Base" : nextTier?.name || "Peak";
   
   // Calculate overall progress for the bar (0 to max tier threshold)
   const maxTierThreshold = visibleTiers[visibleTiers.length - 1]?.threshold || 1000;
