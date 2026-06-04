@@ -7,7 +7,7 @@ import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, Dialog
 import { EPsLabel } from "@/components/EPsLabel";
 
 // Mock EP values per tier for demo switching
-const tierMockEPs: Record<string, number> = { Base: 180, Ridge: 580, Peak: 900, "The 29": 2500 };
+const tierMockEPs: Record<string, number> = { "The Vertical Member": 12, Base: 180, Ridge: 580, Peak: 900, "The 29": 2500 };
 
 const tierBenefits: Record<string, string[]> = {
   Base: [
