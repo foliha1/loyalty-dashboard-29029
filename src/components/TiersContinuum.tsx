@@ -47,6 +47,7 @@ export const TiersContinuum = () => {
   const currentTierName = globalTier;
   
   const isThe29 = currentTierName === "The 29";
+  const isVerticalMember = currentTierName === "The Vertical Member";
   
   // Find current and next tier - exclude The 29 from visible bar tiers
   const visibleTiers = tiers.filter(t => t.name !== "The 29");
@@ -173,7 +174,7 @@ export const TiersContinuum = () => {
           <div className="flex flex-col text-center sm:text-left">
             <div className="text-subhead mb-2 sm:mb-3">Current Loyalty Tier</div>
             <h4 className="type-metric-primary" style={{
-              color: currentTier ? `hsl(var(--${currentTier.color}))` : 'hsl(var(--tier-gold))'
+              color: isVerticalMember ? 'hsl(var(--foreground))' : currentTier ? `hsl(var(--${currentTier.color}))` : 'hsl(var(--tier-gold))'
             }}>
               {currentTierName}
             </h4>
