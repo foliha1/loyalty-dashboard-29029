@@ -10,6 +10,9 @@ import { EPsLabel } from "@/components/EPsLabel";
 const tierMockEPs: Record<string, number> = { "The Vertical Member": 12, Base: 180, Ridge: 580, Peak: 900, "The 29": 2500 };
 
 const tierBenefits: Record<string, string[]> = {
+  "The Vertical Member": [
+    "Registration access for events before the general public",
+  ],
   Base: [
     "Priority registration access for events",
     "Can register 1 guest doing same event prior to Day 3 (Alumni Day)",
@@ -359,7 +362,7 @@ export const TiersContinuum = () => {
 
         {/* Current Tier Benefits */}
         <div className="pt-4 sm:pt-6 md:pt-7 border-t border-border/20">
-          <div className="text-subhead mb-3">Current Tier Benefits</div>
+          <div className="text-subhead mb-3">{isVerticalMember ? "Current Benefits" : "Current Tier Benefits"}</div>
           <ul className="space-y-1.5">
             {(tierBenefits[currentTierName] || tierBenefits["Base"]).map((benefit, i) => (
               <li key={i} className="flex items-start gap-2 text-sm text-foreground/80">
