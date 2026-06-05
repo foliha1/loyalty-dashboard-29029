@@ -2,6 +2,7 @@ import { useTier } from "@/contexts/TierContext";
 import { tiers } from "@/lib/tierConfig";
 
 const tierColors: Record<string, string> = {
+  foreground: "hsl(0 0% 96%)",
   base: "hsl(var(--base))",
   ridge: "hsl(var(--ridge))",
   peak: "hsl(var(--peak))",
