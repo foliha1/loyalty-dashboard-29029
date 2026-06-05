@@ -314,12 +314,17 @@ export const TiersContinuum = () => {
               const isPassed = currentEP >= tier.threshold;
               const isPeak = tier.name === "Peak";
               const leftPercent = (idx / (visibleTiers.length - 1)) * 100;
+              const isFirst = idx === 0;
+              const isLast = idx === visibleTiers.length - 1;
+              const transform = isFirst ? 'translateX(0)' : isLast ? 'translateX(-100%)' : 'translateX(-50%)';
+              const alignClass = isFirst ? 'items-start' : isLast ? 'items-end' : 'items-center';
+              const textClass = isFirst ? 'text-left' : isLast ? 'text-right' : 'text-center';
 
               return (
                 <div
                   key={tier.name}
-                  className="absolute top-0 flex flex-col items-center"
-                  style={{ left: `${leftPercent}%`, transform: 'translateX(-50%)' }}
+                  className={cn("absolute top-0 flex flex-col", alignClass)}
+                  style={{ left: `${leftPercent}%`, transform }}
                 >
                   <div 
                     className={cn(
@@ -343,12 +348,13 @@ export const TiersContinuum = () => {
                     }}
                   />
                   <div className={cn(
-                    "text-sm uppercase tracking-wider transition-colors duration-500 text-center",
+                    "text-sm uppercase tracking-wider transition-colors duration-500",
+                    textClass,
                     isPassed ? "text-foreground font-semibold" : "text-muted-foreground"
                   )}>
                     {tier.name}
                   </div>
-                  <div className="text-sm text-muted-foreground mt-0.5 sm:mt-1 tabular-nums">
+                  <div className={cn("text-sm text-muted-foreground mt-0.5 sm:mt-1 tabular-nums", textClass)}>
                     {tier.threshold}
                   </div>
                 </div>
