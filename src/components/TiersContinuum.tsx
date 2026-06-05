@@ -149,7 +149,8 @@ export const TiersContinuum = () => {
       <div className="pt-4 border-t border-border/20">
         <h5 className="text-base font-semibold tracking-tight text-foreground mb-3">Tier Thresholds</h5>
         <div className="space-y-2.5 text-sm text-foreground/80 leading-relaxed">
-          <p><span className="font-semibold text-foreground">Base:</span> 0–399 EPs</p>
+          <p><span className="font-semibold text-foreground">Member:</span> 0–24 EPs</p>
+          <p><span className="font-semibold text-foreground">Base:</span> 25–399 EPs</p>
           <p><span className="font-semibold text-foreground">Ridge:</span> 400–749 EPs</p>
           <p><span className="font-semibold text-foreground">Peak:</span> 750+ EPs</p>
         </div>
@@ -175,7 +176,7 @@ export const TiersContinuum = () => {
         {/* Current Tier Badge */}
         <div className="flex flex-col items-center sm:flex-row sm:items-start sm:justify-between mb-4 sm:mb-8 md:mb-12">
           <div className="flex flex-col text-center sm:text-left">
-            <div className="text-subhead mb-2 sm:mb-3">Current Loyalty Tier</div>
+            <div className="text-subhead mb-2 sm:mb-3">Current Tier</div>
             <h4 className="type-metric-primary" style={{
               color: currentTier ? `hsl(var(--${currentTier.color}))` : 'hsl(var(--tier-gold))'
             }}>
@@ -287,7 +288,7 @@ export const TiersContinuum = () => {
               className="absolute inset-y-0 left-0 rounded-full transition-all duration-1000 ease-out"
               style={{
                 width: `${animatedProgress}%`,
-                background: 'linear-gradient(to right, hsl(var(--base)) 0%, hsl(var(--ridge)) 50%, hsl(var(--peak)) 100%)',
+                background: 'linear-gradient(to right, hsl(var(--foreground)) 0%, hsl(var(--base)) 25%, hsl(var(--ridge)) 60%, hsl(var(--peak)) 100%)',
                 boxShadow: `0 0 12px hsl(var(--${currentTier?.color || 'base'}) / 0.25)`
               }}
             />
@@ -362,7 +363,7 @@ export const TiersContinuum = () => {
 
         {/* Current Tier Benefits */}
         <div className="pt-4 sm:pt-6 md:pt-7 border-t border-border/20">
-          <div className="text-subhead mb-3">{isMember ? "Current Benefits" : "Current Tier Benefits"}</div>
+          <div className="text-subhead mb-3">Current Benefits</div>
           <ul className="space-y-1.5">
             {(tierBenefits[currentTierName] || tierBenefits["Base"]).map((benefit, i) => (
               <li key={i} className="flex items-start gap-2 text-sm text-foreground/80">
