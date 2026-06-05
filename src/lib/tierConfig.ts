@@ -14,7 +14,7 @@ export const tiers: Tier[] = [
     description: "Welcome to The Vertical",
     icon: Sparkles,
     threshold: 0,
-    color: "base",
+    color: "foreground",
   },
   {
     name: "Base",
