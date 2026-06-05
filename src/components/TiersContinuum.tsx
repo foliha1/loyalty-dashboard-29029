@@ -7,10 +7,10 @@ import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, Dialog
 import { EPsLabel } from "@/components/EPsLabel";
 
 // Mock EP values per tier for demo switching
-const tierMockEPs: Record<string, number> = { "The Vertical Member": 12, Base: 180, Ridge: 580, Peak: 900, "The 29": 2500 };
+const tierMockEPs: Record<string, number> = { "Member": 12, Base: 180, Ridge: 580, Peak: 900, "The 29": 2500 };
 
 const tierBenefits: Record<string, string[]> = {
-  "The Vertical Member": [
+  "Member": [
     "Registration access for events before the general public",
   ],
   Base: [
@@ -50,7 +50,7 @@ export const TiersContinuum = () => {
   const currentTierName = globalTier;
   
   const isThe29 = currentTierName === "The 29";
-  const isVerticalMember = currentTierName === "The Vertical Member";
+  const isMember = currentTierName === "Member";
   
   // Find current and next tier - exclude The 29 from visible bar tiers
   const visibleTiers = tiers.filter(t => t.name !== "The 29");
@@ -65,8 +65,8 @@ export const TiersContinuum = () => {
   const tierRange = nextThreshold - currentThreshold;
   const progressInTier = currentEP - currentThreshold;
   const progressPercent = Math.min(100, (progressInTier / tierRange) * 100);
-  const remainingEP = isThe29 ? 0 : isVerticalMember ? Math.max(0, 25 - currentEP) : Math.max(0, nextThreshold - currentEP);
-  const nextTierName = isVerticalMember ? "Base" : nextTier?.name || "Peak";
+  const remainingEP = isThe29 ? 0 : isMember ? Math.max(0, 25 - currentEP) : Math.max(0, nextThreshold - currentEP);
+  const nextTierName = isMember ? "Base" : nextTier?.name || "Peak";
   
   // Calculate overall progress for the bar (0 to max tier threshold)
   const maxTierThreshold = visibleTiers[visibleTiers.length - 1]?.threshold || 1000;
@@ -177,7 +177,7 @@ export const TiersContinuum = () => {
           <div className="flex flex-col text-center sm:text-left">
             <div className="text-subhead mb-2 sm:mb-3">Current Loyalty Tier</div>
             <h4 className="type-metric-primary" style={{
-              color: isVerticalMember ? 'hsl(var(--foreground))' : currentTier ? `hsl(var(--${currentTier.color}))` : 'hsl(var(--tier-gold))'
+              color: isMember ? 'hsl(var(--foreground))' : currentTier ? `hsl(var(--${currentTier.color}))` : 'hsl(var(--tier-gold))'
             }}>
               {currentTierName}
             </h4>
@@ -362,7 +362,7 @@ export const TiersContinuum = () => {
 
         {/* Current Tier Benefits */}
         <div className="pt-4 sm:pt-6 md:pt-7 border-t border-border/20">
-          <div className="text-subhead mb-3">{isVerticalMember ? "Current Benefits" : "Current Tier Benefits"}</div>
+          <div className="text-subhead mb-3">{isMember ? "Current Benefits" : "Current Tier Benefits"}</div>
           <ul className="space-y-1.5">
             {(tierBenefits[currentTierName] || tierBenefits["Base"]).map((benefit, i) => (
               <li key={i} className="flex items-start gap-2 text-sm text-foreground/80">
