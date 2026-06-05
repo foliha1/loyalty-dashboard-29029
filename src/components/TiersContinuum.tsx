@@ -68,9 +68,22 @@ export const TiersContinuum = () => {
   const remainingEP = isThe29 ? 0 : isMember ? Math.max(0, 25 - currentEP) : Math.max(0, nextThreshold - currentEP);
   const nextTierName = isMember ? "Base" : nextTier?.name || "Peak";
   
-  // Calculate overall progress for the bar (0 to max tier threshold)
+  // Calculate overall progress for the bar — segmented by tier band
   const maxTierThreshold = visibleTiers[visibleTiers.length - 1]?.threshold || 1000;
-  const overallProgressPercent = isThe29 ? 100 : Math.min(100, (currentEP / maxTierThreshold) * 100);
+  const segments = visibleTiers.length - 1;
+  let segmentedFill = 100;
+  for (let i = 0; i < visibleTiers.length - 1; i++) {
+    const lo = visibleTiers[i].threshold;
+    const hi = visibleTiers[i + 1].threshold;
+    if (currentEP < hi || i === visibleTiers.length - 2) {
+      const bandProgress = Math.max(0, Math.min(1, (currentEP - lo) / (hi - lo)));
+      const segStart = i / segments;
+      const segEnd = (i + 1) / segments;
+      segmentedFill = (segStart + bandProgress * (segEnd - segStart)) * 100;
+      break;
+    }
+  }
+  const overallProgressPercent = isThe29 ? 100 : segmentedFill;
 
   // Reveal animation
   useEffect(() => {
@@ -300,7 +313,7 @@ export const TiersContinuum = () => {
               const isCurrentTier = tier.name === currentTierName;
               const isPassed = currentEP >= tier.threshold;
               const isPeak = tier.name === "Peak";
-              const leftPercent = (tier.threshold / maxTierThreshold) * 100;
+              const leftPercent = (idx / (visibleTiers.length - 1)) * 100;
 
               return (
                 <div
