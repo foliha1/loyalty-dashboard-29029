@@ -10,7 +10,7 @@ export interface Tier {
 
 export const tiers: Tier[] = [
   {
-    name: "The Vertical Member",
+    name: "Member",
     description: "Welcome to The Vertical",
     icon: Sparkles,
     threshold: 0,
