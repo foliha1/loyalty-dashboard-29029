@@ -348,13 +348,13 @@ export const TiersContinuum = () => {
                     }}
                   />
                   <div className={cn(
-                    "text-sm uppercase tracking-wider transition-colors duration-500",
+                    "text-[10px] sm:text-xs md:text-sm uppercase tracking-[0.08em] sm:tracking-wider transition-colors duration-500 whitespace-nowrap",
                     textClass,
                     isPassed ? "text-foreground font-semibold" : "text-muted-foreground"
                   )}>
                     {tier.name}
                   </div>
-                  <div className={cn("text-sm text-muted-foreground mt-0.5 sm:mt-1 tabular-nums", textClass)}>
+                  <div className={cn("text-[10px] sm:text-xs md:text-sm text-muted-foreground mt-0.5 sm:mt-1 tabular-nums whitespace-nowrap", textClass)}>
                     {tier.threshold}
                   </div>
                 </div>
