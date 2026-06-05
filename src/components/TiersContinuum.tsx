@@ -295,14 +295,19 @@ export const TiersContinuum = () => {
           </div>
           
           {/* Tier Markers - Enhanced visibility */}
-          <div className="relative mt-5 sm:mt-7 md:mt-8 flex justify-between items-center px-1">
+          <div className="relative mt-5 sm:mt-7 md:mt-8 h-16">
             {visibleTiers.map((tier, idx) => {
               const isCurrentTier = tier.name === currentTierName;
               const isPassed = currentEP >= tier.threshold;
               const isPeak = tier.name === "Peak";
-              
+              const leftPercent = (tier.threshold / maxTierThreshold) * 100;
+
               return (
-                <div key={tier.name} className="flex flex-col items-center">
+                <div
+                  key={tier.name}
+                  className="absolute top-0 flex flex-col items-center"
+                  style={{ left: `${leftPercent}%`, transform: 'translateX(-50%)' }}
+                >
                   <div 
                     className={cn(
                       "w-2 h-2 md:w-2.5 md:h-2.5 rounded-full mb-2 md:mb-3 transition-all duration-500",
