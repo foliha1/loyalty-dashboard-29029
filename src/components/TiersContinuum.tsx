@@ -177,7 +177,7 @@ export const TiersContinuum = () => {
           <div className="flex flex-col text-center sm:text-left">
             <div className="text-subhead mb-2 sm:mb-3">Current Loyalty Tier</div>
             <h4 className="type-metric-primary" style={{
-              color: isMember ? 'hsl(var(--foreground))' : currentTier ? `hsl(var(--${currentTier.color}))` : 'hsl(var(--tier-gold))'
+              color: currentTier ? `hsl(var(--${currentTier.color}))` : 'hsl(var(--tier-gold))'
             }}>
               {currentTierName}
             </h4>
