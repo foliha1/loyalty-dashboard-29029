@@ -294,7 +294,7 @@ export const TiersContinuum = () => {
         </div>
 
         {/* Progress Bar */}
-        <div className="mb-4 sm:mb-8 md:mb-8">
+        <div className="mb-4 sm:mb-8 md:mb-8 px-3 lg:px-10">
           <div className="relative h-2 md:h-3 bg-[hsl(var(--border))] rounded-full overflow-hidden ring-1 ring-[hsl(var(--border))]">
             <div 
               className="absolute inset-y-0 left-0 rounded-full transition-all duration-1000 ease-out"
@@ -317,9 +317,9 @@ export const TiersContinuum = () => {
               const isLast = idx === visibleTiers.length - 1;
               // Endpoints anchor flush to bar edges across all breakpoints so dot,
               // vertical title, and threshold number all line up under the bar edge.
-              const transformClass = isFirst ? 'translate-x-0' : isLast ? '-translate-x-full' : '-translate-x-1/2';
-              const alignClass = isFirst ? 'items-start' : isLast ? 'items-end' : 'items-center';
-              const textClass = isFirst ? 'text-left' : isLast ? 'text-right' : 'text-center';
+              const transformClass = '-translate-x-1/2';
+              const alignClass = 'items-center';
+              const textClass = 'text-center';
 
               return (
                 <div
