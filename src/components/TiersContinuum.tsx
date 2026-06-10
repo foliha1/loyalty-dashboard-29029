@@ -31,10 +31,12 @@ const tierBenefits: Record<string, string[]> = {
     "Gifting priority access to the earliest registration window to one person",
     "Can gift Peak status to one person for upcoming season",
     
-    "Concierge 29029 representative to personally assist with registration",
+  "Concierge 29029 representative to personally assist with registration",
     "Guaranteed Lottery Access",
   ],
 };
+
+const tierBarPositions: Record<string, number> = { "Member": 0, "Base": 15, "Ridge": 59, "Peak": 100 };
 
 export const TiersContinuum = () => {
   const { currentTier: globalTier } = useTier();
@@ -74,8 +76,8 @@ export const TiersContinuum = () => {
     const hi = visibleTiers[i + 1].threshold;
     if (currentEP < hi || i === visibleTiers.length - 2) {
       const bandProgress = Math.max(0, Math.min(1, (currentEP - lo) / (hi - lo)));
-      const segStart = i / segments;
-      const segEnd = (i + 1) / segments;
+      const segStart = tierBarPositions[visibleTiers[i].name] / 100;
+      const segEnd = tierBarPositions[visibleTiers[i + 1].name] / 100;
       segmentedFill = (segStart + bandProgress * (segEnd - segStart)) * 100;
       break;
     }
@@ -310,7 +312,7 @@ export const TiersContinuum = () => {
               const isCurrentTier = tier.name === currentTierName;
               const isPassed = currentEP >= tier.threshold;
               const isPeak = tier.name === "Peak";
-              const leftPercent = (idx / (visibleTiers.length - 1)) * 100;
+              const leftPercent = tierBarPositions[tier.name] ?? (idx / (visibleTiers.length - 1)) * 100;
               const isFirst = idx === 0;
               const isLast = idx === visibleTiers.length - 1;
               const transform = isFirst ? 'translateX(0)' : isLast ? 'translateX(-100%)' : 'translateX(-50%)';
