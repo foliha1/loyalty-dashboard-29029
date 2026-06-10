@@ -325,7 +325,7 @@ export const TiersContinuum = () => {
                 <div
                   key={tier.name}
                   className={cn(
-                    "absolute top-0 flex flex-col min-h-[44px] min-w-[44px] justify-start",
+                    "absolute top-0 flex flex-col justify-start",
                     transformClass,
                     alignClass
                   )}
