@@ -300,7 +300,7 @@ export const TiersContinuum = () => {
               className="absolute inset-y-0 left-0 rounded-full transition-all duration-1000 ease-out"
               style={{
                 width: `${animatedProgress}%`,
-                background: 'linear-gradient(to right, hsl(var(--foreground)) 0%, hsl(var(--base)) 25%, hsl(var(--ridge)) 60%, hsl(var(--peak)) 100%)',
+                background: 'linear-gradient(to right, hsl(var(--foreground)) 0%, hsl(var(--base)) 15%, hsl(var(--ridge)) 59%, hsl(var(--peak)) 100%)',
                 boxShadow: `0 0 12px hsl(var(--${currentTier?.color || 'base'}) / 0.25)`
               }}
             />
