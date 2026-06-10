@@ -307,7 +307,7 @@ export const TiersContinuum = () => {
           </div>
           
           {/* Tier Markers - Enhanced visibility */}
-          <div className="relative mt-3 sm:mt-5 md:mt-8 h-28 md:h-16">
+          <div className="relative mt-3 sm:mt-5 lg:mt-8 h-28 lg:h-16">
             {visibleTiers.map((tier, idx) => {
               const isCurrentTier = tier.name === currentTierName;
               const isPassed = currentEP >= tier.threshold;
@@ -316,24 +316,24 @@ export const TiersContinuum = () => {
               const isFirst = idx === 0;
               const isLast = idx === visibleTiers.length - 1;
               // Mobile/tablet: vertical text, always centered under dot.
-              // Desktop: horizontal text, endpoints anchored to bar edges.
-              const mdTransform = isFirst ? 'md:translate-x-0' : isLast ? 'md:-translate-x-full' : 'md:-translate-x-1/2';
-              const mdAlignClass = isFirst ? 'md:items-start' : isLast ? 'md:items-end' : 'md:items-center';
-              const mdTextClass = isFirst ? 'md:text-left' : isLast ? 'md:text-right' : 'md:text-center';
+              // Desktop (lg+): horizontal text, endpoints anchored to bar edges.
+              const lgTransform = isFirst ? 'lg:translate-x-0' : isLast ? 'lg:-translate-x-full' : 'lg:-translate-x-1/2';
+              const lgAlignClass = isFirst ? 'lg:items-start' : isLast ? 'lg:items-end' : 'lg:items-center';
+              const lgTextClass = isFirst ? 'lg:text-left' : isLast ? 'lg:text-right' : 'lg:text-center';
 
               return (
                 <div
                   key={tier.name}
                   className={cn(
                     "absolute top-0 flex flex-col items-center -translate-x-1/2 min-h-[44px] min-w-[44px] justify-start",
-                    mdTransform,
-                    mdAlignClass
+                    lgTransform,
+                    lgAlignClass
                   )}
                   style={{ left: `${leftPercent}%` }}
                 >
                   <div 
                     className={cn(
-                      "w-2 h-2 md:w-2.5 md:h-2.5 rounded-full mb-1.5 md:mb-3 transition-all duration-500 shrink-0",
+                      "w-2 h-2 lg:w-2.5 lg:h-2.5 rounded-full mb-1.5 lg:mb-3 transition-all duration-500 shrink-0",
                       isPassed ? "scale-125" : "scale-100",
                       !isPassed && isPeak 
                         ? "ring-1 ring-[hsl(var(--peak)/0.6)]"
@@ -352,23 +352,19 @@ export const TiersContinuum = () => {
                           : 'none'
                     }}
                   />
-                  {/* Vertical stack on mobile/tablet: name + number both vertical, read top-to-bottom */}
-                  <div className="flex flex-row md:flex-col items-center gap-1.5 md:gap-0">
-                    <div className={cn(
-                      "text-[11px] sm:text-xs md:text-sm uppercase tracking-[0.12em] sm:tracking-wider transition-colors duration-500 whitespace-nowrap leading-none",
-                      "[writing-mode:vertical-rl] [text-orientation:mixed] md:[writing-mode:horizontal-tb]",
-                      mdTextClass,
-                      isPassed ? "text-foreground font-semibold" : "text-muted-foreground"
-                    )}>
-                      {tier.name}
-                    </div>
-                    <div className={cn(
-                      "text-[11px] sm:text-xs md:text-sm text-muted-foreground tabular-nums whitespace-nowrap leading-none md:mt-1",
-                      "[writing-mode:vertical-rl] [text-orientation:mixed] md:[writing-mode:horizontal-tb]",
-                      mdTextClass
-                    )}>
-                      {tier.threshold}
-                    </div>
+                  <div className={cn(
+                    "text-[11px] sm:text-xs lg:text-sm uppercase tracking-[0.12em] sm:tracking-wider transition-colors duration-500 whitespace-nowrap leading-none",
+                    "[writing-mode:vertical-rl] [text-orientation:mixed] lg:[writing-mode:horizontal-tb]",
+                    lgTextClass,
+                    isPassed ? "text-foreground font-semibold" : "text-muted-foreground"
+                  )}>
+                    {tier.name}
+                  </div>
+                  <div className={cn(
+                    "text-[11px] sm:text-xs lg:text-sm text-muted-foreground tabular-nums whitespace-nowrap leading-none mt-1.5 lg:mt-1",
+                    lgTextClass
+                  )}>
+                    {tier.threshold}
                   </div>
                 </div>
               );
