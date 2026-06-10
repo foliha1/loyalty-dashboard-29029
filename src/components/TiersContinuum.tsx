@@ -307,7 +307,7 @@ export const TiersContinuum = () => {
           </div>
           
           {/* Tier Markers - Enhanced visibility */}
-          <div className="relative mt-5 sm:mt-7 md:mt-8 h-16">
+          <div className="relative mt-5 sm:mt-7 md:mt-8 h-24 md:h-16">
             {visibleTiers.map((tier, idx) => {
               const isCurrentTier = tier.name === currentTierName;
               const isPassed = currentEP >= tier.threshold;
@@ -315,15 +315,17 @@ export const TiersContinuum = () => {
               const leftPercent = tierBarPositions[tier.name] ?? (idx / (visibleTiers.length - 1)) * 100;
               const isFirst = idx === 0;
               const isLast = idx === visibleTiers.length - 1;
-              const transform = isFirst ? 'translateX(0)' : isLast ? 'translateX(-100%)' : 'translateX(-50%)';
-              const alignClass = isFirst ? 'items-start' : isLast ? 'items-end' : 'items-center';
-              const textClass = isFirst ? 'text-left' : isLast ? 'text-right' : 'text-center';
+              // Mobile/tablet: vertical text, always centered under dot.
+              // Desktop: horizontal text, endpoints anchored to bar edges.
+              const mdTransform = isFirst ? 'md:translate-x-0' : isLast ? 'md:-translate-x-full' : 'md:-translate-x-1/2';
+              const mdAlignClass = isFirst ? 'md:items-start' : isLast ? 'md:items-end' : 'md:items-center';
+              const mdTextClass = isFirst ? 'md:text-left' : isLast ? 'md:text-right' : 'md:text-center';
 
               return (
                 <div
                   key={tier.name}
-                  className={cn("absolute top-0 flex flex-col", alignClass)}
-                  style={{ left: `${leftPercent}%`, transform }}
+                  className={cn("absolute top-0 flex flex-col items-center -translate-x-1/2", mdTransform, mdAlignClass)}
+                  style={{ left: `${leftPercent}%` }}
                 >
                   <div 
                     className={cn(
@@ -348,12 +350,16 @@ export const TiersContinuum = () => {
                   />
                   <div className={cn(
                     "text-[10px] sm:text-xs md:text-sm uppercase tracking-[0.08em] sm:tracking-wider transition-colors duration-500 whitespace-nowrap",
-                    textClass,
+                    "[writing-mode:vertical-rl] [text-orientation:mixed] rotate-180 md:[writing-mode:horizontal-tb] md:rotate-0",
+                    mdTextClass,
                     isPassed ? "text-foreground font-semibold" : "text-muted-foreground"
                   )}>
                     {tier.name}
                   </div>
-                  <div className={cn("text-[10px] sm:text-xs md:text-sm text-muted-foreground mt-0.5 sm:mt-1 tabular-nums whitespace-nowrap", textClass)}>
+                  <div className={cn(
+                    "text-[10px] sm:text-xs md:text-sm text-muted-foreground mt-1 tabular-nums whitespace-nowrap",
+                    mdTextClass
+                  )}>
                     {tier.threshold}
                   </div>
                 </div>
