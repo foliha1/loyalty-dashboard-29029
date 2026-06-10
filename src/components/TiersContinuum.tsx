@@ -383,7 +383,6 @@ export const TiersContinuum = () => {
         )}
 
         {!isMember && (
-        {/* Current Tier Benefits */}
         <div className="pt-4 sm:pt-6 md:pt-7 border-t border-border/20">
           <div className="text-subhead mb-3">Current Benefits</div>
           <ul className="space-y-1.5">
