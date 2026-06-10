@@ -393,6 +393,12 @@ All colors MUST be HSL.
   }
 
   /* Dynamic Tier Classes */
+  [data-current-tier="Member"] {
+    --current-tier-accent: var(--foreground);
+    --current-tier-accent-glow: var(--foreground);
+    --button-text-color: hsl(var(--background));
+  }
+
   [data-current-tier="Base"] {
     --current-tier-accent: var(--base);
     --current-tier-accent-glow: var(--base-glow);
@@ -471,6 +477,10 @@ All colors MUST be HSL.
   }
 
   /* Button tier-aware text color for AA compliance */
+  [data-current-tier="Member"] .bg-tier-accent {
+    color: hsl(var(--background));
+  }
+
   [data-current-tier="Base"] .bg-tier-accent {
     color: hsl(var(--background));
   }
