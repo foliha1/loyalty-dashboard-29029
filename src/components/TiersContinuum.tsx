@@ -340,19 +340,31 @@ export const TiersContinuum = () => {
                       isPassed ? "scale-125" : "scale-100",
                       !isPassed && isPeak 
                         ? "ring-1 ring-[hsl(var(--peak)/0.6)]"
-                        : !isPassed && "ring-1 ring-white/20"
+                        : !isPassed && tier.name === "Base"
+                          ? "ring-1 ring-[hsl(var(--base)/0.6)]"
+                          : !isPassed && tier.name === "Ridge"
+                            ? "ring-1 ring-[hsl(var(--ridge)/0.6)]"
+                            : !isPassed && "ring-1 ring-white/20"
                     )}
                     style={{
                       backgroundColor: isPassed 
                         ? `hsl(var(--${tier.color}))` 
                         : isPeak 
                           ? 'hsl(var(--peak) / 0.5)'
-                          : 'hsl(0 0% 30%)',
+                          : tier.name === "Base"
+                            ? 'hsl(var(--base) / 0.5)'
+                            : tier.name === "Ridge"
+                              ? 'hsl(var(--ridge) / 0.5)'
+                              : 'hsl(0 0% 30%)',
                       boxShadow: isCurrentTier 
                         ? `0 0 12px hsl(var(--${tier.color}) / 0.6)` 
                         : isPeak && !isPassed
                           ? `0 0 14px hsl(var(--peak) / 0.4), inset 0 0 0 1px hsl(var(--peak) / 0.5)`
-                          : 'none'
+                          : tier.name === "Base" && !isPassed
+                            ? `0 0 14px hsl(var(--base) / 0.4), inset 0 0 0 1px hsl(var(--base) / 0.5)`
+                            : tier.name === "Ridge" && !isPassed
+                              ? `0 0 14px hsl(var(--ridge) / 0.4), inset 0 0 0 1px hsl(var(--ridge) / 0.5)`
+                              : 'none'
                     }}
                   />
                   <div className={cn(
