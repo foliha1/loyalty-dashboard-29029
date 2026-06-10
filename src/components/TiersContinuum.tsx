@@ -301,6 +301,9 @@ export const TiersContinuum = () => {
               style={{
                 width: `${animatedProgress}%`,
                 background: 'linear-gradient(to right, hsl(var(--foreground)) 0%, hsl(var(--base)) 15%, hsl(var(--ridge)) 59%, hsl(var(--peak)) 100%)',
+                backgroundSize: `${animatedProgress > 0 ? 10000 / animatedProgress : 100}% 100%`,
+                backgroundPosition: 'left center',
+                backgroundRepeat: 'no-repeat',
                 boxShadow: `0 0 12px hsl(var(--${currentTier?.color || 'base'}) / 0.25)`
               }}
             />
