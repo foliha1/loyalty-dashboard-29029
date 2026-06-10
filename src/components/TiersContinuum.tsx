@@ -125,7 +125,7 @@ export const TiersContinuum = () => {
   const tierBenefitsContent = (
     <>
       <div className="mb-5">
-        <h4 className="text-sm font-medium text-[hsl(var(--base))] uppercase tracking-wider mb-2">Base <span className="text-muted-foreground font-light">(0–399 <span style={{ textTransform: 'none' }}>EPs</span>)</span></h4>
+        <h4 className="text-sm font-medium text-[hsl(var(--base))] uppercase tracking-wider mb-2">Base <span className="text-muted-foreground font-light">(25–399 <span style={{ textTransform: 'none' }}>EPs</span>)</span></h4>
         <ul className="space-y-1.5 text-sm text-foreground/80">
           <li className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-[hsl(var(--base))]" /><span>Priority registration access for events</span></li>
           <li className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-[hsl(var(--base))]" /><span>Can register 1 guest doing same event prior to Day 3 (Alumni Day)</span></li>
