@@ -477,6 +477,10 @@ All colors MUST be HSL.
   }
 
   /* Button tier-aware text color for AA compliance */
+  [data-current-tier="Member"] .bg-tier-accent {
+    color: hsl(var(--background));
+  }
+
   [data-current-tier="Base"] .bg-tier-accent {
     color: hsl(var(--background));
   }
