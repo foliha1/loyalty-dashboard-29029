@@ -315,19 +315,19 @@ export const TiersContinuum = () => {
               const leftPercent = tierBarPositions[tier.name] ?? (idx / (visibleTiers.length - 1)) * 100;
               const isFirst = idx === 0;
               const isLast = idx === visibleTiers.length - 1;
-              // Mobile/tablet: vertical text, always centered under dot.
-              // Desktop (lg+): horizontal text, endpoints anchored to bar edges.
-              const lgTransform = isFirst ? 'lg:translate-x-0' : isLast ? 'lg:-translate-x-full' : 'lg:-translate-x-1/2';
-              const lgAlignClass = isFirst ? 'lg:items-start' : isLast ? 'lg:items-end' : 'lg:items-center';
-              const lgTextClass = isFirst ? 'lg:text-left' : isLast ? 'lg:text-right' : 'lg:text-center';
+              // Endpoints anchor flush to bar edges across all breakpoints so dot,
+              // vertical title, and threshold number all line up under the bar edge.
+              const transformClass = isFirst ? 'translate-x-0' : isLast ? '-translate-x-full' : '-translate-x-1/2';
+              const alignClass = isFirst ? 'items-start' : isLast ? 'items-end' : 'items-center';
+              const textClass = isFirst ? 'text-left' : isLast ? 'text-right' : 'text-center';
 
               return (
                 <div
                   key={tier.name}
                   className={cn(
-                    "absolute top-0 flex flex-col items-center -translate-x-1/2 min-h-[44px] min-w-[44px] justify-start",
-                    lgTransform,
-                    lgAlignClass
+                    "absolute top-0 flex flex-col min-h-[44px] min-w-[44px] justify-start",
+                    transformClass,
+                    alignClass
                   )}
                   style={{ left: `${leftPercent}%` }}
                 >
@@ -355,14 +355,14 @@ export const TiersContinuum = () => {
                   <div className={cn(
                     "text-[11px] sm:text-xs lg:text-sm uppercase tracking-[0.12em] sm:tracking-wider transition-colors duration-500 whitespace-nowrap leading-none",
                     "[writing-mode:vertical-rl] [text-orientation:mixed] lg:[writing-mode:horizontal-tb]",
-                    lgTextClass,
+                    textClass,
                     isPassed ? "text-foreground font-semibold" : "text-muted-foreground"
                   )}>
                     {tier.name}
                   </div>
                   <div className={cn(
                     "text-[11px] sm:text-xs lg:text-sm text-muted-foreground tabular-nums whitespace-nowrap leading-none mt-1.5 lg:mt-1",
-                    lgTextClass
+                    textClass
                   )}>
                     {tier.threshold}
                   </div>
@@ -370,6 +370,7 @@ export const TiersContinuum = () => {
               );
             })}
           </div>
+
         </div>
 
         {/* Next Tier Info — hidden for The 29 */}
